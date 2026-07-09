@@ -9,5 +9,17 @@
     "validita_giorni": 60,
     "nota": "Data in cui e' stato generato l'attuale token IG. DA CONFERMARE da Michele. Aggiornala ogni volta che rigeneri il token su GitHub: da qui si calcola l'avviso di scadenza."
   },
-  "settimane": []
+  "settimane": [
+    {
+      "data_lettura": "2026-07-09",
+      "follower": 0,
+      "follower_delta": null,
+      "seguiti": 0,
+      "post_totali": 1,
+      "reach_28g": 0,
+      "profile_views_28g": 0,
+      "accounts_engaged_28g": 0,
+      "total_interactions_28g": 0
+    }
+  ]
 }
