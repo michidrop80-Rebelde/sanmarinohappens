@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "descrizione": "Archivio permanente metriche @sanmarinohappens. Una riga per settimana. Non si cancella mai: e' la memoria storica che dimostra la crescita (serve alla Fase 2).",
+    "account": "@sanmarinohappens",
+    "ig_user_id": "17841416773686298"
+  },
+  "token": {
+    "rilasciato_il": "2026-07-09",
+    "validita_giorni": 60,
+    "nota": "Data in cui e' stato generato l'attuale token IG. DA CONFERMARE da Michele. Aggiornala ogni volta che rigeneri il token su GitHub: da qui si calcola l'avviso di scadenza."
+  },
+  "settimane": []
+}
