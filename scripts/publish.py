@@ -3,9 +3,18 @@
 Script per pubblicare i post su Instagram E su Facebook (Pagina) tramite le API di Meta.
 
 Ogni PNG in posts/ ha un file JSON gemello (stesso nome, estensione .json) con
-la data di pubblicazione prevista e la caption. Lo script pubblica SOLO i post
-la cui data_pubblicazione e' oggi (fuso orario San Marino/Italia) e non ancora
-pubblicati (registrati in published.log).
+la data di pubblicazione prevista e la caption.
+
+QUANDO PUBBLICA (regola aggiornata — "robot affidabile"):
+  Pubblica i post la cui data_pubblicazione e' <= oggi (fuso Europe/San_Marino) e
+  non ancora pubblicati, PURCHE' il ritardo non superi la finestra di recupero
+  GRACE_DAYS (default 2 giorni). Prima il match era ESATTO (solo == oggi): se il
+  cron di GitHub slittava oltre mezzanotte, il post veniva perso PER SEMPRE in
+  silenzio. Ora un post che slitta di un giorno viene RECUPERATO il giorno dopo.
+  I post piu' vecchi della finestra sono considerati "scaduti": NON si pubblicano
+  (sarebbe imbarazzante reclamizzare un evento gia' passato), ma Michele riceve un
+  avviso Telegram. Anche le buste "anomale" (JSON illeggibile, PNG mancante, data
+  non valida, caption vuota) vengono saltate e segnalate.
 
 DUE BINARI INDIPENDENTI:
   - Instagram: sempre attivo (usa INSTAGRAM_TOKEN + INSTAGRAM_USER_ID, via graph.instagram.com).
@@ -17,13 +26,20 @@ DUE BINARI INDIPENDENTI:
   "nomefile.png|fb"), cosi' un post finisce UNA SOLA VOLTA su ciascuna piattaforma
   anche se lo script viene rilanciato.
 
+ARCHIVIAZIONE (solo in LIVE): quando un post e' stato pubblicato con successo su
+  TUTTI i canali attivi, il suo PNG + JSON vengono spostati da posts/ ad
+  archivio/AAAA-MM/ nello stesso repo. Cosi' la cartella posts/ resta la "coda"
+  (solo cio' che deve ancora uscire) e lo storico non va perso. Gli originali
+  restano comunque sul Mac di Michele (marketing/3 Export/). Nessuno spazio cloud
+  a pagamento: e' tutto dentro il repo GitHub (gratis).
+
 INTERRUTTORE DI SICUREZZA: se la variabile d'ambiente PUBLISH_LIVE non e'
-esattamente "true", lo script gira in modalita' SIMULAZIONE — fa tutto (trova
-il post di oggi, prepara la caption, manda una notifica Telegram) tranne
-pubblicare per davvero. In simulazione, se Facebook e' configurato, lo script
-fa una chiamata di SOLA LETTURA alla Pagina per confermare che il token e' valido
-e la Pagina raggiungibile (senza pubblicare nulla). Per andare live: Variable di
-repository PUBLISH_LIVE=true su GitHub (Settings -> Secrets and variables -> Actions -> Variables).
+  esattamente "true", lo script gira in modalita' SIMULAZIONE — fa tutto (trova
+  i post di oggi, prepara la caption, segnala scaduti/anomali, manda una notifica
+  Telegram) TRANNE pubblicare per davvero e archiviare. In simulazione, se Facebook
+  e' configurato, lo script fa una chiamata di SOLA LETTURA alla Pagina per
+  confermare che il token e' valido. Per andare live: Variable di repository
+  PUBLISH_LIVE=true su GitHub (Settings -> Secrets and variables -> Actions -> Variables).
 """
 
 import os
@@ -48,7 +64,16 @@ PUBLISH_LIVE = os.getenv('PUBLISH_LIVE', '').strip().lower() == 'true'
 # Solo per test manuali locali: forza la data "di oggi" invece di usare l'orologio reale.
 TEST_DATE = os.getenv('TEST_DATE')
 
+# Finestra di recupero: quanti giorni di ritardo tolleriamo prima di considerare
+# una busta "scaduta". Serve a recuperare un cron che slitta oltre mezzanotte SENZA
+# ripubblicare per sbaglio eventi di settimane prima. Default 2, sovrascrivibile via env.
+try:
+    GRACE_DAYS = int(os.getenv('GRACE_DAYS', '2'))
+except ValueError:
+    GRACE_DAYS = 2
+
 POSTS_DIR = Path('posts')
+ARCHIVIO_DIR = Path('archivio')
 PUBLISHED_LOG = 'published.log'
 REPO = 'michidrop80-Rebelde/sanmarinohappens'
 FB_API = 'https://graph.facebook.com/v21.0'
@@ -59,6 +84,14 @@ def oggi():
     if TEST_DATE:
         return datetime.strptime(TEST_DATE, '%Y-%m-%d').date()
     return datetime.now(TZ).date()
+
+
+def parse_data(s):
+    """Ritorna un date da 'AAAA-MM-GG', oppure None se il formato non e' valido."""
+    try:
+        return datetime.strptime(s, '%Y-%m-%d').date()
+    except (ValueError, TypeError):
+        return None
 
 
 # ---------------------------------------------------------------------------
@@ -85,30 +118,100 @@ def gia_pubblicato(png_name, canale, pubblicati):
     return f"{png_name}|{canale}" in pubblicati
 
 
-def log_published(png_name, canale):
+def segna_pubblicato(png_name, canale, pubblicati):
+    """Registra su published.log E aggiorna l'insieme in memoria, cosi' il
+    controllo di 'completo su tutti i canali' (archiviazione) resta coerente."""
     with open(PUBLISHED_LOG, 'a', encoding='utf-8') as f:
         f.write(f"{png_name}|{canale}\n")
+    pubblicati.add(f"{png_name}|{canale}")
 
 
-def trova_post_di_oggi():
-    """Cerca tra i JSON in posts/ quello/i con data_pubblicazione = oggi (col PNG presente)."""
-    data_oggi = oggi().isoformat()
-    trovati = []
+def canali_richiesti():
+    """I canali su cui un post DEVE uscire per considerarsi 'completo'.
+    Instagram sempre; Facebook solo se configurato."""
+    canali = ['ig']
+    if FB_ENABLED:
+        canali.append('fb')
+    return canali
+
+
+# ---------------------------------------------------------------------------
+# Smistamento delle buste in coda
+# ---------------------------------------------------------------------------
+def classifica_buste():
+    """Scorre i JSON in posts/ e li smista in categorie in base alla data_pubblicazione:
+      - da_pubblicare: data tra (oggi - GRACE_DAYS) e oggi inclusi, busta valida col PNG.
+        Comprende i post 'in ritardo' recuperati (giorni_ritardo > 0) dopo uno slittamento.
+      - scaduti: data piu' vecchia di GRACE_DAYS -> NON si pubblicano (troppo tardi), solo avviso.
+      - anomali: JSON illeggibile, PNG mancante, data assente/malformata o caption vuota.
+      - futuri (data > oggi): ignorati in silenzio, non e' ancora il loro momento.
+    Ritorna (da_pubblicare, scaduti, anomali).
+      da_pubblicare / scaduti = liste di (png_file, meta, giorni_ritardo)
+      anomali = lista di (nome_json, motivo)
+    """
+    data_oggi = oggi()
+    da_pubblicare, scaduti, anomali = [], [], []
 
     if not POSTS_DIR.exists():
-        return trovati
+        return da_pubblicare, scaduti, anomali
 
     for json_file in sorted(POSTS_DIR.glob('*.json')):
+        # 1) JSON leggibile?
+        try:
+            with open(json_file, 'r', encoding='utf-8') as f:
+                meta = json.load(f)
+        except (json.JSONDecodeError, OSError) as e:
+            anomali.append((json_file.name, f"JSON illeggibile: {e}"))
+            continue
+        # 2) PNG presente?
         png_file = json_file.with_suffix('.png')
         if not png_file.exists():
-            print(f"⚠️  {json_file.name} non ha il PNG corrispondente ({png_file.name}), salto.")
+            anomali.append((json_file.name, f"manca il PNG {png_file.name}"))
             continue
-        with open(json_file, 'r', encoding='utf-8') as f:
-            meta = json.load(f)
-        if meta.get('data_pubblicazione') == data_oggi:
-            trovati.append((png_file, meta))
+        # 3) data valida?
+        data_pub = parse_data(meta.get('data_pubblicazione'))
+        if data_pub is None:
+            anomali.append((json_file.name,
+                            f"data_pubblicazione assente o non valida: {meta.get('data_pubblicazione')!r}"))
+            continue
+        # 4) caption presente?
+        if not (meta.get('caption') or '').strip():
+            anomali.append((json_file.name, "caption vuota"))
+            continue
+        # 5) smistamento per data
+        giorni_ritardo = (data_oggi - data_pub).days
+        if giorni_ritardo < 0:
+            continue  # futuro: non e' ancora il momento, si ignora in silenzio
+        elif giorni_ritardo <= GRACE_DAYS:
+            da_pubblicare.append((png_file, meta, giorni_ritardo))
+        else:
+            scaduti.append((png_file, meta, giorni_ritardo))
 
-    return trovati
+    return da_pubblicare, scaduti, anomali
+
+
+# ---------------------------------------------------------------------------
+# Archiviazione (solo LIVE, solo a post completo)
+# ---------------------------------------------------------------------------
+def archivia_busta(png_file, meta):
+    """Sposta PNG + JSON gemello da posts/ ad archivio/AAAA-MM/ (stesso repo).
+    AAAA-MM viene dalla data_pubblicazione. Chiamata SOLO in LIVE, dopo che il post
+    e' stato pubblicato su tutti i canali attivi. Ritorna la cartella di destinazione,
+    o None se qualcosa va storto (non deve bloccare il resto)."""
+    data_pub = parse_data(meta.get('data_pubblicazione'))
+    if data_pub is None:
+        return None
+    dest = ARCHIVIO_DIR / f"{data_pub.year:04d}-{data_pub.month:02d}"
+    dest.mkdir(parents=True, exist_ok=True)
+    json_file = png_file.with_suffix('.json')
+    try:
+        for f in (png_file, json_file):
+            if f.exists():
+                f.rename(dest / f.name)
+    except OSError as e:
+        print(f"⚠️  Archiviazione di {png_file.name} fallita: {e}")
+        return None
+    return dest
 
 
 # ---------------------------------------------------------------------------
@@ -189,24 +292,27 @@ def notifica_telegram(testo):
 
 
 def main():
-    trovati = trova_post_di_oggi()
+    da_pubblicare, scaduti, anomali = classifica_buste()
 
-    if not trovati:
-        print(f"Nessun post con data_pubblicazione = {oggi().isoformat()}. Niente da fare.")
+    # Se non c'e' proprio nulla di cui parlare (nessun post di oggi, niente scaduto,
+    # niente anomalo — al massimo post futuri ancora in attesa), restiamo in silenzio.
+    if not da_pubblicare and not scaduti and not anomali:
+        print(f"Nessuna busta da pubblicare, scaduta o anomala per oggi ({oggi().isoformat()}). Niente da fare.")
         return
 
     modalita = "🟢 LIVE" if PUBLISH_LIVE else "🧪 SIMULAZIONE (PUBLISH_LIVE non attivo)"
     stato_fb = "attivo" if FB_ENABLED else "NON configurato (solo Instagram)"
-    print(f"Modalita': {modalita} — Facebook: {stato_fb}")
+    print(f"Modalita': {modalita} — Facebook: {stato_fb} — finestra recupero: {GRACE_DAYS} giorni")
 
     pubblicati = get_published()
     righe_report = []  # per la notifica Telegram riepilogativa
 
-    for png_file, meta in trovati:
+    for png_file, meta, giorni_ritardo in da_pubblicare:
         caption = meta.get('caption', '')
         nome = png_file.name
         image_url = f"https://raw.githubusercontent.com/{REPO}/main/posts/{nome}"
-        righe_report.append(f"• {nome}")
+        etichetta_ritardo = "" if giorni_ritardo == 0 else f"  ⏰ IN RITARDO di {giorni_ritardo}g (recuperato)"
+        righe_report.append(f"• {nome}{etichetta_ritardo}")
 
         # ---------- INSTAGRAM ----------
         if gia_pubblicato(nome, 'ig', pubblicati):
@@ -220,7 +326,7 @@ def main():
             media_id = pubblica_instagram(image_url, caption)
             if media_id:
                 print(f"✅ IG pubblicato: {media_id}")
-                log_published(nome, 'ig')
+                segna_pubblicato(nome, 'ig', pubblicati)
                 righe_report.append("   IG: ✅ pubblicato")
             else:
                 righe_report.append("   IG: ❌ errore")
@@ -246,13 +352,45 @@ def main():
             post_id = pubblica_facebook(image_url, caption)
             if post_id:
                 print(f"✅ FB pubblicato: {post_id}")
-                log_published(nome, 'fb')
+                segna_pubblicato(nome, 'fb', pubblicati)
                 righe_report.append("   FB: ✅ pubblicato")
             else:
                 righe_report.append("   FB: ❌ errore")
 
+        # ---------- ARCHIVIAZIONE (solo LIVE, solo a post completo) ----------
+        # Un post e' "completo" quando risulta pubblicato su tutti i canali attivi
+        # (IG sempre; FB se configurato). Solo allora lo togliamo dalla coda posts/
+        # e lo mettiamo in archivio/AAAA-MM/. In simulazione non si archivia mai.
+        if PUBLISH_LIVE:
+            completo = all(gia_pubblicato(nome, c, pubblicati) for c in canali_richiesti())
+            if completo:
+                dest = archivia_busta(png_file, meta)
+                if dest:
+                    print(f"📦 {nome} archiviato in {dest.as_posix()}/")
+                    righe_report.append(f"   📦 archiviato in {dest.as_posix()}/")
+
+    # ---------- SEZIONI DI AVVISO (scaduti / anomali) ----------
+    if scaduti:
+        if righe_report:
+            righe_report.append("")
+        righe_report.append(f"⚠️ BUSTE SCADUTE (NON pubblicate, oltre {GRACE_DAYS}g di ritardo):")
+        for png_file, meta, giorni_ritardo in scaduti:
+            righe_report.append(
+                f"   • {png_file.name} — prevista {meta.get('data_pubblicazione')} "
+                f"({giorni_ritardo}g fa) → aggiorna la data nel piano o rimuovila dalla coda"
+            )
+
+    if anomali:
+        if righe_report:
+            righe_report.append("")
+        righe_report.append("⚠️ BUSTE ANOMALE (saltate):")
+        for nome_json, motivo in anomali:
+            righe_report.append(f"   • {nome_json} — {motivo}")
+
     intestazione = ("🟢 PUBBLICAZIONE LIVE" if PUBLISH_LIVE
                     else "🧪 SIMULAZIONE (nessun post reale)")
+    if scaduti or anomali:
+        intestazione = "❗ " + intestazione + " — CI SONO BUSTE DA CONTROLLARE"
     if not FB_ENABLED and not PUBLISH_LIVE:
         intestazione += "\n(Facebook non ancora configurato: aggiungi i secret FACEBOOK_PAGE_TOKEN e FACEBOOK_PAGE_ID)"
     notifica_telegram(intestazione + "\n\n" + "\n".join(righe_report))

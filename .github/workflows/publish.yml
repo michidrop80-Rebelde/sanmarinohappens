@@ -15,6 +15,14 @@ on:
         required: false
         default: ''
 
+# Anti doppio-post: una sola run di pubblicazione alla volta. Se ne parte una
+# mentre un'altra e' ancora in corso, la seconda ASPETTA (non annulla la prima:
+# cancel-in-progress false). Quando poi parte, fa un checkout fresco del repo e
+# vede il published.log gia' aggiornato dalla prima run -> non ripubblica.
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -48,5 +56,10 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add -A
-          git commit -m "Auto-publish post $(date +%Y-%m-%d)" || true
-          git push
+          git commit -m "Auto-publish post $(date +%Y-%m-%d)" || echo "Niente da committare"
+          # Prima di spingere, riallineati a eventuali modifiche arrivate sul repo
+          # (es. published.log aggiornato da un'altra run, o metriche auto-committate):
+          # --rebase mette il nostro commit SOPRA le loro, senza perdere nulla ed
+          # evitando il push rifiutato che avrebbe fatto perdere l'aggiornamento del log.
+          git pull --rebase origin main
+          git push origin HEAD:main
