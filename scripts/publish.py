@@ -400,11 +400,15 @@ def fb_pubblica_foto(image_url_str, message):
     return None
 
 
-def fb_carica_foto_non_pubblicata(image_url_str):
+def fb_carica_foto_non_pubblicata(image_url_str, temporary=False):
     """Carica una foto sulla Pagina SENZA pubblicarla (published=false) e ritorna il
-    suo id, da riusare per un post multi-foto o per una storia. Ritorna None se fallisce."""
+    suo id, da riusare per un post multi-foto o per una storia. Ritorna None se fallisce.
+    temporary=True per le storie: la doc Meta di /photo_stories vuole la foto caricata
+    come temporanea (per i post multi-foto invece basta published=false)."""
     url = f"{FB_API}/{FACEBOOK_PAGE_ID}/photos"
     payload = {'url': image_url_str, 'published': 'false', 'access_token': FACEBOOK_PAGE_TOKEN}
+    if temporary:
+        payload['temporary'] = 'true'
     try:
         resp = requests.post(url, data=payload, timeout=60)
     except requests.RequestException as e:
@@ -446,7 +450,7 @@ def fb_pubblica_storia(image_url_str):
     Nota onesta: fra tutte le chiamate, le Page Stories sono la parte meno collaudata
     della doc Meta (endpoint /photo_stories, permessi pages_manage_posts). Se in LIVE
     dovesse dare errore, IG non ne risente (binari indipendenti) e lo vedremo nei log."""
-    pid = fb_carica_foto_non_pubblicata(image_url_str)
+    pid = fb_carica_foto_non_pubblicata(image_url_str, temporary=True)
     if not pid:
         return None
     url = f"{FB_API}/{FACEBOOK_PAGE_ID}/photo_stories"
