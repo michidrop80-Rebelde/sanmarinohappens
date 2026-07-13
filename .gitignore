@@ -216,3 +216,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# --- San Marino Happens ---
+# published.log e' il registro anti-doppioni della pubblicazione: DEVE essere
+# versionato, altrimenti a ogni giro il robot "dimentica" cosa ha gia' pubblicato
+# e ripubblica tutto (post doppi/tripli). La riga '*.log' piu' sopra lo escludeva:
+# la riga seguente lo re-include (in git l'ultima regola che combacia vince).
+!published.log

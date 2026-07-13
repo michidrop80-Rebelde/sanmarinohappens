@@ -53,6 +53,7 @@ INTERRUTTORE DI SICUREZZA: se la variabile d'ambiente PUBLISH_LIVE non e' esatta
 
 import os
 import json
+import time
 import requests
 from datetime import datetime
 from pathlib import Path
@@ -308,7 +309,39 @@ def ig_create_media_container(image_url_str, caption):
     return None
 
 
+def ig_container_pronto(container_id, tentativi=20, attesa=3):
+    """Aspetta che un container IG sia 'FINISHED' prima di pubblicarlo.
+    Dopo aver creato un container (foto, carosello o storia) Instagram lo elabora
+    per qualche secondo; se si pubblica troppo presto risponde 'The media is not
+    ready for publishing' (errore visto al primo giro reale su carosello e storia).
+    Interroga lo stato del container finche' non e' FINISHED. Ritorna True se pronto,
+    False se lo stato e' ERROR/EXPIRED o se scade il tempo (tentativi*attesa secondi)."""
+    for _ in range(tentativi):
+        try:
+            resp = requests.get(f"{IG_API}/{container_id}",
+                                params={'fields': 'status_code', 'access_token': INSTAGRAM_TOKEN}, timeout=15)
+        except requests.RequestException as e:
+            print(f"Errore di rete controllando lo stato del container IG {container_id}: {e}")
+            time.sleep(attesa)
+            continue
+        if resp.status_code == 200:
+            stato = resp.json().get('status_code')
+            if stato == 'FINISHED':
+                return True
+            if stato in ('ERROR', 'EXPIRED'):
+                print(f"Container IG {container_id} in stato {stato}: non pubblicabile.")
+                return False
+        time.sleep(attesa)
+    print(f"Container IG {container_id}: non pronto dopo {tentativi * attesa}s, rimando al prossimo giro.")
+    return False
+
+
 def ig_publish_media(creation_id):
+    # Prima di pubblicare, assicurati che Instagram abbia finito di elaborare il
+    # container: pubblicare un container non ancora 'FINISHED' e' la causa dell'errore
+    # 'media not ready' visto su carosello e storia al primo giro reale.
+    if not ig_container_pronto(creation_id):
+        return None
     payload = {'creation_id': creation_id, 'access_token': INSTAGRAM_TOKEN}
     resp = requests.post(f"{IG_API}/{INSTAGRAM_USER_ID}/media_publish", data=payload)
     if resp.status_code == 200:
@@ -368,6 +401,27 @@ def ig_pubblica_storia(image_url_str):
 # ---------------------------------------------------------------------------
 # Facebook Pagina (graph.facebook.com)
 # ---------------------------------------------------------------------------
+def fb_ottieni_page_token(token_configurato):
+    """Ricava un vero 'token di Pagina' a partire dal token FB configurato.
+    Alcune chiamate (pubblicare come Pagina, caricare foto non pubblicate) esigono
+    che il token agisca COME la Pagina: col token 'utente/system-user' Meta risponde
+    '(#200) Unpublished posts must be posted to a page as the page itself' (errore
+    visto su TUTTO Facebook al primo giro reale). Chiediamo il campo access_token del
+    nodo Pagina: se torna un token, quello agisce come la Pagina. Ritorna
+    (page_token, None) se riuscito, altrimenti (None, motivo)."""
+    try:
+        resp = requests.get(f"{FB_API}/{FACEBOOK_PAGE_ID}",
+                            params={'fields': 'access_token', 'access_token': token_configurato}, timeout=15)
+    except requests.RequestException as e:
+        return None, f"errore di rete: {e}"
+    if resp.status_code == 200:
+        tok = resp.json().get('access_token')
+        if tok:
+            return tok, None
+        return None, "il nodo Pagina non ha restituito un access_token (permessi mancanti?)"
+    return None, f"HTTP {resp.status_code}: {resp.text[:150]}"
+
+
 def fb_verifica_pagina():
     """SOLA LETTURA: conferma che il token Pagina e' valido e la Pagina raggiungibile.
     Ritorna (True, nome_pagina) oppure (False, descrizione_errore). Non pubblica nulla."""
@@ -518,6 +572,19 @@ def main():
     modalita = "🟢 LIVE" if PUBLISH_LIVE else "🧪 SIMULAZIONE (PUBLISH_LIVE non attivo)"
     stato_fb = "attivo" if FB_ENABLED else "NON configurato (solo Instagram)"
     print(f"Modalita': {modalita} — Facebook: {stato_fb} — finestra recupero: {GRACE_DAYS} giorni")
+
+    # Facebook: ricava il vero token di Pagina dal token configurato e sovrascrivi il
+    # token globale. Le pubblicazioni FB (foto, foto non pubblicate, storie) devono
+    # partire COME la Pagina, non come utente: senza questo passo Meta risponde
+    # "Unpublished posts must be posted to a page as the page itself".
+    if FB_ENABLED:
+        global FACEBOOK_PAGE_TOKEN
+        page_token, motivo = fb_ottieni_page_token(FACEBOOK_PAGE_TOKEN)
+        if page_token:
+            FACEBOOK_PAGE_TOKEN = page_token
+            print("FB: token di Pagina ricavato correttamente.")
+        else:
+            print(f"⚠️ FB: non ho ricavato il token di Pagina ({motivo}); uso quello configurato.")
 
     pubblicati = get_published()
     righe_report = []  # per la notifica Telegram riepilogativa
