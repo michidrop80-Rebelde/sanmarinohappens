@@ -52,6 +52,7 @@ INTERRUTTORE DI SICUREZZA: se la variabile d'ambiente PUBLISH_LIVE non e' esatta
 """
 
 import os
+import re
 import json
 import time
 import requests
@@ -200,6 +201,39 @@ def costruisci_unita(tipo, json_file, immagini):
 
 
 # ---------------------------------------------------------------------------
+# Guardia CONTENUTI: prezzi / gratuita' in caption (regola equita')
+# ---------------------------------------------------------------------------
+# Regola di equita' tra organizzatori: nessun prezzo ne' gratuita' nei contenuti
+# pubblici (i costi vanno SOLO nel link in bio) — vedi .claude/skills/smh-testi/SKILL.md.
+# Questa e' la RETE AUTOMATICA lato GitHub: una busta la cui caption contiene questi
+# termini diventa "anomala" e NON si pubblica (+ avviso Telegram). Blocca solo i casi
+# CERTI e ad alta confidenza (i termini indicati da Michele); i dubbi piu' sfumati e i
+# prezzi che stanno SULL'IMMAGINE (non leggibili da qui) li intercetta /smh-check sul
+# Mac, che vede anche il testo-sorgente e le immagini. Le storie non hanno caption.
+PREZZI_PATTERN = re.compile(
+    r'€'
+    r'|\bgratis\b'
+    r'|\bgratuit[oaie]\b'          # gratuito / gratuita / gratuiti / gratuite
+    r'|\bgratuitamente\b'
+    r'|\ba\s+pagamento\b'
+    r'|\bingresso\s+(?:libero|gratuito|gratis)\b'
+    r'|\bentrata\s+(?:libera|gratuita|gratis)\b',
+    re.IGNORECASE,
+)
+
+
+def caption_prezzi(caption):
+    """Ritorna la lista (senza duplicati, nell'ordine trovato) dei termini di
+    prezzo/gratuita' presenti nella caption. Lista vuota = nessun problema."""
+    trovati = []
+    for m in PREZZI_PATTERN.finditer(caption or ''):
+        termine = m.group(0).strip()
+        if termine.lower() not in [t.lower() for t in trovati]:
+            trovati.append(termine)
+    return trovati
+
+
+# ---------------------------------------------------------------------------
 # Smistamento delle buste in coda
 # ---------------------------------------------------------------------------
 def classifica_buste():
@@ -257,9 +291,18 @@ def classifica_buste():
                             f"data_pubblicazione assente o non valida: {meta.get('data_pubblicazione')!r}"))
             continue
         # 6) caption presente? (le storie NON hanno caption: il testo e' dentro la grafica)
-        if tipo != 'storia' and not (meta.get('caption') or '').strip():
-            anomali.append((json_file.name, "caption vuota"))
-            continue
+        if tipo != 'storia':
+            caption_txt = (meta.get('caption') or '').strip()
+            if not caption_txt:
+                anomali.append((json_file.name, "caption vuota"))
+                continue
+            # 6b) PREZZI/GRATUITA' in caption? Regola equita' -> blocca e segnala.
+            prezzi = caption_prezzi(caption_txt)
+            if prezzi:
+                anomali.append((json_file.name,
+                                "prezzo/gratuità in caption (regola equità, i costi vanno solo "
+                                f"nel link in bio): «{'», «'.join(prezzi)}»"))
+                continue
         # 7) smistamento per data
         giorni_ritardo = (data_oggi - data_pub).days
         busta = {'json_file': json_file, 'meta': meta, 'tipo': tipo,
