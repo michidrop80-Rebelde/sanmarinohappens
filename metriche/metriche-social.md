@@ -5,12 +5,13 @@
 ⚠️ Regola del progetto: **mai inventare numeri**. Dove il dato manca → `n.d.`
 
 ## Stato token
-- **Token Instagram**: rilasciato il 2026-07-09, scadenza stimata **2026-09-07** (~60 giorni). Alla scadenza si ferma sia la raccolta metriche sia la pubblicazione.
+- **Token Instagram**: rilasciato il 2026-07-09, scadenza stimata **2026-09-07** (~56 giorni). Alla scadenza si ferma sia la raccolta metriche sia la pubblicazione.
 
 ## Andamento settimanale (ultime 12 letture)
 | Lettura | Follower | Cresc. sett. | Post | Reach 28g | Visite prof. 28g | Interazioni 28g |
 |---------|----------|--------------|------|-----------|------------------|-----------------|
 | 2026-07-09 | 0 | — | 1 | 0 | 0 | 0 |
+| 2026-07-13 | 0 | (=) | 3 | 0 | 0 | 0 |
 
 ## Riepilogo mensile (fotografia di fine mese)
 | Mese | Follower fine mese | Crescita mese | Reach 28g | Interazioni 28g |
