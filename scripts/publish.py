@@ -103,12 +103,32 @@ def oggi():
     return datetime.now(TZ).date()
 
 
+def ora_corrente():
+    """Ritorna l'ora corrente 'HH:MM' nel fuso Europe/San_Marino. TEST_DATE da solo
+    finge fine giornata (TEST_TIME default '23:59') cosi' un test che forza solo la
+    data continua a pubblicare tutto cio' che e' datato per quel giorno, indipendente
+    dall'ora_pubblicazione della busta; TEST_TIME permette di testare anche il caso
+    'non ancora ora' (es. TEST_TIME=08:00 con una busta delle 18:00)."""
+    if TEST_DATE:
+        return os.getenv('TEST_TIME', '23:59')
+    return datetime.now(TZ).strftime('%H:%M')
+
+
 def parse_data(s):
     """Ritorna un date da 'AAAA-MM-GG', oppure None se il formato non e' valido."""
     try:
         return datetime.strptime(s, '%Y-%m-%d').date()
     except (ValueError, TypeError):
         return None
+
+
+def parse_ora(s):
+    """Ritorna 'HH:MM' se il valore e' un orario valido, altrimenti None (campo
+    assente/malformato = nessun vincolo d'orario, per retrocompatibilita' con le
+    buste vecchie create prima di questo campo)."""
+    if not isinstance(s, str) or not re.match(r'^([01]\d|2[0-3]):[0-5]\d$', s.strip()):
+        return None
+    return s.strip()
 
 
 def normalizza_tipo(meta):
@@ -237,17 +257,24 @@ def caption_prezzi(caption):
 # Smistamento delle buste in coda
 # ---------------------------------------------------------------------------
 def classifica_buste():
-    """Scorre i JSON in posts/ e li smista in base a validita' e data_pubblicazione:
-      - da_pubblicare: data tra (oggi - GRACE_DAYS) e oggi inclusi, busta valida.
+    """Scorre i JSON in posts/ e li smista in base a validita', data_pubblicazione e
+    ora_pubblicazione:
+      - da_pubblicare: data tra (oggi - GRACE_DAYS) e oggi inclusi, busta valida, E
+        se e' proprio oggi (giorni_ritardo == 0) l'ora corrente ha gia' raggiunto
+        l'ora_pubblicazione della busta (altrimenti aspetta il run successivo -
+        es. un weekend delle 18:00 non deve uscire al giro delle 7:00). Un ritardo
+        di 1+ giorni non aspetta piu' l'ora: e' gia' in recupero, esce appena trovato.
       - scaduti: data piu' vecchia di GRACE_DAYS -> NON si pubblicano, solo avviso.
       - anomali: JSON illeggibile, tipo sconosciuto, immagini mancanti/fuori range,
         data assente/malformata, caption vuota (dove serve).
-      - futuri (data > oggi): ignorati in silenzio.
+      - futuri (data > oggi, o data == oggi ma ora_pubblicazione non ancora arrivata):
+        ignorati in silenzio.
     Ritorna (da_pubblicare, scaduti, anomali).
       da_pubblicare / scaduti = liste di dict {json_file, meta, tipo, immagini, giorni_ritardo}
       anomali = lista di (nome_json, motivo)
     """
     data_oggi = oggi()
+    ora_adesso = ora_corrente()
     da_pubblicare, scaduti, anomali = [], [], []
 
     if not POSTS_DIR.exists():
@@ -303,14 +330,19 @@ def classifica_buste():
                                 "prezzo/gratuità in caption (regola equità, i costi vanno solo "
                                 f"nel link in bio): «{'», «'.join(prezzi)}»"))
                 continue
-        # 7) smistamento per data
+        # 7) smistamento per data (+ ora, solo se e' proprio oggi)
         giorni_ritardo = (data_oggi - data_pub).days
         busta = {'json_file': json_file, 'meta': meta, 'tipo': tipo,
                  'immagini': immagini, 'giorni_ritardo': giorni_ritardo}
         if giorni_ritardo < 0:
-            continue  # futuro: non e' ancora il momento
-        elif giorni_ritardo <= GRACE_DAYS:
+            continue  # futuro: non e' ancora il giorno
+        elif giorni_ritardo == 0:
+            ora_pub = parse_ora(meta.get('ora_pubblicazione'))
+            if ora_pub is not None and ora_adesso < ora_pub:
+                continue  # e' oggi ma non ancora l'ora (es. weekend delle 18:00 al run delle 7:00)
             da_pubblicare.append(busta)
+        elif giorni_ritardo <= GRACE_DAYS:
+            da_pubblicare.append(busta)  # in recupero: l'ora non conta piu', esce appena trovata
         else:
             scaduti.append(busta)
 
