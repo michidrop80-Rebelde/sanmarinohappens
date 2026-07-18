@@ -37,8 +37,13 @@ const BTN_CAL = "\ud83d\uddd3 Calendario";
 const BTN_CANCEL = "\u26d4 Segnala annullamento";
 const BTN_HELP = "\u2753 Aiuto";
 
-// Un evento annullato entro questi giorni dalla pubblicazione = allarme 🚨 urgente
-const URGENT_DAYS = 3;
+// Frammento ASCII del messaggio-richiesta dell'annullamento: serve a riconoscere
+// (in modo stateless) che un messaggio è la RISPOSTA a quella richiesta (force_reply).
+const CANCEL_PROMPT_MARK = "Scrivimi qui sotto QUALE evento";
+
+// File dove il bot registra le segnalazioni di annullamento (separato dalla coda eventi).
+// Le legge poi Michele (+ Claude) per togliere il post giusto dal programma.
+const ANNULLA_PATH = "queue/annullamenti.md";
 
 export default {
   async fetch(request, env) {
@@ -79,7 +84,7 @@ export default {
     const text = message.text.trim();
 
     try {
-      await routeMessage(env, chatId, text);
+      await routeMessage(env, chatId, text, message);
     } catch (err) {
       await sendTelegramMessage(env, chatId, "\u26a0\ufe0f Ops, qualcosa \u00e8 andato storto: " + err.message, mainKeyboard());
     }
@@ -91,8 +96,16 @@ export default {
 // ------------------------------------------------------------
 // Instradamento dei messaggi di testo (comandi + bottoni + testo libero)
 // ------------------------------------------------------------
-async function routeMessage(env, chatId, text) {
+async function routeMessage(env, chatId, text, message) {
   const lower = text.toLowerCase();
+
+  // Se è la RISPOSTA alla richiesta "quale evento è annullato?" (force_reply),
+  // è una segnalazione di annullamento — NON un nuovo evento da aggiungere.
+  const replyTo = message && message.reply_to_message;
+  if (replyTo && typeof replyTo.text === "string" && replyTo.text.includes(CANCEL_PROMPT_MARK)) {
+    await saveCancellation(env, message, text);
+    return;
+  }
 
   // Benvenuto / aiuto / menù
   if (lower === "/start" || lower === "/aiuto" || lower === "/help" || lower === "/menu" || text === BTN_HELP) {
@@ -112,9 +125,17 @@ async function routeMessage(env, chatId, text) {
     return;
   }
 
-  // Segnala un annullamento → mostra i post in programma, si toglie con conferma
+  // Segnala un annullamento → apre un CAMPO dove scrivere cosa è saltato (a parole).
+  // Non serve conoscere la coda: ci pensiamo noi (Michele + Claude) a capire quale post togliere.
   if (text === BTN_CANCEL || lower === "/annulla" || lower === "/annullamento") {
-    await showCancellablePosts(env, chatId);
+    await sendTelegramMessage(
+      env,
+      chatId,
+      "\u26d4 Ok! Scrivimi qui sotto QUALE evento \u00e8 stato annullato \u2014 anche alla buona, come ti viene:\n\n" +
+        "Es: \u00abil concerto di Fred De Palma di venerd\u00ec \u00e8 saltato\u00bb \u00b7 \u00abannullata la sagra di domani a Fiorentino\u00bb\n\n" +
+        "Ci penso io a capire di quale si tratta e a toglierlo dal programma prima che esca. \ud83d\udee1\ufe0f",
+      { force_reply: true, input_field_placeholder: "Es: il concerto di sabato \u00e8 annullato" }
+    );
     return;
   }
 
@@ -208,21 +229,6 @@ async function handleCallback(env, cq) {
     return;
   }
 
-  // Annullamento evento in programma — 3 fasi: scelta → conferma → rimozione
-  if (data.startsWith("cxlok_")) {
-    await doCancel(env, cq, data.slice("cxlok_".length));
-    return;
-  }
-  if (data === "cxlno") {
-    await answerCallback(env, cq.id, "Ok, lasciato");
-    await editMessageText(env, chatId, cq.message.message_id, "\ud83d\udc4d Ok, non ho tolto niente.", { inline_keyboard: [] });
-    return;
-  }
-  if (data.startsWith("cxl_")) {
-    await confirmCancel(env, cq, data.slice("cxl_".length));
-    return;
-  }
-
   await answerCallback(env, cq.id, "");
 }
 
@@ -236,7 +242,7 @@ async function sendWelcome(env, chatId) {
     "\u2795 *Aggiungi evento* \u2014 poi scrivimi l'evento (o mandamelo come messaggio normale, senza comandi)\n" +
     "\ud83d\udccb *Lista segnalazioni* \u2014 le cose che mi hai segnalato e non ancora lavorate\n" +
     "\ud83d\uddd3 *Calendario* \u2014 cosa sta per uscire su @sanmarinohappens\n" +
-    "\u26d4 *Segnala annullamento* \u2014 un evento salta? Lo togli dal programma prima che esca\n" +
+    "\u26d4 *Segnala annullamento* \u2014 un evento salta? Scrivimelo e lo togliamo prima che esca\n" +
     "\u2753 *Aiuto* \u2014 questo messaggio\n\n" +
     "Una cosa importante: quello che mi mandi non viene pubblicato in automatico \u2014 passa sempre da una revisione prima di finire online. Tu segnala pure, al controllo ci pensiamo noi. \ud83d\ude09";
   await sendTelegramMessage(env, chatId, testo, mainKeyboard(), "Markdown");
@@ -358,102 +364,35 @@ async function getCalendar(env) {
 }
 
 // ------------------------------------------------------------
-// ANNULLAMENTO di un evento già in programma (dai post in coda)
-// Flusso a 3 tap: scegli l'evento → conferma → rimozione.
+// ANNULLAMENTO — segnalazione a testo libero
+// Chi segnala descrive a parole cosa è saltato (non deve conoscere la coda).
+// Il bot lo registra in queue/annullamenti.md; poi Michele (+ Claude) capiscono
+// di quale post si tratta e lo tolgono dal programma prima che esca.
 // ------------------------------------------------------------
-
-// Fase 1: mostra i post in programma, ognuno con un bottone per annullarlo
-async function showCancellablePosts(env, chatId) {
-  let eventi;
+async function saveCancellation(env, message, text) {
+  const chatId = String(message.chat.id);
   try {
-    eventi = await getCalendar(env);
+    const { content, sha } = await readFileAt(env, ANNULLA_PATH);
+    const ts = new Date().toISOString();
+    const line = `- [ ] ${ts} \u2014 ${reporterTag(message)} \u2014 ${text}\n`;
+    await writeFileAt(env, ANNULLA_PATH, content + line, sha, `Annullamento segnalato: ${text.slice(0, 50)}`);
+    await sendTelegramMessage(
+      env,
+      chatId,
+      "\u2705 Presa nota dell'annullamento, grazie!\n\nCi pensiamo noi a toglierlo dal programma prima che esca (se \u00e8 gi\u00e0 in coda). \ud83d\udee1\ufe0f\ud83c\uddf8\ud83c\uddf2",
+      mainKeyboard()
+    );
   } catch (err) {
-    await sendTelegramMessage(env, chatId, "\u26a0\ufe0f Non riesco a leggere il programma ora: " + err.message, mainKeyboard());
-    return;
+    await sendTelegramMessage(env, chatId, "\u26a0\ufe0f Non sono riuscito a salvare la segnalazione: " + err.message, mainKeyboard());
   }
-  if (eventi.length === 0) {
-    await sendTelegramMessage(env, chatId, "\ud83d\uddd3 Non c'\u00e8 nessun evento in programma da annullare al momento.", mainKeyboard());
-    return;
-  }
-  const inline_keyboard = eventi.map((e) => [
-    { text: `\u26d4 ${formatDateIT(e.date)} \u00b7 ${short(e.titolo, 28)}`, callback_data: `cxl_${e.file}` },
-  ]);
-  await sendTelegramMessage(
-    env,
-    chatId,
-    "\u26d4 Quale evento \u00e8 stato ANNULLATO?\n\nToccalo per toglierlo dal programma \u2014 ti chieder\u00f2 conferma prima di rimuoverlo davvero.",
-    { inline_keyboard }
-  );
 }
 
-// Fase 2: chiede conferma per il post scelto (con l'avviso urgenza se imminente)
-async function confirmCancel(env, cq, file) {
-  const chatId = String(cq.message.chat.id);
-  const post = await readPost(env, file);
-  if (!post) {
-    await answerCallback(env, cq.id, "Non trovato");
-    await editMessageText(env, chatId, cq.message.message_id, "\ud83e\udd14 Non trovo pi\u00f9 quel post (forse gi\u00e0 tolto).", { inline_keyboard: [] });
-    return;
-  }
-  await answerCallback(env, cq.id, "");
-  const text =
-    `Confermi? Sto per TOGLIERE dal programma:\n\n` +
-    `\u26d4 ${post.titolo}\n\ud83d\udcc5 ${formatDateIT(post.date)} \u2014 ${urgencyLabel(post.date)}\n\n` +
-    `Non verr\u00e0 pubblicato su Instagram/Facebook. Sei sicuro?`;
-  const keyboard = {
-    inline_keyboard: [
-      [{ text: "\u2705 S\u00ec, togli dal programma", callback_data: `cxlok_${file}` }],
-      [{ text: "\u274c No, lascia com'\u00e8", callback_data: "cxlno" }],
-    ],
-  };
-  await editMessageText(env, chatId, cq.message.message_id, text, keyboard);
-}
-
-// Fase 3: rimuove davvero il post (JSON + immagini) dalla coda posts/
-async function doCancel(env, cq, file) {
-  const chatId = String(cq.message.chat.id);
-  await answerCallback(env, cq.id, "Sto togliendo\u2026");
-  const post = await readPost(env, file);
-  const titolo = post ? post.titolo : file;
-  const images = post ? post.images : [];
-  const paths = [`posts/${file}`, ...images.map((img) => `posts/${img}`)];
-
-  let deleted = 0;
-  const errors = [];
-  for (const p of paths) {
-    try {
-      const sha = await getSha(env, p);
-      if (!sha) continue; // già assente
-      await deleteFile(env, p, sha, `Annullato: rimosso dal programma ${titolo}`.slice(0, 72));
-      deleted++;
-    } catch (e) {
-      errors.push(p.split("/").pop());
-    }
-  }
-
-  let msg;
-  if (deleted > 0 && errors.length === 0) {
-    msg = `\u2705 Fatto! \u00ab${titolo}\u00bb tolto dal programma.\n\nNon uscir\u00e0 su Instagram/Facebook. \ud83d\udee1\ufe0f`;
-  } else if (deleted > 0) {
-    msg = `\u26a0\ufe0f \u00ab${titolo}\u00bb tolto solo in parte. Non sono riuscito a rimuovere: ${errors.join(", ")}.\nControlla la cartella posts/ a mano.`;
-  } else {
-    msg = `\ud83e\udd14 Non ho tolto niente (forse era gi\u00e0 stato rimosso). Controlla con \ud83d\uddd3 Calendario.`;
-  }
-  await editMessageText(env, chatId, cq.message.message_id, msg, { inline_keyboard: [] });
-}
-
-// Legge un post da posts/ (via raw, repo pubblico). Ritorna { titolo, date, images } o null.
-async function readPost(env, file) {
-  try {
-    const r = await fetch(rawUrl(env, `posts/${file}`));
-    if (!r.ok) return null;
-    const d = await r.json();
-    const basename = file.replace(/\.json$/i, "");
-    const images = Array.isArray(d.immagini) && d.immagini.length ? d.immagini : [basename + ".png"];
-    return { titolo: d.titolo_evento || file, date: d.data_pubblicazione || "", images };
-  } catch {
-    return null;
-  }
+// Nome + @username di chi ha scritto (per ricontattarlo, utile soprattutto sul bot pubblico)
+function reporterTag(message) {
+  const f = (message && message.from) || {};
+  const name = [f.first_name, f.last_name].filter(Boolean).join(" ");
+  const uname = f.username ? "@" + f.username : "";
+  return [name, uname].filter(Boolean).join(" ").trim() || "sconosciuto";
 }
 
 // ------------------------------------------------------------
@@ -467,44 +406,11 @@ function ghHeaders(env) {
   };
 }
 
-// URL raw (repo pubblico) con ogni segmento del path codificato (gestisce gli spazi nei nomi)
-function rawUrl(env, path) {
+// Legge un file dal repo (Contents API). Ritorna { content, sha } — content "" e
+// sha undefined se il file non esiste ancora. Il path è codificato (gestisce gli spazi).
+async function readFileAt(env, path) {
   const enc = path.split("/").map(encodeURIComponent).join("/");
-  return `https://raw.githubusercontent.com/${env.GITHUB_OWNER}/${env.GITHUB_REPO}/main/${enc}`;
-}
-
-// URL della Contents API per un path (segmenti codificati)
-function contentsUrl(env, path) {
-  const enc = path.split("/").map(encodeURIComponent).join("/");
-  return `https://api.github.com/repos/${env.GITHUB_OWNER}/${env.GITHUB_REPO}/contents/${enc}`;
-}
-
-// Ritorna lo sha di un file (serve per cancellarlo), o null se non esiste
-async function getSha(env, path) {
-  const r = await fetch(contentsUrl(env, path), { headers: ghHeaders(env) });
-  if (r.status === 404) return null;
-  if (!r.ok) throw new Error(`getSha ${r.status}`);
-  const d = await r.json();
-  return d.sha;
-}
-
-// Cancella un file dal repo (Contents API DELETE)
-async function deleteFile(env, path, sha, message) {
-  const r = await fetch(contentsUrl(env, path), {
-    method: "DELETE",
-    headers: { ...ghHeaders(env), "Content-Type": "application/json" },
-    body: JSON.stringify({ message, sha, branch: "main" }),
-  });
-  if (!r.ok) {
-    const t = await r.text();
-    throw new Error(`delete ${r.status} ${t}`);
-  }
-}
-
-// Legge il file coda da GitHub. Ritorna { content, sha } — content "" e sha
-// undefined se il file non esiste ancora.
-async function readQueueFile(env) {
-  const apiUrl = `https://api.github.com/repos/${env.GITHUB_OWNER}/${env.GITHUB_REPO}/contents/${env.QUEUE_PATH}`;
+  const apiUrl = `https://api.github.com/repos/${env.GITHUB_OWNER}/${env.GITHUB_REPO}/contents/${enc}`;
   const getRes = await fetch(apiUrl, { headers: ghHeaders(env) });
 
   if (getRes.status === 200) {
@@ -524,9 +430,10 @@ async function readQueueFile(env) {
   }
 }
 
-// Scrive (crea o aggiorna) il file coda su GitHub
-async function writeQueueFile(env, content, sha, commitMessage) {
-  const apiUrl = `https://api.github.com/repos/${env.GITHUB_OWNER}/${env.GITHUB_REPO}/contents/${env.QUEUE_PATH}`;
+// Scrive (crea o aggiorna) un file nel repo (Contents API PUT).
+async function writeFileAt(env, path, content, sha, commitMessage) {
+  const enc = path.split("/").map(encodeURIComponent).join("/");
+  const apiUrl = `https://api.github.com/repos/${env.GITHUB_OWNER}/${env.GITHUB_REPO}/contents/${enc}`;
   const putRes = await fetch(apiUrl, {
     method: "PUT",
     headers: { ...ghHeaders(env), "Content-Type": "application/json" },
@@ -540,6 +447,14 @@ async function writeQueueFile(env, content, sha, commitMessage) {
     const errText = await putRes.text();
     throw new Error(`GitHub write failed: ${putRes.status} ${errText}`);
   }
+}
+
+// La coda eventi (inbox) è un file come gli altri: comodi wrapper.
+function readQueueFile(env) {
+  return readFileAt(env, env.QUEUE_PATH);
+}
+function writeQueueFile(env, content, sha, commitMessage) {
+  return writeFileAt(env, env.QUEUE_PATH, content, sha, commitMessage);
 }
 
 // Estrae le righe evento dal contenuto del file.
@@ -688,21 +603,3 @@ function formatDateIT(iso) {
   return `${giorni[date.getUTCDay()]} ${d} ${mesi[m - 1]}`;
 }
 
-// Giorni da oggi (fuso San Marino) alla data indicata; null se data vuota
-function daysUntil(dateISO) {
-  if (!dateISO) return null;
-  const [ty, tm, td] = todayISO().split("-").map(Number);
-  const [dy, dm, dd] = dateISO.split("-").map(Number);
-  return Math.round((Date.UTC(dy, dm - 1, dd) - Date.UTC(ty, tm - 1, td)) / 86400000);
-}
-
-// Etichetta di urgenza per un evento annullato (soglia URGENT_DAYS)
-function urgencyLabel(dateISO) {
-  const n = daysUntil(dateISO);
-  if (n === null) return "data non chiara";
-  if (n < 0) return "gi\u00e0 passato";
-  if (n === 0) return "\ud83d\udea8 \u00c8 OGGI!";
-  if (n === 1) return "\ud83d\udea8 \u00e8 DOMANI (urgente)";
-  if (n <= URGENT_DAYS) return `\ud83d\udea8 tra ${n} giorni (urgente)`;
-  return `tra ${n} giorni`;
-}

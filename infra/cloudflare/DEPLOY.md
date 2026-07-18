@@ -77,9 +77,11 @@ Se tutto risponde di sì, il bot è completo e live. 🎉
   bottone 🗑 per toglierlo. (Passano poi dalla revisione → spariscono da qui.)
 - **🗓 Calendario**: legge i post già programmati nel repo (`posts/*.json`) e mostra cosa
   sta per uscire su @sanmarinohappens.
-- **⛔ Segnala annullamento**: se un evento salta, mostra l'elenco dei post in programma;
-  ne scegli uno, il bot chiede conferma (con avviso 🚨 se manca ≤3 giorni) e — solo dopo
-  il tuo «✅ Sì» — lo toglie dalla coda (JSON + immagini) così non viene pubblicato.
+- **⛔ Segnala annullamento**: apre un campo dove scrivere a parole (anche grossolane) quale
+  evento è saltato — non serve conoscere la coda. Il bot registra la segnalazione in
+  `queue/annullamenti.md` (con chi l'ha scritta); poi Michele + Claude capiscono di quale post
+  si tratta e lo tolgono dal programma prima che esca. (Serve anche al futuro bot pubblico:
+  un organizzatore scrive «il mio evento è annullato» senza sapere nulla della coda.)
 - **Sicurezza**: solo il chat_id di Michele (`AUTHORIZED_CHAT_IDS`) ha accesso ai comandi;
   chiunque altro riceve solo un messaggio di cortesia. Niente va online in automatico:
   tutto passa dalla revisione umana.
