@@ -669,9 +669,14 @@ function short(s, max) {
   return s.length > max ? s.slice(0, max - 1) + "…" : s;
 }
 
-// Data di oggi in fuso San Marino, formato YYYY-MM-DD
+// Data di oggi in fuso San Marino, formato YYYY-MM-DD.
+// Con fallback a UTC se il runtime non supporta i fusi in Intl (robustezza al deploy).
 function todayISO() {
-  return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/San_Marino" }).format(new Date());
+  try {
+    return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/San_Marino" }).format(new Date());
+  } catch {
+    return new Date().toISOString().slice(0, 10);
+  }
 }
 
 // "2026-07-19" → "dom 19 lug"
