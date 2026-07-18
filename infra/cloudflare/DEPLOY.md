@@ -41,6 +41,7 @@ Serve perché premendo `/` in chat compaiano i comandi suggeriti. Telegram nel m
 aggiungi - ➕ Segnala un evento (poi scrivilo)
 segnalazioni - 📋 Le segnalazioni in attesa
 calendario - 🗓 Cosa sta per uscire
+annulla - ⛔ Segnala un evento annullato
 aiuto - ❓ Come funziona il bot
 ```
 
@@ -55,22 +56,30 @@ aiuto - ❓ Come funziona il bot
 - **🗓 Calendario** → mostra i contenuti già programmati?
 - Scrivi un messaggio qualsiasi (es. `Prova evento test`) → risponde «Segnato»?
   Poi **📋 Lista segnalazioni** lo mostra con un bottone **🗑**? Premendo 🗑 sparisce?
-- Premi `/` → compaiono i 4 comandi suggeriti?
+- **⛔ Segnala annullamento** → mostra l'elenco degli eventi in programma con un bottone
+  per ciascuno? Toccandone uno, chiede conferma (con l'avviso 🚨 se è entro 3 giorni)?
+  > ⚠️ Per provare **senza conseguenze**: arriva fino alla schermata di conferma e premi
+  > **❌ No, lascia com'è**. Se premi **✅ Sì**, l'evento viene tolto DAVVERO dalla coda e
+  > non verrà pubblicato (è proprio il suo scopo).
+- Premi `/` → compaiono i 5 comandi suggeriti?
 
-Se tutto risponde di sì, il bot v2 è completo e live. 🎉
+Se tutto risponde di sì, il bot è completo e live. 🎉
 
 ---
 
 ## Cosa fa il bot (riassunto)
 
 - **Tastiera di bottoni** sempre visibile: ➕ Aggiungi evento · 📋 Lista segnalazioni ·
-  🗓 Calendario · ❓ Aiuto.
+  🗓 Calendario · ⛔ Segnala annullamento · ❓ Aiuto.
 - **Aggiungere un evento**: premi ➕ *oppure* scrivi l'evento come messaggio normale
   (qualsiasi testo libero, senza comandi, finisce in lista).
 - **📋 Lista segnalazioni**: gli eventi segnalati e non ancora lavorati; ognuno con un
   bottone 🗑 per toglierlo. (Passano poi dalla revisione → spariscono da qui.)
 - **🗓 Calendario**: legge i post già programmati nel repo (`posts/*.json`) e mostra cosa
   sta per uscire su @sanmarinohappens.
+- **⛔ Segnala annullamento**: se un evento salta, mostra l'elenco dei post in programma;
+  ne scegli uno, il bot chiede conferma (con avviso 🚨 se manca ≤3 giorni) e — solo dopo
+  il tuo «✅ Sì» — lo toglie dalla coda (JSON + immagini) così non viene pubblicato.
 - **Sicurezza**: solo il chat_id di Michele (`AUTHORIZED_CHAT_IDS`) ha accesso ai comandi;
   chiunque altro riceve solo un messaggio di cortesia. Niente va online in automatico:
   tutto passa dalla revisione umana.
