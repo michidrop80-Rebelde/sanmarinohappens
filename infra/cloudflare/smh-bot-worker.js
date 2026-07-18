@@ -31,11 +31,11 @@
 // Etichette dei bottoni (la tastiera che resta sempre in basso).
 // NB: quando premi un bottone, Telegram invia ESATTAMENTE questo testo,
 // quindi le usiamo anche per riconoscere quale bottone è stato premuto.
-const BTN_ADD = "➕ Aggiungi evento";
-const BTN_LIST = "📋 Lista segnalazioni";
-const BTN_CAL = "🗓 Calendario";
-const BTN_CANCEL = "⛔ Segnala annullamento";
-const BTN_HELP = "❓ Aiuto";
+const BTN_ADD = "\u2795 Aggiungi evento";
+const BTN_LIST = "\ud83d\udccb Lista segnalazioni";
+const BTN_CAL = "\ud83d\uddd3 Calendario";
+const BTN_CANCEL = "\u26d4 Segnala annullamento";
+const BTN_HELP = "\u2753 Aiuto";
 
 // Un evento annullato entro questi giorni dalla pubblicazione = allarme 🚨 urgente
 const URGENT_DAYS = 3;
@@ -43,7 +43,7 @@ const URGENT_DAYS = 3;
 export default {
   async fetch(request, env) {
     if (request.method !== "POST") {
-      return new Response("SMH bot attivo ✅", { status: 200 });
+      return new Response("SMH bot attivo \u2705", { status: 200 });
     }
 
     let update;
@@ -71,7 +71,7 @@ export default {
       await sendTelegramMessage(
         env,
         chatId,
-        "Ciao! 👋 Questo è il bot interno di San Marino Happens 🇸🇲, per ora riservato allo staff.\n\nSe vuoi segnalarci un evento del Titano, scrivici pure su Instagram o Facebook: @sanmarinohappens. Grazie! 😊"
+        "Ciao! \ud83d\udc4b Questo \u00e8 il bot interno di San Marino Happens \ud83c\uddf8\ud83c\uddf2, per ora riservato allo staff.\n\nSe vuoi segnalarci un evento del Titano, scrivici pure su Instagram o Facebook: @sanmarinohappens. Grazie! \ud83d\ude0a"
       );
       return new Response("ok");
     }
@@ -81,7 +81,7 @@ export default {
     try {
       await routeMessage(env, chatId, text);
     } catch (err) {
-      await sendTelegramMessage(env, chatId, "⚠️ Ops, qualcosa è andato storto: " + err.message, mainKeyboard());
+      await sendTelegramMessage(env, chatId, "\u26a0\ufe0f Ops, qualcosa \u00e8 andato storto: " + err.message, mainKeyboard());
     }
 
     return new Response("ok");
@@ -123,7 +123,7 @@ async function routeMessage(env, chatId, text) {
     await sendTelegramMessage(
       env,
       chatId,
-      "Perfetto! ✍️ Scrivimi l'evento in un messaggio, con quello che sai:\n\nEs: «Concerto in Piazza della Libertà sabato 25 alle 21»\n\n(Non serve nessun comando: quello che scrivi lo metto in lista. 😉)",
+      "Perfetto! \u270d\ufe0f Scrivimi l'evento in un messaggio, con quello che sai:\n\nEs: \u00abConcerto in Piazza della Libert\u00e0 sabato 25 alle 21\u00bb\n\n(Non serve nessun comando: quello che scrivi lo metto in lista. \ud83d\ude09)",
       mainKeyboard()
     );
     return;
@@ -136,7 +136,7 @@ async function routeMessage(env, chatId, text) {
       await sendTelegramMessage(
         env,
         chatId,
-        "Ci sei quasi! 😊 Scrivimi l'evento subito dopo il comando, oppure premi ➕ Aggiungi evento e scrivilo normale.",
+        "Ci sei quasi! \ud83d\ude0a Scrivimi l'evento subito dopo il comando, oppure premi \u2795 Aggiungi evento e scrivilo normale.",
         mainKeyboard()
       );
       return;
@@ -151,14 +151,14 @@ async function routeMessage(env, chatId, text) {
     const arg = text.replace(/^\/(smh-)?cancella/i, "").trim();
     const index = parseInt(arg, 10);
     if (!arg || isNaN(index) || index < 1) {
-      await sendTelegramMessage(env, chatId, "Dimmi quale numero tolgo, così: /cancella 2\n(i numeri li vedi in 📋 Lista segnalazioni)", mainKeyboard());
+      await sendTelegramMessage(env, chatId, "Dimmi quale numero tolgo, cos\u00ec: /cancella 2\n(i numeri li vedi in \ud83d\udccb Lista segnalazioni)", mainKeyboard());
       return;
     }
     const removed = await removeFromQueueByIndex(env, index - 1);
     if (removed) {
-      await sendTelegramMessage(env, chatId, `🗑 Fatto, ho tolto:\n"${removed}"`, mainKeyboard());
+      await sendTelegramMessage(env, chatId, `\ud83d\uddd1 Fatto, ho tolto:\n"${removed}"`, mainKeyboard());
     } else {
-      await sendTelegramMessage(env, chatId, "Mmm, non trovo un evento con quel numero. 🤔\nControlla con 📋 Lista segnalazioni.", mainKeyboard());
+      await sendTelegramMessage(env, chatId, "Mmm, non trovo un evento con quel numero. \ud83e\udd14\nControlla con \ud83d\udccb Lista segnalazioni.", mainKeyboard());
     }
     return;
   }
@@ -168,7 +168,7 @@ async function routeMessage(env, chatId, text) {
     await sendTelegramMessage(
       env,
       chatId,
-      "Questo comando non lo conosco. 🤔\nUsa i bottoni qui sotto, oppure scrivimi direttamente l'evento da segnalare.",
+      "Questo comando non lo conosco. \ud83e\udd14\nUsa i bottoni qui sotto, oppure scrivimi direttamente l'evento da segnalare.",
       mainKeyboard()
     );
     return;
@@ -196,9 +196,9 @@ async function handleCallback(env, cq) {
     try {
       const removed = await removeFromQueueByTimestamp(env, ts);
       if (removed) {
-        await answerCallback(env, cq.id, "Eliminato 🗑");
+        await answerCallback(env, cq.id, "Eliminato \ud83d\uddd1");
       } else {
-        await answerCallback(env, cq.id, "Non trovato (forse già tolto)");
+        await answerCallback(env, cq.id, "Non trovato (forse gi\u00e0 tolto)");
       }
       // ridisegna la lista aggiornata al posto del messaggio vecchio
       await refreshSegnalazioni(env, chatId, cq.message.message_id);
@@ -215,7 +215,7 @@ async function handleCallback(env, cq) {
   }
   if (data === "cxlno") {
     await answerCallback(env, cq.id, "Ok, lasciato");
-    await editMessageText(env, chatId, cq.message.message_id, "👍 Ok, non ho tolto niente.", { inline_keyboard: [] });
+    await editMessageText(env, chatId, cq.message.message_id, "\ud83d\udc4d Ok, non ho tolto niente.", { inline_keyboard: [] });
     return;
   }
   if (data.startsWith("cxl_")) {
@@ -231,14 +231,14 @@ async function handleCallback(env, cq) {
 // ------------------------------------------------------------
 async function sendWelcome(env, chatId) {
   const testo =
-    "Ciao, benvenuto! 👋 Sono il bot di San Marino Happens 🇸🇲\n\n" +
-    "Raccolgo gli eventi belli del Titano che mi segnali. È facilissimo:\n\n" +
-    "➕ *Aggiungi evento* — poi scrivimi l'evento (o mandamelo come messaggio normale, senza comandi)\n" +
-    "📋 *Lista segnalazioni* — le cose che mi hai segnalato e non ancora lavorate\n" +
-    "🗓 *Calendario* — cosa sta per uscire su @sanmarinohappens\n" +
-    "⛔ *Segnala annullamento* — un evento salta? Lo togli dal programma prima che esca\n" +
-    "❓ *Aiuto* — questo messaggio\n\n" +
-    "Una cosa importante: quello che mi mandi non viene pubblicato in automatico — passa sempre da una revisione prima di finire online. Tu segnala pure, al controllo ci pensiamo noi. 😉";
+    "Ciao, benvenuto! \ud83d\udc4b Sono il bot di San Marino Happens \ud83c\uddf8\ud83c\uddf2\n\n" +
+    "Raccolgo gli eventi belli del Titano che mi segnali. \u00c8 facilissimo:\n\n" +
+    "\u2795 *Aggiungi evento* \u2014 poi scrivimi l'evento (o mandamelo come messaggio normale, senza comandi)\n" +
+    "\ud83d\udccb *Lista segnalazioni* \u2014 le cose che mi hai segnalato e non ancora lavorate\n" +
+    "\ud83d\uddd3 *Calendario* \u2014 cosa sta per uscire su @sanmarinohappens\n" +
+    "\u26d4 *Segnala annullamento* \u2014 un evento salta? Lo togli dal programma prima che esca\n" +
+    "\u2753 *Aiuto* \u2014 questo messaggio\n\n" +
+    "Una cosa importante: quello che mi mandi non viene pubblicato in automatico \u2014 passa sempre da una revisione prima di finire online. Tu segnala pure, al controllo ci pensiamo noi. \ud83d\ude09";
   await sendTelegramMessage(env, chatId, testo, mainKeyboard(), "Markdown");
 }
 
@@ -251,11 +251,11 @@ async function addEvento(env, chatId, eventText) {
     await sendTelegramMessage(
       env,
       chatId,
-      "✅ Segnato, grazie della dritta! L'ho messo in lista.\n\nNiente va online da solo: passerà prima dalla revisione. 👀🇸🇲",
+      "\u2705 Segnato, grazie della dritta! L'ho messo in lista.\n\nNiente va online da solo: passer\u00e0 prima dalla revisione. \ud83d\udc40\ud83c\uddf8\ud83c\uddf2",
       mainKeyboard()
     );
   } catch (err) {
-    await sendTelegramMessage(env, chatId, "⚠️ Ops, non sono riuscito a salvarlo su GitHub: " + err.message, mainKeyboard());
+    await sendTelegramMessage(env, chatId, "\u26a0\ufe0f Ops, non sono riuscito a salvarlo su GitHub: " + err.message, mainKeyboard());
   }
 }
 
@@ -268,7 +268,7 @@ async function showSegnalazioni(env, chatId) {
     await sendTelegramMessage(
       env,
       chatId,
-      "📭 Nessuna segnalazione in attesa.\n\nQui compaiono SOLO gli eventi che mi segnali e non ancora lavorati (poi passano dalla revisione e spariscono da qui).\n\nPer vedere cosa sta per uscire, premi 🗓 Calendario. Per segnalare, premi ➕ Aggiungi evento.",
+      "\ud83d\udced Nessuna segnalazione in attesa.\n\nQui compaiono SOLO gli eventi che mi segnali e non ancora lavorati (poi passano dalla revisione e spariscono da qui).\n\nPer vedere cosa sta per uscire, premi \ud83d\uddd3 Calendario. Per segnalare, premi \u2795 Aggiungi evento.",
       mainKeyboard()
     );
     return;
@@ -282,7 +282,7 @@ async function showSegnalazioni(env, chatId) {
 async function refreshSegnalazioni(env, chatId, messageId) {
   const items = await listQueue(env);
   if (items.length === 0) {
-    await editMessageText(env, chatId, messageId, "📭 Nessuna segnalazione in attesa. Tutto pulito! ✨", { inline_keyboard: [] });
+    await editMessageText(env, chatId, messageId, "\ud83d\udced Nessuna segnalazione in attesa. Tutto pulito! \u2728", { inline_keyboard: [] });
     return;
   }
   const { text, keyboard } = renderSegnalazioni(items);
@@ -292,9 +292,9 @@ async function refreshSegnalazioni(env, chatId, messageId) {
 // Costruisce testo + tastiera inline (un bottone 🗑 per riga) della lista
 function renderSegnalazioni(items) {
   const lines = items.map((item, i) => `${i + 1}. ${item.text}`).join("\n");
-  const text = `📋 Segnalazioni in attesa (${items.length}):\n\n${lines}\n\nPremi 🗑 per togliere quella che non ti serve più.`;
+  const text = `\ud83d\udccb Segnalazioni in attesa (${items.length}):\n\n${lines}\n\nPremi \ud83d\uddd1 per togliere quella che non ti serve pi\u00f9.`;
   const inline_keyboard = items.map((item, i) => [
-    { text: `🗑 ${i + 1}. ${short(item.text, 25)}`, callback_data: `del_${item.timestamp}` },
+    { text: `\ud83d\uddd1 ${i + 1}. ${short(item.text, 25)}`, callback_data: `del_${item.timestamp}` },
   ]);
   return { text, keyboard: { inline_keyboard } };
 }
@@ -307,23 +307,23 @@ async function showCalendario(env, chatId) {
   try {
     eventi = await getCalendar(env);
   } catch (err) {
-    await sendTelegramMessage(env, chatId, "⚠️ Non riesco a leggere il calendario ora: " + err.message, mainKeyboard());
+    await sendTelegramMessage(env, chatId, "\u26a0\ufe0f Non riesco a leggere il calendario ora: " + err.message, mainKeyboard());
     return;
   }
   if (eventi.length === 0) {
     await sendTelegramMessage(
       env,
       chatId,
-      "🗓 Per ora non c'è nessun contenuto in programma nella coda.\n\n(Qui vedi i post già pronti e schedulati; quando la catena ne prepara di nuovi compaiono qui.)",
+      "\ud83d\uddd3 Per ora non c'\u00e8 nessun contenuto in programma nella coda.\n\n(Qui vedi i post gi\u00e0 pronti e schedulati; quando la catena ne prepara di nuovi compaiono qui.)",
       mainKeyboard()
     );
     return;
   }
-  const righe = eventi.map((e) => `📅 ${formatDateIT(e.date)} — ${e.titolo}`).join("\n");
+  const righe = eventi.map((e) => `\ud83d\udcc5 ${formatDateIT(e.date)} \u2014 ${e.titolo}`).join("\n");
   await sendTelegramMessage(
     env,
     chatId,
-    `🗓 Cosa sta per uscire su @sanmarinohappens:\n\n${righe}\n\nℹ️ È il programma dei post già pronti (data = giorno di pubblicazione).`,
+    `\ud83d\uddd3 Cosa sta per uscire su @sanmarinohappens:\n\n${righe}\n\n\u2139\ufe0f \u00c8 il programma dei post gi\u00e0 pronti (data = giorno di pubblicazione).`,
     mainKeyboard()
   );
 }
@@ -368,20 +368,20 @@ async function showCancellablePosts(env, chatId) {
   try {
     eventi = await getCalendar(env);
   } catch (err) {
-    await sendTelegramMessage(env, chatId, "⚠️ Non riesco a leggere il programma ora: " + err.message, mainKeyboard());
+    await sendTelegramMessage(env, chatId, "\u26a0\ufe0f Non riesco a leggere il programma ora: " + err.message, mainKeyboard());
     return;
   }
   if (eventi.length === 0) {
-    await sendTelegramMessage(env, chatId, "🗓 Non c'è nessun evento in programma da annullare al momento.", mainKeyboard());
+    await sendTelegramMessage(env, chatId, "\ud83d\uddd3 Non c'\u00e8 nessun evento in programma da annullare al momento.", mainKeyboard());
     return;
   }
   const inline_keyboard = eventi.map((e) => [
-    { text: `⛔ ${formatDateIT(e.date)} · ${short(e.titolo, 28)}`, callback_data: `cxl_${e.file}` },
+    { text: `\u26d4 ${formatDateIT(e.date)} \u00b7 ${short(e.titolo, 28)}`, callback_data: `cxl_${e.file}` },
   ]);
   await sendTelegramMessage(
     env,
     chatId,
-    "⛔ Quale evento è stato ANNULLATO?\n\nToccalo per toglierlo dal programma — ti chiederò conferma prima di rimuoverlo davvero.",
+    "\u26d4 Quale evento \u00e8 stato ANNULLATO?\n\nToccalo per toglierlo dal programma \u2014 ti chieder\u00f2 conferma prima di rimuoverlo davvero.",
     { inline_keyboard }
   );
 }
@@ -392,18 +392,18 @@ async function confirmCancel(env, cq, file) {
   const post = await readPost(env, file);
   if (!post) {
     await answerCallback(env, cq.id, "Non trovato");
-    await editMessageText(env, chatId, cq.message.message_id, "🤔 Non trovo più quel post (forse già tolto).", { inline_keyboard: [] });
+    await editMessageText(env, chatId, cq.message.message_id, "\ud83e\udd14 Non trovo pi\u00f9 quel post (forse gi\u00e0 tolto).", { inline_keyboard: [] });
     return;
   }
   await answerCallback(env, cq.id, "");
   const text =
     `Confermi? Sto per TOGLIERE dal programma:\n\n` +
-    `⛔ ${post.titolo}\n📅 ${formatDateIT(post.date)} — ${urgencyLabel(post.date)}\n\n` +
-    `Non verrà pubblicato su Instagram/Facebook. Sei sicuro?`;
+    `\u26d4 ${post.titolo}\n\ud83d\udcc5 ${formatDateIT(post.date)} \u2014 ${urgencyLabel(post.date)}\n\n` +
+    `Non verr\u00e0 pubblicato su Instagram/Facebook. Sei sicuro?`;
   const keyboard = {
     inline_keyboard: [
-      [{ text: "✅ Sì, togli dal programma", callback_data: `cxlok_${file}` }],
-      [{ text: "❌ No, lascia com'è", callback_data: "cxlno" }],
+      [{ text: "\u2705 S\u00ec, togli dal programma", callback_data: `cxlok_${file}` }],
+      [{ text: "\u274c No, lascia com'\u00e8", callback_data: "cxlno" }],
     ],
   };
   await editMessageText(env, chatId, cq.message.message_id, text, keyboard);
@@ -412,7 +412,7 @@ async function confirmCancel(env, cq, file) {
 // Fase 3: rimuove davvero il post (JSON + immagini) dalla coda posts/
 async function doCancel(env, cq, file) {
   const chatId = String(cq.message.chat.id);
-  await answerCallback(env, cq.id, "Sto togliendo…");
+  await answerCallback(env, cq.id, "Sto togliendo\u2026");
   const post = await readPost(env, file);
   const titolo = post ? post.titolo : file;
   const images = post ? post.images : [];
@@ -433,11 +433,11 @@ async function doCancel(env, cq, file) {
 
   let msg;
   if (deleted > 0 && errors.length === 0) {
-    msg = `✅ Fatto! «${titolo}» tolto dal programma.\n\nNon uscirà su Instagram/Facebook. 🛡️`;
+    msg = `\u2705 Fatto! \u00ab${titolo}\u00bb tolto dal programma.\n\nNon uscir\u00e0 su Instagram/Facebook. \ud83d\udee1\ufe0f`;
   } else if (deleted > 0) {
-    msg = `⚠️ «${titolo}» tolto solo in parte. Non sono riuscito a rimuovere: ${errors.join(", ")}.\nControlla la cartella posts/ a mano.`;
+    msg = `\u26a0\ufe0f \u00ab${titolo}\u00bb tolto solo in parte. Non sono riuscito a rimuovere: ${errors.join(", ")}.\nControlla la cartella posts/ a mano.`;
   } else {
-    msg = `🤔 Non ho tolto niente (forse era già stato rimosso). Controlla con 🗓 Calendario.`;
+    msg = `\ud83e\udd14 Non ho tolto niente (forse era gi\u00e0 stato rimosso). Controlla con \ud83d\uddd3 Calendario.`;
   }
   await editMessageText(env, chatId, cq.message.message_id, msg, { inline_keyboard: [] });
 }
@@ -551,7 +551,7 @@ function parseQueueLines(content) {
     .filter((line) => line.trim().startsWith("- [ ]"))
     .map((line) => {
       const withoutPrefix = line.replace(/^- \[ \]\s*/, "");
-      const dashIndex = withoutPrefix.indexOf("—");
+      const dashIndex = withoutPrefix.indexOf("\u2014");
       let timestamp = "";
       let text = withoutPrefix.trim();
       if (dashIndex >= 0) {
@@ -565,7 +565,7 @@ function parseQueueLines(content) {
 async function appendToQueue(env, eventText) {
   const { content, sha } = await readQueueFile(env);
   const timestamp = new Date().toISOString();
-  const newLine = `- [ ] ${timestamp} — ${eventText}\n`;
+  const newLine = `- [ ] ${timestamp} \u2014 ${eventText}\n`;
   const updatedContent = content + newLine;
   await writeQueueFile(env, updatedContent, sha, `Nuovo evento in coda: ${eventText.slice(0, 50)}`);
 }
@@ -666,7 +666,7 @@ function isAuthorized(env, chatId) {
 }
 
 function short(s, max) {
-  return s.length > max ? s.slice(0, max - 1) + "…" : s;
+  return s.length > max ? s.slice(0, max - 1) + "\u2026" : s;
 }
 
 // Data di oggi in fuso San Marino, formato YYYY-MM-DD.
@@ -700,9 +700,9 @@ function daysUntil(dateISO) {
 function urgencyLabel(dateISO) {
   const n = daysUntil(dateISO);
   if (n === null) return "data non chiara";
-  if (n < 0) return "già passato";
-  if (n === 0) return "🚨 È OGGI!";
-  if (n === 1) return "🚨 è DOMANI (urgente)";
-  if (n <= URGENT_DAYS) return `🚨 tra ${n} giorni (urgente)`;
+  if (n < 0) return "gi\u00e0 passato";
+  if (n === 0) return "\ud83d\udea8 \u00c8 OGGI!";
+  if (n === 1) return "\ud83d\udea8 \u00e8 DOMANI (urgente)";
+  if (n <= URGENT_DAYS) return `\ud83d\udea8 tra ${n} giorni (urgente)`;
   return `tra ${n} giorni`;
 }
