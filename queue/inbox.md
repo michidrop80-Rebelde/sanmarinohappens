@@ -1,1 +1,2 @@
 - [ ] 2026-07-19T08:13:10.248Z — Ho scoperto che a dogana è stato inaugurata una mostra con waho e Modigliani, non so niente di più, magari la isieriamo come evento spot
+- [ ] 2026-07-19T09:37:09.412Z — Il rally biancoazzurro è anche oggi, come mai noi non lo abbiamo nelle storie?
