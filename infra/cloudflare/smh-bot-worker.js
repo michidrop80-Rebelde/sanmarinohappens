@@ -11,6 +11,8 @@
 //    - ❓ Aiuto
 //    In più: SCRIVERE un messaggio normale (senza comando) = aggiunge un evento.
 //    Per cancellare: bottoni 🗑 sotto ogni segnalazione (inline).
+//    MANDARE una FOTO (volantino/locandina) = la salva in queue/foto/ + riga in
+//    queue/foto-inbox.md e risponde; la legge poi Claude (postino, vision).
 // 4. Comandi testuali equivalenti (per il menù "/" e per abitudine):
 //    /aggiungi /segnalazioni /calendario /aiuto  (+ vecchi /smh-aggiungi ecc.)
 // 5. Scrive/legge queue/inbox.md nel repo GitHub via Contents API.
@@ -66,21 +68,48 @@ export default {
 
     // --- 2) Messaggio normale ---
     const message = update.message;
-    if (!message || !message.text) {
-      // ignora update senza testo (edit, sticker, foto, ecc.)
+    if (!message || !message.chat) {
+      // update senza messaggio o senza chat (edit, ecc.): niente da fare
       return new Response("ok");
     }
 
     const chatId = String(message.chat.id);
     if (!isAuthorized(env, chatId)) {
+      // Rispondi la cortesia solo se c'\u00e8 qualcosa a cui rispondere (testo o foto)
+      if (message.text || message.photo) {
+        await sendTelegramMessage(
+          env,
+          chatId,
+          "Ciao! \ud83d\udc4b Questo \u00e8 il bot interno di San Marino Happens \ud83c\uddf8\ud83c\uddf2, per ora riservato allo staff.\n\nSe vuoi segnalarci un evento del Titano, scrivici pure su Instagram o Facebook: @sanmarinohappens. Grazie! \ud83d\ude0a"
+        );
+      }
+      return new Response("ok");
+    }
+
+    // --- 2a) Messaggio con FOTO (poster/screenshot di un evento) ---
+    // Il bot NON legge la foto: la salva nel repo e avvisa. La legge poi Claude
+    // (vision) col postino, ricavandone gli eventi come da-verificare.
+    if (message.photo && message.photo.length > 0) {
+      try {
+        await handlePhoto(env, chatId, message);
+      } catch (err) {
+        await sendTelegramMessage(env, chatId, "\u26a0\ufe0f Ops, non sono riuscito a salvare la foto: " + err.message, mainKeyboard());
+      }
+      return new Response("ok");
+    }
+
+    // --- 2b) Messaggio senza testo e senza foto (sticker, audio, ecc.) ---
+    if (!message.text) {
       await sendTelegramMessage(
         env,
         chatId,
-        "Ciao! \ud83d\udc4b Questo \u00e8 il bot interno di San Marino Happens \ud83c\uddf8\ud83c\uddf2, per ora riservato allo staff.\n\nSe vuoi segnalarci un evento del Titano, scrivici pure su Instagram o Facebook: @sanmarinohappens. Grazie! \ud83d\ude0a"
+        "Per ora gestisco testo e foto. \ud83d\ude42 Scrivimi l'evento a parole, oppure mandami una foto del volantino.",
+        mainKeyboard()
       );
       return new Response("ok");
     }
 
+    // --- 2c) Messaggio di testo ---
     const text = message.text.trim();
 
     try {
@@ -263,6 +292,92 @@ async function addEvento(env, chatId, eventText) {
   } catch (err) {
     await sendTelegramMessage(env, chatId, "\u26a0\ufe0f Ops, non sono riuscito a salvarlo su GitHub: " + err.message, mainKeyboard());
   }
+}
+
+// ------------------------------------------------------------
+// FOTO — salva il poster/screenshot nel repo per la revisione (Claude la legge poi)
+// Il bot NON interpreta l'immagine: scarica il file, lo committa in queue/foto/,
+// aggiunge una riga in queue/foto-inbox.md e avvisa il mittente. La lettura vera
+// (estrazione eventi via vision) la fa il postino della catena.
+// ------------------------------------------------------------
+const FOTO_INBOX_PATH = "queue/foto-inbox.md";
+
+async function handlePhoto(env, chatId, message) {
+  // 1. Prende la variante a risoluzione più alta (Telegram le ordina crescenti)
+  const sizes = message.photo;
+  const largest = sizes[sizes.length - 1];
+
+  // 2. getFile → file_path, poi scarica i byte reali
+  const filePath = await tgGetFilePath(env, largest.file_id);
+  const bytes = await tgDownloadFile(env, filePath);
+
+  // 3. Nome file unico (timestamp + file_unique_id: due foto insieme non collidono)
+  const iso = new Date().toISOString().replace(/[:.]/g, "-");
+  const uid = (largest.file_unique_id || "img").replace(/[^A-Za-z0-9_-]/g, "");
+  const name = `queue/foto/${iso}_${uid}.jpg`;
+
+  // 4. Committa l'immagine nel repo (binario, file nuovo → niente sha)
+  await writeBinaryFileAt(env, name, bytes, `Foto ricevuta dal bot: ${iso}`);
+
+  // 5. Aggiunge la riga di revisione in queue/foto-inbox.md
+  const caption = (message.caption || "").trim();
+  const { content, sha } = await readFileAt(env, FOTO_INBOX_PATH);
+  const ts = new Date().toISOString();
+  const line = `- [ ] ${ts} — ${reporterTag(message)} — ${name} — didascalia: ${caption || "(nessuna)"}\n`;
+  await writeFileAt(env, FOTO_INBOX_PATH, content + line, sha, `Foto in coda per revisione: ${iso}`);
+
+  // 6. Avvisa il mittente (finalmente una risposta anche per le foto!)
+  await sendTelegramMessage(
+    env,
+    chatId,
+    "📷 Ho ricevuto la foto e l'ho salvata — la guardo io e ne ricavo gli eventi. Grazie! 🇸🇲\n\n(Se sul volantino ci sono data, luogo e ora, tanto meglio: passeranno comunque dalla revisione prima di andare online.)",
+    mainKeyboard()
+  );
+}
+
+// Telegram getFile: da file_id al file_path scaricabile
+async function tgGetFilePath(env, fileId) {
+  const url = `https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/getFile?file_id=${encodeURIComponent(fileId)}`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`getFile ${res.status}`);
+  const data = await res.json();
+  if (!data.ok || !data.result || !data.result.file_path) throw new Error("getFile: file_path mancante");
+  return data.result.file_path;
+}
+
+// Scarica i byte del file da Telegram → Uint8Array
+async function tgDownloadFile(env, filePath) {
+  const url = `https://api.telegram.org/file/bot${env.TELEGRAM_BOT_TOKEN}/${filePath}`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`download foto ${res.status}`);
+  const buf = await res.arrayBuffer();
+  return new Uint8Array(buf);
+}
+
+// PUT binario su GitHub: il content è il base64 dei BYTE reali (non il trucco
+// testo unescape(encodeURIComponent()), che serve solo per stringhe UTF-8).
+async function writeBinaryFileAt(env, path, bytes, commitMessage) {
+  const enc = path.split("/").map(encodeURIComponent).join("/");
+  const apiUrl = `https://api.github.com/repos/${env.GITHUB_OWNER}/${env.GITHUB_REPO}/contents/${enc}`;
+  const putRes = await fetch(apiUrl, {
+    method: "PUT",
+    headers: { ...ghHeaders(env), "Content-Type": "application/json" },
+    body: JSON.stringify({ message: commitMessage, content: bytesToBase64(bytes) }),
+  });
+  if (!putRes.ok) {
+    const errText = await putRes.text();
+    throw new Error(`GitHub write (bin) failed: ${putRes.status} ${errText}`);
+  }
+}
+
+// Uint8Array → base64 (a blocchi, per non sforare lo stack con file grandi)
+function bytesToBase64(bytes) {
+  let binary = "";
+  const chunk = 0x8000;
+  for (let i = 0; i < bytes.length; i += chunk) {
+    binary += String.fromCharCode.apply(null, bytes.subarray(i, i + chunk));
+  }
+  return btoa(binary);
 }
 
 // ------------------------------------------------------------

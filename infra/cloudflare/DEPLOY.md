@@ -82,6 +82,21 @@ Se tutto risponde di sì, il bot è completo e live. 🎉
   `queue/annullamenti.md` (con chi l'ha scritta); poi Michele + Claude capiscono di quale post
   si tratta e lo tolgono dal programma prima che esca. (Serve anche al futuro bot pubblico:
   un organizzatore scrive «il mio evento è annullato» senza sapere nulla della coda.)
+- **📷 Foto** (novità 23/07): mandare una **foto** (volantino, locandina, screenshot con
+  appuntamenti) ora funziona. Il bot la salva nel repo (`queue/foto/`), aggiunge una riga in
+  `queue/foto-inbox.md` e risponde «📷 Ho ricevuto la foto». Non la legge lui: la legge poi
+  **Claude** (col postino `/smh-postino`, vision) e ne ricava gli eventi come `da-verificare`.
+  Prima del 23/07 le foto venivano ignorate in silenzio (nessuna risposta, niente salvato).
 - **Sicurezza**: solo il chat_id di Michele (`AUTHORIZED_CHAT_IDS`) ha accesso ai comandi;
   chiunque altro riceve solo un messaggio di cortesia. Niente va online in automatico:
   tutto passa dalla revisione umana.
+
+---
+
+## ⚠️ Deploy necessario ORA (23/07/2026) — funzione foto
+Il codice della **gestione foto** è già nel repo (`smh-bot-worker.js`), ma finché non fai il
+**deploy** (passo 1 qui sopra) il bot online continua a ignorare le foto. Nessuna variabile
+nuova da aggiungere: `getFile`/download usano il `TELEGRAM_BOT_TOKEN` che c'è già, il
+salvataggio immagine usa il `GITHUB_TOKEN` che c'è già. **Prova dopo il deploy:** manda una
+foto qualsiasi al bot → deve rispondere «📷 Ho ricevuto la foto e l'ho salvata». (Il menù
+BotFather NON va rifatto: non cambiano i comandi.)
