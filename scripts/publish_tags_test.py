@@ -154,9 +154,76 @@ def test_trasporto():
              u4[0]['user_tags'] == [] and u4[0]['chiave'] == '20260725_Post giornaliero.png')
 
 
+# ---------------------------------------------------------------------------
+# 3) Invio a Instagram + regola d'oro
+# ---------------------------------------------------------------------------
+def _reset_finto():
+    CHIAMATE.clear()
+    RISPOSTE.clear()
+    publish.TAG_SALTATI.clear()
+    publish.INSTAGRAM_TOKEN = 'TOKEN_FINTO'
+    publish.INSTAGRAM_USER_ID = '123'
+
+
+def test_invio():
+    print('\n[3] Invio a Instagram e regola d\'oro')
+    import json as _json
+
+    _reset_finto()
+    tags = [{'username': 'tizio', 'x': 0.5, 'y': 0.9}]
+    publish.ig_create_media_container('http://esempio/x.png', 'didascalia', tags)
+    inviato = CHIAMATE[0]['data']
+    verifica('user_tags finisce nel payload', 'user_tags' in inviato)
+    verifica('user_tags e\' serializzato in JSON',
+             _json.loads(inviato['user_tags']) == tags)
+
+    _reset_finto()
+    publish.ig_create_media_container('http://esempio/x.png', 'didascalia', [])
+    verifica('nessun tag -> il payload resta come prima',
+             'user_tags' not in CHIAMATE[0]['data'])
+
+    # Regola d'oro: il primo tentativo (con tag) fallisce, il secondo (senza) riesce.
+    _reset_finto()
+    RISPOSTE.append(FintaRisposta(400, {'error': {'message': 'utente non taggabile'}}))
+    RISPOSTE.append(FintaRisposta(200, {'id': 'CONTAINER_OK'}))
+    RISPOSTE.append(FintaRisposta(200, {'id': 'POST_PUBBLICATO'}))
+    esito = publish.ig_pubblica_foto('http://esempio/x.png', 'didascalia', tags)
+    verifica('il post esce lo stesso quando i tag vengono rifiutati',
+             esito == 'POST_PUBBLICATO')
+    verifica('il secondo tentativo e\' senza tag',
+             'user_tags' not in CHIAMATE[1]['data'])
+    verifica('il tag saltato viene registrato per il riepilogo',
+             len(publish.TAG_SALTATI) == 1)
+
+    # Se fallisce anche senza tag, non si insiste all'infinito.
+    _reset_finto()
+    RISPOSTE.append(FintaRisposta(400, {'error': 'x'}))
+    RISPOSTE.append(FintaRisposta(400, {'error': 'x'}))
+    verifica('fallimento vero: ritorna None dopo due tentativi',
+             publish.ig_pubblica_foto('http://esempio/x.png', 'didascalia', tags) is None)
+    verifica('due tentativi, non di piu', len(CHIAMATE) == 2)
+
+    # La storia manda i suoi tag.
+    _reset_finto()
+    publish.ig_pubblica_storia('http://esempio/s.png', tags)
+    verifica('la storia manda i tag',
+             _json.loads(CHIAMATE[0]['data']['user_tags']) == tags)
+    verifica('la storia resta media_type=STORIES',
+             CHIAMATE[0]['data']['media_type'] == 'STORIES')
+
+    # pubblica_unita passa i tag dell'unita'.
+    _reset_finto()
+    unita = {'kind': 'foto', 'chiave': 'x.png', 'immagini': [], 'etichetta': 'foto',
+             'user_tags': tags}
+    publish.pubblica_unita('ig', unita, ['http://esempio/x.png'], 'didascalia')
+    verifica('pubblica_unita inoltra i tag dell\'unita',
+             _json.loads(CHIAMATE[0]['data']['user_tags']) == tags)
+
+
 def main():
     test_guardia()
     test_trasporto()
+    test_invio()
     falliti = [d for d, ok in ESITI if not ok]
     print('\n' + '=' * 60)
     print(f'{len(ESITI) - len(falliti)}/{len(ESITI)} verifiche passate')

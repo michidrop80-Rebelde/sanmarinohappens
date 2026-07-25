@@ -102,6 +102,9 @@ TIPI_VALIDI = TIPI_FOTO_SINGOLA | {'carosello', 'storia'}
 TIPI_TAGGABILI = {'giornaliero', 'storia'}
 MAX_TAG_PER_IMMAGINE = 3
 
+# Tag rifiutati da Instagram e ripubblicati senza: righe per il riepilogo Telegram.
+TAG_SALTATI = []
+
 
 def oggi():
     if TEST_DATE:
@@ -450,8 +453,11 @@ def archivia_busta(json_file, immagini, meta):
 # ---------------------------------------------------------------------------
 # Instagram (graph.instagram.com)
 # ---------------------------------------------------------------------------
-def ig_create_media_container(image_url_str, caption):
+def ig_create_media_container(image_url_str, caption, user_tags=None):
     payload = {'image_url': image_url_str, 'caption': caption, 'access_token': INSTAGRAM_TOKEN}
+    if user_tags:
+        # Meta vuole una lista di {username, x, y} serializzata.
+        payload['user_tags'] = json.dumps(user_tags)
     resp = requests.post(f"{IG_API}/{INSTAGRAM_USER_ID}/media", data=payload)
     if resp.status_code == 200:
         return resp.json().get('id')
@@ -500,9 +506,18 @@ def ig_publish_media(creation_id):
     return None
 
 
-def ig_pubblica_foto(image_url_str, caption):
-    """Foto singola nel feed: container + publish. Ritorna l'id, o None."""
-    container_id = ig_create_media_container(image_url_str, caption)
+def ig_pubblica_foto(image_url_str, caption, user_tags=None):
+    """Foto singola nel feed: container + publish. Ritorna l'id, o None.
+    REGOLA D'ORO: un tag non deve mai costare un post. Se il container viene
+    rifiutato E avevamo dei tag (account diventato privato, handle cambiato...),
+    si riprova UNA volta senza tag: il post esce comunque e il riepilogo lo dice."""
+    container_id = ig_create_media_container(image_url_str, caption, user_tags)
+    if not container_id and user_tags:
+        nomi = ', '.join('@' + str(t.get('username')) for t in user_tags)
+        print(f"⚠️ container IG rifiutato con i tag ({nomi}): riprovo senza tag.")
+        container_id = ig_create_media_container(image_url_str, caption, None)
+        if container_id:
+            TAG_SALTATI.append(f"{image_url_str.rsplit('/', 1)[-1]}: pubblicato SENZA tag ({nomi})")
     if not container_id:
         return None
     return ig_publish_media(container_id)
@@ -534,15 +549,28 @@ def ig_pubblica_carosello(image_urls, caption):
     return ig_publish_media(parent_id)
 
 
-def ig_pubblica_storia(image_url_str):
+def ig_pubblica_storia(image_url_str, user_tags=None):
     """Storia IG: container con media_type=STORIES, poi publish. Ritorna l'id, o None.
-    Le storie non hanno caption (il testo e' dentro la grafica)."""
-    payload = {'image_url': image_url_str, 'media_type': 'STORIES', 'access_token': INSTAGRAM_TOKEN}
-    resp = requests.post(f"{IG_API}/{INSTAGRAM_USER_ID}/media", data=payload)
-    if resp.status_code != 200:
+    Le storie non hanno caption (il testo e' dentro la grafica). Vale la stessa
+    REGOLA D'ORO della foto: se i tag fanno rifiutare il container, si riprova senza."""
+    def crea(tags):
+        payload = {'image_url': image_url_str, 'media_type': 'STORIES',
+                   'access_token': INSTAGRAM_TOKEN}
+        if tags:
+            payload['user_tags'] = json.dumps(tags)
+        resp = requests.post(f"{IG_API}/{INSTAGRAM_USER_ID}/media", data=payload)
+        if resp.status_code == 200:
+            return resp.json().get('id')
         print(f"Errore container STORIES IG: {resp.status_code} - {resp.text}")
         return None
-    container_id = resp.json().get('id')
+
+    container_id = crea(user_tags)
+    if not container_id and user_tags:
+        nomi = ', '.join('@' + str(t.get('username')) for t in user_tags)
+        print(f"⚠️ container storia rifiutato con i tag ({nomi}): riprovo senza tag.")
+        container_id = crea(None)
+        if container_id:
+            TAG_SALTATI.append(f"{image_url_str.rsplit('/', 1)[-1]}: storia pubblicata SENZA tag ({nomi})")
     if not container_id:
         return None
     return ig_publish_media(container_id)
@@ -678,13 +706,14 @@ def pubblica_unita(canale, unita, image_urls, caption):
     """Pubblica UNA unita' su UN canale. Ritorna l'id/esito (truthy) o None.
     image_urls = lista di URL (1 elemento per foto/storia, N per carosello)."""
     kind = unita['kind']
+    tags = unita.get('user_tags') or None
     if canale == 'ig':
         if kind == 'foto':
-            return ig_pubblica_foto(image_urls[0], caption)
+            return ig_pubblica_foto(image_urls[0], caption, tags)
         if kind == 'carosello':
             return ig_pubblica_carosello(image_urls, caption)
         if kind == 'storia':
-            return ig_pubblica_storia(image_urls[0])
+            return ig_pubblica_storia(image_urls[0], tags)
     elif canale == 'fb':
         if kind == 'foto':
             return fb_pubblica_foto(image_urls[0], caption)
@@ -823,6 +852,12 @@ def main():
         righe_report.append("⚠️ BUSTE ANOMALE (saltate):")
         for nome_json, motivo in anomali:
             righe_report.append(f"   • {nome_json} — {motivo}")
+
+    if TAG_SALTATI:
+        righe_report.append("")
+        righe_report.append("⚠️ Tag saltati (post pubblicati lo stesso):")
+        for riga in TAG_SALTATI:
+            righe_report.append(f"   • {riga}")
 
     intestazione = ("🟢 PUBBLICAZIONE LIVE" if PUBLISH_LIVE
                     else "🧪 SIMULAZIONE (nessun post reale)")
