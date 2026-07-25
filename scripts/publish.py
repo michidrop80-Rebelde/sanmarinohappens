@@ -96,6 +96,12 @@ TZ = ZoneInfo('Europe/San_Marino')
 TIPI_FOTO_SINGOLA = {'giornaliero', 'settimanale', 'weekend'}  # 1 immagine, feed
 TIPI_VALIDI = TIPI_FOTO_SINGOLA | {'carosello', 'storia'}
 
+# Tag utente Instagram: si taggano SOLO i contenuti di un singolo evento.
+# Gli aggregati (settimanale, weekend, carosello) contengono 5-10 eventi:
+# taggarne alcuni sarebbe una preferenza arbitraria, contro la regola di equita'.
+TIPI_TAGGABILI = {'giornaliero', 'storia'}
+MAX_TAG_PER_IMMAGINE = 3
+
 
 def oggi():
     if TEST_DATE:
@@ -253,6 +259,50 @@ def caption_prezzi(caption):
     return trovati
 
 
+def tag_anomalie(meta, tipo, immagini):
+    """Controlla il campo 'user_tags' di una busta. Ritorna la lista dei problemi
+    (vuota = tutto a posto). E' la rete AUTOMATICA lato GitHub, gemella del
+    controllo che /smh-check fa sul Mac: qui verifichiamo solo la FORMA (il robot
+    non ha il registro degli handle, che vive sul Mac), sul Mac si verifica che
+    ogni handle sia davvero registrato e pertinente.
+
+    Forma attesa: {'nome-immagine.png': [{'username': str, 'x': float, 'y': float}]}
+    """
+    mappa = meta.get('user_tags')
+    if mappa is None:
+        return []                      # busta senza tag: e' il caso normale
+    if not isinstance(mappa, dict):
+        return ["user_tags non e' un dizionario nome-immagine -> lista di tag"]
+
+    problemi = []
+    if tipo not in TIPI_TAGGABILI:
+        problemi.append(f"user_tags su tipo '{tipo}': gli aggregati non si taggano")
+
+    nomi_immagini = {p.name for p in immagini}
+    for chiave, tags in mappa.items():
+        if chiave not in nomi_immagini:
+            problemi.append(f"user_tags: chiave orfana '{chiave}' "
+                            "(nessuna immagine della busta si chiama cosi')")
+            continue
+        if not isinstance(tags, list):
+            problemi.append(f"user_tags['{chiave}'] non e' una lista")
+            continue
+        if len(tags) > MAX_TAG_PER_IMMAGINE:
+            problemi.append(f"user_tags['{chiave}']: {len(tags)} tag "
+                            f"(massimo {MAX_TAG_PER_IMMAGINE})")
+        for t in tags:
+            if not isinstance(t, dict) or not str(t.get('username') or '').strip():
+                problemi.append(f"user_tags['{chiave}']: tag senza username")
+                continue
+            for asse in ('x', 'y'):
+                v = t.get(asse)
+                # attenzione: in Python True e' un int, va escluso esplicitamente
+                if isinstance(v, bool) or not isinstance(v, (int, float)) or not (0.0 <= v <= 1.0):
+                    problemi.append(f"user_tags['{chiave}'] @{t.get('username')}: "
+                                    f"{asse}={v!r} fuori dall'intervallo 0.0-1.0")
+    return problemi
+
+
 # ---------------------------------------------------------------------------
 # Smistamento delle buste in coda
 # ---------------------------------------------------------------------------
@@ -330,6 +380,12 @@ def classifica_buste():
                                 "prezzo/gratuità in caption (regola equità, i costi vanno solo "
                                 f"nel link in bio): «{'», «'.join(prezzi)}»"))
                 continue
+        # 6c) TAG UTENTE malformati? -> blocca e segnala (vale anche per le storie,
+        # che non passano dal controllo caption qui sopra).
+        problemi_tag = tag_anomalie(meta, tipo, immagini)
+        if problemi_tag:
+            anomali.append((json_file.name, "tag utente: " + " · ".join(problemi_tag)))
+            continue
         # 7) smistamento per data (+ ora, solo se e' proprio oggi)
         giorni_ritardo = (data_oggi - data_pub).days
         busta = {'json_file': json_file, 'meta': meta, 'tipo': tipo,
