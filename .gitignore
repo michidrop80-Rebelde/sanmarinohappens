@@ -223,3 +223,7 @@ __marimo__/
 # e ripubblica tutto (post doppi/tripli). La riga '*.log' piu' sopra lo escludeva:
 # la riga seguente lo re-include (in git l'ultima regola che combacia vince).
 !published.log
+
+# Segreti — MAI committare (aggiunto 25/07 dopo il recupero)
+.claude/secrets/
+**/.claude/secrets/
