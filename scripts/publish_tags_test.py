@@ -114,8 +114,49 @@ def test_guardia():
              publish.tag_anomalie(non_dizionario, 'giornaliero', una) != [])
 
 
+# ---------------------------------------------------------------------------
+# 2) Trasporto: ogni unita' pubblicabile porta i SUOI tag
+# ---------------------------------------------------------------------------
+def test_trasporto():
+    print('\n[2] I tag arrivano alla singola immagine')
+    jf = Path('/finta/cartella/20260726_Storia.json')
+    tre = [img('20260726_Storia_1.png'),
+           img('20260726_Storia_2.png'),
+           img('20260726_Storia_3.png')]
+    meta = {'user_tags': {
+        '20260726_Storia_1.png': [{'username': 'primo', 'x': 0.5, 'y': 0.92}],
+        '20260726_Storia_2.png': [{'username': 'secondo', 'x': 0.5, 'y': 0.92}],
+    }}
+    unita = publish.costruisci_unita('storia', jf, tre, meta)
+
+    verifica('tre storie -> tre unita', len(unita) == 3)
+    verifica('la storia 1 porta il suo tag',
+             unita[0]['user_tags'] == [{'username': 'primo', 'x': 0.5, 'y': 0.92}])
+    verifica('la storia 2 porta il SUO tag (non quello della 1)',
+             unita[1]['user_tags'] == [{'username': 'secondo', 'x': 0.5, 'y': 0.92}])
+    verifica('la storia 3, senza handle registrato, resta senza tag',
+             unita[2]['user_tags'] == [])
+
+    jf2 = Path('/finta/cartella/20260725_Post giornaliero.json')
+    una = [img('20260725_Post giornaliero.png')]
+    meta2 = {'user_tags': {'20260725_Post giornaliero.png':
+                           [{'username': 'tizio', 'x': 0.5, 'y': 0.9}]}}
+    u2 = publish.costruisci_unita('giornaliero', jf2, una, meta2)
+    verifica('il post feed porta il suo tag',
+             u2[0]['user_tags'] == [{'username': 'tizio', 'x': 0.5, 'y': 0.9}])
+
+    u3 = publish.costruisci_unita('giornaliero', jf2, una, {})
+    verifica('busta senza user_tags: unita con lista vuota (nessun errore)',
+             u3[0]['user_tags'] == [])
+
+    u4 = publish.costruisci_unita('giornaliero', jf2, una)
+    verifica('costruisci_unita senza il parametro meta: funziona come prima',
+             u4[0]['user_tags'] == [] and u4[0]['chiave'] == '20260725_Post giornaliero.png')
+
+
 def main():
     test_guardia()
+    test_trasporto()
     falliti = [d for d, ok in ESITI if not ok]
     print('\n' + '=' * 60)
     print(f'{len(ESITI) - len(falliti)}/{len(ESITI)} verifiche passate')

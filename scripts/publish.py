@@ -212,17 +212,36 @@ def canali_richiesti():
 # La chiave del carosello e' il nome-base del JSON (non un PNG) perche' e' UN post solo
 # anche se contiene piu' immagini; le storie invece sono post distinti -> chiave per PNG.
 # ---------------------------------------------------------------------------
-def costruisci_unita(tipo, json_file, immagini):
+def tag_per_immagine(meta, chiave):
+    """Tag utente della SINGOLA immagine 'chiave'. Lista vuota se la busta non ha
+    tag o non ne ha per quell'immagine. Una busta 'storia' pubblica piu' storie di
+    eventi diversi: i tag sono per immagine, mai per busta."""
+    if not isinstance(meta, dict):
+        return []
+    mappa = meta.get('user_tags')
+    if not isinstance(mappa, dict):
+        return []
+    tags = mappa.get(chiave)
+    return tags if isinstance(tags, list) else []
+
+
+def costruisci_unita(tipo, json_file, immagini, meta=None):
     if tipo in TIPI_FOTO_SINGOLA:
-        return [{'kind': 'foto', 'chiave': immagini[0].name,
-                 'immagini': [immagini[0]], 'etichetta': 'foto'}]
+        chiave = immagini[0].name
+        return [{'kind': 'foto', 'chiave': chiave,
+                 'immagini': [immagini[0]], 'etichetta': 'foto',
+                 'user_tags': tag_per_immagine(meta, chiave)}]
     if tipo == 'carosello':
+        # gli aggregati non si taggano: user_tags resta vuoto per costruzione
         return [{'kind': 'carosello', 'chiave': json_file.stem,
-                 'immagini': list(immagini), 'etichetta': f'carosello ({len(immagini)} foto)'}]
+                 'immagini': list(immagini), 'etichetta': f'carosello ({len(immagini)} foto)',
+                 'user_tags': []}]
     if tipo == 'storia':
         n = len(immagini)
         return [{'kind': 'storia', 'chiave': img.name, 'immagini': [img],
-                 'etichetta': f'storia {i}/{n}'} for i, img in enumerate(immagini, 1)]
+                 'etichetta': f'storia {i}/{n}',
+                 'user_tags': tag_per_immagine(meta, img.name)}
+                for i, img in enumerate(immagini, 1)]
     return []
 
 
@@ -738,7 +757,7 @@ def main():
         titolo = meta.get('titolo_evento', json_file.stem)
         righe_report.append(f"• [{tipo}] {titolo}{etichetta_ritardo}")
 
-        unita = costruisci_unita(tipo, json_file, immagini)
+        unita = costruisci_unita(tipo, json_file, immagini, meta)
 
         for canale in ['ig', 'fb']:
             et = ETICHETTA_CANALE[canale]
