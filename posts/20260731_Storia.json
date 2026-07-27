@@ -7,5 +7,21 @@
     "20260731_Storia_1.png",
     "20260731_Storia_2.png",
     "20260731_Storia_3.png"
-  ]
+  ],
+  "user_tags": {
+    "20260731_Storia_1.png": [
+      {
+        "username": "sanmarinobaseball",
+        "x": 0.5,
+        "y": 0.78
+      }
+    ],
+    "20260731_Storia_3.png": [
+      {
+        "username": "smiaf_artsfestival",
+        "x": 0.5,
+        "y": 0.78
+      }
+    ]
+  }
 }
