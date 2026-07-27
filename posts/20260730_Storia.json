@@ -5,5 +5,14 @@
   "titolo_evento": "Storia del 30 luglio (Tramonti in Vigna, 2ª data)",
   "immagini": [
     "20260730_Storia_1.png"
-  ]
+  ],
+  "user_tags": {
+    "20260730_Storia_1.png": [
+      {
+        "username": "consorzioterradisanmarin",
+        "x": 0.5,
+        "y": 0.78
+      }
+    ]
+  }
 }
