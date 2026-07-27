@@ -1,2 +1,0 @@
-- [ ] 2026-07-26T13:03:56.401Z — Inizia il campionato di calcio
-- [ ] 2026-07-26T13:04:21.825Z — Dobbiamo inserirlo negli eventi e iniziare a pensare ad una nuova rubrica per gli sport
