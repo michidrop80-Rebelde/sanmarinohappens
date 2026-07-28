@@ -1,0 +1,13 @@
+{
+  "tipo": "storia",
+  "data_pubblicazione": "2026-08-06",
+  "ora_pubblicazione": "07:00",
+  "titolo_evento": "Storia del 6 agosto (Tramonti in Vigna + Giuseppe Cederna — Maestri)",
+  "immagini": ["20260806_Storia_1.png"],
+  "user_tags": {
+    "20260806_Storia_1.png": [
+      {"username": "consorzioterradisanmarin", "x": 0.35, "y": 0.78},
+      {"username": "sanmarinoteatro", "x": 0.65, "y": 0.78}
+    ]
+  }
+}

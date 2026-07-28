@@ -1,0 +1,12 @@
+{
+  "tipo": "storia",
+  "data_pubblicazione": "2026-09-15",
+  "ora_pubblicazione": "07:00",
+  "titolo_evento": "Storia del 15 settembre (Concorso Renata Tebaldi)",
+  "immagini": ["20260915_Storia_1.png"],
+  "user_tags": {
+    "20260915_Storia_1.png": [
+      {"username": "sanmarinoteatro", "x": 0.50, "y": 0.78}
+    ]
+  }
+}
