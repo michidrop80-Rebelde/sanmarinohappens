@@ -281,6 +281,26 @@ def caption_prezzi(caption):
     return trovati
 
 
+# ---------------------------------------------------------------------------
+# Guardia FORMATO: lunghezza della caption (limite Instagram)
+# ---------------------------------------------------------------------------
+# Instagram rifiuta le caption oltre 2200 caratteri con l'errore 36004 "The caption
+# was too long", e lo fa DOPO che il post e' partito: il container non viene creato,
+# la busta resta in coda e il robot ci riprova a ogni giro senza mai riuscire.
+# E' successo davvero col carosello di Agosto (02/08/2026): caption di 2407
+# caratteri, uscita su Facebook (che ha un limite molto piu' alto) e MAI su
+# Instagram, 12 tentativi falliti di fila. Meglio saperlo qui, dove la busta viene
+# marcata "anomala" e finisce nell'avviso Telegram, che scoprirlo dai log di Actions.
+# Si conta in unita' UTF-16 (il modo piu' severo: gli emoji possono valere 2), con un
+# piccolo margine, cosi' il controllo non e' mai piu' permissivo di quello di Meta.
+IG_CAPTION_MAX = 2200
+
+
+def lunghezza_caption(caption):
+    """Lunghezza della caption in unita' UTF-16 (come la conta Meta nel caso peggiore)."""
+    return len((caption or '').encode('utf-16-le')) // 2
+
+
 def tag_anomalie(meta, tipo, immagini):
     """Controlla il campo 'user_tags' di una busta. Ritorna la lista dei problemi
     (vuota = tutto a posto). E' la rete AUTOMATICA lato GitHub, gemella del
@@ -394,6 +414,15 @@ def classifica_buste():
             caption_txt = (meta.get('caption') or '').strip()
             if not caption_txt:
                 anomali.append((json_file.name, "caption vuota"))
+                continue
+            # 6a-bis) caption troppo lunga per Instagram? -> blocca e segnala QUI,
+            # invece di farla rifiutare da Meta a ogni giro senza che nessuno lo veda.
+            n_car = lunghezza_caption(caption_txt)
+            if n_car > IG_CAPTION_MAX:
+                anomali.append((json_file.name,
+                                f"caption troppo lunga per Instagram: {n_car} caratteri "
+                                f"(limite {IG_CAPTION_MAX}) — accorciala di almeno "
+                                f"{n_car - IG_CAPTION_MAX}"))
                 continue
             # 6b) PREZZI/GRATUITA' in caption? Regola equita' -> blocca e segnala.
             prezzi = caption_prezzi(caption_txt)
@@ -767,6 +796,11 @@ def main():
 
     pubblicati = get_published()
     righe_report = []  # per la notifica Telegram riepilogativa
+    # Pubblicazioni RIFIUTATE dalla piattaforma (non buste malformate: quelle sono
+    # "anomale"). Vanno contate a parte perche' devono gridare: una riga "❌ errore"
+    # persa in mezzo al riepilogo e' passata inosservata per 12 giri di fila
+    # (carosello di Agosto, 31/07-02/08/2026). Ora alzano l'intestazione del messaggio.
+    fallimenti = []
 
     # In simulazione, verifichiamo UNA volta sola che il token Pagina FB sia valido
     # (una chiamata di sola lettura), invece di ripeterlo per ogni unita'.
@@ -819,6 +853,7 @@ def main():
                         righe_report.append(f"{prefisso} ✅ pubblicato")
                     else:
                         righe_report.append(f"{prefisso} ❌ errore")
+                        fallimenti.append(f"{et} · {u['kind']} · {titolo} ({u['chiave']})")
 
         # ---------- ARCHIVIAZIONE (solo LIVE, solo a post completo) ----------
         # "Completo" = tutte le unita' pubblicate su TUTTI i canali attivi (IG sempre;
@@ -859,9 +894,20 @@ def main():
         for riga in TAG_SALTATI:
             righe_report.append(f"   • {riga}")
 
+    if fallimenti:
+        if righe_report:
+            righe_report.append("")
+        righe_report.append("🔴 PUBBLICAZIONI RIFIUTATE dalla piattaforma "
+                            "(la busta resta in coda e ritentera' fino alla scadenza):")
+        for riga in fallimenti:
+            righe_report.append(f"   • {riga}")
+        righe_report.append("   → il motivo esatto e' nel log della run su GitHub Actions")
+
     intestazione = ("🟢 PUBBLICAZIONE LIVE" if PUBLISH_LIVE
                     else "🧪 SIMULAZIONE (nessun post reale)")
-    if scaduti or anomali:
+    if fallimenti:
+        intestazione = f"🔴 {intestazione} — {len(fallimenti)} PUBBLICAZIONE/I FALLITA/E"
+    elif scaduti or anomali:
         intestazione = "❗ " + intestazione + " — CI SONO BUSTE DA CONTROLLARE"
     if not FB_ENABLED and not PUBLISH_LIVE:
         intestazione += "\n(Facebook non ancora configurato: aggiungi i secret FACEBOOK_PAGE_TOKEN e FACEBOOK_PAGE_ID)"
