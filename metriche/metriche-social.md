@@ -5,7 +5,7 @@
 ⚠️ Regola del progetto: **mai inventare numeri**. Dove il dato manca → `n.d.`
 
 ## Stato token
-- **Token Instagram**: rilasciato il 2026-07-09, scadenza stimata **2026-09-07** (~42 giorni). Alla scadenza si ferma sia la raccolta metriche sia la pubblicazione.
+- **Token Instagram**: rilasciato il 2026-07-09, scadenza stimata **2026-09-07** (~35 giorni). Alla scadenza si ferma sia la raccolta metriche sia la pubblicazione.
 
 ## Andamento settimanale (ultime 12 letture)
 | Lettura | Follower | Cresc. sett. | Post | Reach 28g | Visite prof. 28g | Interazioni 28g |
@@ -14,11 +14,13 @@
 | 2026-07-13 | 0 | (=) | 3 | 0 | 0 | 0 |
 | 2026-07-20 | 3 | (+3) | 10 | 2 | 1 | 0 |
 | 2026-07-27 | 4 | (+1) | 16 | 3 | 1 | 0 |
+| 2026-08-03 | 4 | (=) | 27 | 2 | 1 | 0 |
 
 ## Riepilogo mensile (fotografia di fine mese)
 | Mese | Follower fine mese | Crescita mese | Reach 28g | Interazioni 28g |
 |------|--------------------|---------------|-----------|-----------------|
 | Luglio 2026 | 4 | — | 3 | 0 |
+| Agosto 2026 | 4 | +0 | 2 | 0 |
 
 Legenda: *Reach 28g* = account unici raggiunti negli ultimi 28 giorni (finestra mobile) · *Interazioni* = like + commenti + salvataggi + condivisioni · *Cresc. sett.* = follower guadagnati/persi dalla lettura precedente.
 
