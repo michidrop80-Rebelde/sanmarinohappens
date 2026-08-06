@@ -1,0 +1,33 @@
+name: Diagnostica Instagram (sola lettura)
+
+# Si lancia SOLO a mano. Non pubblica, non cancella, non modifica niente:
+# fa tre domande in lettura a Meta (token valido? quota di pubblicazione? le
+# letture passano?) e stampa le risposte nel log + su Telegram.
+# Serve a distinguere un blocco anti-spam da una quota esaurita: sintomo identico,
+# rimedio opposto.
+on:
+  workflow_dispatch:
+
+jobs:
+  diagnostica:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Diagnostica (sola lettura)
+        env:
+          INSTAGRAM_TOKEN: ${{ secrets.INSTAGRAM_TOKEN }}
+          INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python scripts/diagnostica_ig.py
