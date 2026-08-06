@@ -43,6 +43,20 @@ ARCHIVIAZIONE (solo in LIVE): quando un post e' pubblicato con successo su TUTTI
   archivio/AAAA-MM/ nello stesso repo. posts/ resta la "coda" (solo cio' che deve
   ancora uscire); lo storico non va perso; gli originali restano sul Mac di Michele.
 
+FRENO INSTAGRAM (aggiunto 06/08/2026, dopo il blocco del 03-06/08):
+  Quando Meta risponde "action is blocked" (code 4 / subcode 2207051) NON e' la busta
+  a essere sbagliata: e' Instagram che ha chiuso, e riprovare peggiora le cose (ogni
+  tentativo ricarica le immagini creando un "contenitore" che resta orfano — in 3
+  giorni ne erano rimasti 104+, cioe' il profilo di comportamento che i sistemi
+  anti-spam puniscono). Al primo blocco il reparto colpito va in pausa per 24h; alla
+  scadenza si riprova UNA volta sola. Lo stato vive in stato/instagram.json (versionato,
+  cosi' una run di GitHub Actions si ricorda cosa ha visto la precedente).
+  I reparti sono DUE e indipendenti — 'feed' (foto + caroselli) e 'storie' — perche'
+  nel guasto vero il feed era chiuso mentre le storie uscivano regolarmente.
+  Gli AGGREGATI (settimanale/weekend/carosello) non scadono mentre il feed e' bloccato,
+  purche' il contenuto sia ancora sensato (VALIDITA_AGGREGATO_GIORNI); i post del giorno
+  scadono lo stesso, perche' «oggi c'e' X» pubblicato giorni dopo e' falso.
+
 INTERRUTTORE DI SICUREZZA: se la variabile d'ambiente PUBLISH_LIVE non e' esattamente
   "true", lo script gira in SIMULAZIONE: fa tutto (trova i post di oggi, prepara le
   caption, segnala scaduti/anomali, manda una notifica Telegram) TRANNE pubblicare
@@ -56,7 +70,7 @@ import re
 import json
 import time
 import requests
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 from urllib.parse import quote
 from zoneinfo import ZoneInfo
@@ -104,6 +118,42 @@ MAX_TAG_PER_IMMAGINE = 3
 
 # Tag rifiutati da Instagram e ripubblicati senza: righe per il riepilogo Telegram.
 TAG_SALTATI = []
+
+# ---------------------------------------------------------------------------
+# FRENO INSTAGRAM ("action is blocked") — aggiunto 06/08/2026
+# ---------------------------------------------------------------------------
+# Dal 03/08 al 06/08/2026 Instagram ha rifiutato OGNI post nel feed con
+#   403 · code 4 · subcode 2207051 · "Application request limit reached / action is blocked"
+# mentre le Storie IG e Facebook uscivano regolarmente. Il robot non lo capiva e
+# riprovava 4 volte al giorno: ogni tentativo ricaricava tutte le immagini (un
+# "contenitore" ciascuna) per poi prendersi il 403. In 3 giorni: 104+ contenitori
+# creati e mai pubblicati — cioe' esattamente il comportamento che i sistemi
+# anti-spam di Meta puniscono. Il blocco si autoalimentava.
+#
+# Il freno spezza il circolo: al primo 403 di questo tipo il feed IG si ferma per
+# 24 ore (Storie e Facebook proseguono, sono su binari indipendenti). Alla
+# scadenza si riprova UNA volta sola: se passa, il freno si sgancia; se no, altre
+# 24 ore. Da 20 tentativi al giorno a 1.
+IG_BLOCCO_FILE = Path('stato/instagram.json')
+IG_PAUSA_ORE = 24
+# I codici con cui Meta dice "questa azione e' bloccata" (non "questo contenuto e'
+# sbagliato": una caption troppo lunga NON deve far scattare il freno).
+IG_CODICI_BLOCCO = {4}
+IG_SOTTOCODICI_BLOCCO = {2207051}
+# Il freno e' per REPARTO, non per tutto Instagram: nel guasto del 03-06/08 il feed
+# era chiuso mentre le storie uscivano regolarmente, e fermare anche quelle sarebbe
+# stato un danno gratuito. Due freni indipendenti, stesso meccanismo: cosi' se un
+# domani Meta chiude le storie non ricominciamo a martellare dalla porta accanto.
+IG_KIND_FEED = {'foto', 'carosello'}
+IG_REPARTI = ('feed', 'storie')
+
+# Ultimo errore restituito da Meta su una chiamata IG. Riempito dalle funzioni di
+# pubblicazione, letto da main(): evita di cambiare la firma di mezzo file solo
+# per far risalire un codice di errore.
+IG_ULTIMO_ERRORE = {}
+
+# Quante volte il feed IG e' gia' stato saltato in questo giro (per il report).
+IG_SALTATI = []
 
 
 def oggi():
@@ -346,8 +396,130 @@ def tag_anomalie(meta, tipo, immagini):
 
 
 # ---------------------------------------------------------------------------
+# Freno Instagram: riconoscere il blocco e ricordarselo fra una run e l'altra
+# ---------------------------------------------------------------------------
+def errore_e_blocco_ig(errore):
+    """True se l'errore Meta e' un blocco dell'AZIONE (non un contenuto sbagliato).
+    Distinzione che conta: 'caption troppo lunga' (36004) si risolve correggendo la
+    busta e riprovare ha senso; 'action is blocked' (4 / 2207051) NON si risolve
+    riprovando — riprovare lo peggiora."""
+    if not isinstance(errore, dict):
+        return False
+    return (errore.get('code') in IG_CODICI_BLOCCO
+            or errore.get('error_subcode') in IG_SOTTOCODICI_BLOCCO)
+
+
+def _registra_errore_ig(resp):
+    """Memorizza l'errore Meta dell'ultima chiamata IG andata male."""
+    global IG_ULTIMO_ERRORE
+    try:
+        IG_ULTIMO_ERRORE = (resp.json() or {}).get('error', {}) or {}
+    except (ValueError, AttributeError):
+        IG_ULTIMO_ERRORE = {}
+
+
+def reparto_ig(kind):
+    """A quale freno risponde questa unita': 'feed' (foto e caroselli) o 'storie'."""
+    return 'feed' if kind in IG_KIND_FEED else 'storie'
+
+
+def _leggi_stato_ig():
+    """Tutto il file di stato: {'feed': {...}, 'storie': {...}}."""
+    try:
+        with open(IG_BLOCCO_FILE, 'r', encoding='utf-8') as f:
+            return json.load(f) or {}
+    except (OSError, json.JSONDecodeError):
+        return {}
+
+
+def leggi_freno_ig(reparto='feed'):
+    """Lo stato di UN reparto, o {} se quel reparto non e' bloccato."""
+    dati = _leggi_stato_ig().get(reparto)
+    return dati if isinstance(dati, dict) else {}
+
+
+def stato_freno_ig(reparto='feed'):
+    """Tre stati, come un semaforo:
+      'libero'        -> nessun blocco noto, si pubblica normalmente
+      'in-pausa'      -> blocco attivo, quel reparto non si tocca (zero chiamate)
+      'prova-singola' -> la pausa e' scaduta: si riprova UNA volta sola, e in base
+                         all'esito il freno si sgancia o si riarma per altre 24h
+    """
+    dati = leggi_freno_ig(reparto)
+    if not dati.get('riprova_dopo'):
+        return 'libero'
+    try:
+        riprova_dopo = datetime.fromisoformat(dati['riprova_dopo'])
+    except ValueError:
+        return 'libero'
+    return 'in-pausa' if datetime.now(TZ) < riprova_dopo else 'prova-singola'
+
+
+def ig_bloccato_del_tutto():
+    """True se NESSUN reparto Instagram e' pubblicabile in questo momento."""
+    return all(stato_freno_ig(r) != 'libero' for r in IG_REPARTI)
+
+
+def arma_freno_ig(motivo, reparto='feed'):
+    """Ferma un reparto IG per IG_PAUSA_ORE. Tiene il conto dei tentativi falliti:
+    se il numero cresce di giorno in giorno, il blocco non e' un incidente."""
+    tutto = _leggi_stato_ig()
+    dati = tutto.get(reparto) if isinstance(tutto.get(reparto), dict) else {}
+    adesso = datetime.now(TZ)
+    dati['bloccato_dal'] = dati.get('bloccato_dal') or adesso.isoformat()
+    dati['ultimo_blocco'] = adesso.isoformat()
+    dati['riprova_dopo'] = (adesso + timedelta(hours=IG_PAUSA_ORE)).isoformat()
+    dati['tentativi_falliti'] = int(dati.get('tentativi_falliti', 0)) + 1
+    dati['motivo'] = motivo
+    tutto[reparto] = dati
+    IG_BLOCCO_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with open(IG_BLOCCO_FILE, 'w', encoding='utf-8') as f:
+        json.dump(tutto, f, ensure_ascii=False, indent=2)
+    return dati
+
+
+def sgancia_freno_ig(reparto='feed'):
+    """Quel reparto ha ripubblicato: il suo blocco e' finito."""
+    tutto = _leggi_stato_ig()
+    tutto.pop(reparto, None)
+    try:
+        if tutto:
+            with open(IG_BLOCCO_FILE, 'w', encoding='utf-8') as f:
+                json.dump(tutto, f, ensure_ascii=False, indent=2)
+        else:
+            IG_BLOCCO_FILE.unlink()
+    except OSError:
+        pass
+
+
+def salta_per_freno_ig(kind):
+    """True se questa unita' NON va nemmeno tentata su Instagram adesso."""
+    return stato_freno_ig(reparto_ig(kind)) == 'in-pausa'
+
+
+def quando_riprova_ig(reparto='feed'):
+    """Testo leggibile ('07/08 alle 07:00') per il riepilogo Telegram."""
+    try:
+        d = datetime.fromisoformat(leggi_freno_ig(reparto)['riprova_dopo'])
+    except (KeyError, ValueError, TypeError):
+        return "al prossimo giro"
+    return d.strftime('%d/%m alle %H:%M')
+
+
+# ---------------------------------------------------------------------------
 # Smistamento delle buste in coda
 # ---------------------------------------------------------------------------
+# Aggregati: parlano di piu' giorni, quindi hanno senso anche in ritardo. I post
+# del giorno no — «oggi c'e' X» pubblicato cinque giorni dopo e' semplicemente
+# falso, e infatti Michele ha scelto di lasciarli scadere (decisione 06/08/2026).
+TIPI_AGGREGATI = {'settimanale', 'weekend', 'carosello'}
+# Fin quando un aggregato resta sensato, contato dalla sua data di pubblicazione.
+# Non e' una stima: viene dal calendario editoriale (il weekend esce il giovedi per
+# sab+dom, il settimanale la domenica sera per i 7 giorni dopo, il carosello
+# l'ultimo giorno del mese precedente per tutto il mese).
+VALIDITA_AGGREGATO_GIORNI = {'weekend': 3, 'settimanale': 8, 'carosello': 32}
+
+
 def classifica_buste():
     """Scorre i JSON in posts/ e li smista in base a validita', data_pubblicazione e
     ora_pubblicazione:
@@ -357,20 +529,28 @@ def classifica_buste():
         es. un weekend delle 18:00 non deve uscire al giro delle 7:00). Un ritardo
         di 1+ giorni non aspetta piu' l'ora: e' gia' in recupero, esce appena trovato.
       - scaduti: data piu' vecchia di GRACE_DAYS -> NON si pubblicano, solo avviso.
+      - in_attesa: aggregati oltre GRACE_DAYS che pero' NON sono colpa loro — il
+        feed Instagram e' bloccato (freno armato) e il contenuto e' ancora sensato.
+        Restano in coda senza scadere finche' il blocco dura; non si tenta nulla.
       - anomali: JSON illeggibile, tipo sconosciuto, immagini mancanti/fuori range,
         data assente/malformata, caption vuota (dove serve).
       - futuri (data > oggi, o data == oggi ma ora_pubblicazione non ancora arrivata):
         ignorati in silenzio.
-    Ritorna (da_pubblicare, scaduti, anomali).
-      da_pubblicare / scaduti = liste di dict {json_file, meta, tipo, immagini, giorni_ritardo}
+    Ritorna (da_pubblicare, scaduti, anomali, in_attesa).
+      da_pubblicare / scaduti / in_attesa = liste di dict
+        {json_file, meta, tipo, immagini, giorni_ritardo}
       anomali = lista di (nome_json, motivo)
     """
     data_oggi = oggi()
     ora_adesso = ora_corrente()
-    da_pubblicare, scaduti, anomali = [], [], []
+    da_pubblicare, scaduti, anomali, in_attesa = [], [], [], []
+    # Il freno si legge UNA volta sola: se cambiasse a meta' giro, meta' buste
+    # verrebbero giudicate con una regola e meta' con un'altra. Gli aggregati sono
+    # contenuti da feed, quindi e' il freno del feed a decidere se aspettarli.
+    ig_bloccato = stato_freno_ig('feed') != 'libero'
 
     if not POSTS_DIR.exists():
-        return da_pubblicare, scaduti, anomali
+        return da_pubblicare, scaduti, anomali, in_attesa
 
     for json_file in sorted(POSTS_DIR.glob('*.json')):
         # 1) JSON leggibile?
@@ -450,10 +630,16 @@ def classifica_buste():
             da_pubblicare.append(busta)
         elif giorni_ritardo <= GRACE_DAYS:
             da_pubblicare.append(busta)  # in recupero: l'ora non conta piu', esce appena trovata
+        elif (ig_bloccato and tipo in TIPI_AGGREGATI
+              and giorni_ritardo <= VALIDITA_AGGREGATO_GIORNI[tipo]):
+            # Non e' in ritardo per colpa nostra: Instagram e' chiuso. Finche' il
+            # contenuto copre giorni ancora da venire lo teniamo in vita, cosi' un
+            # carosello del mese in corso non muore per un blocco di 3 giorni.
+            in_attesa.append(busta)
         else:
             scaduti.append(busta)
 
-    return da_pubblicare, scaduti, anomali
+    return da_pubblicare, scaduti, anomali, in_attesa
 
 
 # ---------------------------------------------------------------------------
@@ -490,6 +676,7 @@ def ig_create_media_container(image_url_str, caption, user_tags=None):
     resp = requests.post(f"{IG_API}/{INSTAGRAM_USER_ID}/media", data=payload)
     if resp.status_code == 200:
         return resp.json().get('id')
+    _registra_errore_ig(resp)
     print(f"Errore creazione container IG: {resp.status_code} - {resp.text}")
     return None
 
@@ -531,6 +718,7 @@ def ig_publish_media(creation_id):
     resp = requests.post(f"{IG_API}/{INSTAGRAM_USER_ID}/media_publish", data=payload)
     if resp.status_code == 200:
         return resp.json().get('id')
+    _registra_errore_ig(resp)
     print(f"Errore pubblicazione IG: {resp.status_code} - {resp.text}")
     return None
 
@@ -560,6 +748,7 @@ def ig_pubblica_carosello(image_urls, caption):
         payload = {'image_url': url, 'is_carousel_item': 'true', 'access_token': INSTAGRAM_TOKEN}
         resp = requests.post(f"{IG_API}/{INSTAGRAM_USER_ID}/media", data=payload)
         if resp.status_code != 200:
+            _registra_errore_ig(resp)
             print(f"Errore container figlio IG (carosello): {resp.status_code} - {resp.text}")
             return None
         cid = resp.json().get('id')
@@ -570,6 +759,7 @@ def ig_pubblica_carosello(image_urls, caption):
                'caption': caption, 'access_token': INSTAGRAM_TOKEN}
     resp = requests.post(f"{IG_API}/{INSTAGRAM_USER_ID}/media", data=payload)
     if resp.status_code != 200:
+        _registra_errore_ig(resp)
         print(f"Errore container CAROUSEL IG: {resp.status_code} - {resp.text}")
         return None
     parent_id = resp.json().get('id')
@@ -590,6 +780,7 @@ def ig_pubblica_storia(image_url_str, user_tags=None):
         resp = requests.post(f"{IG_API}/{INSTAGRAM_USER_ID}/media", data=payload)
         if resp.status_code == 200:
             return resp.json().get('id')
+        _registra_errore_ig(resp)
         print(f"Errore container STORIES IG: {resp.status_code} - {resp.text}")
         return None
 
@@ -769,17 +960,29 @@ ETICHETTA_CANALE = {'ig': 'IG', 'fb': 'FB'}
 
 
 def main():
-    da_pubblicare, scaduti, anomali = classifica_buste()
+    da_pubblicare, scaduti, anomali, in_attesa = classifica_buste()
 
     # Se non c'e' nulla di cui parlare (nessun post di oggi, niente scaduto/anomalo —
     # al massimo post futuri), restiamo in silenzio.
-    if not da_pubblicare and not scaduti and not anomali:
+    if not da_pubblicare and not scaduti and not anomali and not in_attesa:
         print(f"Nessuna busta da pubblicare, scaduta o anomala per oggi ({oggi().isoformat()}). Niente da fare.")
         return
 
     modalita = "🟢 LIVE" if PUBLISH_LIVE else "🧪 SIMULAZIONE (PUBLISH_LIVE non attivo)"
     stato_fb = "attivo" if FB_ENABLED else "NON configurato (solo Instagram)"
     print(f"Modalita': {modalita} — Facebook: {stato_fb} — finestra recupero: {GRACE_DAYS} giorni")
+
+    # ---------- FRENO INSTAGRAM (uno per reparto: feed e storie) ----------
+    # 'in-pausa'      -> quel reparto non si tocca proprio (zero contenitori creati)
+    # 'prova-singola' -> le 24h sono passate: UN solo tentativo, poi si decide
+    freno = {r: stato_freno_ig(r) for r in IG_REPARTI}
+    ig_prova_disponibile = {r: freno[r] == 'prova-singola' for r in IG_REPARTI}
+    for r in IG_REPARTI:
+        if freno[r] == 'in-pausa':
+            print(f"⏸ Instagram — {r} IN PAUSA (blocco Meta): non provo, "
+                  f"riprovo il {quando_riprova_ig(r)}. Facebook prosegue.")
+        elif freno[r] == 'prova-singola':
+            print(f"🔁 Pausa Instagram ({r}) scaduta: provo UNA volta sola.")
 
     # Facebook: ricava il vero token di Pagina dal token configurato e sovrascrivi il
     # token globale. Le pubblicazioni FB (foto, foto non pubblicate, storie) devono
@@ -835,6 +1038,17 @@ def main():
                 if gia_pubblicato(u['chiave'], canale, pubblicati):
                     print(f"{et}: {u['chiave']} gia' pubblicato, salto.")
                     righe_report.append(f"{prefisso} già pubblicato (salto)")
+                elif (canale == 'ig'
+                      and (freno[reparto_ig(u['kind'])] == 'in-pausa'
+                           or (freno[reparto_ig(u['kind'])] == 'prova-singola'
+                               and not ig_prova_disponibile[reparto_ig(u['kind'])]))):
+                    # NON creiamo nemmeno il contenitore: era proprio quello a tenere
+                    # vivo il blocco (104+ contenitori orfani in 3 giorni, 03-06/08/2026).
+                    rep = reparto_ig(u['kind'])
+                    print(f"⏸ IG: salto {u['kind']} «{titolo}» — {rep} in pausa "
+                          f"fino al {quando_riprova_ig(rep)}.")
+                    righe_report.append(f"{prefisso} ⏸ Instagram in pausa (blocco Meta)")
+                    IG_SALTATI.append(f"{u['kind']} · {titolo}")
                 elif not PUBLISH_LIVE:
                     if canale == 'fb':
                         if fb_sim_ok:
@@ -846,14 +1060,32 @@ def main():
                     print(f"🧪 {et}: simulerei {u['kind']} di «{titolo}» ({u['chiave']})")
                 else:
                     print(f"{et}: pubblico {u['kind']} «{titolo}» ({u['chiave']})...")
+                    rep = reparto_ig(u['kind']) if canale == 'ig' else None
+                    if rep and freno[rep] == 'prova-singola':
+                        ig_prova_disponibile[rep] = False  # la prova di oggi e' questa
                     esito = pubblica_unita(canale, u, url_list, caption)
                     if esito:
                         print(f"✅ {et} pubblicato: {esito}")
                         segna_pubblicato(u['chiave'], canale, pubblicati)
                         righe_report.append(f"{prefisso} ✅ pubblicato")
+                        if rep and freno[rep] != 'libero':
+                            # Ha ripubblicato: per quel reparto il blocco e' finito.
+                            sgancia_freno_ig(rep)
+                            freno[rep] = 'libero'
+                            print(f"🟢 Instagram ha riaccettato {rep}: freno sganciato.")
+                            righe_report.append(f"   🟢 blocco Instagram ({rep}) RIENTRATO")
                     else:
                         righe_report.append(f"{prefisso} ❌ errore")
                         fallimenti.append(f"{et} · {u['kind']} · {titolo} ({u['chiave']})")
+                        if rep and errore_e_blocco_ig(IG_ULTIMO_ERRORE):
+                            # Non e' la busta a essere sbagliata: e' Instagram che ha
+                            # chiuso. Inutile — anzi dannoso — provare le altre.
+                            motivo = (IG_ULTIMO_ERRORE.get('error_user_title')
+                                      or IG_ULTIMO_ERRORE.get('message') or 'azione bloccata')
+                            arma_freno_ig(motivo, rep)
+                            freno[rep] = 'in-pausa'
+                            print(f"⏸ Instagram ha bloccato {rep} ({motivo}): "
+                                  f"metto in pausa {IG_PAUSA_ORE}h e non riprovo.")
 
         # ---------- ARCHIVIAZIONE (solo LIVE, solo a post completo) ----------
         # "Completo" = tutte le unita' pubblicate su TUTTI i canali attivi (IG sempre;
@@ -881,6 +1113,18 @@ def main():
                 f"→ aggiorna la data nel piano o rimuovila dalla coda"
             )
 
+    if in_attesa:
+        if righe_report:
+            righe_report.append("")
+        righe_report.append("⏸ IN ATTESA CHE INSTAGRAM SI SBLOCCHI (non scadono, "
+                            "escono appena il feed riapre):")
+        for busta in in_attesa:
+            meta = busta['meta']
+            righe_report.append(
+                f"   • [{busta['tipo']}] {meta.get('titolo_evento', busta['json_file'].stem)} — "
+                f"ferma da {busta['giorni_ritardo']}g"
+            )
+
     if anomali:
         if righe_report:
             righe_report.append("")
@@ -903,10 +1147,32 @@ def main():
             righe_report.append(f"   • {riga}")
         righe_report.append("   → il motivo esatto e' nel log della run su GitHub Actions")
 
+    reparti_in_pausa = [r for r in IG_REPARTI if stato_freno_ig(r) == 'in-pausa']
+    if IG_SALTATI or reparti_in_pausa:
+        if righe_report:
+            righe_report.append("")
+        righe_report.append("⏸ INSTAGRAM IN PAUSA — Meta ha bloccato la pubblicazione. "
+                            "Non ho riprovato: insistere tiene vivo il blocco.")
+        for r in reparti_in_pausa:
+            d = leggi_freno_ig(r)
+            righe_report.append(
+                f"   • {r}: «{d.get('motivo', 'azione bloccata')}» — bloccato dal "
+                f"{d.get('bloccato_dal', '?')[:10]} ({d.get('tentativi_falliti', 1)} "
+                f"tentativi falliti) → riprovo il {quando_riprova_ig(r)}")
+        liberi = [r for r in IG_REPARTI if r not in reparti_in_pausa]
+        if liberi:
+            righe_report.append(f"   Instagram — {', '.join(liberi)}: regolari.")
+        righe_report.append(f"   Facebook: regolare. Contenuti in attesa: {len(IG_SALTATI)}.")
+        righe_report.append("   👉 Controlla l'app Instagram: se c'è un avviso di "
+                            "restrizione, si può contestare da lì.")
+
     intestazione = ("🟢 PUBBLICAZIONE LIVE" if PUBLISH_LIVE
                     else "🧪 SIMULAZIONE (nessun post reale)")
     if fallimenti:
         intestazione = f"🔴 {intestazione} — {len(fallimenti)} PUBBLICAZIONE/I FALLITA/E"
+    elif reparti_in_pausa:
+        intestazione = (f"⏸ {intestazione} — INSTAGRAM IN PAUSA "
+                        f"({', '.join(reparti_in_pausa)}, blocco Meta)")
     elif scaduti or anomali:
         intestazione = "❗ " + intestazione + " — CI SONO BUSTE DA CONTROLLARE"
     if not FB_ENABLED and not PUBLISH_LIVE:
