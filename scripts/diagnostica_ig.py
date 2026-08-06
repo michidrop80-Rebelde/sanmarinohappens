@@ -151,6 +151,39 @@ def main():
             if didascalia:
                 dillo(f"       «{didascalia}…»")
 
+    # ---------- 4) DOPPIONI ----------
+    # La scoperta del 06/08: un 403 «action is blocked» sul media_publish NON vuol
+    # dire che il post non e' uscito. Esce, e il robot — che lo crede fallito — lo
+    # ripubblica al giro dopo. Il danno non e' un post mancante: sono post doppi sul
+    # profilo. Qui li contiamo per didascalia, che e' l'unica cosa che li distingue.
+    dillo("")
+    dillo("4) DOPPIONI sul profilo (stesso testo pubblicato piu' volte):")
+    ok, dati = chiedi(HOSTS[0], f"/{INSTAGRAM_USER_ID}/media",
+                      'id,timestamp,media_type,permalink,caption')
+    if not ok:
+        dillo(f"   ❌ non leggibile: {riga_errore(dati)}")
+    else:
+        gruppi = {}
+        for v in dati.get('data') or []:
+            chiave = (v.get('caption') or v.get('id') or '')[:80]
+            gruppi.setdefault(chiave, []).append(v)
+        doppi = {k: v for k, v in gruppi.items() if len(v) > 1}
+        if not doppi:
+            dillo("   ✅ nessun doppione fra i contenuti letti.")
+        else:
+            tot = sum(len(v) - 1 for v in doppi.values())
+            dillo(f"   🔴 {len(doppi)} contenuti pubblicati piu' volte "
+                  f"({tot} copie di troppo). Da cancellare A MANO dall'app: "
+                  f"l'API di Instagram non sa cancellare.")
+            for testo, voci in sorted(doppi.items(),
+                                      key=lambda kv: kv[1][0].get('timestamp') or ''):
+                voci = sorted(voci, key=lambda v: v.get('timestamp') or '')
+                titolo = testo.replace('\n', ' ')[:55]
+                dillo(f"   • «{titolo}…» — {len(voci)} copie:")
+                for i, v in enumerate(voci):
+                    tieni = "  ⬅️ TIENI (la prima)" if i == 0 else "  ❌ da cancellare"
+                    dillo(f"       {v.get('timestamp')} {v.get('permalink')}{tieni}")
+
     dillo("")
     dillo("Nessuna scrittura effettuata: questo controllo non pubblica e non cancella nulla.")
 
