@@ -574,6 +574,55 @@ def ig_gia_uscito(kind, caption, iniziato):
     return False, None
 
 
+def riconcilia_con_profilo(buste, pubblicati):
+    """PASSO 0: cio' che e' in coda e' gia' sul profilo?
+
+    Serve perche' i doppioni del 03-06/08 hanno lasciato una situazione storta: post
+    usciti (anche 7 volte) ma MAI scritti in published.log, perche' Meta aveva
+    risposto errore. Senza questo passo, al primo giro utile il robot li
+    ripubblicherebbe un'altra volta — la rilettura post-tentativo non basta, perche'
+    guarda solo cio' che compare DOPO il tentativo.
+
+    Confronta la didascalia di ogni busta in coda con quelle presenti sul profilo,
+    senza finestra temporale: se c'e', si segna come gia' pubblicata su IG.
+    Ritorna la lista delle righe da mostrare nel riepilogo. Sola lettura verso Meta.
+    Le storie restano fuori: non hanno didascalia da confrontare e durano 24h."""
+    righe = []
+    da_controllare = [b for b in buste if b['tipo'] != 'storia']
+    if not da_controllare:
+        return righe
+
+    voci = _leggi_edge_ig('media', 'id,timestamp,permalink,caption', limite=50)
+    if voci is None:
+        righe.append("⚠️ Non sono riuscito a rileggere il profilo Instagram: "
+                     "non posso escludere che qualcosa in coda sia già uscito.")
+        return righe
+
+    sul_profilo = {}
+    for v in voci:
+        chiave = _normalizza_caption(v.get('caption'))
+        if chiave and chiave not in sul_profilo:
+            sul_profilo[chiave] = v
+
+    for busta in da_controllare:
+        caption = (busta['meta'].get('caption') or '').strip()
+        trovato = sul_profilo.get(_normalizza_caption(caption))
+        if not trovato:
+            continue
+        unita = costruisci_unita(busta['tipo'], busta['json_file'],
+                                 busta['immagini'], busta['meta'])
+        nuove = [u for u in unita if not gia_pubblicato(u['chiave'], 'ig', pubblicati)]
+        if not nuove:
+            continue
+        for u in nuove:
+            segna_pubblicato(u['chiave'], 'ig', pubblicati)
+        titolo = busta['meta'].get('titolo_evento', busta['json_file'].stem)
+        print(f"🔎 Riconciliazione: «{titolo}» era GIA' su Instagram "
+              f"({trovato.get('permalink')}) ma non risultava. Segnato, non ripubblico.")
+        righe.append(f"   • {titolo} — già su Instagram ({trovato.get('permalink')})")
+    return righe
+
+
 def salta_per_freno_ig(kind):
     """True se questa unita' NON va nemmeno tentata su Instagram adesso."""
     return stato_freno_ig(reparto_ig(kind)) == 'in-pausa'
@@ -1081,6 +1130,14 @@ def main():
 
     pubblicati = get_published()
     righe_report = []  # per la notifica Telegram riepilogativa
+
+    # ---------- PASSO 0: la coda e' gia' sul profilo? ----------
+    # Va PRIMA di qualunque tentativo: i doppioni del 03-06/08 hanno lasciato in coda
+    # buste gia' pubblicate ma non registrate, e senza questo controllo il primo giro
+    # utile le rimanderebbe fuori un'altra volta.
+    righe_riconciliate = []
+    if PUBLISH_LIVE:
+        righe_riconciliate = riconcilia_con_profilo(da_pubblicare + in_attesa, pubblicati)
     # Pubblicazioni RIFIUTATE dalla piattaforma (non buste malformate: quelle sono
     # "anomale"). Vanno contate a parte perche' devono gridare: una riga "❌ errore"
     # persa in mezzo al riepilogo e' passata inosservata per 12 giri di fila
@@ -1262,6 +1319,13 @@ def main():
         for riga in fallimenti:
             righe_report.append(f"   • {riga}")
         righe_report.append("   → il motivo esatto e' nel log della run su GitHub Actions")
+
+    if righe_riconciliate:
+        if righe_report:
+            righe_report.append("")
+        righe_report.append("🔎 GIÀ SU INSTAGRAM, non ripubblicati (erano usciti "
+                            "durante i giorni dei doppioni senza essere registrati):")
+        righe_report.extend(righe_riconciliate)
 
     if RILETTURE_SALVATE:
         if righe_report:

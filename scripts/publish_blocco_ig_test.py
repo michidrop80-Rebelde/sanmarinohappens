@@ -298,6 +298,58 @@ def test_rilettura():
     MEDIA_SUL_PROFILO = []
 
 
+# ---------------------------------------------------------------------------
+# 6) Riconciliazione: quello che e' in coda e' gia' sul profilo?
+# ---------------------------------------------------------------------------
+def test_riconciliazione():
+    print('\n[6] Passo 0: una busta gia' + "'" + ' uscita non viene ripubblicata')
+    global MEDIA_SUL_PROFILO
+    tmp = Path(tempfile.mkdtemp())
+    posts = tmp / 'posts'
+    posts.mkdir()
+    publish.POSTS_DIR = posts
+    publish.IG_BLOCCO_FILE = tmp / 'stato' / 'instagram.json'
+    publish.TEST_DATE = '2026-08-06'
+
+    cap_uscita = "🍷 Un film sotto le stelle al Golf Club. Aperitivo e proiezione."
+    cap_nuova = "🎭 Uno spettacolo mai pubblicato prima."
+    scrivi_busta(posts, 'gia_uscita', 'giornaliero', '2026-08-06', ['a.png'])
+    scrivi_busta(posts, 'mai_uscita', 'giornaliero', '2026-08-06', ['b.png'])
+    for nome, cap in (('gia_uscita', cap_uscita), ('mai_uscita', cap_nuova)):
+        p = posts / f'{nome}.json'
+        m = json.loads(p.read_text(encoding='utf-8'))
+        m['caption'] = cap
+        p.write_text(json.dumps(m), encoding='utf-8')
+
+    # Sul profilo c'e' solo la prima, pubblicata DUE GIORNI FA (fuori da qualunque
+    # finestra temporale: e' proprio il caso che la rilettura post-tentativo manca).
+    vecchio = (datetime.now(publish.TZ) - timedelta(days=2))
+    MEDIA_SUL_PROFILO = [{'id': 'X', 'caption': cap_uscita,
+                          'timestamp': vecchio.strftime('%Y-%m-%dT%H:%M:%S%z'),
+                          'permalink': 'https://instagram.com/p/GIA/'}]
+
+    da_pubblicare, _, _, _ = publish.classifica_buste()
+    pubblicati = set()
+    righe = publish.riconcilia_con_profilo(da_pubblicare, pubblicati)
+
+    verifica('la busta già uscita viene riconosciuta', len(righe) == 1)
+    verifica('e segnata come pubblicata su IG',
+             any('|ig' in r for r in pubblicati))
+    verifica('quella mai uscita NON viene toccata', len(pubblicati) == 1)
+
+    # Se il profilo non si legge, non si inventa nulla: si avvisa e basta.
+    MEDIA_SUL_PROFILO = None
+    pubblicati2 = set()
+    righe2 = publish.riconcilia_con_profilo(da_pubblicare, pubblicati2)
+    verifica('profilo illeggibile: nessuna busta segnata', len(pubblicati2) == 0)
+    verifica('e lo dice invece di tacere',
+             any('non posso escludere' in r.lower() or 'non sono riuscito' in r.lower()
+                 for r in righe2))
+
+    MEDIA_SUL_PROFILO = []
+    shutil.rmtree(tmp, ignore_errors=True)
+
+
 if __name__ == '__main__':
     print('TEST FRENO INSTAGRAM — offline, nessuna pubblicazione reale')
     test_riconoscimento()
@@ -305,6 +357,7 @@ if __name__ == '__main__':
     test_scadenze()
     test_nessuna_chiamata_in_pausa()
     test_rilettura()
+    test_riconciliazione()
 
     falliti = [d for d, ok in ESITI if not ok]
     print(f'\n{len(ESITI) - len(falliti)}/{len(ESITI)} verifiche OK')
