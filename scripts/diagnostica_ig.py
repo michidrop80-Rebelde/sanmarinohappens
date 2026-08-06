@@ -127,18 +127,29 @@ def main():
 
     # ---------- 3) una lettura innocua passa? ----------
     dillo("")
-    dillo("3) Anche una semplice lettura viene rifiutata?")
+    dillo("3) Anche una semplice lettura viene rifiutata? E cosa risulta pubblicato?")
     for host in HOSTS:
-        ok, dati = chiedi(host, f"/{INSTAGRAM_USER_ID}/media", 'id,timestamp,media_type')
+        ok, dati = chiedi(host, f"/{INSTAGRAM_USER_ID}/media",
+                          'id,timestamp,media_type,permalink,caption')
         etichetta = host.split('//')[1].split('/')[0]
-        if ok:
-            n = len(dati.get('data') or [])
-            ultimo = (dati.get('data') or [{}])[0].get('timestamp', '?')
-            dillo(f"   ✅ {etichetta}: lettura OK ({n} media, l'ultimo del {ultimo})")
-            dillo("   → l'app NON e' bloccata in lettura: la restrizione riguarda "
-                  "solo la pubblicazione.")
-        else:
+        if not ok:
             dillo(f"   ❌ {etichetta}: {riga_errore(dati)}")
+            continue
+        voci = dati.get('data') or []
+        dillo(f"   ✅ {etichetta}: lettura OK ({len(voci)} media)")
+        dillo("   → l'app NON e' bloccata in lettura: la restrizione riguarda "
+              "solo la pubblicazione.")
+        # Gli ultimi media, per capire cosa e' DAVVERO uscito. Serve a smentire (o
+        # confermare) il sospetto peggiore: che un post dato per "fallito" con 403
+        # sia in realta' finito sul profilo. Se cosi' fosse, ripubblicarlo a blocco
+        # rientrato creerebbe un doppione.
+        dillo("   Ultimi 5 contenuti realmente presenti sul profilo:")
+        for v in voci[:5]:
+            didascalia = (v.get('caption') or '').replace('\n', ' ')[:60]
+            dillo(f"     • {v.get('timestamp')} · {v.get('media_type')} · "
+                  f"{v.get('permalink', '?')}")
+            if didascalia:
+                dillo(f"       «{didascalia}…»")
 
     dillo("")
     dillo("Nessuna scrittura effettuata: questo controllo non pubblica e non cancella nulla.")
