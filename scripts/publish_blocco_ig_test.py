@@ -47,7 +47,15 @@ def finta_post(url, data=None, timeout=None, **kw):
     return FintaRisposta(200, {'id': 'FINTO'})
 
 
+# Cosa risponde il profilo quando lo rileggiamo. None = la lettura fallisce.
+MEDIA_SUL_PROFILO = []
+
+
 def finta_get(url, params=None, timeout=None, **kw):
+    if url.endswith('/media') or url.endswith('/stories'):
+        if MEDIA_SUL_PROFILO is None:
+            return FintaRisposta(500, {'error': {'message': 'boom'}})
+        return FintaRisposta(200, {'data': list(MEDIA_SUL_PROFILO)})
     return FintaRisposta(200, {'status_code': 'FINISHED'})
 
 
@@ -226,12 +234,77 @@ def test_nessuna_chiamata_in_pausa():
     shutil.rmtree(tmp, ignore_errors=True)
 
 
+# ---------------------------------------------------------------------------
+# 5) La rilettura del profilo: un 403 non prova che il post non sia uscito
+# ---------------------------------------------------------------------------
+def test_rilettura():
+    print('\n[5] Dopo un errore: il post e\' davvero uscito? Si guarda, non si indovina')
+    global MEDIA_SUL_PROFILO
+    from datetime import timezone
+
+    prima = datetime.now(publish.TZ)
+
+    def istante(delta):
+        return (prima + delta).astimezone(timezone.utc).strftime('%Y-%m-%dT%H:%M:%S%z')
+
+    caption = "🍷 Un film sotto le stelle al Golf Club\n\nAperitivo e proiezione."
+
+    # a) il post c'e' davvero: stessa didascalia, subito dopo il tentativo
+    MEDIA_SUL_PROFILO = [{'id': '1', 'timestamp': istante(timedelta(seconds=20)),
+                          'caption': caption,
+                          'permalink': 'https://instagram.com/p/NUOVO/'}]
+    uscito, link = publish.ig_gia_uscito('foto', caption, prima)
+    verifica('post presente sul profilo: riconosciuto come uscito', uscito is True)
+    verifica('e restituisce il permalink', link == 'https://instagram.com/p/NUOVO/')
+
+    # b) stessa didascalia ma di tre giorni fa: NON e' il nostro tentativo
+    #    (senza questo controllo un post ripubblicato ogni anno sembrerebbe uscito)
+    MEDIA_SUL_PROFILO = [{'id': '2', 'timestamp': istante(timedelta(days=-3)),
+                          'caption': caption,
+                          'permalink': 'https://instagram.com/p/VECCHIO/'}]
+    uscito, _ = publish.ig_gia_uscito('foto', caption, prima)
+    verifica('post vecchio con lo stesso testo: NON conta', uscito is False)
+
+    # c) profilo senza il nostro post -> fallimento vero
+    MEDIA_SUL_PROFILO = [{'id': '3', 'timestamp': istante(timedelta(seconds=20)),
+                          'caption': 'Tutt\'altro evento',
+                          'permalink': 'https://instagram.com/p/ALTRO/'}]
+    uscito, _ = publish.ig_gia_uscito('foto', caption, prima)
+    verifica('profilo senza il post: fallimento vero', uscito is False)
+
+    # d) rilettura non riuscita -> "non lo so", che NON e' "non e' uscito"
+    MEDIA_SUL_PROFILO = None
+    uscito, _ = publish.ig_gia_uscito('foto', caption, prima)
+    verifica('rilettura fallita: risponde «non lo so» (None), non False',
+             uscito is None)
+
+    # e) didascalia con spazi/a capo diversi: deve combaciare lo stesso
+    MEDIA_SUL_PROFILO = [{'id': '4', 'timestamp': istante(timedelta(seconds=20)),
+                          'caption': "🍷  Un film sotto le stelle al Golf Club   "
+                                     "Aperitivo e proiezione.",
+                          'permalink': 'https://instagram.com/p/SPAZI/'}]
+    uscito, _ = publish.ig_gia_uscito('foto', caption, prima)
+    verifica('spaziatura diversa: combacia lo stesso', uscito is True)
+
+    # f) le storie non hanno didascalia: contano solo quelle nuove
+    MEDIA_SUL_PROFILO = [{'id': '5', 'timestamp': istante(timedelta(seconds=15))}]
+    uscito, _ = publish.ig_gia_uscito('storia', '', prima)
+    verifica('storia comparsa dopo il tentativo: uscita', uscito is True)
+
+    MEDIA_SUL_PROFILO = [{'id': '6', 'timestamp': istante(timedelta(hours=-5))}]
+    uscito, _ = publish.ig_gia_uscito('storia', '', prima)
+    verifica('solo storie vecchie: non e\' uscita', uscito is False)
+
+    MEDIA_SUL_PROFILO = []
+
+
 if __name__ == '__main__':
     print('TEST FRENO INSTAGRAM — offline, nessuna pubblicazione reale')
     test_riconoscimento()
     test_freno()
     test_scadenze()
     test_nessuna_chiamata_in_pausa()
+    test_rilettura()
 
     falliti = [d for d, ok in ESITI if not ok]
     print(f'\n{len(ESITI) - len(falliti)}/{len(ESITI)} verifiche OK')

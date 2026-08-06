@@ -43,6 +43,19 @@ ARCHIVIAZIONE (solo in LIVE): quando un post e' pubblicato con successo su TUTTI
   archivio/AAAA-MM/ nello stesso repo. posts/ resta la "coda" (solo cio' che deve
   ancora uscire); lo storico non va perso; gli originali restano sul Mac di Michele.
 
+RILETTURA DEL PROFILO — la regola piu' importante di questo file (06/08/2026):
+  **Un errore di scrittura di Meta NON prova che la scrittura non sia avvenuta.**
+  media_publish puo' rispondere 403 «action is blocked» e pubblicare il post lo stesso.
+  Prima che ce ne accorgessimo, il robot dava per fallito un post uscito davvero, non
+  lo scriveva in published.log e lo ripubblicava al giro dopo: 5 contenuti finiti sul
+  profilo in 19 copie (fino a 7 dello stesso post). Il "blocco" anti-spam di Meta era
+  la REAZIONE ai doppioni, non la causa — token valido, quota 1 su 100, letture OK.
+  Ora, dopo ogni errore su Instagram, si rilegge il profilo (ig_gia_uscito):
+    - il contenuto c'e'  -> si segna come pubblicato, non si ripubblica
+    - non c'e'           -> fallimento vero
+    - non si e' potuto controllare -> "non lo so", che NON e' "non e' uscito": ci si
+      ferma comunque, perche' insistere al buio e' cio' che ha creato i doppioni.
+
 FRENO INSTAGRAM (aggiunto 06/08/2026, dopo il blocco del 03-06/08):
   Quando Meta risponde "action is blocked" (code 4 / subcode 2207051) NON e' la busta
   a essere sbagliata: e' Instagram che ha chiuso, e riprovare peggiora le cose (ogni
@@ -154,6 +167,9 @@ IG_ULTIMO_ERRORE = {}
 
 # Quante volte il feed IG e' gia' stato saltato in questo giro (per il report).
 IG_SALTATI = []
+# Contenuti che Instagram ha dato per falliti ma che erano usciti davvero: senza la
+# rilettura sarebbero diventati altrettanti doppioni al giro successivo.
+RILETTURE_SALVATE = []
 
 
 def oggi():
@@ -490,6 +506,72 @@ def sgancia_freno_ig(reparto='feed'):
             IG_BLOCCO_FILE.unlink()
     except OSError:
         pass
+
+
+# ---------------------------------------------------------------------------
+# Rilettura del profilo: un errore di scrittura NON prova che il post non sia uscito
+# ---------------------------------------------------------------------------
+# Scoperta del 06/08/2026: media_publish puo' rispondere 403 «action is blocked» e
+# pubblicare il post lo stesso. Il robot lo dava per fallito, non lo segnava in
+# published.log e lo ripubblicava al giro dopo: 5 contenuti finiti sul profilo in
+# 19 copie. Da qui la regola: prima di dichiarare fallito qualcosa, si guarda.
+def _normalizza_caption(testo):
+    """Meta restituisce la didascalia con spaziatura sua: confrontiamo il testo
+    'compattato', non carattere per carattere."""
+    return ' '.join((testo or '').split())[:120]
+
+
+def _leggi_edge_ig(edge, campi, limite=10):
+    """GET di sola lettura sul profilo. Ritorna la lista, o None se non si e'
+    riusciti a leggere (che NON e' la stessa cosa di 'lista vuota')."""
+    try:
+        r = requests.get(f"{IG_API}/{INSTAGRAM_USER_ID}/{edge}",
+                         params={'fields': campi, 'limit': limite,
+                                 'access_token': INSTAGRAM_TOKEN}, timeout=30)
+    except requests.RequestException as e:
+        print(f"⚠️ Rilettura profilo IG ({edge}) non riuscita — rete: {e}")
+        return None
+    if r.status_code != 200:
+        print(f"⚠️ Rilettura profilo IG ({edge}) non riuscita: "
+              f"{r.status_code} - {r.text[:200]}")
+        return None
+    try:
+        return r.json().get('data') or []
+    except ValueError:
+        print(f"⚠️ Rilettura profilo IG ({edge}): risposta non leggibile.")
+        return None
+
+
+def ig_gia_uscito(kind, caption, iniziato):
+    """Dopo un errore su Instagram: il contenuto e' uscito lo stesso?
+    Ritorna (True, permalink) se e' sul profilo, (False, None) se non c'e',
+    (None, None) se NON siamo riusciti a controllare.
+    I tre casi sono diversi apposta: 'non lo so' non deve mai essere trattato come
+    'non e' uscito', altrimenti si torna a creare doppioni.
+    `iniziato` e' l'istante subito prima del tentativo: serve a non scambiare per
+    nostro un post identico pubblicato giorni fa."""
+    if kind == 'storia':
+        # Le storie non hanno didascalia e non compaiono in /media: l'unica cosa
+        # che possiamo confrontare e' l'orario. Regge perche' su questo account
+        # pubblica solo il robot, una unita' per volta.
+        voci = _leggi_edge_ig('stories', 'id,timestamp')
+    else:
+        voci = _leggi_edge_ig('media', 'id,timestamp,permalink,caption')
+    if voci is None:
+        return None, None
+
+    atteso = _normalizza_caption(caption)
+    margine = iniziato - timedelta(seconds=60)
+    for v in voci:
+        try:
+            quando = datetime.strptime(v.get('timestamp', ''), '%Y-%m-%dT%H:%M:%S%z')
+        except (ValueError, TypeError):
+            continue
+        if quando < margine:
+            continue  # troppo vecchio: non e' il tentativo di adesso
+        if kind == 'storia' or _normalizza_caption(v.get('caption')) == atteso:
+            return True, v.get('permalink')
+    return False, None
 
 
 def salta_per_freno_ig(kind):
@@ -1063,29 +1145,63 @@ def main():
                     rep = reparto_ig(u['kind']) if canale == 'ig' else None
                     if rep and freno[rep] == 'prova-singola':
                         ig_prova_disponibile[rep] = False  # la prova di oggi e' questa
+                    iniziato = datetime.now(TZ)
                     esito = pubblica_unita(canale, u, url_list, caption)
+
+                    # ---- RILETTURA: l'errore di Instagram dice la verita'? ----
+                    # Un 403 su media_publish non prova che il post non sia uscito
+                    # (06/08/2026: 19 doppioni nati proprio da questa illusione).
+                    uscito_lo_stesso = None
+                    if not esito and rep:
+                        uscito_lo_stesso, permalink = ig_gia_uscito(
+                            u['kind'], caption, iniziato)
+                        if uscito_lo_stesso:
+                            print(f"🔎 {et}: l'errore era falso — «{titolo}» e' sul "
+                                  f"profilo ({permalink}). Lo segno come pubblicato.")
+                            righe_report.append(
+                                f"{prefisso} ✅ pubblicato (Instagram aveva risposto "
+                                f"errore, ma il post c'è: verificato sul profilo)")
+                            segna_pubblicato(u['chiave'], canale, pubblicati)
+                            esito = permalink or 'verificato-sul-profilo'
+                            RILETTURE_SALVATE.append(f"{u['kind']} · {titolo}")
+
                     if esito:
-                        print(f"✅ {et} pubblicato: {esito}")
-                        segna_pubblicato(u['chiave'], canale, pubblicati)
-                        righe_report.append(f"{prefisso} ✅ pubblicato")
+                        if not uscito_lo_stesso:
+                            print(f"✅ {et} pubblicato: {esito}")
+                            segna_pubblicato(u['chiave'], canale, pubblicati)
+                            righe_report.append(f"{prefisso} ✅ pubblicato")
                         if rep and freno[rep] != 'libero':
-                            # Ha ripubblicato: per quel reparto il blocco e' finito.
+                            # E' uscito: quel reparto pubblica, punto. Vale anche se
+                            # Meta ha risposto errore — l'errore era falso, e tenere
+                            # il freno fermerebbe una coda che invece funziona.
                             sgancia_freno_ig(rep)
                             freno[rep] = 'libero'
                             print(f"🟢 Instagram ha riaccettato {rep}: freno sganciato.")
                             righe_report.append(f"   🟢 blocco Instagram ({rep}) RIENTRATO")
                     else:
-                        righe_report.append(f"{prefisso} ❌ errore")
+                        # Qui il post NON e' uscito (rilettura negativa) oppure non
+                        # siamo riusciti a controllare. I due casi non sono uguali.
+                        non_verificabile = (rep is not None and uscito_lo_stesso is None)
+                        if non_verificabile:
+                            righe_report.append(
+                                f"{prefisso} ⚠️ errore, e NON sono riuscito a "
+                                f"controllare sul profilo se è uscito")
+                        else:
+                            righe_report.append(f"{prefisso} ❌ errore "
+                                                + ("(verificato: NON è sul profilo)"
+                                                   if rep else ""))
                         fallimenti.append(f"{et} · {u['kind']} · {titolo} ({u['chiave']})")
-                        if rep and errore_e_blocco_ig(IG_ULTIMO_ERRORE):
-                            # Non e' la busta a essere sbagliata: e' Instagram che ha
-                            # chiuso. Inutile — anzi dannoso — provare le altre.
-                            motivo = (IG_ULTIMO_ERRORE.get('error_user_title')
-                                      or IG_ULTIMO_ERRORE.get('message') or 'azione bloccata')
+                        if rep and (errore_e_blocco_ig(IG_ULTIMO_ERRORE) or non_verificabile):
+                            # Blocco vero, oppure dubbio: in entrambi i casi ci si
+                            # ferma. Insistere al buio e' esattamente cio' che ha
+                            # riempito il profilo di doppioni.
+                            motivo = ('esito non verificabile' if non_verificabile else
+                                      (IG_ULTIMO_ERRORE.get('error_user_title')
+                                       or IG_ULTIMO_ERRORE.get('message') or 'azione bloccata'))
                             arma_freno_ig(motivo, rep)
                             freno[rep] = 'in-pausa'
-                            print(f"⏸ Instagram ha bloccato {rep} ({motivo}): "
-                                  f"metto in pausa {IG_PAUSA_ORE}h e non riprovo.")
+                            print(f"⏸ Instagram — {rep} in pausa ({motivo}): "
+                                  f"{IG_PAUSA_ORE}h, non riprovo.")
 
         # ---------- ARCHIVIAZIONE (solo LIVE, solo a post completo) ----------
         # "Completo" = tutte le unita' pubblicate su TUTTI i canali attivi (IG sempre;
@@ -1146,6 +1262,16 @@ def main():
         for riga in fallimenti:
             righe_report.append(f"   • {riga}")
         righe_report.append("   → il motivo esatto e' nel log della run su GitHub Actions")
+
+    if RILETTURE_SALVATE:
+        if righe_report:
+            righe_report.append("")
+        righe_report.append(
+            f"🔎 DOPPIONI EVITATI: {len(RILETTURE_SALVATE)} contenuti che Instagram "
+            f"aveva dato per falliti erano già sul profilo. Segnati come pubblicati "
+            f"invece di essere ripubblicati:")
+        for riga in RILETTURE_SALVATE:
+            righe_report.append(f"   • {riga}")
 
     reparti_in_pausa = [r for r in IG_REPARTI if stato_freno_ig(r) == 'in-pausa']
     if IG_SALTATI or reparti_in_pausa:
