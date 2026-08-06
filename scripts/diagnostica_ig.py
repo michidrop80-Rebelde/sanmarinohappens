@@ -48,11 +48,21 @@ def dillo(testo):
     righe.append(testo)
 
 
-def chiedi(host, percorso, campi=None):
+# Quanti contenuti guardare all'indietro. ⚠️ Era 25 (il default di Meta) e ha prodotto
+# un referto INCOMPLETO il 06/08: cancellati i doppioni recenti, la finestra e' scivolata
+# indietro e sono comparsi doppioni piu' vecchi che prima non si vedevano — con la
+# conseguenza che tre "copie da tenere" erano a loro volta doppioni. Un elenco troncato
+# senza dirlo e' peggio di nessun elenco.
+LIMITE_MEDIA = 100
+
+
+def chiedi(host, percorso, campi=None, limite=None):
     """Una GET di sola lettura. Ritorna (ok, dati_o_errore)."""
     params = {'access_token': INSTAGRAM_TOKEN}
     if campi:
         params['fields'] = campi
+    if limite:
+        params['limit'] = limite
     try:
         r = requests.get(f"{host}{percorso}", params=params, timeout=30)
     except requests.RequestException as e:
@@ -130,7 +140,8 @@ def main():
     dillo("3) Anche una semplice lettura viene rifiutata? E cosa risulta pubblicato?")
     for host in HOSTS:
         ok, dati = chiedi(host, f"/{INSTAGRAM_USER_ID}/media",
-                          'id,timestamp,media_type,permalink,caption')
+                          'id,timestamp,media_type,permalink,caption',
+                          limite=LIMITE_MEDIA)
         etichetta = host.split('//')[1].split('/')[0]
         if not ok:
             dillo(f"   ❌ {etichetta}: {riga_errore(dati)}")
@@ -159,12 +170,21 @@ def main():
     dillo("")
     dillo("4) DOPPIONI sul profilo (stesso testo pubblicato piu' volte):")
     ok, dati = chiedi(HOSTS[0], f"/{INSTAGRAM_USER_ID}/media",
-                      'id,timestamp,media_type,permalink,caption')
+                      'id,timestamp,media_type,permalink,caption', limite=LIMITE_MEDIA)
     if not ok:
         dillo(f"   ❌ non leggibile: {riga_errore(dati)}")
     else:
+        voci_tot = dati.get('data') or []
+        # Dire SEMPRE quanto indietro si e' guardato: se il referto e' troncato, chi
+        # lo legge deve saperlo. Senza questa riga il 06/08 ho dato per completo un
+        # elenco che copriva solo gli ultimi 25 contenuti.
+        piu_vecchio = voci_tot[-1].get('timestamp', '?') if voci_tot else '?'
+        dillo(f"   (esaminati {len(voci_tot)} contenuti, fino al {piu_vecchio})")
+        if len(voci_tot) >= LIMITE_MEDIA:
+            dillo(f"   ⚠️ raggiunto il limite di {LIMITE_MEDIA}: potrebbero esserci "
+                  f"doppioni ancora più indietro.")
         gruppi = {}
-        for v in dati.get('data') or []:
+        for v in voci_tot:
             chiave = (v.get('caption') or v.get('id') or '')[:80]
             gruppi.setdefault(chiave, []).append(v)
         doppi = {k: v for k, v in gruppi.items() if len(v) > 1}
