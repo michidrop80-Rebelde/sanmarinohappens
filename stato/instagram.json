@@ -1,9 +1,0 @@
-{
-  "feed": {
-    "bloccato_dal": "2026-08-06T09:32:58.422852+02:00",
-    "ultimo_blocco": "2026-08-06T09:32:58.422852+02:00",
-    "riprova_dopo": "2026-08-07T09:32:58.422852+02:00",
-    "tentativi_falliti": 1,
-    "motivo": "action is blocked"
-  }
-}
