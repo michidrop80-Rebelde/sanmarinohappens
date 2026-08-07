@@ -350,14 +350,100 @@ def test_riconciliazione():
     shutil.rmtree(tmp, ignore_errors=True)
 
 
+# ---------------------------------------------------------------------------
+# 7) Una busta scaduta ma GIA' USCITA non e' un allarme: e' coda da sgombrare
+# ---------------------------------------------------------------------------
+def test_scadute_gia_pubblicate():
+    print('\n[7] Scadute ma gia\' pubblicate: si archiviano, non si segnalano')
+    tmp = Path(tempfile.mkdtemp())
+    posts = tmp / 'posts'
+    posts.mkdir()
+    publish.POSTS_DIR = posts
+    publish.ARCHIVIO_DIR = tmp / 'archivio'
+    publish.IG_BLOCCO_FILE = tmp / 'stato' / 'instagram.json'
+    publish.TEST_DATE = '2026-08-07'
+    publish.GRACE_DAYS = 2
+    publish.FB_ENABLED = True   # canali richiesti: ig + fb
+
+    # I tre casi veri trovati in coda il 07/08/2026.
+    scrivi_busta(posts, '20260731_Carosello', 'carosello', '2026-07-31',
+                 ['20260731_Carosello_1.png', '20260731_Carosello_2.png'])
+    scrivi_busta(posts, '20260802_Settimanale', 'settimanale', '2026-08-02',
+                 ['20260802_Settimanale_1.png'])
+    scrivi_busta(posts, '20260803_Giornaliero', 'giornaliero', '2026-08-03',
+                 ['20260803_Giornaliero.png'])
+    # ...piu' un caso a meta': uscito su IG, mai su Facebook.
+    scrivi_busta(posts, '20260801_Mezzo', 'giornaliero', '2026-08-01',
+                 ['20260801_Mezzo.png'])
+
+    _, scaduti, _, _ = publish.classifica_buste()
+    verifica('di partenza sono tutte e 4 "scadute"', len(scaduti) == 4)
+
+    # published.log: le prime due complete su entrambi i canali, la terza mai uscita,
+    # la quarta solo su Instagram.
+    pubblicati = {
+        '20260731_Carosello|ig', '20260731_Carosello|fb',
+        '20260802_Settimanale_1.png|ig', '20260802_Settimanale_1.png|fb',
+        '20260801_Mezzo.png|ig',
+    }
+    scadute_davvero, gia_uscite = publish.separa_gia_pubblicate(scaduti, pubblicati)
+    nomi_uscite = {b['json_file'].stem for b in gia_uscite}
+    nomi_scadute = {b['json_file'].stem for b in scadute_davvero}
+
+    verifica('il carosello (chiave = nome del JSON) e\' riconosciuto come gia\' uscito',
+             '20260731_Carosello' in nomi_uscite)
+    verifica('il settimanale (chiave = nome del PNG) idem',
+             '20260802_Settimanale' in nomi_uscite)
+    verifica('il giornaliero mai uscito resta un avviso vero',
+             '20260803_Giornaliero' in nomi_scadute)
+    verifica('uscito su IG ma non su FB = NON completo, resta un avviso vero',
+             '20260801_Mezzo' in nomi_scadute)
+
+    # E l'archiviazione le toglie davvero dalla coda, immagini comprese.
+    for busta in gia_uscite:
+        publish.archivia_busta(busta['json_file'], busta['immagini'], busta['meta'])
+
+    rimasti = {p.stem for p in posts.glob('*.json')}
+    verifica('dopo l\'archiviazione restano in coda solo le 2 buste vere',
+             rimasti == {'20260803_Giornaliero', '20260801_Mezzo'})
+    verifica('il carosello e\' finito in archivio/2026-07/ con tutti i suoi PNG',
+             (publish.ARCHIVIO_DIR / '2026-07' / '20260731_Carosello.json').exists() and
+             (publish.ARCHIVIO_DIR / '2026-07' / '20260731_Carosello_2.png').exists())
+    verifica('il settimanale e\' finito in archivio/2026-08/',
+             (publish.ARCHIVIO_DIR / '2026-08' / '20260802_Settimanale.json').exists())
+    verifica('nessun PNG orfano lasciato in coda',
+             {p.name for p in posts.glob('*.png')} ==
+             {'20260803_Giornaliero.png', '20260801_Mezzo.png'})
+
+    # Al giro successivo non deve rifare rumore: la coda non le contiene piu'.
+    _, scaduti2, _, _ = publish.classifica_buste()
+    verifica('al giro dopo restano 2 scadute, non 4 (l\'allarme si sgonfia)',
+             len(scaduti2) == 2)
+
+    publish.ARCHIVIO_DIR = Path('archivio')
+    shutil.rmtree(tmp, ignore_errors=True)
+
+
 if __name__ == '__main__':
     print('TEST FRENO INSTAGRAM — offline, nessuna pubblicazione reale')
+
+    # ⚠️ PROTEZIONE: publish.PUBLISHED_LOG e' un percorso RELATIVO ('published.log'),
+    # quindi qualunque test che arrivi a segna_pubblicato() — anche indirettamente, via
+    # riconcilia_con_profilo() — scriverebbe nel registro VERO del repo. E' successo
+    # davvero: la riga fantasma «a.png|ig» del 06/08/2026 nasceva dal test [6] e ha
+    # fatto litigare un git pull. Il registro decide cosa NON ripubblicare: sporcarlo
+    # puo' far saltare un post vero. Qui lo dirottiamo su un file usa-e-getta, una
+    # volta per tutta la sessione di test.
+    _log_finto = Path(tempfile.mkdtemp()) / 'published.log'
+    publish.PUBLISHED_LOG = str(_log_finto)
+
     test_riconoscimento()
     test_freno()
     test_scadenze()
     test_nessuna_chiamata_in_pausa()
     test_rilettura()
     test_riconciliazione()
+    test_scadute_gia_pubblicate()
 
     falliti = [d for d, ok in ESITI if not ok]
     print(f'\n{len(ESITI) - len(falliti)}/{len(ESITI)} verifiche OK')

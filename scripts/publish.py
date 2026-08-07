@@ -660,6 +660,9 @@ def classifica_buste():
         es. un weekend delle 18:00 non deve uscire al giro delle 7:00). Un ritardo
         di 1+ giorni non aspetta piu' l'ora: e' gia' in recupero, esce appena trovato.
       - scaduti: data piu' vecchia di GRACE_DAYS -> NON si pubblicano, solo avviso.
+        ATTENZIONE: qui dentro finiscono anche buste che erano gia' USCITE davvero
+        (published.log non viene letto in questa funzione). A separarle ci pensa
+        separa_gia_pubblicate() in main(): quelle si archiviano, non si segnalano.
       - in_attesa: aggregati oltre GRACE_DAYS che pero' NON sono colpa loro — il
         feed Instagram e' bloccato (freno armato) e il contenuto e' ancora sensato.
         Restano in coda senza scadere finche' il blocco dura; non si tenta nulla.
@@ -794,6 +797,37 @@ def archivia_busta(json_file, immagini, meta):
         print(f"⚠️  Archiviazione di {json_file.name} fallita: {e}")
         return None
     return dest
+
+
+def busta_completa(busta, pubblicati):
+    """True se TUTTE le unita' della busta risultano gia' pubblicate su TUTTI i canali
+    attivi, secondo published.log. Stessa definizione di "completo" usata per archiviare
+    una busta appena pubblicata: qui pero' si guarda solo lo storico, senza pubblicare."""
+    unita = costruisci_unita(busta['tipo'], busta['json_file'],
+                             busta['immagini'], busta['meta'])
+    if not unita:
+        return False
+    return all(gia_pubblicato(u['chiave'], c, pubblicati)
+               for u in unita for c in canali_richiesti())
+
+
+def separa_gia_pubblicate(scaduti, pubblicati):
+    """Divide le buste scadute in (scadute_davvero, gia_pubblicate).
+
+    Perche' serve: una busta esce dalla finestra GRACE_DAYS anche DOPO essere uscita
+    davvero — succede ogni volta che la pubblicazione riesce ma il giro successivo
+    arriva a finestra chiusa (tipico dopo una pausa del freno Instagram). Prima di
+    questa separazione finiva fra le "scadute" e ci restava per sempre: mai archiviata
+    (archivia_busta si chiamava solo nel ramo "pubblicata adesso") e ri-segnalata a
+    ogni giro. Un avviso che suona sempre smette di essere un avviso — ed e' proprio il
+    rumore che aveva nascosto i 12 fallimenti del carosello di Agosto.
+
+    Una busta pubblicata solo a meta' (es. IG si', FB no) resta "scaduta davvero":
+    quella e' una segnalazione vera."""
+    scadute_davvero, gia_pubblicate = [], []
+    for busta in scaduti:
+        (gia_pubblicate if busta_completa(busta, pubblicati) else scadute_davvero).append(busta)
+    return scadute_davvero, gia_pubblicate
 
 
 # ---------------------------------------------------------------------------
@@ -1130,6 +1164,22 @@ def main():
 
     pubblicati = get_published()
     righe_report = []  # per la notifica Telegram riepilogativa
+
+    # ---------- BUSTE SCADUTE MA GIA' USCITE ----------
+    # Prima di dare dello "scaduto" a qualcosa, si guarda published.log: se la busta
+    # e' gia' uscita su tutti i canali attivi non e' un problema da segnalare, e'
+    # solo coda da sgombrare. Si archivia in silenzio (una riga nel log della run,
+    # niente allarme a Michele).
+    scaduti, gia_uscite = separa_gia_pubblicate(scaduti, pubblicati)
+    if PUBLISH_LIVE:
+        for busta in gia_uscite:
+            dest = archivia_busta(busta['json_file'], busta['immagini'], busta['meta'])
+            if dest:
+                print(f"📦 {busta['json_file'].name} era gia' pubblicata su tutti i canali "
+                      f"→ archiviata in {dest.as_posix()}/")
+    elif gia_uscite:
+        nomi = ', '.join(b['json_file'].name for b in gia_uscite)
+        print(f"🧪 {len(gia_uscite)} buste gia' pubblicate da archiviare (in LIVE): {nomi}")
 
     # ---------- PASSO 0: la coda e' gia' sul profilo? ----------
     # Va PRIMA di qualunque tentativo: i doppioni del 03-06/08 hanno lasciato in coda
