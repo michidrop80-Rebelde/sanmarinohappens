@@ -424,6 +424,81 @@ def test_scadute_gia_pubblicate():
     shutil.rmtree(tmp, ignore_errors=True)
 
 
+# ---------------------------------------------------------------------------
+# 8) Una scaduta MAI uscita e senza recupero si scarta: non suona per sempre
+# ---------------------------------------------------------------------------
+def test_scarti_definitivi():
+    print('\n[8] Scadute mai uscite: si scartano una volta, poi silenzio')
+    tmp = Path(tempfile.mkdtemp())
+    posts = tmp / 'posts'
+    posts.mkdir()
+    publish.POSTS_DIR = posts
+    publish.ARCHIVIO_DIR = tmp / 'archivio'
+    publish.IG_BLOCCO_FILE = tmp / 'stato' / 'instagram.json'
+    publish.TEST_DATE = '2026-08-08'
+    publish.GRACE_DAYS = 2
+    publish.FB_ENABLED = True   # canali richiesti: ig + fb
+
+    # Il caso vero rimasto in coda 5 giorni a strillare a ogni run.
+    scrivi_busta(posts, '20260803_Post giornaliero', 'giornaliero', '2026-08-03',
+                 ['20260803_Post giornaliero.png'])
+    # Una storia scaduta: stessa sorte, finestra di recupero 0 giorni.
+    scrivi_busta(posts, '20260803_Storia', 'storia', '2026-08-03',
+                 ['20260803_Storia_1.png'])
+    # Un AGGREGATO scaduto: si puo' ancora ridatare a mano -> deve continuare a suonare.
+    scrivi_busta(posts, '20260801_Weekend', 'weekend', '2026-08-01',
+                 ['20260801_Weekend_1.png'])
+    # Un giornaliero uscito a META' (IG si', FB no): il problema e' il canale, non la
+    # scadenza -> deve continuare a suonare, altrimenti si perde il segnale.
+    scrivi_busta(posts, '20260802_Mezzo', 'giornaliero', '2026-08-02',
+                 ['20260802_Mezzo.png'])
+
+    _, scaduti, _, _ = publish.classifica_buste()
+    verifica('di partenza sono tutte e 4 "scadute"', len(scaduti) == 4)
+
+    pubblicati = {'20260802_Mezzo.png|ig'}   # solo la meta' di Instagram
+    da_segnalare, scarti = publish.separa_scarti_definitivi(scaduti, pubblicati)
+    nomi_scarti = {b['json_file'].stem for b in scarti}
+    nomi_segnalare = {b['json_file'].stem for b in da_segnalare}
+
+    verifica('il giornaliero mai uscito e\' uno scarto definitivo',
+             '20260803_Post giornaliero' in nomi_scarti)
+    verifica('la storia mai uscita idem (recupero 0 giorni)',
+             '20260803_Storia' in nomi_scarti)
+    verifica('l\'aggregato scaduto NON si scarta: e\' ridatabile, resta un avviso',
+             '20260801_Weekend' in nomi_segnalare)
+    verifica('il giornaliero uscito a META\' NON si scarta: il segnale del canale '
+             'fallito non va nascosto',
+             '20260802_Mezzo' in nomi_segnalare)
+
+    # L'archiviazione va in una cartella SEPARATA: archivio/AAAA-MM/ vuol dire
+    # «pubblicato», e un mai-uscito lì dentro sarebbe una prova falsa.
+    for busta in scarti:
+        publish.archivia_busta(busta['json_file'], busta['immagini'], busta['meta'],
+                               sottocartella=publish.SCARTI_SOTTOCARTELLA)
+
+    non_pub = publish.ARCHIVIO_DIR / 'non-pubblicati' / '2026-08'
+    verifica('lo scarto e\' in archivio/non-pubblicati/2026-08/, JSON e PNG',
+             (non_pub / '20260803_Post giornaliero.json').exists() and
+             (non_pub / '20260803_Post giornaliero.png').exists())
+    verifica('NON e\' finito in archivio/2026-08/ (che significa "uscito")',
+             not (publish.ARCHIVIO_DIR / '2026-08' / '20260803_Post giornaliero.json').exists())
+    verifica('nessun PNG orfano lasciato in coda',
+             {p.name for p in posts.glob('*.png')} ==
+             {'20260801_Weekend_1.png', '20260802_Mezzo.png'})
+
+    # Il punto di tutto l'esercizio: al giro dopo l'allarme si e' sgonfiato da 4 a 2,
+    # e i 2 che restano sono azionabili.
+    _, scaduti2, _, _ = publish.classifica_buste()
+    da_segnalare2, scarti2 = publish.separa_scarti_definitivi(scaduti2, pubblicati)
+    verifica('al giro dopo restano 2 scadute, non 4', len(scaduti2) == 2)
+    verifica('e non c\'e\' piu\' niente da scartare: non si ripresenta', not scarti2)
+    verifica('i 2 avvisi che restano sono entrambi azionabili', len(da_segnalare2) == 2)
+
+    publish.ARCHIVIO_DIR = Path('archivio')
+    shutil.rmtree(tmp, ignore_errors=True)
+
+
 if __name__ == '__main__':
     print('TEST FRENO INSTAGRAM — offline, nessuna pubblicazione reale')
 
@@ -444,6 +519,7 @@ if __name__ == '__main__':
     test_rilettura()
     test_riconciliazione()
     test_scadute_gia_pubblicate()
+    test_scarti_definitivi()
 
     falliti = [d for d, ok in ESITI if not ok]
     print(f'\n{len(ESITI) - len(falliti)}/{len(ESITI)} verifiche OK')

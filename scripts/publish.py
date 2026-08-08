@@ -779,15 +779,22 @@ def classifica_buste():
 # ---------------------------------------------------------------------------
 # Archiviazione (solo LIVE, solo a post completo)
 # ---------------------------------------------------------------------------
-def archivia_busta(json_file, immagini, meta):
+def archivia_busta(json_file, immagini, meta, sottocartella=None):
     """Sposta JSON + TUTTE le immagini da posts/ ad archivio/AAAA-MM/ (stesso repo).
     AAAA-MM viene dalla data_pubblicazione. Chiamata SOLO in LIVE, a post completo su
     tutti i canali attivi. Ritorna la cartella di destinazione, o None se qualcosa va
-    storto (non deve bloccare il resto)."""
+    storto (non deve bloccare il resto).
+
+    `sottocartella` inserisce un livello prima di AAAA-MM (es. 'non-pubblicati'). Serve
+    perche' archivio/AAAA-MM/ vuol dire «questo e' uscito»: mettere lì una busta mai
+    pubblicata renderebbe l'archivio una prova falsa per chi lo guarda."""
     data_pub = parse_data(meta.get('data_pubblicazione'))
     if data_pub is None:
         return None
-    dest = ARCHIVIO_DIR / f"{data_pub.year:04d}-{data_pub.month:02d}"
+    dest = ARCHIVIO_DIR
+    if sottocartella:
+        dest = dest / sottocartella
+    dest = dest / f"{data_pub.year:04d}-{data_pub.month:02d}"
     dest.mkdir(parents=True, exist_ok=True)
     try:
         for f in [json_file, *immagini]:
@@ -809,6 +816,48 @@ def busta_completa(busta, pubblicati):
         return False
     return all(gia_pubblicato(u['chiave'], c, pubblicati)
                for u in unita for c in canali_richiesti())
+
+
+def busta_mai_uscita(busta, pubblicati):
+    """True se NESSUNA unita' della busta risulta pubblicata su NESSUN canale.
+    Non e' il contrario di busta_completa(): in mezzo c'e' la busta uscita a meta'
+    (es. IG si', FB no), che non e' ne' finita ne' intatta e va trattata a parte."""
+    unita = costruisci_unita(busta['tipo'], busta['json_file'],
+                             busta['immagini'], busta['meta'])
+    if not unita:
+        return False
+    return not any(gia_pubblicato(u['chiave'], c, pubblicati)
+                   for u in unita for c in canali_richiesti())
+
+
+# Nome della sottocartella d'archivio per cio' che non e' mai stato pubblicato e non
+# lo sara' mai. Tenuta separata da archivio/AAAA-MM/, che e' la prova dei post usciti.
+SCARTI_SOTTOCARTELLA = 'non-pubblicati'
+
+
+def separa_scarti_definitivi(scaduti, pubblicati):
+    """Divide le buste scadute in (da_segnalare, scarti_definitivi).
+
+    Uno "scarto definitivo" e' una busta che non ha nessuna via d'uscita: e' scaduta,
+    NON e' un aggregato (i giornalieri e le storie hanno finestra di recupero 0 giorni
+    — decisione del 12/07/2026: «oggi c'e' X» pubblicato in ritardo e' falso) e non e'
+    mai uscita da nessuna parte. Nessun giro futuro potra' pubblicarla, quindi l'avviso
+    che la riguarda non e' azionabile: si limita a suonare a ogni run, per sempre. Fu
+    il caso di 20260803_Post giornaliero, rimasto in coda a strillare per 5 giorni.
+    Va archiviata fra i non-pubblicati (una riga sola nel referto, poi silenzio).
+
+    Restano invece da_segnalare — cioe' continuano a suonare, ed e' giusto:
+      - gli AGGREGATI scaduti: si possono ancora ridatare a mano, il contenuto copre
+        piu' giorni e un weekend mai uscito e' un buco di copertura da sanare;
+      - le buste uscite a META' (un canale si', l'altro no): li' il problema non e' la
+        scadenza ma un canale che ha fallito, e nascondere quel segnale lo perderebbe.
+    """
+    da_segnalare, scarti = [], []
+    for busta in scaduti:
+        e_scarto = (busta['tipo'] not in TIPI_AGGREGATI
+                    and busta_mai_uscita(busta, pubblicati))
+        (scarti if e_scarto else da_segnalare).append(busta)
+    return da_segnalare, scarti
 
 
 def separa_gia_pubblicate(scaduti, pubblicati):
@@ -1181,6 +1230,32 @@ def main():
         nomi = ', '.join(b['json_file'].name for b in gia_uscite)
         print(f"🧪 {len(gia_uscite)} buste gia' pubblicate da archiviare (in LIVE): {nomi}")
 
+    # ---------- SCARTI DEFINITIVI: scadute, mai uscite, senza via d'uscita ----------
+    # Un giornaliero (o una storia) scaduto non verra' mai pubblicato da nessun giro
+    # futuro: la sua finestra di recupero e' 0 giorni. Finche' restava in coda, l'unico
+    # effetto era un avviso Telegram identico a ogni run — e un allarme che suona
+    # sempre smette di essere un allarme, coprendo quelli veri. Lo si chiude qui: una
+    # riga nel referto (perche' Michele deve sapere che un giorno e' rimasto scoperto),
+    # poi la busta esce dalla coda e non si ripresenta piu'.
+    scaduti, scarti = separa_scarti_definitivi(scaduti, pubblicati)
+    righe_scarti = []
+    if PUBLISH_LIVE:
+        for busta in scarti:
+            meta = busta['meta']
+            dest = archivia_busta(busta['json_file'], busta['immagini'], meta,
+                                  sottocartella=SCARTI_SOTTOCARTELLA)
+            if dest:
+                titolo = meta.get('titolo_evento', busta['json_file'].stem)
+                print(f"🗑 {busta['json_file'].name} scaduta e mai pubblicata "
+                      f"({busta['giorni_ritardo']}g di ritardo) → {dest.as_posix()}/")
+                righe_scarti.append(
+                    f"   • [{busta['tipo']}] {titolo} — prevista "
+                    f"{meta.get('data_pubblicazione')}, mai uscita → archiviata fra i "
+                    f"non-pubblicati (quel giorno resta scoperto)")
+    elif scarti:
+        nomi = ', '.join(b['json_file'].name for b in scarti)
+        print(f"🧪 {len(scarti)} buste scadute e mai uscite da scartare (in LIVE): {nomi}")
+
     # ---------- PASSO 0: la coda e' gia' sul profilo? ----------
     # Va PRIMA di qualunque tentativo: i doppioni del 03-06/08 hanno lasciato in coda
     # buste gia' pubblicate ma non registrate, e senza questo controllo il primo giro
@@ -1324,10 +1399,18 @@ def main():
                     righe_report.append(f"   📦 archiviato in {dest.as_posix()}/")
 
     # ---------- SEZIONI DI AVVISO (scaduti / anomali) ----------
+    if righe_scarti:
+        if righe_report:
+            righe_report.append("")
+        righe_report.append("🗑 SCARTATE (scadute e mai uscite: nessun giro futuro "
+                            "potrebbe pubblicarle). Ultimo avviso, poi silenzio:")
+        righe_report.extend(righe_scarti)
+
     if scaduti:
         if righe_report:
             righe_report.append("")
-        righe_report.append(f"⚠️ BUSTE SCADUTE (NON pubblicate, oltre {GRACE_DAYS}g di ritardo):")
+        righe_report.append(f"⚠️ BUSTE SCADUTE RECUPERABILI (NON pubblicate, oltre "
+                            f"{GRACE_DAYS}g di ritardo):")
         for busta in scaduti:
             meta = busta['meta']
             righe_report.append(
@@ -1413,7 +1496,7 @@ def main():
     elif reparti_in_pausa:
         intestazione = (f"⏸ {intestazione} — INSTAGRAM IN PAUSA "
                         f"({', '.join(reparti_in_pausa)}, blocco Meta)")
-    elif scaduti or anomali:
+    elif scaduti or anomali or righe_scarti:
         intestazione = "❗ " + intestazione + " — CI SONO BUSTE DA CONTROLLARE"
     if not FB_ENABLED and not PUBLISH_LIVE:
         intestazione += "\n(Facebook non ancora configurato: aggiungi i secret FACEBOOK_PAGE_TOKEN e FACEBOOK_PAGE_ID)"
