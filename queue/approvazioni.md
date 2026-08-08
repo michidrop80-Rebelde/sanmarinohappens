@@ -14,3 +14,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [x] 2026-08-03T22:07:26.060Z — approvato — 05 — Michele Morri @RebeldeRN — 🆕 Cerimonia investitura Capitani Reggenti
 - [x] 2026-08-03T22:07:32.420Z — approvato — 06 — Michele Morri @RebeldeRN — 🆕 Cerimonia investitura Capitani Reggenti
 - [ ] 2026-08-08T12:14:33.229Z — approvato — 01 — Michele Morri @RebeldeRN — 🆕 Concerto a Lume di Candela — Da Bach ai Led Zeppelin
+- [ ] 2026-08-08T12:14:37.033Z — approvato — 02 — Michele Morri @RebeldeRN — 🆕 Concerto a Lume di Candela — Da Bach ai Led Zeppelin
