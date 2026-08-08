@@ -17,3 +17,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-08-08T12:14:37.033Z — approvato — 02 — Michele Morri @RebeldeRN — 🆕 Concerto a Lume di Candela — Da Bach ai Led Zeppelin
 - [ ] 2026-08-08T12:14:40.552Z — approvato — 03 — Michele Morri @RebeldeRN — 🆕 Concerto a Lume di Candela — Da Bach ai Led Zeppelin
 - [ ] 2026-08-08T12:14:54.860Z — approvato — 04 — Michele Morri @RebeldeRN — 🆕 Giovedì in Centro — negozi aperti e intrattenimento
+- [ ] 2026-08-08T12:14:55.956Z — approvato — 05 — Michele Morri @RebeldeRN — 🆕 Giovedì in Centro — negozi aperti e intrattenimento
