@@ -31,3 +31,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-08-10T20:39:35.737Z — approvato — 08 — Michele Morri @RebeldeRN — 🆕 Rallylegend 2026
 - [ ] 2026-08-10T20:39:36.847Z — approvato — 09 — Michele Morri @RebeldeRN — 🆕 Rallylegend 2026
 - [ ] 2026-08-10T20:45:59.416Z — approvato — 12 — Michele Morri @RebeldeRN — ⚠️ Festa dell'Amicizia / Live Festival (dubbio)
+- [ ] 2026-08-10T20:46:02.743Z — scartato — 12 — Michele Morri @RebeldeRN — ⚠️ Festa dell'Amicizia / Live Festival (dubbio)
