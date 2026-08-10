@@ -25,3 +25,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-08-10T07:31:24.975Z — approvato — 04 — Michele Morri @RebeldeRN — 🆕 Leone XIV visto da vicino
 - [ ] 2026-08-10T07:31:25.939Z — approvato — 05 — Michele Morri @RebeldeRN — 🆕 Leone XIV visto da vicino
 - [ ] 2026-08-10T07:31:26.887Z — approvato — 06 — Michele Morri @RebeldeRN — 🆕 Leone XIV visto da vicino
+- [ ] 2026-08-10T07:31:37.994Z — approvato — 07 — Michele Morri @RebeldeRN — 🆕 Rallylegend 2026
