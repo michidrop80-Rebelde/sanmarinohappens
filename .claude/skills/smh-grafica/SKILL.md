@@ -104,9 +104,10 @@ Quindi, **su ogni copia che crei, sempre, per tutti i tipi**:
 «DA ELIMINARE» lo farebbe cancellare a Michele, e i master **non si ricreano** (le linee
 divisorie si cancellano ma non si riproducono).
 
-📌 **Il Giornaliero non fa copia**: compila a rotazione **sulle pagine del master**
-`DAHOLS6Zdpw`. Lì non c'è niente da rinominare, e rinominare sarebbe il disastro di cui
-sopra. La regola vale per Settimanale, Weekend, Mensile e Storie, che una copia la fanno.
+📌 **Vale per tutti i tipi, giornaliero compreso.** Fino all'11/08/2026 il giornaliero era
+l'unico che compilava sul master e quindi l'unico senza copia da marchiare: da quel giorno
+fa la copia come gli altri (Step 4-bis). Se leggi da qualche parte che «il giornaliero non
+fa copia», quella riga è vecchia.
 
 **Perché:** Michele fa pulizia a mano su Canva — l'API non sa cancellare (vedi
 `project_pulizia_contenuti_vecchi`). Il marchio nel nome è ciò che gli permette di aprire
@@ -333,17 +334,47 @@ ne stanno (le altre al giro dopo).
 `delete_element` che non si ricrea) torna a colpire un evento diverso settimane dopo —
 è così che il post del **1 Agosto** è uscito con la data scritta in piccolo: la pagina 7
 del giornaliero era stata rifatta in fretta il 28/07 e aveva ereditato il font ridotto.
-Per ogni pagina elencata: **applica il fix indicato prima di compilarci sopra**, poi
-togli la voce dalla lista. Se il fix non è possibile in questo giro (es. campo
-cancellato che non si ricrea), salta la pagina e passa alla successiva.
+⚠️ **Dall'11/08/2026 il fix si applica SULLA COPIA, e la voce NON si toglie dalla lista.**
+Il master non si scrive più (vedi Step 4-bis): quindi il difetto resta lì dov'è e ogni
+copia futura se lo porta dietro. La lista descrive **lo stato del master**, non una coda di
+lavoro. Una voce si toglie solo quando il master viene riparato davvero — e le due
+riparazioni possibili sono descritte in fondo alla lista stessa.
 
-### Step 5 — Compila su Canva
+### Step 4-bis — FAI LA COPIA (anche il giornaliero, dall'11/08/2026)
+
+```
+copy-design(design_id=<master del tipo>, page_numbers=[le pagine scelte allo Step 4])
+```
+
+Poi rinominala subito: `🗑 DA ELIMINARE — SMH · Giornaliero — <data>` (vedi la sezione
+«Ogni copia di lavoro si chiama DA ELIMINARE»). **Da qui in poi lavori solo sulla copia**:
+compili lì, validi lì, esporti da lì. Il master non si tocca mai più.
+
+**Perché è cambiato** (domanda di Michele dell'11/08): il giornaliero era rimasto l'unico
+tipo che compilava **direttamente sulle pagine del master**, ed era anche l'unico con delle
+voci in `pagine_difettose` — non è un caso, è la stessa cosa vista da due lati. Le pagine si
+riciclano a rotazione, quindi ogni danno lasciato lì (un font rimpicciolito, un elemento
+cancellato) tornava a colpire **un evento diverso settimane dopo**: è così che il post del 1
+Agosto è uscito con la data in piccolo, ereditata dal 28/07. Le storie invece lavorano su
+copia, e infatti il loro master non veniva modificato dal 28/07 e non ha nessun difetto.
+
+⚠️ **Il conto da pagare, e va saputo:** finché si compilava sul master, un difetto trovato
+veniva **riparato sul master** e quindi guariva per tutti. Ora il master non si tocca, e i
+difetti che ha già se li porta dentro **ogni copia**. Vanno riparati sulla copia, ogni
+volta, finché Michele non sistema il master a mano.
+
+Il puntatore di rotazione (`ultima_pagina_usata`) si aggiorna comunque: serve a variare lo
+sfondo, e gli sfondi stanno sulle pagine del master.
+
+### Step 5 — Compila su Canva (sulla COPIA)
 Segui la sequenza MCP in `references/canva-e-validazione.md` (⚠️ i tool sono
 **solo due**: `read-design` e `edit-design` — i vecchi nomi non esistono più):
 `read-design` con `open_transaction: true` → scrivi i 5 campi con `edit-design`
 sugli **element_id (locator_id) reali di ogni pagina**, una chiamata per pagina →
 `edit-design` con `finalize: "commit"`. Non toccare gli elementi fissi (handle,
 CTA, logo, sfondo).
+⚠️ Gli `element_id` della copia **non sono quelli del master**: rileggi sempre la copia,
+non riusare i locator_id letti altrove.
 Se la transazione va storta a metà: annullala (`edit-design` con
 `finalize: "cancel"`) e segnala, non lasciare il design incoerente.
 

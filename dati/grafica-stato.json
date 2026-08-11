@@ -1,0 +1,1003 @@
+{
+  "_descrizione": "Stato dell'agente grafica (smh-grafica). Ogni TIPO di post ha il suo design Canva separato (varietà visiva) con la sua rotazione indipendente. 'designs' mappa tipo -> { design_id, nome_canva, totale_pagine, ultima_pagina_usata }. 'design_id' null = design ancora da creare su Canva (lo cerco per 'nome_canva' e poi blocco l'ID qui). 'ultima_pagina_usata' = puntatore rotazione (dopo l'ultima riparte da 1). 'in_attesa_conferma' = lavoro compilato ma NON ancora esportato: aspetta il 'procedi' di Michele. 'log' = storico export completati.",
+  "convenzione_nomi": "Ogni design Canva si chiama 'SMH · <Tipo>' (sigla fissa SMH per ritrovarli con search-designs).",
+  "cartelle_export": {
+    "_nota": "Riorganizzate da Michele il 05/07/2026 in marketing/3 Export/ per TIPO. File di prova/test → prefisso PROVA_.",
+    "giornaliero": "marketing/3 Export/1 Giornalieri - Post/",
+    "storia": "marketing/3 Export/2 Giornalieri - Stories/",
+    "settimanale": "marketing/3 Export/3 Settimanali - Post/",
+    "weekend": "marketing/3 Export/4 Weekend - Post/",
+    "mensile": "marketing/3 Export/5 Mensili/"
+  },
+  "designs": {
+    "giornaliero": {
+      "design_id": "DAHOLS6Zdpw",
+      "nome_canva": "SMH - Giornaliero",
+      "totale_pagine": 10,
+      "ultima_pagina_usata": 2
+    },
+    "_nota_21-07-2026": "Giro 21/07/2026 (prima meta'): rotazione giornaliero completata per intero (pag.4->10 poi wrap 1->3, 10 eventi). 16 eventi con box grafica erano in coda (17 meno Festa di San Marino gia' esportata prima): compilati i primi 10 in ordine di data, i restanti 6 (Benji&Fede 07/08, Molella 14/08, Comics 28-30/08, Dal Turista al Contadino 05-06+12-13/09, MotoGP 11-13/09, Sport in Fiera 18-20/09) restati in coda per esaurimento pagine disponibili nella rotazione.",
+    "_nota_21-07-2026-seconda-meta": "Giro 21/07/2026 (seconda meta'): ciclo ripartito, pagine 4-9 di nuovo libere -> compilati ed esportati i 6 eventi rimasti in coda (vedi log). Pagina 10 lasciata intatta (SMIAF, gia' esportato in precedenza). Convenzione multi-giorno confermata da Michele: evento con range lungo -> post singolo con prima data come riferimento sul grafico (range in caption), applicata a Comics, MotoGP, Sport in Fiera (range compatto 3gg 'Ven-Dom') e Dal Turista al Contadino (due weekend separati -> usato il primo, 'Sab-Dom 5-6 Settembre', il secondo weekend 12-13/09 resta solo in caption). Fix in corsa: titolo Comics ripartito da font ereditato troppo grande (5 righe, sovrapposto a luogo/ora) a font_size 90 (3 righe, pulito); campo data con 'Settembre' andava a capo sovrapponendo il sottotitolo su pag 7/8/9 -> allargata la casella (950px) e su pag 7+9 ridotto font_size a 52 (uniformato anche il campo giorno per armonia visiva) per farlo stare su una riga senza toccare il logo SMH in alto a destra. Dal Turista al Contadino: luogo e ora NON specificati ne' dalla fonte ne' da ricerca web mirata (stessa verifica gia' fatta per le storie, riconfermata con una nuova ricerca vuota) -> elemento luogo cancellato (nessun placeholder), ora gia' assente sulla pagina riciclata. MotoGP: ora 'Gara Dom 14:00' riusata dalla verifica gia' fatta per la storia (motogpmisano.com/it/orario-13, gara domenica 13/09 ore 14:00) essendo lo stesso giorno di verifica.",
+    "settimanale": {
+      "design_id": "DAHORdC0zdY",
+      "nome_canva": "SMH - Settimanale",
+      "totale_pagine": 4,
+      "ultima_pagina_usata": 2,
+      "struttura_riga": "8 righe evento. Ogni riga = casella giorno/data (es. 'Martedì 21/07') + casella titolo evento + casella LUOGO BREVE (solo Castello/venue, es. 'Valdragone' — semplificato dall'agente dal luogo completo della fonte) + linea divisoria (SHAPE). SUL GRAFICO niente ora e niente prezzi. Ora/indirizzo completo/prezzi/prenotazione vanno in CAPTION. Vedi memoria project_architettura_info_aggregati."
+    },
+    "weekend": {
+      "design_id": "DAHOp1t_N1A",
+      "nome_canva": "SMH - Weekend",
+      "formato": "1080x1350 (4:5 verticale)",
+      "totale_pagine": 4,
+      "ultima_pagina_usata": 4,
+      "struttura_riga": "REGISTRATO 07/07/2026. 4 pagine-variante colore (rotazione indipendente). Layout LISTA PULITA (deciso da Michele 07/07): tutte le righe evento uguali, come il settimanale. Titolo fisso 'Questo weekend in Repubblica' + casella DATA variabile (range weekend, es. '3-5 luglio 2026'). 6 RIGHE evento per pagina: ogni riga = casella 'data . luogo BREVE' (piccola sopra) + TITOLO grande sotto + linea divisoria. Sul grafico solo data+luogo+titolo, niente ora/prezzi (quelli in caption). Freccia 'scorri' = elemento separato in basso (cancellabile). Settimana con <6 eventi: cancella righe vuote + position_element blocco compatto centrato (come settimanale/carosello). Titoli MASSIMIZZATI (casella larga). Lavorare SEMPRE su COPIA. Nota: creato da Michele copiando il settimanale e ristilizzando i colori. Element_id da rileggere con read-design sulla copia."
+    },
+    "bisettimanale": {
+      "design_id": null,
+      "nome_canva": "SMH · Bisettimanale",
+      "totale_pagine": null,
+      "ultima_pagina_usata": 0
+    },
+    "carosello": {
+      "design_id": "DAHOd72cNmY",
+      "nome_canva": "SMH - Mensile",
+      "formato": "1080x1350 (4:5 verticale)",
+      "totale_pagine": 20,
+      "ultima_pagina_usata": 0,
+      "copertine_totali": 10,
+      "ultima_copertina_usata": 2,
+      "copia_luglio_v2": "DAHPEeibRG0 (compilato+esportato 11/07/2026, copertina 1 = Luglio) — CORRETTO 11/07 sera: slide Settimana 3, 'Armonie! Pianoforte' → 'Armonie! Musica sacra del ’600' (rimassimizzato); il PNG Carosello-Luglio-2026_4-sett3.png sul Mac è VECCHIO finché non si riesporta",
+      "struttura": "CONFERMATO 06/07/2026 leggendo il template. 20 pagine ALTERNATE: DISPARI (1,3,...,19) = COPERTINE (10 sfumature diverse), PARI (2,4,...,20) = PAGINE INTERNE (10 sfumature diverse). Standard 1+2, UN mese per carosello. COPERTINA: logo SMH + 'Tutti gli eventi del mese di <MESE> sul territorio della Repubblica di San Marino' -> l'unica parte variabile e' il NOME DEL MESE (font a larghezza adattabile per farci stare mesi lunghi). Se ne usa UNA per mese in SEQUENZA di rotazione tra le 10 copertine (ultima_copertina_usata -> pagina dispari 2*n-1; poi riparte). PAGINA INTERNA: 8 RIGHE evento, ogni riga = 'data + luogo' (riga piccola in alto) + TITOLO grande sotto + linea divisoria. Sul grafico solo data+luogo+titolo, niente ora/prezzi. Si usa una interna per SETTIMANA, a colorazione RANDOM tra le 10 pari. Settimana <8 eventi: cancella righe vuote + compatta-centra. FRECCIA 'scorri' presente su OGNI pagina: sull'ULTIMA slide del carosello va CANCELLATA (delete_element). NIENTE slide CTA dedicata (il messaggio di chiusura sta in caption). Lavorare SEMPRE su una COPIA (copy-design con page_numbers per tenere solo 1 copertina + N interne). Reference compilata: dati/post/aggregati-luglio-agosto-2026.md (carosello Luglio). Export in cartella 'mensile'. Vedi SKILL sez. Carosello + memoria project_carosello_mensile.",
+      "copia_agosto": "DAHQkUMxaD4 (compilato+esportato 27/07/2026, copertina 2 = Agosto, 5 slide settimanali, 29 eventi). Copia usa-e-getta da cestinare a mano. Trappole di questo design trovate il 27/07: la casella DATA regge ~10 caratteri ('01 - 02/08' ok, 'Fino al 02/08' va a capo e sbatte sul titolo); il TITOLO regge ~18 caratteri a font 46,27 (per 20 caratteri servono 40, per 22 servono 36) e la larghezza dipende dai glifi ('Cocktails Ronzanti' 18 sta, 'Stefano Malferrari' 18 no); su ogni pagina interna c'e' una SHAPE spuria fuori griglia (top ~1057) da cancellare; su questo design position_element(top,left) si comporta normalmente, NON vanno scambiati i valori."
+    },
+    "storia": {
+      "design_id": "DAHOdNq0R58",
+      "nome_canva": "SMH - Storie",
+      "totale_pagine": 28,
+      "ultima_pagina_usata": 13,
+      "nota": "Un UNICO design con pagine alternate: DISPARI = SINGOLO (1 evento), PARI = DOPPIO (2 eventi); 14+14, ognuna con gradiente diverso. Meccanica di compilazione PROVATA in test il 05/07/2026 (vedi SKILL sezione Storie + memoria project-storie-architettura). Le pagine 17-28 NON sono duplicati: era un bug dell'anteprima/play di Canva (miniature bloccate su rosa); scorrendo nell'editor i colori sono diversi — confermato da Michele 05/07/2026. Font bianco/nero deciso PER SFONDO — Michele sta ancora rifinendo caso per caso (il testo descrizione nero su sfondo blu resta debole). Rotazione SEMPLICE senza vincolo colore. In test si lavora su COPIA (es. DAHOdvQtQsg) usa-e-getta, il puntatore NON avanza. | 15/07: usate pagine 3-27 dispari + wrap a 1-13 (giro straordinario); puntatore a 13. | 21/07: giro completo, usate le 14 pagine SINGOLO 15-27+1-13 (lap completo dei dispari, puntatore torna a 13). Copia usa-e-getta DAHQA8GffZA (cestinare a mano).",
+      "_nota_28-07-2026": "Giro pomeridiano: 17 eventi approvati (post-approvati-2026-07-27.md) da mettere in storia, nessuno ancora fatto. Per contenere il giro, i giorni con 2-3 eventi sono stati compilati su UNA pagina DOPPIA (2 eventi nella stessa immagine: 06/08, 08/08, 09/08, 23/08, 29/08 primi due) invece di 2 storie SINGOLE separate come dice la regola SKILL '1-4 eventi/giorno -> sempre singola per evento'. Scelta di velocità, non validata da Michele: se preferisce storie separate, queste 5 giornate vanno rifatte come 10 singole. Pagine 8 e 10 (doppio) SALTATE: nessuna coppia in attesa quando ci sono arrivato, restano libere per il prossimo giro. Trovato e corretto lo stesso bug 'Settembre va a capo sulla linea' già noto per 05/09 e 12/09 (memoria project_buco_storie): capitava anche su date doppie tipo '15-18 Settembre' e su '19 Settembre' — fix: ridurre il font_size della data (era 115, portato a ~60-78) finché sta su una riga sola. Bug di posizionamento CONFERMATO su questo design: i parametri top/left di position_element NON corrispondono 1:1 alle coordinate lette da read-design — un primo tentativo di spostare il luogo (pag.7, evento senza ora) è finito fuori pagina due volte prima di trovare il valore giusto per tentativi; per un evento senza ora ripetere questo lavoro rischia di rompere la pagina, quindi si è preferito lasciare il luogo nella sua posizione originale (leggero rientro dove prima c'era l'orologio) invece di riallinearlo a sinistra."
+    },
+    "_nota_25-07-2026": "Recupero del 25/07 (buco di copertura: evento previsto dal piano riga 152 ma mai compilato). PAGINA 10 del master giornaliero SALTATA: il suo campo ORA e' stato cancellato in un giro precedente (SMIAF, orario non disponibile) e i box di testo non si ricreano -> per il baseball, che ha DUE orari da mostrare, serviva una pagina intatta: usata la pagina 1 (wrap). Il puntatore va quindi a 1. ATTENZIONE per i prossimi giri: la pagina 10 resta senza campo ora, usarla solo per eventi senza orario.",
+    "_nota_25-07-2026-recupero": "Recupero copertura 27/07-02/08 (stessa sessione del 25/07). Nome centro tennis DISCORDANTE tra le fonti ('Fonte dell'Ovo' nei file verificati, 'Cassa di Risparmio' su usc.sm) -> usata la forma neutra 'Centro Tennis, Montecchio'. COPIE usa-e-getta da cestinare a mano: DAHQYqFcvu8 (scartata: pagina 10 senza campo ora), DAHQYiwHwnY, DAHQYl0TS3w, DAHQYvo05hg, DAHQYq3aclU. Nella copia storie DAHQYq3aclU restano 4 pagine VERGINI (master 25, 27, 1, 3) per le storie 01/08 e 02/08 ancora da fare."
+  },
+  "in_attesa_conferma": null,
+  "log": [
+    {
+      "data_giro": "2026-07-02",
+      "tipo": "giornaliero",
+      "pagina": 1,
+      "file": "20260703_Post giornaliero.png",
+      "evento": "Sergio Caputo — Venerdì 3 Luglio"
+    },
+    {
+      "data_giro": "2026-07-02",
+      "tipo": "giornaliero",
+      "pagina": 2,
+      "file": "20260704_Post giornaliero.png",
+      "evento": "Chiara Galiazzo — Sabato 4 Luglio"
+    },
+    {
+      "data_giro": "2026-07-02",
+      "tipo": "giornaliero",
+      "pagina": 3,
+      "file": "20260705_Post giornaliero.png",
+      "evento": "Paolo Belli — Domenica 5 Luglio"
+    },
+    {
+      "data_giro": "2026-07-02",
+      "tipo": "giornaliero",
+      "pagina": 4,
+      "file": "20260707_Post giornaliero.png",
+      "evento": "Tre Fiori vs Larne — Martedì 7 Luglio"
+    },
+    {
+      "data_giro": "2026-07-02",
+      "tipo": "giornaliero",
+      "pagina": 5,
+      "file": "20260710_Post giornaliero.png",
+      "evento": "Sarah Toscano — Venerdì 10 Luglio"
+    },
+    {
+      "data_giro": "2026-07-02",
+      "tipo": "giornaliero",
+      "pagina": 6,
+      "file": "20260711_Post giornaliero.png",
+      "evento": "Symbol Remember — Sabato 11 Luglio"
+    },
+    {
+      "data_giro": "2026-07-02",
+      "tipo": "giornaliero",
+      "pagina": 7,
+      "file": "20260714_Post giornaliero.png",
+      "evento": "La Fiorita vs UNA Strassen — Martedì 14 Luglio"
+    },
+    {
+      "data_giro": "2026-07-02",
+      "tipo": "giornaliero",
+      "pagina": 8,
+      "file": "20260716_Post giornaliero.png",
+      "evento": "Virtus vs Dila Gori — Giovedì 16 Luglio"
+    },
+    {
+      "data_giro": "2026-07-02",
+      "tipo": "giornaliero",
+      "pagina": 9,
+      "file": "20260717_Post giornaliero.png",
+      "evento": "Le Vibrazioni — Venerdì 17 Luglio"
+    },
+    {
+      "data_giro": "2026-07-02",
+      "tipo": "giornaliero",
+      "pagina": 10,
+      "file": "20260718_Post giornaliero.png",
+      "evento": "Rally Bianco Azzurro — Sabato 18 Luglio"
+    },
+    {
+      "data_giro": "2026-07-11",
+      "tipo": "mensile",
+      "pagina": 1,
+      "file": "Carosello-Luglio-2026_1-copertina.png",
+      "evento": "Carosello Luglio 2026 v2 — copertina"
+    },
+    {
+      "data_giro": "2026-07-11",
+      "tipo": "mensile",
+      "pagina": 2,
+      "file": "Carosello-Luglio-2026_2-sett1.png",
+      "evento": "Carosello Luglio 2026 v2 — Settimana 1 (1-6/7, 7 eventi)"
+    },
+    {
+      "data_giro": "2026-07-11",
+      "tipo": "mensile",
+      "pagina": 3,
+      "file": "Carosello-Luglio-2026_3-sett2.png",
+      "evento": "Carosello Luglio 2026 v2 — Settimana 2 (7-12/7, 5 eventi)"
+    },
+    {
+      "data_giro": "2026-07-11",
+      "tipo": "mensile",
+      "pagina": 4,
+      "file": "Carosello-Luglio-2026_4-sett3.png",
+      "evento": "Carosello Luglio 2026 v2 — Settimana 3 (13-19/7, 6 eventi incl. Rally Bianco Azzurro)"
+    },
+    {
+      "data_giro": "2026-07-11",
+      "tipo": "mensile",
+      "pagina": 5,
+      "file": "Carosello-Luglio-2026_5-sett4.png",
+      "evento": "Carosello Luglio 2026 v2 — Settimana 4 (20-26/7, 4 eventi)"
+    },
+    {
+      "data_giro": "2026-07-11",
+      "tipo": "mensile",
+      "pagina": 6,
+      "file": "Carosello-Luglio-2026_6-finemese.png",
+      "evento": "Carosello Luglio 2026 v2 — Fine mese (27-31/7, 4 eventi, freccia rimossa)"
+    },
+    {
+      "data_giro": "2026-07-12",
+      "tipo": "mensile",
+      "pagina": 4,
+      "file": "Carosello-Luglio-2026_4-sett3.png",
+      "evento": "RIESPORTATA (fix titolo): Settimana 3 con 'Armonie! Musica sacra del '600'"
+    },
+    {
+      "data_giro": "2026-07-12",
+      "tipo": "settimanale",
+      "design": "DAHPHXhygso",
+      "pagina": 2,
+      "file": "Settimanale_2026-07-13_al_19.png",
+      "evento": "Settimanale 13-19/07, 8 eventi (pub 12/07 18:00 — recupero GRACE_DAYS)"
+    },
+    {
+      "data_giro": "2026-07-12",
+      "tipo": "weekend",
+      "design": "DAHPHRDHg5c",
+      "pagina": 1,
+      "file": "Weekend_2026-07-18_al_19.png",
+      "evento": "Weekend 18-19/07: Rally + Armonie Musici e Virtuose (pub 16/07 18:00)"
+    },
+    {
+      "data_giro": "2026-07-12",
+      "tipo": "giornaliero",
+      "pagina": 1,
+      "file": "20260718_Post giornaliero.png",
+      "evento": "Rally Bianco Azzurro Sab-Dom 18-19/07 — SOVRASCRITTO il vecchio export del 02/07 (pagina 10, dati superati)"
+    },
+    {
+      "data_giro": "2026-07-12",
+      "tipo": "storia",
+      "design": "DAHPHW6lO3k",
+      "pagina": 1,
+      "file": "20260715_Storia1_Armonie.png",
+      "evento": "Storia 15/07: Armonie Musica sacra '600 ore 18 (scorri)"
+    },
+    {
+      "data_giro": "2026-07-12",
+      "tipo": "storia",
+      "design": "DAHPHW6lO3k",
+      "pagina": 2,
+      "file": "20260715_Storia2_MonteDiLibri.png",
+      "evento": "Storia 15/07: Un Monte di Libri Domagnano ore 20:30 (chiusura)"
+    },
+    {
+      "data_giro": "2026-07-12",
+      "tipo": "storia",
+      "design": "DAHPHYVIcOQ",
+      "pagina": 1,
+      "file": "20260717_Storia1_BandaMilitare.png",
+      "evento": "Storia 17/07: Concerto Banda Militare ore 20 (scorri)"
+    },
+    {
+      "data_giro": "2026-07-12",
+      "tipo": "storia",
+      "design": "DAHPHYVIcOQ",
+      "pagina": 2,
+      "file": "20260717_Storia2_LeVibrazioni.png",
+      "evento": "Storia 17/07: Le Vibrazioni ore 21 (chiusura)"
+    },
+    {
+      "data_giro": "2026-07-13",
+      "tipo": "giornaliero",
+      "design": "DAHPSVc1jW8",
+      "pagina": 1,
+      "file": "20260714_Post giornaliero.png",
+      "evento": "FIX dati stantii (02/07 mai riesportato): La Fiorita vs UNA Strassen — ora 18:00→21:00 (verificato fsgc.sm). Copia usa-e-getta dal master DAHOLS6Zdpw pag.7"
+    },
+    {
+      "data_giro": "2026-07-13",
+      "tipo": "giornaliero",
+      "design": "DAHPSVc1jW8",
+      "pagina": 2,
+      "file": "20260716_Post giornaliero.png",
+      "evento": "FIX dati stantii: Virtus vs Dila Gori — ora 19:00→21:00 (verificato fsgc.sm + stampa sammarinese). Copia dal master DAHOLS6Zdpw pag.8"
+    },
+    {
+      "data_giro": "2026-07-13",
+      "tipo": "giornaliero",
+      "design": "DAHPSVc1jW8",
+      "pagina": 3,
+      "file": "20260717_Post giornaliero.png",
+      "evento": "FIX dati stantii: Le Vibrazioni — luogo Campo Bruno Reffi→San Marino Outlet + ora 21:15→21:00 (verificato stampa/storia/master). Copia dal master DAHOLS6Zdpw pag.9. Copia DAHPSVc1jW8 = usa-e-getta, cestinare a mano"
+    },
+    {
+      "data_giro": "2026-07-14",
+      "tipo": "giornaliero",
+      "design": "DAHPVEsXivg",
+      "pagina": 1,
+      "file": "20260718_Post giornaliero.png",
+      "evento": "FIX Rally uscite (richiesta Michele): tolto orario errato 'dalle 19:49' dall'immagine (regolamento ufficiale RPG-25BA = partenza sab ore 19:00), lasciato solo 📍 Montegiardino. Copia usa-e-getta pag.1 del master DAHOLS6Zdpw; riesportata+sovrascritta coda+Mac; validata al contrario; pushata commit ec77b5c. Copia DAHPVEsXivg = cestinare a mano"
+    },
+    {
+      "data_giro": "2026-07-14",
+      "tipo": "storia",
+      "design": "DAHPVuOUNbI",
+      "pagina": 1,
+      "file": "20260722_Storia1_UnMonteDiLibri.png",
+      "evento": "PRIMO GIRO SENZA CHECKPOINT UMANO (autonomia grafica+pubblica): Storia 22/07 Un Monte di Libri – Borgo Maggiore, ore 20:30 (CTA chiusura, unico evento del giorno). Fix in corsa: luogo abbreviato 'Parco del Sorbo, Ventoso, Borgo Maggiore' → 'Parco del Sorbo, Borgo Maggiore' + casella titolo allargata (962px) per eliminare la sovrapposizione col testo descrizione — validazione al contrario ha beccato la sovrapposizione prima dell'export. IL CANCELLO /smh-check HA POI BLOCCATO il primo export: la descrizione (copiata dal box 📱 Testo storia dell'approvato) conteneva 'Gratuito, rinfresco offerto dalla Giunta di Castello' — viola la regola equità no-prezzi. Riscritta senza menzione di gratuità ('tra il verde del Parco del Sorbo'), rifatto commit+export, ricontrollato ✅. NOTA per smh-testi: il box storia di 22/07 nel file approvati-2026-07-11.md contiene ancora 'Gratuito' — stesso pattern probabile su 29/07, 05/08 (Un Monte di Libri, stessa serie), da ripulire quando si compileranno. Copia usa-e-getta del master storie DAHOdNq0R58 pag.1 (layout singolo)."
+    },
+    {
+      "data_giro": "2026-07-14",
+      "tipo": "storia",
+      "design": "DAHPYbTZ-Lg",
+      "pagina": 1,
+      "file": "20260729_Storia1_UnMonteDiLibri.png",
+      "evento": "PRIMO GIRO REALMENTE AUTONOMO da task pianificato (smh-grafica-pubblica, martedì 11:06, nessun umano in chat). Storia 29/07 Un Monte di Libri – Serravalle, ore 20:30, Parco degli Ulivi (frazione Falciano omessa per regola 'mai la frazione'), CTA chiusura (unico evento del giorno). Fix ricorrente: descrizione sorgente conteneva 'Gratuito, rinfresco offerto dalla Giunta di Castello' (stesso bug già segnalato per il 22/07) → troncata alla prima frase, nessuna menzione prezzo/gratuità. Copia usa-e-getta DAHPYbTZ-Lg (4 pagine, master DAHOdNq0R58 pag. 3/5/7/9)."
+    },
+    {
+      "data_giro": "2026-07-14",
+      "tipo": "storia",
+      "design": "DAHPYbTZ-Lg",
+      "pagina": 2,
+      "file": "20260805_Storia1_UnMonteDiLibri.png",
+      "evento": "Storia 05/08 Un Monte di Libri – Fiorentino, ore 20:30, Parco La Grande Quercia, CTA chiusura (unico evento del giorno). Stesso fix 'Gratuito' rimosso dalla descrizione (troncata alla prima frase)."
+    },
+    {
+      "data_giro": "2026-07-14",
+      "tipo": "storia",
+      "design": "DAHPYbTZ-Lg",
+      "pagina": 3,
+      "file": "20260905_Storia1_DalTuristaAlContadino.png",
+      "evento": "Storia 05-06/09 Dal Turista al Contadino — 1° weekend. Luogo e ora NON specificati né dalla fonte né da ricerca web mirata (visitsanmarino.com conferma solo 'programmazione in corso') → elementi luogo/ora cancellati (no placeholder), giorno 'Sab-Dom', CTA chiusura."
+    },
+    {
+      "data_giro": "2026-07-14",
+      "tipo": "storia",
+      "design": "DAHPYbTZ-Lg",
+      "pagina": 4,
+      "file": "20260912_Storia1_DalTuristaAlContadino.png",
+      "evento": "Storia 12-13/09 Dal Turista al Contadino — 2° weekend. Stessa situazione dati mancanti del 1° weekend (luogo/ora cancellati), CTA chiusura."
+    },
+    {
+      "data_giro": "2026-07-14",
+      "tipo": "giornaliero",
+      "pagina": 2,
+      "file": "20260903_Post giornaliero.png",
+      "evento": "Festa di San Marino – 3 Settembre, Giovedì, Centro storico, ore varie (fonte: programma su più orari dalla mattina). Discrepanza corretta prima dell'export: il titolo su 3 righe si sovrapponeva alla riga luogo/ora (bug reale, non del sorgente) → luogo e ora riposizionati più in basso (top 955, come già fatto altrove per titoli a 3 righe), poi validato e committato."
+    },
+    {
+      "data_giro": "2026-07-15",
+      "tipo": "storia",
+      "design": "DAHPYcrU6wk",
+      "file": "20260716_Storia_1/2.png",
+      "evento": "Storie 16/07: Chiringuito Faetano 19:00 (scorri) + Virtus vs Dila Gori 21:00 verificata 2 fonti (chiusura). Master pag.3+5"
+    },
+    {
+      "data_giro": "2026-07-15",
+      "tipo": "storia",
+      "design": "DAHPYZAoPJk",
+      "file": "20260717_Storia_2/3.png",
+      "evento": "Storie 17/07: Le Vibrazioni RIFATTA con CTA scorri + Liscio for Dummies nuova (chiusura, senza €12). Master pag.7+9. Busta aggiornata a 3 immagini"
+    },
+    {
+      "data_giro": "2026-07-15",
+      "tipo": "storia",
+      "design": "DAHPYVO7kro",
+      "file": "20260718_Storia_1/2/3.png",
+      "evento": "Storie 18/07: Armonie Musici e Virtuose 18:00 + Beef&Honey 19:00 + Rally VAGO senza orario (chiusura). Master pag.11+13+15"
+    },
+    {
+      "data_giro": "2026-07-15",
+      "tipo": "storia",
+      "design": "DAHPYtAr5IE",
+      "file": "20260719_Storia_1.png",
+      "evento": "Storia 19/07: Titano Bears vs Cuprabas 11:00 La Ciarulla (chiusura). Master pag.17"
+    },
+    {
+      "data_giro": "2026-07-15",
+      "tipo": "settimanale",
+      "design": "DAHPYrwiEDA",
+      "file": "20260719_Settimanale_1/2.png",
+      "evento": "Settimanale 20-26/07 su 2 PAGINE (9 eventi >8 righe, regola carosello): pag.1 21-24/07 (6 righe centrate +120px), pag.2 domenica 26 (3 righe centrate +309px). Busta tipo carosello. Baseball 25/07 ESCLUSO (non confermato, nota Michele non-rincorrere). Tennis con data corretta 26/07. Master pag.3+4"
+    },
+    {
+      "data_giro": "2026-07-15",
+      "tipo": "storia",
+      "design": "DAHPZjORneQ",
+      "file": "20260721..20260731 (12 PNG)",
+      "evento": "Lotto 12 storie 21-31/07: Recital Bergamasco 21 · Tramonti 23+30 · Fred De Palma+Armonie Viaggi+Antiqua 24 · Alba+Fast&Caratelle+Tennis (senza ora) 26 · Baseball Playoff 20:00+Malgioglio+SMIAF (senza ora) 31. Titoli lunghi a font 58. Master pag.19-27+1-13 (rotazione con wrap)"
+    },
+    {
+      "data_giro": "2026-07-15",
+      "tipo": "giornaliero",
+      "pagina": 3,
+      "file": "20260715_Post giornaliero.png",
+      "evento": "RUN MIRATA post-hoc (regola 'un feed sempre' decisa oggi): Armonie! Musica sacra del '600 — Mercoledì 15 Luglio, Chiesa di Sant'Antimo, ore 18:00. Promosso da storia a feed (perdeva lo slot a Un Monte di Libri-Domagnano, che resta in storie con cross-mention in caption). Titolo compattato a 'Musica Sacra' e luogo a 'Chiesa di Sant'Antimo' (senza città) per evitare sovrapposizione col campo ora — validato al contrario, nessuna discrepanza sui dati."
+    },
+    {
+      "data_giro": "2026-07-21",
+      "tipo": "giornaliero",
+      "pagina": 4,
+      "file": "20260721_Post giornaliero.png",
+      "evento": "Recital pianistico — GianLuca Bergamasco, Martedì 21 Luglio, Chiostro Padri Servi (Valdragone), ore 21:00. Luogo abbreviato per stare nella casella (era 'Chiostro Padri Servi di Maria, Valdragone')."
+    },
+    {
+      "data_giro": "2026-07-21",
+      "tipo": "giornaliero",
+      "pagina": 5,
+      "file": "20260722_Post giornaliero.png",
+      "evento": "Un Monte di Libri — letture per bambini, Mercoledì 22 Luglio, Parco del Sorbo (Borgo Maggiore), ore 20:30."
+    },
+    {
+      "data_giro": "2026-07-21",
+      "tipo": "giornaliero",
+      "pagina": 6,
+      "file": "20260723_Post giornaliero.png",
+      "evento": "Giovedì in Centro, Giovedì 23 Luglio (prima data utile — evento ricorrente anche 30/07, 06/08, 13/08, 27/08, non compilato per le altre date), Centro storico, ora 'Fino a tarda notte' (parafrasi dalla caption, nessun orario fisso nella fonte)."
+    },
+    {
+      "data_giro": "2026-07-21",
+      "tipo": "giornaliero",
+      "pagina": 7,
+      "file": "20260724_Post giornaliero.png",
+      "evento": "San Marino Antiqua — rievocazione medievale, Ven-Dom 24-26 Luglio, Centro storico, ora 'Ven 21:30 · Sab-Dom 16:00'."
+    },
+    {
+      "data_giro": "2026-07-21",
+      "tipo": "giornaliero",
+      "pagina": 8,
+      "file": "20260726_Post giornaliero_TennisOpen.png",
+      "evento": "San Marino Tennis Open — ATP Challenger 125, Domenica 26 Luglio (prima data del range 26/07-02/08, usata come rappresentativa per il post singolo giornaliero), Centro Tennis Fonte dell'Ovo Montecchio, ora omessa (non specificato in fonte, ricerca web su ATP tour/sito ufficiale non ha dato un orario unico applicabile — nessun orario inventato)."
+    },
+    {
+      "data_giro": "2026-07-21",
+      "tipo": "giornaliero",
+      "pagina": 9,
+      "file": "20260726_Post giornaliero_AlbaSulMonte.png",
+      "evento": "Alba sul Monte — concerti all'alba, Domenica 26 Luglio (prima data utile — evento ricorrente anche 02/08, 09/08, 16/08, 23/08, non compilato per le altre date), Basilica del Santo, ore 06:00."
+    },
+    {
+      "data_giro": "2026-07-21",
+      "tipo": "giornaliero",
+      "pagina": 10,
+      "file": "20260731_Post giornaliero.png",
+      "evento": "SMIAF — San Marino International Arts Festival, Ven-Dom 31 Luglio – 2 Agosto, Centro storico, ora omessa (non specificato in fonte né trovato online un orario unico)."
+    },
+    {
+      "data_giro": "2026-07-21",
+      "tipo": "giornaliero",
+      "pagina": 1,
+      "file": "20260801_Post giornaliero.png",
+      "evento": "San Marino Revival — auto storiche, Sab-Dom 1-2 Agosto, Sport Domus (Serravalle, abbreviato da 'Multieventi Sport Domus, Serravalle'), ora 'Dalle 13:30' (verificata via ricerca web su acisport.it + facebook + smracingorganization.com: apertura verifiche sportive sab 1/8 ore 13:30 — non presente nella fonte originale del post approvato, aggiunta dopo verifica incrociata su 3 fonti)."
+    },
+    {
+      "data_giro": "2026-07-21",
+      "tipo": "giornaliero",
+      "pagina": 2,
+      "file": "20260803_Post giornaliero.png",
+      "evento": "Duo Stefanelli & Pantani — recital, Lunedì 3 Agosto, Chiostro Padri Servi (Valdragone), ore 21:00."
+    },
+    {
+      "data_giro": "2026-07-21",
+      "tipo": "giornaliero",
+      "pagina": 3,
+      "file": "20260804_Post giornaliero.png",
+      "evento": "Vino e Cinema sul Green, Martedì 4 Agosto, Golf Club (Borgo Maggiore, abbreviato da 'Golf Club San Marino, Borgo Maggiore'), ore 19:00."
+    },
+    {
+      "data_giro": "2026-07-21",
+      "tipo": "storia",
+      "design": "DAHQA8GffZA",
+      "pagina": 1,
+      "file": "20260723_Storia_GiovediInCentro.png",
+      "evento": "Storia 23/07: Giovedì in Centro, Centro storico, ora non specificata (delete_element + luogo riposizionato a sinistra), chiusura. Master pag.15"
+    },
+    {
+      "data_giro": "2026-07-21",
+      "tipo": "storia",
+      "design": "DAHQA8GffZA",
+      "pagina": 2,
+      "file": "20260801_Storia_Revival.png",
+      "evento": "Storia 01/08: San Marino Revival, Sport Domus Serravalle, ore 13:30 (verificato acisport.it+facebook+smracingorganization.com, apertura verifiche sportive), chiusura. Master pag.17"
+    },
+    {
+      "data_giro": "2026-07-21",
+      "tipo": "storia",
+      "design": "DAHQA8GffZA",
+      "pagina": 3,
+      "file": "20260803_Storia_DuoStefanelli.png",
+      "evento": "Storia 03/08: Duo Stefanelli & Pantani, Chiostro Padri Servi (Valdragone), ore 21:00, chiusura. Master pag.19"
+    },
+    {
+      "data_giro": "2026-07-21",
+      "tipo": "storia",
+      "design": "DAHQA8GffZA",
+      "pagina": 4,
+      "file": "20260804_Storia_VinoCinema.png",
+      "evento": "Storia 04/08: Vino e Cinema sul Green, Golf Club San Marino (Borgo Maggiore), ore 19:00, chiusura. Master pag.21"
+    },
+    {
+      "data_giro": "2026-07-21",
+      "tipo": "storia",
+      "design": "DAHQA8GffZA",
+      "pagina": 5,
+      "file": "20260806_Storia_TramontiCinqueVie.png",
+      "evento": "Storia 06/08: Tramonti in Vigna — Vigneto Cinque Vie, ore 19:00, chiusura. Master pag.23"
+    },
+    {
+      "data_giro": "2026-07-21",
+      "tipo": "storia",
+      "design": "DAHQA8GffZA",
+      "pagina": 6,
+      "file": "20260807_Storia1_AperitivoBattisti.png",
+      "evento": "Storia 07/08 (1/2): Aperitivo con Battisti, Uliveto dietro Scuola Elementare, ore 19:00, CTA scorri (segue Benji&Fede stesso giorno). Master pag.25"
+    },
+    {
+      "data_giro": "2026-07-21",
+      "tipo": "storia",
+      "design": "DAHQA8GffZA",
+      "pagina": 7,
+      "file": "20260807_Storia2_BenjiFede.png",
+      "evento": "Storia 07/08 (2/2): Benji & Fede — Summer Vibes, San Marino Outlet Falciano, ore 21:00, chiusura. Master pag.27"
+    },
+    {
+      "data_giro": "2026-07-21",
+      "tipo": "storia",
+      "design": "DAHQA8GffZA",
+      "pagina": 8,
+      "file": "20260814_Storia_Molella.png",
+      "evento": "Storia 14/08: DJ Molella & Rosa Chemical — Summer Vibes, San Marino Outlet Falciano, ore 21:00, chiusura. Master pag.1"
+    },
+    {
+      "data_giro": "2026-07-21",
+      "tipo": "storia",
+      "design": "DAHQA8GffZA",
+      "pagina": 9,
+      "file": "20260828_Storia1_Comics.png",
+      "evento": "Storia 28/08 (1/2): San Marino Comics — XIII edizione, Centro storico, ora 'Da 10:00' (presa dal box grafica dello stesso post approvato, ven 10:00-24:00), CTA scorri (segue Noche Argentina stesso giorno). Master pag.3"
+    },
+    {
+      "data_giro": "2026-07-21",
+      "tipo": "storia",
+      "design": "DAHQA8GffZA",
+      "pagina": 10,
+      "file": "20260828_Storia2_NocheArgentina.png",
+      "evento": "Storia 28/08 (2/2): Noche Argentina, Ranch Francischin (Domagnano), ore 19:00, chiusura. Master pag.5"
+    },
+    {
+      "data_giro": "2026-07-21",
+      "tipo": "storia",
+      "design": "DAHQA8GffZA",
+      "pagina": 11,
+      "file": "20260829_Storia_CocktailsRonzanti.png",
+      "evento": "Storia 29/08: Cocktails Ronzanti, Bioparco Apistico, ore 19:00, chiusura. Master pag.7"
+    },
+    {
+      "data_giro": "2026-07-21",
+      "tipo": "storia",
+      "design": "DAHQA8GffZA",
+      "pagina": 12,
+      "file": "20260903_Storia_FestaSanMarino.png",
+      "evento": "Storia 03/09: Festa di San Marino — 1725 anni (senza simbolo ° per limite font), Centro storico, ore 10:00, chiusura. Master pag.9"
+    },
+    {
+      "data_giro": "2026-07-21",
+      "tipo": "storia",
+      "design": "DAHQA8GffZA",
+      "pagina": 13,
+      "file": "20260911_Storia_MotoGP.png",
+      "evento": "Storia 11/09: GP San Marino MotoGP, Misano World Circuit, ora gara 'Gara 14:00' (verificato motogpmisano.com/it/orario-13, gara domenica 13/09 ore 14:00), chiusura. Master pag.11"
+    },
+    {
+      "data_giro": "2026-07-21",
+      "tipo": "storia",
+      "design": "DAHQA8GffZA",
+      "pagina": 14,
+      "file": "20260918_Storia_SportInFiera.png",
+      "evento": "Storia 18/09: Sport in Fiera — rassegna CONS, Centro Sportivo di Serravalle, ora non specificata (nessuna fonte 2026 affidabile trovata, solo dati 2025 non riusabili — delete_element + luogo riposizionato a sinistra), chiusura. Master pag.13"
+    },
+    {
+      "data_giro": "2026-07-21",
+      "tipo": "giornaliero",
+      "pagina": 4,
+      "file": "20260807_Post giornaliero.png",
+      "evento": "Benji & Fede — Summer Vibes, Venerdì 7 Agosto, San Marino Outlet (Falciano omesso), ore 21:00."
+    },
+    {
+      "data_giro": "2026-07-21",
+      "tipo": "giornaliero",
+      "pagina": 5,
+      "file": "20260814_Post giornaliero.png",
+      "evento": "DJ Molella & Rosa Chemical — Summer Vibes, Venerdì 14 Agosto, San Marino Outlet (Falciano omesso), ore 21:00."
+    },
+    {
+      "data_giro": "2026-07-21",
+      "tipo": "giornaliero",
+      "pagina": 6,
+      "file": "20260828_Post giornaliero.png",
+      "evento": "San Marino Comics — XIII edizione, Ven-Dom 28-30 Agosto (post singolo per evento multi-giorno, prima data come riferimento), Centro storico (semplificato da 'Centro Storico + Campo Bruno Reffi'), ora 'Da 10:00' (ripresa dalla stessa fonte usata per la storia dello stesso evento, apertura ven 10:00). Font titolo ridotto a 90 (ereditava un font troppo grande dalla pagina riciclata, causava overlap)."
+    },
+    {
+      "data_giro": "2026-07-21",
+      "tipo": "giornaliero",
+      "pagina": 7,
+      "file": "20260911_Post giornaliero.png",
+      "evento": "Gran Premio Red Bull MotoGP San Marino, Ven-Dom 11-13 Settembre (post singolo, prima data come riferimento), Misano World Circuit (abbreviato da 'Misano World Circuit Marco Simoncelli'), ora 'Gara Dom 14:00' (riverificata: motogpmisano.com/it/orario-13, gara domenica 13/09 ore 14:00 — stessa fonte gia' usata per la storia). Casella data allargata (950px) + font ridotto a 52 (su giorno e data) per evitare l'a-capo di 'Settembre' che sovrapponeva il sottotitolo/logo."
+    },
+    {
+      "data_giro": "2026-07-21",
+      "tipo": "giornaliero",
+      "pagina": 8,
+      "file": "20260905_Post giornaliero.png",
+      "evento": "Dal Turista al Contadino — sapori sammarinesi, Sab-Dom 5-6 Settembre (post singolo sul primo dei due weekend, 05-06/09 e 12-13/09; il secondo weekend resta solo in caption), luogo e ora NON specificati ne' dalla fonte ne' da ricerca web mirata (verificato di nuovo oggi, nessun risultato) — elemento luogo cancellato, nessun placeholder. Casella data allargata (950px) per evitare l'a-capo di 'Settembre'."
+    },
+    {
+      "data_giro": "2026-07-21",
+      "tipo": "giornaliero",
+      "pagina": 9,
+      "file": "20260918_Post giornaliero.png",
+      "evento": "Sport in Fiera 2026 — CONS, Ven-Dom 18-20 Settembre (post singolo, prima data come riferimento), Centro Sportivo di Serravalle, ora non specificata (nessuna fonte 2026 trovata, come gia' verificato per la storia) — elemento ora cancellato. Casella data allargata (950px) + font ridotto a 52 (su giorno e data) per evitare l'a-capo di 'Settembre'."
+    },
+    {
+      "data_giro": "2026-07-25",
+      "tipo": "giornaliero",
+      "design": "DAHQYiwHwnY",
+      "pagina": 1,
+      "file": "20260725_Post giornaliero.png",
+      "evento": "RECUPERO buco 25/07: SM Baseball vs Collecchio - doppio turno, Sabato 25 Luglio, La Ciarulla, ore 15:30 e 20:00 (ri-verificato oggi su 2 fonti: FIBS + SportParma). Luogo abbreviato a 'La Ciarulla' per la casella (convenzione come Sport Domus/Golf Club). Pagina 10 saltata perche' priva del campo ora."
+    },
+    {
+      "data_giro": "2026-07-25",
+      "tipo": "storia",
+      "design": "DAHQYl0TS3w",
+      "pagina": 15,
+      "file": "20260725_Storia_1.png",
+      "evento": "RECUPERO buco 25/07: storia singola SM Baseball vs Collecchio, ore 15:30 e 20:00, La Ciarulla Serravalle, CTA chiusura (unico evento del giorno). Fix in corsa: titolo a font 70 (da 90) perche' su 4 righe si sovrapponeva alla descrizione - beccato dalla validazione visiva; luogo riposizionato a left=360 per fare spazio all'ora doppia. Master pag.15."
+    },
+    {
+      "data_giro": "2026-07-25",
+      "tipo": "giornaliero",
+      "design": "DAHQYvo05hg",
+      "pagina": 2,
+      "file": "20260727_Post giornaliero.png",
+      "evento": "Fluxo Summer - allenamenti outdoor, Lunedi' 27 Luglio, Campo Bruno Reffi, ore 7:00 e 18:30 (orari di inizio delle due sessioni; range completo 7:00-8:00/18:30-20:30 in caption). Evento ricorrente lun-gio 8/6-27/8, verificato su usc.sm + ricerca web."
+    },
+    {
+      "data_giro": "2026-07-25",
+      "tipo": "giornaliero",
+      "design": "DAHQYvo05hg",
+      "pagina": 3,
+      "file": "20260728_Post giornaliero.png",
+      "evento": "La nuova Pieve - 200 anni, Martedi' 28 Luglio, Basilica del Santo, ore 18:00. Giorno che risultava SENZA eventi: trovato con ricerca mirata su usc.sm (200 anni dalla prima pietra, 28/07/1826)."
+    },
+    {
+      "data_giro": "2026-07-25",
+      "tipo": "giornaliero",
+      "design": "DAHQYvo05hg",
+      "pagina": 4,
+      "file": "20260729_Post giornaliero.png",
+      "evento": "Un Monte di Libri - Serravalle, Mercoledi' 29 Luglio, Parco degli Ulivi, ore 20:30. Promosso S->F dal piano il 15/07 ma mai compilato (la storia era gia' in coda). 'Gratuito' tenuto fuori da grafica e caption."
+    },
+    {
+      "data_giro": "2026-07-25",
+      "tipo": "giornaliero",
+      "design": "DAHQYvo05hg",
+      "pagina": 5,
+      "file": "20260730_Post giornaliero.png",
+      "evento": "Giovedi' in Centro, Giovedi' 30 Luglio, Centro storico, dalle 20:00 (ora presa da usc.sm: 20:00-01:00)."
+    },
+    {
+      "data_giro": "2026-07-25",
+      "tipo": "giornaliero",
+      "design": "DAHQYvo05hg",
+      "pagina": 6,
+      "file": "20260802_Post giornaliero.png",
+      "evento": "Alba sul Monte - concerto all'alba, Domenica 2 Agosto, Orti dell'Arciprete, ore 06:00. Font titolo riportato da 90 a 60 (la pagina ereditava il font grande di Comics)."
+    },
+    {
+      "data_giro": "2026-07-25",
+      "tipo": "storia",
+      "design": "DAHQYq3aclU",
+      "pagina": 17,
+      "file": "20260727_Storia_1.png",
+      "evento": "Storia 27/07 (1/2): Fluxo Summer, Campo Bruno Reffi, 7:00 e 18:30, CTA scorri. Titolo a font 70, luogo spostato a left=360 per l'ora doppia. Master pag.17."
+    },
+    {
+      "data_giro": "2026-07-25",
+      "tipo": "storia",
+      "design": "DAHQYq3aclU",
+      "pagina": 19,
+      "file": "20260727_Storia_2.png",
+      "evento": "Storia 27/07 (2/2): San Marino Tennis Open, Centro Tennis Montecchio, ora NON disponibile (delete_element + luogo a left=59), CTA chiusura. Master pag.19."
+    },
+    {
+      "data_giro": "2026-07-25",
+      "tipo": "storia",
+      "design": "DAHQYq3aclU",
+      "pagina": 21,
+      "file": "20260728_Storia_1.png",
+      "evento": "Storia 28/07 (1/2): La nuova Pieve - 200 anni, Basilica del Santo, 18:00, CTA scorri. Titolo a font 80. Master pag.21."
+    },
+    {
+      "data_giro": "2026-07-25",
+      "tipo": "storia",
+      "design": "DAHQYq3aclU",
+      "pagina": 23,
+      "file": "20260728_Storia_2.png",
+      "evento": "Storia 28/07 (2/2): San Marino Tennis Open, Centro Tennis Montecchio, ora NON disponibile, CTA chiusura. Master pag.23."
+    },
+    {
+      "data_giro": "2026-07-26",
+      "tipo": "storia",
+      "design": "DAHQYq3aclU",
+      "pagina": 5,
+      "file": "20260801_Storia_1.png",
+      "evento": "Storia 01/08 (1/2): San Marino Revival — auto storiche, Sport Domus Serravalle, dalle 13:30, CTA scorri."
+    },
+    {
+      "data_giro": "2026-07-26",
+      "tipo": "storia",
+      "design": "DAHQYq3aclU",
+      "pagina": 6,
+      "file": "20260801_Storia_2.png",
+      "evento": "Storia 01/08 (2/2): SMIAF — arti di strada/concerti, Centro storico, CTA chiusura."
+    },
+    {
+      "data_giro": "2026-07-26",
+      "tipo": "storia",
+      "design": "DAHQYq3aclU",
+      "pagina": 7,
+      "file": "20260802_Storia_1.png",
+      "evento": "Storia 02/08 (1/2): Alba sul Monte — concerto all'alba, Orti dell'Arciprete, ore 06:00, CTA scorri."
+    },
+    {
+      "data_giro": "2026-07-26",
+      "tipo": "storia",
+      "design": "DAHQYq3aclU",
+      "pagina": 8,
+      "file": "20260802_Storia_2.png",
+      "evento": "Storia 02/08 (2/2): Cena al tramonto Corianino, Circolo ricreativo Corianino, ore 19:30, CTA chiusura."
+    },
+    {
+      "data_giro": "2026-07-26",
+      "tipo": "storia",
+      "design": "DAHQYq3aclU",
+      "pagina": "5-8 (RIESPORTATE, fix)",
+      "file": "20260801_Storia_1/2.png + 20260802_Storia_1/2.png",
+      "evento": "FIX difetti scoperti dal vivo il 26/07 (i 4 PNG del giro precedente erano tutti difettosi, mai messi in coda). Pagina 5 (Revival): giorno sbagliato 'Venerdi' -> 'Sabato' (1 agosto e' sabato) + luogo sovrapposto all'ora (left 230->360, stesso schema della pag.1 funzionante: con un orario lungo tipo 'dalle 13:30' il luogo a left=230 sbatte, serve piu' margine). Pagina 6 (SMIAF): stesso fix giorno + titolo 'SMIAF - San Marino International Arts Festival' accorciato a 'SMIAF' (a font 90 andava su 4-5 righe e sbatteva sulla descrizione) + luogo riposizionato come il caso senza-ora di riferimento (pag.2, Tennis Open) + rimosso un elemento ora vuoto residuo + CTA 'scorri' sbagliata (era l'ultima storia del giorno) corretta in chiusura. Pagina 7 (Alba sul Monte): giorno sbagliato 'Sabato 2 Agosto' -> 'Domenica' (bug gia' noto dal report). Pagina 8 (Cena al tramonto): CTA 'scorri' sbagliata (ultima storia) corretta in chiusura. NOTA IMPORTANTE su position_element in questo design: i parametri top/left del tool risultano invertiti rispetto a come si leggono nel CDF (pos: A,B) - per riprodurre una posizione nota bisogna passare top=<primo numero del pos di riferimento>, left=<secondo numero>, verificato empiricamente confrontando con la pagina 1 (funzionante, mai toccata dall'API). Da tenere a mente per i prossimi fix su questo design.",
+      "outcome": "fixed"
+    },
+    {
+      "data_giro": "2026-07-26",
+      "tipo": "settimanale",
+      "design": "DAHQbtk6OaI",
+      "pagina": "1-2 (copia; master 1 e 2, wrap dopo la 4)",
+      "file": "20260726_Settimanale_1.png + _2.png",
+      "evento": "Settimanale 27/07-02/08, 10 eventi su 2 slide (5+5). Righe 6-8 cancellate e blocco compattato-centrato (+183px) su entrambe le pagine. Baseball playoff 31/07 ESCLUSO: tabellone inesistente, avversario e casa/trasferta ignoti (regola sport 'vs Avversario' + non inventare)."
+    },
+    {
+      "data_giro": "2026-07-26",
+      "tipo": "weekend",
+      "design": "DAHQeRHTzEo",
+      "pagina": "2 (copia master DAHOp1t_N1A)",
+      "file": "20260730_Weekend.png",
+      "evento": "Weekend Ven 31/07-Dom 02/08 (esce 30/07 18:00), 6 eventi su 1 pagina: San Marino Open (in corso, fino al 02/08, Montecchio) · Malgioglio & Angie (31/07, Falciano) · SMIAF (31/07-02/08, Centro Storico) · San Marino Revival (01-02/08, Serravalle) · Alba sul Monte - Concerto (02/08, Basilica del Santo) · Cena al tramonto (02/08, Corianino). Fonte: buste gia' in coda in posts/ + master.md, stessi dati gia' passati da /smh-check dentro il settimanale 27/07-02/08 (commit 4ac78df). Nessuna bozza approvata pre-esistente: quella in aggregati-luglio-agosto-2026.md era del 30/06 e inservibile. Fix in corsa: (1) il layout responsive ordina le 6 righe per coordinata x del template, NON nell'ordine in cui si scrive il testo -> mappata la corrispondenza x->posizione visiva prima di scrivere i dati nell'ordine cronologico corretto; (2) titolo 'Cristiano Malgioglio & Angie' andava a capo su 2 righe -> abbreviato a 'Malgioglio & Angie'; (3) tentata massimizzazione del titolo corto 'SMIAF' a font 80 ma la casella si espande verticalmente e sovrappone la riga sotto -> riportato a 40 (uniforme alle altre righe), NON applicare font > 40 su questo design senza controllare anche l'altezza della casella. 'Cena al tramonto' non risulta in dati/calendario/master.md (solo nella bozza storia approvata da Michele il 25/07): usato comunque perche' gia' verificato/approvato e gia' presente nel settimanale appena passato dal check. COPIA usa-e-getta da cestinare a mano: DAHQeRHTzEo."
+    },
+    {
+      "data": "2026-07-27",
+      "tipo": "carosello",
+      "descrizione": "Carosello Agosto 2026: copertina + 5 slide settimanali, 29 eventi verificati. Include i playoff baseball in casa (gara 2 il 01/08). Esclusi: gara 5 del 10/08 (condizionale), gare a Parma 05-06/08 (decisione di Michele), campionato di calcio 28-30/08 (mancano orari e campi).",
+      "design": "DAHQkUMxaD4",
+      "export": "marketing/3 Export/5 Mensili/20260801_Carosello_1..6.png"
+    },
+    {
+      "data": "2026-07-27",
+      "tipo": "weekend",
+      "descrizione": "Weekend 31/07-02/08 RIFATTO a 2 slide (prima era 1 slide da 6 eventi): aggiunti baseball playoff gara 1 (31/07) e gara 2 (01/08) vs Farma Crocetta. 8 eventi totali, 4+4.",
+      "design": "DAHQkBGZA4c",
+      "export": "marketing/3 Export/4 Weekend - Post/20260730_Weekend_1..2.png"
+    },
+    {
+      "data": "2026-07-27",
+      "tipo": "storia",
+      "descrizione": "RIFATTA la storia baseball del 31/07 (Storia_1). Quella in coda era compilata sui dati sbagliati della ricerca: diceva «Costa del Bello» invece di La Ciarulla, non nominava l'avversario (contro la regola sport = vs Avversario) e chiamava «campionato sammarinese» la Serie A Gold italiana. Ora: SM vs Farma Crocetta, La Ciarulla, gara 1 dei quarti. Trovata aprendo i PNG per mettere i tag mancanti.",
+      "design": "DAHQmM4qVjs",
+      "export": "marketing/3 Export/2 Giornalieri - Stories/20260731_Storia_1.png"
+    },
+    {
+      "data": "2026-07-28",
+      "tipo": "correzione",
+      "descrizione": "SAN MARINO REVIVAL RINVIATO (01-02/08 -> 29-30/08, annuncio 21-22/07, doppia fonte San Marino RTV + Rally Time). Corrette 4 buste gia' in coda: weekend slide 2 (riga tolta, 3 eventi, blocco gia' centrato), carosello agosto slide 2 (riga tolta, 4 eventi, blocco ricentrato +67.6px), carosello slide 6 RIFATTA su pagina nuova (pag.7 della copia, interna intatta: le righe cancellate non si ricreano) con 6 eventi incluso il Revival al 29-30/08 e freccia scorri cancellata, post+storia 01/08 ricompilati sul baseball playoff gara 2 (SM vs Farma Crocetta, La Ciarulla 20:00) che era in coda senza ne' post ne' storia.",
+      "design": "DAHQkBGZA4c (weekend) · DAHQkUMxaD4 (carosello) · DAHOLS6Zdpw pag.7 (giornaliero) · DAHQYq3aclU pag.5 (storia)",
+      "note_trappole": "Sul design GIORNALIERO le pagine 8, 9 e 10 hanno perso il campo ORA (delete_element di giri precedenti, non si ricrea): per un evento con orario serve una pagina che ce l'abbia ancora. Sul design MENSILE e sul WEEKEND position_element si comporta normalmente (top = primo valore del pos, left = secondo). Le pagine 7 e 8 del giornaliero contenevano lavoro compilato ma MAI esportato ne' messo in coda (Quattrocelli 4ET 05/08 e Dal Turista al Contadino 05-06/09): salvati come PNG nello scratchpad prima di riusare la pagina 7."
+    },
+    {
+      "data_giro": "2026-07-28",
+      "tipo": "giornaliero",
+      "pagina": 7,
+      "file": "20260805_Post giornaliero.png",
+      "evento": "Quattrocelli 4ET, Mercoledì 5 Agosto, Orti Borghesi, ore 18:30. Compilato in una sessione precedente (mai esportato), ritrovato e validato al contrario oggi prima dell'export."
+    },
+    {
+      "data_giro": "2026-07-28",
+      "tipo": "giornaliero",
+      "pagina": 1,
+      "file": "20260806_Post giornaliero.png",
+      "evento": "Giuseppe Cederna — Maestri (San Marino TeatrOUT), Giovedì 6 Agosto, TeatrOUT, ore 21:00. Recupero: gia' compilato in sessione precedente interrotta, mai esportato ne' registrato — trovato oggi, validato al contrario (pulito), esportato."
+    },
+    {
+      "data_giro": "2026-07-28",
+      "tipo": "giornaliero",
+      "pagina": 2,
+      "file": "20260808_Post giornaliero.png",
+      "evento": "Paolo Jannacci in Concert, Sabato 8 Agosto, Campo Bruno Reffi, ore 21:15. Stesso recupero di sessione interrotta."
+    },
+    {
+      "data_giro": "2026-07-28",
+      "tipo": "giornaliero",
+      "pagina": 3,
+      "file": "20260809_Post giornaliero.png",
+      "evento": "Eugenio Finardi in Concert, Domenica 9 Agosto, Campo Bruno Reffi, ore 21:15. Stesso recupero di sessione interrotta."
+    },
+    {
+      "data_giro": "2026-07-28",
+      "tipo": "giornaliero",
+      "pagina": 4,
+      "file": "20260812_Post giornaliero.png",
+      "evento": "Dialogues — NMP Ensemble, Mercoledì 12 Agosto, Castellaccio di Fiorentino, ore 18:30. Stesso recupero di sessione interrotta."
+    },
+    {
+      "data_giro": "2026-07-28",
+      "tipo": "giornaliero",
+      "pagina": 5,
+      "file": "20260816_Post giornaliero.png",
+      "evento": "Alba sul Monte — Trinaluna, Domenica 16 Agosto, Orti dell'Arciprete, ore 06:00. Stesso recupero di sessione interrotta. NOTA: il registro master cita un concerto 'Ad Parnassum' al 17/08 per questa serie — possibile scarto di un giorno tra le fonti, segnalato da smh-testi, non risolto qui (fuori scope grafica)."
+    },
+    {
+      "data_giro": "2026-07-28",
+      "tipo": "giornaliero",
+      "pagina": 6,
+      "file": "20260819_Post giornaliero.png",
+      "evento": "Trio Mi Alma, Mercoledì 19 Agosto, Orti Borghesi, ore 18:30. Stesso recupero di sessione interrotta."
+    },
+    {
+      "data_giro": "2026-07-28",
+      "tipo": "giornaliero",
+      "pagina": 9,
+      "file": "20260829_Post giornaliero.png",
+      "evento": "21° Giro dei Castelli di San Marino (titolo senza ordinale, il font non rende '°'), Sabato 29 Agosto, Nei 9 Castelli, ora non specificato. Vince lo slot 'un feed/giorno' del 29/08 su Cocktails Ronzanti e Piano-Malferrari (restano da fare come storie). Stesso recupero di sessione interrotta."
+    },
+    {
+      "data_giro": "2026-07-28",
+      "tipo": "giornaliero",
+      "pagina": 10,
+      "file": "20260915_Post giornaliero.png",
+      "evento": "11º Concorso Internazionale di Canto Renata Tebaldi (titolo senza ordinale), Mar-Ven 15-18 Settembre, Teatro Concordia (Borgo Maggiore), ora non specificato. Stesso recupero di sessione interrotta."
+    },
+    {
+      "data_giro": "2026-07-28",
+      "tipo": "giornaliero",
+      "pagina": "10 (riciclata dopo l'export di Tebaldi)",
+      "file": "20260919_Post giornaliero.png",
+      "evento": "36° Gran Premio Nuvolari (titolo senza ordinale), Sabato 19 Settembre, San Marino, ora non specificato. Nessun conflitto di data."
+    },
+    {
+      "data_giro": "2026-07-28",
+      "tipo": "giornaliero",
+      "pagina": "1 (riciclata dopo l'export di Cederna)",
+      "file": "20260823_Post giornaliero.png",
+      "evento": "Quel Gran Genio — Tributo a Battisti, Domenica 23 Agosto, Campo Bruno Reffi, ore 21:15. Michele ha scelto questo evento (in chat) come vincitore dello slot feed 23/08 contro Alba sul Monte — Gioacchino, che resta solo come storia."
+    },
+    {
+      "data_giro": "2026-07-28",
+      "tipo": "storia",
+      "pagina": 27,
+      "file": "20260805_Storia_1.png",
+      "evento": "Quattrocelli 4ET, Mercoledì 5 Agosto, Orti Borghesi, ore 18:30. Titolo e luogo ridotti di font (andavano a capo/mid-parola)."
+    },
+    {
+      "data_giro": "2026-07-28",
+      "tipo": "storia",
+      "pagina": 26,
+      "file": "20260806_Storia_1.png",
+      "evento": "DOPPIA: Tramonti in Vigna (19:00, Vigneto Cinque Vie) + Giuseppe Cederna — Maestri (21:00, San Marino TeatrOUT). Vedi nota apertura sul layout doppio vs singolo."
+    },
+    {
+      "data_giro": "2026-07-28",
+      "tipo": "storia",
+      "pagina": 28,
+      "file": "20260808_Storia_1.png",
+      "evento": "DOPPIA: San Francesco — Passi sul Titano (08:00, Percorso Monte Titano) + Paolo Jannacci in Concert (21:15, Campo Bruno Reffi)."
+    },
+    {
+      "data_giro": "2026-07-28",
+      "tipo": "storia",
+      "pagina": 2,
+      "file": "20260809_Storia_1.png",
+      "evento": "DOPPIA: Alba sul Monte — Sonate e Danze (06:00, Orti dell'Arciprete) + Eugenio Finardi in Concert (21:15, Campo Bruno Reffi)."
+    },
+    {
+      "data_giro": "2026-07-28",
+      "tipo": "storia",
+      "pagina": 1,
+      "file": "20260812_Storia_1.png",
+      "evento": "Dialogues — NMP Ensemble, Mercoledì 12 Agosto, Castellaccio di Fiorentino, ore 18:30."
+    },
+    {
+      "data_giro": "2026-07-28",
+      "tipo": "storia",
+      "pagina": 3,
+      "file": "20260816_Storia_1.png",
+      "evento": "Alba sul Monte — Trinaluna, Domenica 16 Agosto, Orti dell'Arciprete, ore 06:00."
+    },
+    {
+      "data_giro": "2026-07-28",
+      "tipo": "storia",
+      "pagina": 4,
+      "file": "20260823_Storia_1.png",
+      "evento": "DOPPIA: Alba sul Monte — Gioacchino (06:00, Orti dell'Arciprete) + Quel Gran Genio — Tributo a Battisti (21:15, Campo Bruno Reffi)."
+    },
+    {
+      "data_giro": "2026-07-28",
+      "tipo": "storia",
+      "pagina": 5,
+      "file": "20260819_Storia_1.png",
+      "evento": "Trio Mi Alma, Mercoledì 19 Agosto, Orti Borghesi, ore 18:30."
+    },
+    {
+      "data_giro": "2026-07-28",
+      "tipo": "storia",
+      "pagina": 6,
+      "file": "20260829_Storia_1.png",
+      "evento": "DOPPIA: Piano — Stefano Malferrari (18:30, Castellaccio di Fiorentino) + Cocktails Ronzanti (19:00, Bioparco Apistico Montecchio). CTA 'scorri' (segue Storia_2)."
+    },
+    {
+      "data_giro": "2026-07-28",
+      "tipo": "storia",
+      "pagina": 7,
+      "file": "20260829_Storia_2.png",
+      "evento": "21° Giro dei Castelli di San Marino (titolo senza ordinale), Sabato 29 Agosto, Nei 9 Castelli, ora non specificato: elemento ora cancellato, luogo lasciato nella sua posizione originale (vedi nota bug position_element). Ultima storia del giorno, CTA di chiusura. ⚠️ Ricerca web di verifica: fonti su rally storici mostrano l'edizione precedente (20°) su DUE giorni (ven 29 + sab 30/08) — il sorgente approvato indica solo il 29/08. Non modificato qui (fuori scope grafica, serve verifica di /smh-verifica se il 2026 è anche bi-giorno)."
+    },
+    {
+      "data_giro": "2026-07-28",
+      "tipo": "storia",
+      "pagina": 9,
+      "file": "20260915_Storia_1.png",
+      "evento": "Concorso Renata Tebaldi (titolo senza ordinale), Mar-Ven 15-18 Settembre, Teatro Concordia (Borgo Maggiore), ora non specificato: elemento ora cancellato. Fix 'Settembre sulla linea': font data ridotto da 115 a 62."
+    },
+    {
+      "data_giro": "2026-07-28",
+      "tipo": "storia",
+      "pagina": 11,
+      "file": "20260919_Storia_1.png",
+      "evento": "Gran Premio Nuvolari (titolo senza ordinale), Sabato 19 Settembre, San Marino, ora non specificato: elemento ora cancellato. Fix 'Settembre sulla linea': font data ridotto da 115 a 78."
+    },
+    {
+      "data_giro": "2026-07-30",
+      "tipo": "settimanale",
+      "design": "DAHQ4eQe3rc (copia master DAHORdC0zdY, pag.3+4)",
+      "pagina": "1-2",
+      "file": "20260802_Settimanale_1.png / 20260802_Settimanale_2.png",
+      "evento": "Settimanale 03-09/08 (esce dom 02/08 18:00) su CAROSELLO 2 PAGINE, 16 eventi (8+8): pag1 = 03/08 Cinema Follemente+Rassegna Classica Giovani, 04/08 Cinema Sonic3+Vino e Cinema sul Green+Ascolto Trio 900, 05/08 Cinema Minecraft+Quattrocelli 4ET, 06/08 Tramonti in Vigna (prima meta'). pag2 = 06/08 Cederna-Maestri (seconda meta'), 07/08 Benji&Fede+Aperitivo Battisti+Greg, 08/08 Jannacci+San Francesco sul Titano, 09/08 Alba sul Monte+Finardi. Stesso header 'dal 3 al 9 Agosto' su entrambe le pagine (precedente: weekend 31/07-02/08 a 2 slide). DOPPIONE RISOLTO: 'L'Anima del Monte Titano — Cammino' (09/08, master riga #42) verificato alla fonte (visitsanmarino.com, 2 fetch indipendenti) essere lo STESSO evento di 'San Francesco: Passi sul Monte Titano' (08/08) — il calendario ufficiale del 9/08 non lo elenca affatto, solo Alba sul Monte+Finardi. Unificato a una riga sola sull'8/08 (17 eventi forniti -> 16 compilati). Fix in corsa: 'Ascolto…Trio '900' — il carattere '…' non renderizzato dal font (stesso bug gia' noto per '°') -> sostituito con ' - '; 'Giuseppe Cederna - Maestri' andava a capo sovrapponendosi alla riga sotto -> accorciato a 'Cederna - Maestri'."
+    },
+    {
+      "data_giro": "2026-08-07",
+      "tipo": "weekend",
+      "design": "DAHRoeIvAu4 (copia master DAHOp1t_N1A, pag.3+4)",
+      "pagina": "1-2",
+      "file": "20260808_Weekend_1.png / 20260808_Weekend_2.png (rinominati da 20260807_ per allinearli alla data di pubblicazione spostata a sab 08/08)",
+      "evento": "Weekend 07-09/08 (slot di recupero: doveva uscire gio 06/08 18:00, saltato per il blocco Canva). 9 eventi su 2 slide (6+4-1). pag1 = 07/08 Aperitivo con Battisti + Benji&Fede + Greg + Sagra della Tagliatella, 08/08 San Francesco + Concerto per l'Europa. pag2 = 08/08 Jannacci, 09/08 Alba sul Monte + Finardi. Compilato dal dossier gia' verificato dati/post/weekend-2026-08-07-09-PRONTO.md. FIX IN CORSA: (a) 'Sagra della Tagliatella (fino al 10/08)' andava a capo -> range spostato nel campo DATA ('Fino al 10/08'), titolo accorciato a 'Sagra della Tagliatella'; (b) 'San Francesco: Passi sul Titano' va a capo anche a 37 -> font 34 (31 caratteri, il box titolo di questo design regge ~29 a font 40); (c) 'Concerto per l'Europa - Harmonie Mont Saint Martin' (49 car.) abbreviato a 'Concerto per l'Europa', l'ensemble resta in caption; (d) pag2 con soli 3 eventi: cancellate le righe 4-5-6 e blocco ricompattato e centrato (offset +198px), titoli lunghi lasciati a font 40 su DUE righe sfruttando lo spazio verticale libero invece di rimpicciolirli. NOTA GEOMETRIA: su questo design il box titolo arriva ESATTAMENTE alla linea divisoria (47.6px a font 40), quindi 40 e' il massimo: non si puo' 'massimizzare' oltre senza sfondare la linea."
+    },
+    {
+      "data_giro": "2026-08-07",
+      "tipo": "settimanale",
+      "design": "DAHRoQFSZ8Q (copia master DAHORdC0zdY, pag.1+2, wrap dopo pag.4)",
+      "pagina": "1-2",
+      "file": "20260809_Settimanale_1.png / 20260809_Settimanale_2.png",
+      "evento": "Settimanale 10-16/08 (esce dom 09/08 18:00). 12 eventi su 2 slide (8+4). pag1 = 10/08 Cinema La vita da grandi + Concerto a Lume di Candela, 11/08 Cinema Dragon Trainer, 12/08 Cinema Zootropolis 2 + Dialogues NMP Ensemble, 13/08 Giovedi' in Centro + Mi Gusto San Marino, 14/08 SM Baseball vs Fortitudo. pag2 = 14/08 Molella & Rosa Chemical, 15/08 SM Baseball vs Fortitudo + DiscOttanta Novanta, 16/08 Alba sul Monte Trinaluna. Box titolo piu' STRETTO del weekend (916px vs 960): regge ~25 caratteri a font 40. FIX IN CORSA: 'Concerto a Lume di Candela' (26 car.) -> font 37; 'SM Baseball vs Fortitudo BO' (27) -> tolto 'BO', il 'vs avversario' resta; 'DiscOttanta Novanta e non solo' -> 'DiscOttanta Novanta'; 'Alba sul Monte - Trinaluna' (26) -> font 37. pag2 con 4 eventi: compilate le righe 3-6 (le cui posizioni coincidono ESATTAMENTE col blocco centrato) e cancellate 1-2-7-8 — nessun position_element necessario, trucco da riusare. ⚠️ DUE RIGHE SEGNALATE: baseball 14 e 15/08 verificati su 2 fonti ma ancora 'da-verificare' nella catena; Mi Gusto San Marino al terzo giro senza conferma web delle date 2026 (regge la conferma diretta di Michele del 06/07). Dossier: dati/post/settimanale-2026-08-10-16.md"
+    },
+    {
+      "data_giro": "2026-08-10",
+      "tipo": "giornaliero",
+      "design_id": "DAHOLS6Zdpw",
+      "pagina": 2,
+      "file": "20260811_Post giornaliero.png",
+      "evento": "Cinema nei Castelli - Dragon Trainer (11/08, Piazza Bertoldi Serravalle, 21:00)",
+      "nota": "luogo accorciato a 'Piazza Bertoldi' (con 'Serravalle' il box si sovrapponeva all'ora); titolo su 3 righe a font 60 (invariato). Nessun font ridotto ereditato."
+    },
+    {
+      "data_giro": "2026-08-10",
+      "tipo": "storia",
+      "design_id": "DAHOdNq0R58",
+      "pagina": 13,
+      "copia_di_lavoro": "DAHR7NCLT6c",
+      "file": "20260811_Storia_1.png",
+      "evento": "Cinema nei Castelli - Dragon Trainer (11/08)",
+      "nota": "puntatore da 11 a 13 (saltata la 12): un solo evento -> layout SINGOLO, che sta sulle pagine DISPARI. CTA di chiusura al posto di 'scorri' (unica storia del giorno)."
+    }
+  ],
+  "_nota_26-07-2026": "Settimanale 27/07-02/08 rifatto da zero: la bozza in dati/post/aggregati-luglio-agosto-2026.md era del 30/06 e aveva solo 3 dei 10 eventi (non conosceva il recupero del 25/07). Fonte usata: le buste gia' in coda in posts/, che avevano gia' passato /smh-check. Titolo tennis accorciato da 'San Marino Open - tennis ATP' (andava a capo e sbatteva sulla riga sotto) a 'San Marino Open - tennis': su questo design il titolo sta su una riga fino a ~25 caratteri. COPIA usa-e-getta da cestinare a mano: DAHQbtk6OaI.",
+  "_nota_28-07-2026_grafica": "Sessione grafica del 28/07/2026 (lanciata da Michele in chat, dopo il check approvazioni). Trovate 8 pagine (1,2,3,4,5,6,9,10) gia' compilate correttamente da una sessione precedente interrotta (mai esportate, mai registrate in questo log/pointer) — validate al contrario contro il sorgente (post-approvati-2026-07-27.md) e risultate pulite, quindi esportate cosi' come trovate. Pagina 7 conteneva il post baseball SM vs Farma Crocetta 01/08 gia' esportato in precedenza (verificato in posts/20260801_Post giornaliero.png, timestamp precedente a questa sessione: nessun dato perso) — ricompilata con Quattrocelli 4ET (05/08) e ri-esportata. Aggiunta pagina 10 (riciclata dopo Tebaldi) per Gran Premio Nuvolari (19/09). 10 EVENTI FEED completati su 17 approvati il 27/07. PAGINA 8 SALTATA: contiene ancora 'Dal Turista al Contadino' con luogo/ora GIA' cancellati in un giro precedente (elementi non ricreabili) — inutilizzabile per un evento normale finche' non viene sistemata a mano su Canva o sostituita con una copia. 7 EVENTI NON COMPILATI (non hanno un pointer libero compatibile o richiedono una decisione): Tramonti in Vigna (06/08, perso lo slot feed contro Cederna), San Francesco: Passi sul Monte Titano (08/08, perso contro Jannacci), Alba sul Monte — Sonate e Danze (09/08, perso contro Finardi), Cocktails Ronzanti e Piano — Stefano Malferrari (29/08, persi contro Giro dei Castelli), Alba sul Monte — Gioacchino (23/08) e Quel Gran Genio — Tributo a Battisti (23/08, DUE eventi sullo stesso giorno, nessuno ancora promosso a feed: serve una decisione di Michele su quale dei due sale a post singolo, l'altro resta solo storia). Questi 7 hanno gia' il testo pronto (box 'Testo storia') per diventare STORIE — lavoro da fare in un prossimo giro, non tentato oggi per tenere la sessione a fuoco sui giornalieri. NOTA ARCHITETTURALE: la cartella 'marketing/3 Export/1 Giornalieri - Post/' non esisteva mai (creata oggi) — storicamente i giornalieri sembrano finire direttamente in posts/ (passo di smh-pubblica). Questa sessione ha seguito la SKILL alla lettera e usato la cartella marketing/, coerente con l'architettura a due anelli distinti (grafica poi pubblica): smh-pubblica NON e' stato lanciato oggi, i PNG restano solo in marketing/. AGGIORNAMENTO: Michele ha confermato in chat (28/07) le scelte feed gia' compilate per 06/08 (Cederna), 08/08 (Jannacci), 09/08 (Finardi), 29/08 (Giro dei Castelli) — nessuna ricompilazione necessaria per questi 4 giorni. Unica modifica richiesta: 23/08 -> Battisti (fatto, vedi log). Restano da compilare come STORIE (non feed, persi lo slot): Tramonti in Vigna 06/08, San Francesco 08/08, Sonate e Danze 09/08, Cocktails Ronzanti 29/08, Piano-Malferrari 29/08, Alba sul Monte-Gioacchino 23/08.",
+  "pagine_difettose": {
+    "_descrizione": "Difetti PERMANENTI delle pagine dei master Canva (font rimpiccioliti da giri passati, elementi cancellati con delete_element). Dall'11/08/2026 nessun tipo scrive piu' sul master: si lavora sempre su copia. Quindi questa lista NON e' una coda di lavoro, e' lo STATO DEL MASTER: ogni copia futura eredita questi difetti e vanno riparati sulla copia, ogni volta. Una voce si toglie solo quando il master viene riparato davvero, e questo lo puo' fare solo Michele a mano (vedi _riparazione_a_mano).",
+    "giornaliero": {
+      "DAHOLS6Zdpw": {
+        "8": {
+          "difetto": "mancano DUE campi: LUOGO (📍) e ORA (⏰), cancellati da un giro precedente",
+          "verificato": "11/08/2026, lettura diretta della pagina: la 8 e' l'unica che ha perso anche il luogo",
+          "fix": "solo a mano da Michele (vedi _riparazione_a_mano). Nel frattempo non usare questa pagina"
+        },
+        "9": {
+          "difetto": "campo ORA (⏰) assente; il luogo c'e'",
+          "verificato": "11/08/2026, lettura diretta della pagina",
+          "fix": "solo a mano da Michele (vedi _riparazione_a_mano). Nel frattempo non usare questa pagina per eventi con orario"
+        },
+        "10": {
+          "difetto": "campo ORA (⏰) assente; il luogo c'e'",
+          "verificato": "11/08/2026, lettura diretta della pagina",
+          "fix": "solo a mano da Michele (vedi _riparazione_a_mano). Nel frattempo non usare questa pagina per eventi con orario"
+        }
+      }
+    },
+    "_riparazione_a_mano": {
+      "perche_non_posso_farlo_io": "Provato dal vivo l'11/08/2026 sulla pagina 8: con add_text la casella si ricrea nella posizione giusta e con la dimensione giusta, ma nasce con il CARATTERE SBAGLIATO (fontRef YACgEZ1cb1Q invece di YAD1aYG82rc del marchio) e non esiste nessun modo di cambiarlo: format_text regola dimensione, colore, peso, corsivo, interlinea — NON la famiglia del carattere. L'elemento di prova e' stato cancellato e la pagina rimessa com'era.",
+      "cosa_deve_fare_michele": "Su canva.com aprire 'SMH - Giornaliero' (DAHOLS6Zdpw), andare su una pagina sana (la 2 o la 5), selezionare le caselle 📍 e ⏰, copiarle e incollarle sulle pagine 8, 9 e 10 nella stessa posizione (la 9 e la 10 vogliono solo ⏰, la 8 tutte e due), poi mettere il colore del testo di quella pagina (la 8 ha i testi neri). Due minuti. Dopo, togliere le voci da questa lista.",
+      "link": "https://www.canva.com/d/Q8YYzDe92xEmJRI"
+    },
+    "_riparate": {
+      "7": "11/08/2026 — il blocco data era a font 52/52 (ereditato dal 28/07, colpi' il post del 1 Agosto): riportato a 96/115, lo standard delle pagine sane 2 e 5. Verificato sul thumbnail."
+    }
+  }
+}
