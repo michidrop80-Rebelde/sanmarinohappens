@@ -986,20 +986,14 @@
       "font_giorno": 94.2172,
       "font_data": 114.123,
       "larghezza_casella_data": 736.6098848517403,
-      "font_titolo": 60,
       "larghezza_casella_titolo": 969.1060605595218,
       "top_titolo": 563.3154802678562,
       "font_luogo": 46.6139,
       "top_luogo": 955,
       "font_ora": 41.2807,
-      "top_ora": 958.46668
-    },
-    "_da_uniformare": {
-      "_nota": "Residui di geometria lasciati dall'ultimo evento compilato su quella pagina. Non sono rotture: sono scostamenti dallo standard qui sopra. Da qui in avanti ogni COPIA li eredita, quindi vanno chiusi sul master.",
-      "1": "casella titolo larga 922.92 invece di 969.11 → va a capo prima delle altre",
-      "2": "riga 📍+⏰ a 971/974.47 invece di 955/958.47 (16 px piu' in basso)",
-      "6": "titolo a font 90 invece di 60 (avanzo di «Trio Mi Alma», titolo corto): un titolo lungo compilato a 90 sfonda",
-      "8": "titolo con top 501.06 invece di 563.32 (avanzo di un titolo da 3 righe)"
+      "top_ora": 958.46668,
+      "_regola_titolo": "Il titolo NON ha un font standard: va al PIU' GRANDE che riempie il blocco. Un titolo corto sta a 90 e oltre («Trio Mi Alma»), uno lungo scende verso 60 — quindi 60 non e' lo standard, e' solo dove finisce un titolo lungo. ⚠️ L'11/08/2026 avevo scritto qui font_titolo: 60 come valore di riferimento: se restava, la validazione avrebbe RIMPICCIOLITO i titoli corti credendo di correggere un difetto. Corretto da Michele mostrando i post pubblicati (LE VIBRAZIONI, MUSICA SACRA, VIRTUS VS DILA GORI: tutti grandi e pieni). Vale la stessa regola dei titoli sugli aggregati: massimizza, non minimizza.",
+      "_verificato": "11/08/2026 — lette tutte e 10 le pagine con la formattazione dopo le correzioni di Michele: giorno, data, larghezze e quota della riga 📍+⏰ uniformi su tutte e dieci; caselle 📍 e ⏰ presenti ovunque nel font del marchio."
     }
   }
 }
