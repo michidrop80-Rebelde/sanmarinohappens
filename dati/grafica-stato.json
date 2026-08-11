@@ -12,7 +12,7 @@
   "designs": {
     "giornaliero": {
       "design_id": "DAHOLS6Zdpw",
-      "nome_canva": "SMH - Giornaliero",
+      "nome_canva": "SMH - Giornaliero Master",
       "totale_pagine": 10,
       "ultima_pagina_usata": 2
     },
@@ -973,31 +973,33 @@
   "pagine_difettose": {
     "_descrizione": "Difetti PERMANENTI delle pagine dei master Canva (font rimpiccioliti da giri passati, elementi cancellati con delete_element). Dall'11/08/2026 nessun tipo scrive piu' sul master: si lavora sempre su copia. Quindi questa lista NON e' una coda di lavoro, e' lo STATO DEL MASTER: ogni copia futura eredita questi difetti e vanno riparati sulla copia, ogni volta. Una voce si toglie solo quando il master viene riparato davvero, e questo lo puo' fare solo Michele a mano (vedi _riparazione_a_mano).",
     "giornaliero": {
-      "DAHOLS6Zdpw": {
-        "8": {
-          "difetto": "mancano DUE campi: LUOGO (📍) e ORA (⏰), cancellati da un giro precedente",
-          "verificato": "11/08/2026, lettura diretta della pagina: la 8 e' l'unica che ha perso anche il luogo",
-          "fix": "solo a mano da Michele (vedi _riparazione_a_mano). Nel frattempo non usare questa pagina"
-        },
-        "9": {
-          "difetto": "campo ORA (⏰) assente; il luogo c'e'",
-          "verificato": "11/08/2026, lettura diretta della pagina",
-          "fix": "solo a mano da Michele (vedi _riparazione_a_mano). Nel frattempo non usare questa pagina per eventi con orario"
-        },
-        "10": {
-          "difetto": "campo ORA (⏰) assente; il luogo c'e'",
-          "verificato": "11/08/2026, lettura diretta della pagina",
-          "fix": "solo a mano da Michele (vedi _riparazione_a_mano). Nel frattempo non usare questa pagina per eventi con orario"
-        }
-      }
-    },
-    "_riparazione_a_mano": {
-      "perche_non_posso_farlo_io": "Provato dal vivo l'11/08/2026 sulla pagina 8: con add_text la casella si ricrea nella posizione giusta e con la dimensione giusta, ma nasce con il CARATTERE SBAGLIATO (fontRef YACgEZ1cb1Q invece di YAD1aYG82rc del marchio) e non esiste nessun modo di cambiarlo: format_text regola dimensione, colore, peso, corsivo, interlinea — NON la famiglia del carattere. L'elemento di prova e' stato cancellato e la pagina rimessa com'era.",
-      "cosa_deve_fare_michele": "Su canva.com aprire 'SMH - Giornaliero' (DAHOLS6Zdpw), andare su una pagina sana (la 2 o la 5), selezionare le caselle 📍 e ⏰, copiarle e incollarle sulle pagine 8, 9 e 10 nella stessa posizione (la 9 e la 10 vogliono solo ⏰, la 8 tutte e due), poi mettere il colore del testo di quella pagina (la 8 ha i testi neri). Due minuti. Dopo, togliere le voci da questa lista.",
-      "link": "https://www.canva.com/d/Q8YYzDe92xEmJRI"
+      "DAHOLS6Zdpw": {}
     },
     "_riparate": {
-      "7": "11/08/2026 — il blocco data era a font 52/52 (ereditato dal 28/07, colpi' il post del 1 Agosto): riportato a 96/115, lo standard delle pagine sane 2 e 5. Verificato sul thumbnail."
+      "7": "11/08/2026 (io) — blocco data da 52/52 al font standard.",
+      "8-9-10": "11/08/2026 (Michele, a mano su Canva) — rimesse le caselle 📍 e ⏰ mancanti, copiandole da una pagina sana: il copia-incolla porta dietro il CARATTERE, che e' l'unica cosa che l'API non sa fare. Verificato il 11/08 leggendo tutte e 10 le pagine con la formattazione: fontRef YAD1aYG82rc su tutte.",
+      "tutte": "11/08/2026 (Michele) — uniformate: giorno 94.2172, data 114.123, casella data larga 736.61, riga 📍+⏰ a quota 955/958.47. Il master ora si chiama 'SMH - Giornaliero Master'."
+    },
+    "_geometria": "Gli elementi Canva NON scendono da soli: ogni posizione e' fissa. Quando un titolo occupava piu' righe (1 riga ~71px, 2 ~127, 3 ~185 a font 60), la riga 📍+⏰ veniva spostata giu' a mano — e ci restava. Percio' ogni pagina del master si e' congelata nella geometria dell'ULTIMO evento che ci e' passato sopra: al 11/08 la pagina 2 ha la riga a quota 955, la 5 e la 7 a 863, senza nessuna logica (la 7 ha il titolo su una riga sola). Dall'11/08 il master non si scrive piu', quindi ogni copia eredita la quota che trova: la quota buona e' 955, quella che regge un titolo da 3 righe.",
+    "_standard_giornaliero": {
+      "_nota": "Valori di riferimento del master, misurati l'11/08/2026 sulla maggioranza delle pagine. Servono alla validazione: una copia che si discosta va riportata qui.",
+      "font_giorno": 94.2172,
+      "font_data": 114.123,
+      "larghezza_casella_data": 736.6098848517403,
+      "font_titolo": 60,
+      "larghezza_casella_titolo": 969.1060605595218,
+      "top_titolo": 563.3154802678562,
+      "font_luogo": 46.6139,
+      "top_luogo": 955,
+      "font_ora": 41.2807,
+      "top_ora": 958.46668
+    },
+    "_da_uniformare": {
+      "_nota": "Residui di geometria lasciati dall'ultimo evento compilato su quella pagina. Non sono rotture: sono scostamenti dallo standard qui sopra. Da qui in avanti ogni COPIA li eredita, quindi vanno chiusi sul master.",
+      "1": "casella titolo larga 922.92 invece di 969.11 → va a capo prima delle altre",
+      "2": "riga 📍+⏰ a 971/974.47 invece di 955/958.47 (16 px piu' in basso)",
+      "6": "titolo a font 90 invece di 60 (avanzo di «Trio Mi Alma», titolo corto): un titolo lungo compilato a 90 sfonda",
+      "8": "titolo con top 501.06 invece di 563.32 (avanzo di un titolo da 3 righe)"
     }
   }
 }

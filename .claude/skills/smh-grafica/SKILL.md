@@ -383,6 +383,17 @@ Rileggi da Canva ogni pagina compilata e confrontala **campo per campo** col
 sorgente (giorno vs Python, data, nome, luogo, ora). Questo controllo **sostituisce
 il checkpoint umano**: decide da solo, evento per evento.
 
+🔴 **REGOLA DELLE DATE — il blocco data non va MAI a capo** (Michele, 11/08/2026).
+Se «Giorno» o «23 Settembre» andrebbe su due righe, si **rimpicciolisce il font fino a un
+punto prima dell'a-capo**: il più grande corpo che sta su **una riga sola**. Non si accetta
+l'a-capo e non si rimpicciolisce più del necessario. È la stessa regola dei titoli
+(massimizza il font, non minimizzarlo), applicata al blocco data.
+Punto di partenza sul master `Giornaliero Master`: giorno **94,2** · data **114,1**, casella
+larga **736** — con quella larghezza quasi tutte le date italiane ci stanno intere, quindi
+il rimpicciolimento serve solo nei casi lunghi (es. «Sab-Dom / 5-6 Settembre»).
+⚠️ E si rimpicciolisce **sulla copia**, mai sul master: un font ridotto lasciato sul master
+torna a colpire un evento diverso settimane dopo (post del 1 Agosto).
+
 Oltre ai testi, controlla **il corpo del font dei blocchi data e titolo**: confrontalo
 con la pagina di riferimento dello stesso design (per il giornaliero: pagina 5). Se è
 più piccolo, riportalo allo standard prima di esportare — un font rimasto ridotto da un
