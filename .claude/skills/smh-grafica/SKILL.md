@@ -50,11 +50,11 @@ feed. La mappa tipo → design sta in `dati/grafica-stato.json` sotto `designs`:
 
 | Tipo | Master Canva | Note |
 |------|-----------|------|
-| `giornaliero` | `SMH - Giornaliero` = **`DAHOLS6Zdpw`** (10 pag.) | layout evento singolo — **attivo** |
-| `settimanale` | `SMH - Settimanale` = **`DAHORdC0zdY`** (4 pag., 8 righe) | **attivo** |
-| `weekend` | `SMH - Weekend` = **`DAHOp1t_N1A`** (4 pag.) | **attivo** |
-| `carosello` | `SMH - Mensile` = **`DAHOd72cNmY`** (20 pag. alternate) | **attivo** |
-| `storia` | `SMH - Storie` = **`DAHOdNq0R58`** (28 pag. alternate) | **attivo** |
+| `giornaliero` | `SMH - Giornaliero Master` = **`DAHOLS6Zdpw`** (10 pag.) | layout evento singolo — **attivo** |
+| `settimanale` | `SMH - Settimanale Master` = **`DAHORdC0zdY`** (4 pag., 8 righe) | **attivo** |
+| `weekend` | `SMH - Weekend Master` = **`DAHOp1t_N1A`** (4 pag.) | **attivo** |
+| `carosello` | `SMH - Mensile Master` = **`DAHOd72cNmY`** (20 pag. alternate) | **attivo** |
+| `storia` | **DUE mazzi**: `singolo` = `DAHSASb8IAU` (14 pag.) · `doppio` = `DAHSAXl7RMo` (14 pag.) | **attivo** — vedi la sezione Storie |
 | `bisettimanale` | — `design_id` `null` | **sospeso**, non forzare |
 
 Regole:
@@ -239,15 +239,36 @@ Il settimanale è **attivo** (design `SMH · Settimanale` = `DAHORdC0zdY`, 4 pag
   bianca) rende le righe basse poco leggibili. → Nella scelta "random" **preferisci varianti dove
   il font contrasta su TUTTA la sfumatura**; in dubbio scarta quella e pesca un'altra pagina.
 
-## Storie (design `SMH - Storie` = `DAHOdNq0R58`) — flusso e regole
-Storie giornaliere IG/FB (1080×1920). Design **28 pagine**: pagine **DISPARI = layout
-SINGOLO** (1 evento), pagine **PARI = layout DOPPIO** (2 eventi); ognuna con sfondo/
-gradiente diverso. Regole d'impianto in memoria `project-storie-architettura` (leggerla).
-Meccanica **provata in test il 05/07/2026**. Registrato in `grafica-stato.json` → `designs.storia`.
+## Storie — flusso e regole
+
+Storie giornaliere IG/FB (1080×1920). ⚠️ **Dall'11/08/2026 i master sono DUE**, uno per
+layout, ognuno con **il suo puntatore** in `grafica-stato.json` → `designs.storia`:
+
+| Serve | Mazzo | `design_id` | Pagine |
+|---|---|---|---|
+| 1 evento → layout **SINGOLO** | `designs.storia.singolo` | **`DAHSASb8IAU`** | 14 |
+| 2 eventi → layout **DOPPIO** | `designs.storia.doppio` | **`DAHSAXl7RMo`** | 14 |
+
+🔴 **La rotazione è quella semplice di tutti gli altri tipi**: pagina successiva =
+`ultima_pagina_usata + 1` del **mazzo che stai usando**, e arrivati a `totale_pagine` si
+riparte da 1. **Non esistono più le parità e i salti di pagina.** Se leggi da qualche parte
+«dispari = singolo, pari = doppio, salta la pagina che non serve», quella riga è vecchia:
+descriveva il mazzo unico da 28 pagine, ed è **il difetto che abbiamo tolto** — con un solo
+puntatore per due layout, 6 pagine su 28 non venivano usate mai e le prime tornavano fino a
+6 volte.
+
+📌 `designs.storia.riserva` (`DAHOdNq0R58`, 28 pagine) è il vecchio mazzo unico: **non si
+compila**, sta lì come copia di sicurezza.
+
+📌 I due mazzi hanno **gli stessi 14 sfondi nello stesso ordine** (nascono dallo stesso
+mazzo): per questo i puntatori partono sfalsati di mezzo mazzo. Non riallinearli a mano, o
+un giorno singolo e uno doppio vicini usciranno con lo stesso sfondo.
+
+Regole d'impianto in memoria `project-storie-architettura` (leggerla).
 
 **Quante storie / quale layout (soglie):**
-- **1-4 eventi/giorno** → una storia SINGOLA per evento (pagine dispari).
-- **5-8 eventi/giorno misti** → storie DOPPIE, appaiate 2 a 2 (~3-4 storie, pagine pari).
+- **1-4 eventi/giorno** → una storia SINGOLA per evento (mazzo `singolo`).
+- **5-8 eventi/giorno misti** → storie DOPPIE, appaiate 2 a 2 (~3-4 storie, mazzo `doppio`).
 - **6-7+ eventi STESSA categoria omogenea** (es. tante partite) → aggregato a lista come
   il settimanale, non singolo/doppio.
 
