@@ -227,3 +227,7 @@ __marimo__/
 # Segreti — MAI committare (aggiunto 25/07 dopo il recupero)
 .claude/secrets/
 **/.claude/secrets/
+
+# Il lucchetto e' stato di macchina (chi sta girando adesso su QUESTO Mac),
+# non contenuto del progetto: versionarlo creerebbe conflitti a ogni giro.
+.claude/stato/lucchetto.json
