@@ -13,12 +13,12 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [x] 2026-08-03T22:07:13.955Z — approvato — 07 — Michele Morri @RebeldeRN — ⚠️ Campionato Sammarinese Calcio — 1ª giornata
 - [x] 2026-08-03T22:07:26.060Z — approvato — 05 — Michele Morri @RebeldeRN — 🆕 Cerimonia investitura Capitani Reggenti
 - [x] 2026-08-03T22:07:32.420Z — approvato — 06 — Michele Morri @RebeldeRN — 🆕 Cerimonia investitura Capitani Reggenti
-- [ ] 2026-08-08T12:14:33.229Z — approvato — 01 — Michele Morri @RebeldeRN — 🆕 Concerto a Lume di Candela — Da Bach ai Led Zeppelin
-- [ ] 2026-08-08T12:14:37.033Z — approvato — 02 — Michele Morri @RebeldeRN — 🆕 Concerto a Lume di Candela — Da Bach ai Led Zeppelin
-- [ ] 2026-08-08T12:14:40.552Z — approvato — 03 — Michele Morri @RebeldeRN — 🆕 Concerto a Lume di Candela — Da Bach ai Led Zeppelin
-- [ ] 2026-08-08T12:14:54.860Z — approvato — 04 — Michele Morri @RebeldeRN — 🆕 Giovedì in Centro — negozi aperti e intrattenimento
-- [ ] 2026-08-08T12:14:55.956Z — approvato — 05 — Michele Morri @RebeldeRN — 🆕 Giovedì in Centro — negozi aperti e intrattenimento
-- [ ] 2026-08-08T12:14:57.168Z — approvato — 06 — Michele Morri @RebeldeRN — 🆕 Giovedì in Centro — negozi aperti e intrattenimento
+- [x] 2026-08-08T12:14:33.229Z — approvato — 01 — Michele Morri @RebeldeRN — 🆕 Concerto a Lume di Candela — Da Bach ai Led Zeppelin — ⚠️ non mappabile (giro sconosciuto, pre-fix del 11/08)
+- [x] 2026-08-08T12:14:37.033Z — approvato — 02 — Michele Morri @RebeldeRN — 🆕 Concerto a Lume di Candela — Da Bach ai Led Zeppelin — ⚠️ non mappabile (giro sconosciuto, pre-fix del 11/08)
+- [x] 2026-08-08T12:14:40.552Z — approvato — 03 — Michele Morri @RebeldeRN — 🆕 Concerto a Lume di Candela — Da Bach ai Led Zeppelin — ⚠️ non mappabile (giro sconosciuto, pre-fix del 11/08)
+- [x] 2026-08-08T12:14:54.860Z — approvato — 04 — Michele Morri @RebeldeRN — 🆕 Giovedì in Centro — negozi aperti e intrattenimento — ⚠️ non mappabile (giro sconosciuto, pre-fix del 11/08)
+- [x] 2026-08-08T12:14:55.956Z — approvato — 05 — Michele Morri @RebeldeRN — 🆕 Giovedì in Centro — negozi aperti e intrattenimento — ⚠️ non mappabile (giro sconosciuto, pre-fix del 11/08)
+- [x] 2026-08-08T12:14:57.168Z — approvato — 06 — Michele Morri @RebeldeRN — 🆕 Giovedì in Centro — negozi aperti e intrattenimento — ⚠️ non mappabile (giro sconosciuto, pre-fix del 11/08)
 - [ ] 2026-08-10T07:31:11.963Z — approvato — 01 — Michele Morri @RebeldeRN — 🆕 Una Sera negli Anni '90
 - [ ] 2026-08-10T07:31:13.103Z — approvato — 02 — Michele Morri @RebeldeRN — 🆕 Una Sera negli Anni '90
 - [ ] 2026-08-10T07:31:14.093Z — approvato — 03 — Michele Morri @RebeldeRN — 🆕 Una Sera negli Anni '90
