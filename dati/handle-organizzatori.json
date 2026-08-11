@@ -1,0 +1,663 @@
+{
+  "aggiornato": "2026-08-10",
+  "_nota": "Registro degli handle social verificati. Solo le voci con stato 'attivo' E instagram non nullo producono un tag. Un handle entra come 'attivo' solo con DUE indizi indipendenti di ufficialita' (di norma: il sito ufficiale linka quel profilo E il profilo esiste col nome corrispondente); la conferma diretta di Michele vale come secondo indizio. Mai un handle dedotto dal nome del soggetto.",
+  "_regole_25_07_2026": [
+    "OGNI evento nuovo che entra in verifica porta con se' il controllo di chi lo organizza: se il soggetto e' nuovo va aggiunto qui (almeno come 'da-cercare'). Vedi Step 4-bis di /smh-verifica.",
+    "PRIMA di pubblicare con un tag si controlla che l'account esista ancora (6o controllo di /smh-check). Un muro di login NON e' prova che sia sparito; lo e' solo una pagina che dice chiaramente che il profilo non esiste. Voci con 'verificato_il' piu' vecchio di 90 giorni: riverificare.",
+    "Un luogo molto ricorrente non e' per forza un account: i piazzali e gli impianti (Campo Bruno Reffi, San Marino Stadium) non hanno profilo proprio, li' si tagga l'organizzatore di quel singolo evento."
+  ],
+  "voci": [
+    {
+      "nome": "Visit San Marino",
+      "categoria": "organizzatore",
+      "alias": [
+        "Visit San Marino",
+        "visitsanmarino",
+        "Ufficio del Turismo"
+      ],
+      "instagram": "visitsanmarino",
+      "facebook_page_id": null,
+      "stato": "attivo",
+      "verificato_il": "2026-07-25",
+      "prova": "1) https://www.visitsanmarino.com linka nel footer https://www.instagram.com/visitsanmarino come canale ufficiale; 2) il profilo esiste e si presenta come «Repubblica di San Marino (@visitsanmarino)». Confermato da Michele il 25/07/2026."
+    },
+    {
+      "nome": "San Marino Outlet Experience",
+      "categoria": "luogo",
+      "alias": [
+        "San Marino Outlet",
+        "San Marino Outlet Experience",
+        "San Marino Outlet, Falciano",
+        "San Marino Outlet — Falciano",
+        "San Marino Outlet, Strada degli Angariani 41, Falciano"
+      ],
+      "instagram": "sanmarinooutlet",
+      "facebook_page_id": null,
+      "stato": "attivo",
+      "verificato_il": "2026-07-25",
+      "prova": "1) https://www.sanmarinooutlet.com linka https://www.instagram.com/sanmarinooutlet/; 2) il profilo esiste e si presenta come «San Marino Outlet (@sanmarinooutlet)». Confermato da Michele il 25/07/2026."
+    },
+    {
+      "nome": "Unione Sammarinese Commercio e Turismo (USC)",
+      "categoria": "organizzatore",
+      "alias": [
+        "USC",
+        "Unione Sammarinese Commercio e Turismo"
+      ],
+      "instagram": "uscsanmarino",
+      "facebook_page_id": null,
+      "stato": "attivo",
+      "verificato_il": "2026-07-25",
+      "prova": "1) https://www.usc.sm linka https://www.instagram.com/uscsanmarino/ nell'intestazione; 2) il profilo esiste. Confermato da Michele il 25/07/2026."
+    },
+    {
+      "nome": "San Marino International Arts Festival (SMIAF)",
+      "categoria": "organizzatore",
+      "alias": [
+        "SMIAF",
+        "San Marino International Arts Festival"
+      ],
+      "instagram": "smiaf_artsfestival",
+      "facebook_page_id": null,
+      "stato": "attivo",
+      "verificato_il": "2026-07-25",
+      "prova": "1) https://www.smiaf.org linka https://www.instagram.com/smiaf_artsfestival/; 2) il profilo esiste e si presenta come «San Marino International Arts Festival». Confermato da Michele il 25/07/2026."
+    },
+    {
+      "nome": "San Marino Baseball Club",
+      "categoria": "organizzatore",
+      "alias": [
+        "San Marino Baseball",
+        "SM Baseball"
+      ],
+      "instagram": "sanmarinobaseball",
+      "facebook_page_id": null,
+      "stato": "attivo",
+      "verificato_il": "2026-07-25",
+      "prova": "1) https://www.sanmarinobaseball.com linka https://www.instagram.com/sanmarinobaseball/; 2) il profilo esiste e si presenta come «San Marino Baseball». Confermato da Michele il 25/07/2026."
+    },
+    {
+      "nome": "Federazione Sammarinese Giuoco Calcio (FSGC)",
+      "categoria": "organizzatore",
+      "alias": [
+        "FSGC",
+        "Federazione Sammarinese Giuoco Calcio"
+      ],
+      "instagram": "fsgc_official",
+      "facebook_page_id": null,
+      "stato": "attivo",
+      "verificato_il": "2026-07-25",
+      "prova": "1) https://www.fsgc.sm linka il profilo @fsgc_official; 2) il profilo esiste e si presenta come «FSGC | official». Confermato da Michele il 25/07/2026."
+    },
+    {
+      "nome": "Consorzio Terra di San Marino",
+      "categoria": "organizzatore",
+      "alias": [
+        "Consorzio Terra di San Marino",
+        "Consorzio Terra",
+        "E...state col Consorzio"
+      ],
+      "instagram": "consorzioterradisanmarin",
+      "facebook_page_id": null,
+      "stato": "attivo",
+      "verificato_il": "2026-07-25",
+      "prova": "1) il profilo si presenta come «Consorzio Terra di San Marino» e pubblica sue iniziative; 2) l'account ufficiale del turismo @visitsanmarino lo menziona come @consorzioterradisanmarin. Confermato da Michele il 25/07/2026. (Il sito terradisanmarino.com non linka social.)"
+    },
+    {
+      "nome": "San Marino Comics",
+      "categoria": "organizzatore",
+      "alias": [
+        "San Marino Comics",
+        "Comics"
+      ],
+      "instagram": "sanmarinocomics",
+      "facebook_page_id": null,
+      "stato": "attivo",
+      "verificato_il": "2026-07-25",
+      "prova": "1) profilo «San Marino Comics», 7.1K follower, bio con «28, 29, 30 Agosto 2026 - 13 Edizione FESTIVAL del FUMETTO» (date che combaciano col nostro evento); 2) confermato da Michele il 25/07/2026. (Il sito sanmarinocomics.com non espone social nella home.)"
+    },
+    {
+      "nome": "Internazionali di Tennis San Marino Open",
+      "categoria": "organizzatore",
+      "alias": [
+        "San Marino Tennis Open",
+        "Tennis Open",
+        "San Marino Open"
+      ],
+      "instagram": "sanmarinoopen",
+      "facebook_page_id": null,
+      "stato": "attivo",
+      "verificato_il": "2026-07-25",
+      "prova": "1) profilo «Internazionali di Tennis San Marino Open», bio «Torneo Challenger Atp 125, 27 luglio - 2 agosto 2026» (date che combaciano col nostro evento); 2) confermato da Michele il 25/07/2026. (Il sito sanmarinotennisopen.com non linka social.)"
+    },
+    {
+      "nome": "Federazione Sammarinese Tennis (FST)",
+      "categoria": "organizzatore",
+      "alias": [
+        "Federazione Sammarinese Tennis",
+        "FST"
+      ],
+      "instagram": "federazionesammarinesetennis",
+      "facebook_page_id": null,
+      "stato": "attivo",
+      "verificato_il": "2026-07-25",
+      "prova": "1) bio del profilo: «Account Instagram ufficiale della Federazione Sammarinese Tennis»; 2) confermato da Michele il 25/07/2026. Sito ufficiale fst.sm."
+    },
+    {
+      "nome": "Istituti Culturali della Repubblica di San Marino",
+      "categoria": "organizzatore",
+      "alias": [
+        "Istituti Culturali",
+        "Musei di Stato",
+        "Biblioteca di Stato",
+        "Galleria Nazionale"
+      ],
+      "instagram": "istituticulturali",
+      "facebook_page_id": null,
+      "stato": "attivo",
+      "verificato_il": "2026-07-25",
+      "prova": "1) profilo «Istituti Culturali RSM», bio: «Gli Istituti Culturali della Repubblica di San Marino comprendono Biblioteca di Stato, Archivio, Musei e Arti performative»; 2) confermato da Michele il 25/07/2026."
+    },
+    {
+      "nome": "Titano Bears",
+      "categoria": "organizzatore",
+      "alias": [
+        "Titano Bears"
+      ],
+      "instagram": "titanobears",
+      "facebook_page_id": null,
+      "stato": "attivo",
+      "verificato_il": "2026-07-25",
+      "prova": "1) bio del profilo: «Pagina ufficiale dei Titano Bears / Official Titano Bears page»; 2) confermato da Michele il 25/07/2026."
+    },
+    {
+      "nome": "Giunta di Castello di Serravalle",
+      "categoria": "organizzatore",
+      "alias": [
+        "Giunta di Castello di Serravalle",
+        "Castello di Serravalle"
+      ],
+      "instagram": "castelloserravalle.rsm",
+      "facebook_page_id": null,
+      "stato": "attivo",
+      "verificato_il": "2026-07-25",
+      "prova": "1) il profilo si presenta come «Giunta di Castello di Serravalle 🇸🇲 Rep. di San Marino»; 2) confermato da Michele il 25/07/2026. Esiste anche la pagina Facebook /giuntacastelloserravalle/."
+    },
+    {
+      "nome": "Giunta di Castello di Domagnano",
+      "categoria": "organizzatore",
+      "alias": [
+        "Giunta di Castello di Domagnano",
+        "Castello di Domagnano",
+        "Torraccia"
+      ],
+      "instagram": "giuntadicastello.domagnano",
+      "facebook_page_id": null,
+      "stato": "attivo",
+      "verificato_il": "2026-07-25",
+      "prova": "1) bio del profilo: «Profilo ufficiale della Giunta di Castello di Domagnano, RSM»; 2) confermato da Michele il 25/07/2026."
+    },
+    {
+      "nome": "San Marino Teatro",
+      "categoria": "organizzatore",
+      "alias": [
+        "San Marino Teatro",
+        "Teatro Titano",
+        "San Marino TeatrOUT",
+        "Teatro Concordia",
+        "Teatro Nuovo"
+      ],
+      "instagram": "sanmarinoteatro",
+      "facebook_page_id": null,
+      "stato": "attivo",
+      "verificato_il": "2026-07-25",
+      "prova": "1) piu' compagnie ospiti rimandano a «Biglietti disponibili: @sanmarinoteatro» e il nome combacia col dominio ufficiale sanmarinoteatro.sm; 2) confermato da Michele il 25/07/2026. DA CHIARIRE: Teatro Titano, TeatrOUT, Concordia e Teatro Nuovo potrebbero avere profili propri distinti da quello del circuito — in quel caso vanno separati in voci diverse."
+    },
+    {
+      "nome": "Scuderia San Marino",
+      "categoria": "organizzatore",
+      "alias": [
+        "Scuderia San Marino",
+        "Scuderia"
+      ],
+      "instagram": "scuderiasanmarinorsm",
+      "facebook_page_id": null,
+      "stato": "attivo",
+      "verificato_il": "2026-07-25",
+      "prova": "1) il profilo si presenta come «Scuderia San Marino»; 2) confermato da Michele il 25/07/2026. (Il sito scuderiasanmarino.com linka solo YouTube.)"
+    },
+    {
+      "nome": "Comitato Olimpico Nazionale Sammarinese (CONS)",
+      "categoria": "organizzatore",
+      "alias": [
+        "CONS",
+        "Comitato Olimpico Nazionale Sammarinese"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "non-trovato",
+      "verificato_il": "2026-07-25",
+      "prova": "SCARTATO: https://www.cons.sm linka @smrolympicteam, ma quel profilo NON funziona — verificato da Michele il 25/07/2026 (il sito linka un handle morto). Non taggare il CONS finche' non si trova il profilo giusto per altra via. Esiste anche la pagina Facebook /sanmarinonocs/, non verificata."
+    },
+    {
+      "nome": "Segreteria di Stato per il Turismo",
+      "categoria": "organizzatore",
+      "alias": [
+        "Segreteria di Stato al Turismo",
+        "Segreteria di Stato per il Turismo",
+        "Segreteria Turismo"
+      ],
+      "instagram": "sanmarino_turismo",
+      "facebook_page_id": null,
+      "stato": "attivo",
+      "verificato_il": "2026-07-25",
+      "prova": "1) profilo «Segreteria di Stato Turismo», 2.7K follower, bio «Segreteria di Stato per il Turismo, la Cooperazione, le Poste, l'Expo, l'Informazione»; 2) confermato da Michele il 25/07/2026. Sito ufficiale turismo.sm. Rilevante: organizza «Giovedi' in Centro» insieme a USC."
+    },
+    {
+      "nome": "Segreteria di Stato per la Cultura",
+      "categoria": "organizzatore",
+      "alias": [
+        "Segreteria di Stato per la Cultura",
+        "Segreteria Cultura"
+      ],
+      "instagram": "segreteriacultura_rsm",
+      "facebook_page_id": null,
+      "stato": "attivo",
+      "verificato_il": "2026-07-25",
+      "prova": "1) il profilo si presenta come «Segreteria di Stato per la Cultura»; 2) confermato da Michele il 25/07/2026."
+    },
+    {
+      "nome": "Congresso di Stato della Repubblica di San Marino",
+      "categoria": "organizzatore",
+      "alias": [
+        "Congresso di Stato"
+      ],
+      "instagram": "congressodistato_rsm",
+      "facebook_page_id": null,
+      "stato": "attivo",
+      "verificato_il": "2026-07-25",
+      "prova": "1) bio del profilo: «Profilo ufficiale dell'organo esecutivo della Repubblica di San Marino», 1.4K follower; 2) confermato da Michele il 25/07/2026."
+    },
+    {
+      "nome": "Giunta di Castello di Borgo Maggiore",
+      "categoria": "organizzatore",
+      "alias": [
+        "Giunta di Castello di Borgo Maggiore",
+        "Castello di Borgo Maggiore"
+      ],
+      "instagram": null,
+      "facebook_page_id": "giuntaborgomaggiore",
+      "stato": "non-trovato",
+      "verificato_il": "2026-07-25",
+      "prova": "Cercato il 25/07 e il 26/07: SOLO Facebook /giuntaborgomaggiore/, nessun profilo Instagram. NON taggare; se organizza un evento, taggare l'ospite/co-organizzatore."
+    },
+    {
+      "nome": "Giunta di Castello della Citta' di San Marino",
+      "categoria": "organizzatore",
+      "alias": [
+        "Giunta di Castello della Citta' di San Marino",
+        "Castello di San Marino Citta'"
+      ],
+      "instagram": "giuntadicastello_citta",
+      "facebook_page_id": null,
+      "stato": "attivo",
+      "verificato_il": "2026-07-25",
+      "prova": "1) un comunicato firmato «Giunta di Castello della Città di San Marino» proviene da quel profilo; 2) confermato da Michele il 25/07/2026. Esistono anche il sito https://www.cittadisanmarino.sm/ e la pagina Facebook /castellodisanmarino/."
+    },
+    {
+      "nome": "Giunta di Castello di Faetano",
+      "categoria": "organizzatore",
+      "alias": [
+        "Giunta di Castello di Faetano",
+        "Castello di Faetano",
+        "Piazza del Massaro"
+      ],
+      "instagram": null,
+      "facebook_page_id": "CastellodiFaetano",
+      "stato": "non-trovato",
+      "verificato_il": "2026-07-25",
+      "prova": "Cercato il 25/07 e il 26/07: sito https://www.faetano.sm/, Facebook /CastellodiFaetano/, ma NESSUN profilo Instagram trovato. NON taggare."
+    },
+    {
+      "nome": "Giunta di Castello di Chiesanuova",
+      "categoria": "organizzatore",
+      "alias": [
+        "Giunta di Castello di Chiesanuova",
+        "Castello di Chiesanuova"
+      ],
+      "instagram": null,
+      "facebook_page_id": "giuntadicastellodichiesanuova",
+      "stato": "non-trovato",
+      "verificato_il": "2026-07-25",
+      "prova": "Cercato il 25/07 e il 26/07: sito http://www.perchiesanuova.sm/, Facebook /giuntadicastellodichiesanuova/, ma NESSUN profilo Instagram. NON taggare."
+    },
+    {
+      "nome": "Camerata del Titano",
+      "categoria": "organizzatore",
+      "alias": [
+        "Camerata del Titano",
+        "Camerata Titano",
+        "Associazione Musicale Camerata del Titano"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "non-trovato",
+      "verificato_il": "2026-07-25",
+      "prova": "Cercata DUE volte il 25/07 senza esito: compare solo menzionata da altri profili (San Marino Artist, Giunta di Fiorentino per «Castellaccio Vibra Musica»), nessun account proprio. Sito https://www.cameratatitano.com senza link social. Probabilmente non ha un profilo Instagram."
+    },
+    {
+      "nome": "San Marino Stadium",
+      "categoria": "luogo",
+      "alias": [
+        "San Marino Stadium",
+        "San Marino Stadium, Serravalle",
+        "San Marino Stadium — Serravalle"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "non-trovato",
+      "verificato_il": "2026-07-25",
+      "prova": "Cercato il 25/07: NON ha un profilo proprio, e' solo un impianto. Per gli eventi li' taggare l'organizzatore vero — di norma la FSGC (@fsgc_official) o la squadra che gioca."
+    },
+    {
+      "nome": "Campo Bruno Reffi",
+      "categoria": "luogo",
+      "alias": [
+        "Campo Bruno Reffi",
+        "Campo Bruno Reffi, San Marino"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "non-trovato",
+      "verificato_il": "2026-07-25",
+      "prova": "Cercato il 25/07: NON ha un profilo proprio. E' una piazza-evento del centro storico usata da organizzatori diversi (Rapublic/Ravine Sonore, San Marino Concert Band, MIB Events, Natale delle Meraviglie): per ogni evento va taggato l'organizzatore di QUELL'evento, non il luogo. Nonostante le 22 occorrenze nei nostri file, qui non c'e' niente da taggare."
+    },
+    {
+      "nome": "Centro Tennis Fonte dell'Ovo",
+      "categoria": "luogo",
+      "alias": [
+        "Centro Tennis Fonte dell'Ovo",
+        "Fonte dell'Ovo",
+        "Centro Tennis Fonte dell'Ovo, Montecchio",
+        "ASD Tennis Club Montecchio"
+      ],
+      "instagram": "tennismontecchio",
+      "facebook_page_id": null,
+      "stato": "attivo",
+      "verificato_il": "2026-07-26",
+      "prova": "Cercato il 26/07: trovato @tennismontecchio (ASD Tennis Club Montecchio) su Instagram — è la gestione sportiva del Centro Tennis. Per il San Marino Tennis Open si taggano comunque @sanmarinoopen e @federazionesammarinesetennis (gli organizzatori principali); il Centro/Montecchio è usabile come tag secondario se necessario."
+    },
+    {
+      "nome": "Chiostro dei Padri Servi di Maria",
+      "categoria": "luogo",
+      "alias": [
+        "Chiostro dei Padri Servi di Maria",
+        "Chiostro Padri Servi di Maria",
+        "Chiostro dei Padri Servi di Maria, Valdragone",
+        "Convento Santa Maria dei Servi"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "non-trovato",
+      "verificato_il": "2026-07-26",
+      "prova": "Cercato il 26/07: è un luogo storico/religioso (chiesa+convento, fondato 1476), usato per concerti e eventi culturali, ma NO profilo Instagram. Taggare l'organizzatore dell'evento (es. Allegro Vivo per i concerti), non il luogo."
+    },
+    {
+      "nome": "Istituto Musicale Sammarinese (ISM)",
+      "categoria": "organizzatore",
+      "alias": [
+        "Istituto Musicale Sammarinese",
+        "ISM",
+        "Summer Notes"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-07-27",
+      "prova": "Nuovo in verifica 27/07/2026: organizza la rassegna 'Summer Notes' (In Republica Bona 29/07, Quattrocelli 4ET 05/08, Trio Mi Alma 19/08, agli Orti Borghesi), quest'anno 50° anniversario dell'Istituto — fonte giornalesm.com/libertas.sm. Nessun profilo cercato ancora — da cercare al prossimo giro."
+    },
+    {
+      "nome": "Castellaccio Vibra Musica",
+      "categoria": "organizzatore",
+      "alias": [
+        "Castellaccio Vibra Musica",
+        "Castellaccio di Fiorentino"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-07-27",
+      "prova": "Nuovo in verifica 27/07/2026: rassegna musicale al Castellaccio di Fiorentino (via Monte Seghizzo) — eventi Ascolto...Trio '900 (04/08), Dialogues NMP Ensemble (12/08), Piano Stefano Malferrari (29/08). Fonte giornalesm.com/sanmarinortv.sm. Nessun profilo cercato ancora."
+    },
+    {
+      "nome": "Fondazione Renata Tebaldi",
+      "categoria": "organizzatore",
+      "alias": [
+        "Fondazione Renata Tebaldi",
+        "Renata Tebaldi International Voice Competition",
+        "Concorso Renata Tebaldi"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-07-27",
+      "prova": "Nuovo in verifica 27/07/2026: organizza l'11ª edizione del concorso lirico (eliminatoria 15/09, semifinale 16/09, finale con orchestra 18/09, Teatro Concordia di Borgo Maggiore) — fonte libertas.sm/giornalesm.com. Nessun profilo cercato ancora."
+    },
+    {
+      "nome": "36° Gran Premio Nuvolari San Marino",
+      "categoria": "organizzatore",
+      "alias": [
+        "Gran Premio Nuvolari",
+        "36° Gran Premio Nuvolari"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-07-27",
+      "prova": "Nuovo in verifica 27/07/2026: gara di regolarità per auto storiche, tappa sammarinese (19/09), 36ª edizione — confermato su visitsanmarino.com. Nessun profilo cercato ancora; potrebbe essere organizzato da un club esterno (non necessariamente Scuderia San Marino)."
+    },
+    {
+      "nome": "Fluxo",
+      "categoria": "organizzatore",
+      "alias": [
+        "Fluxo",
+        "Fluxo Summer",
+        "Fluxo Movement"
+      ],
+      "instagram": "fluxomovement",
+      "facebook_page_id": null,
+      "stato": "attivo",
+      "verificato_il": "2026-07-27",
+      "prova": "1) il sito ufficiale https://www.fluxomovement.it linka https://www.instagram.com/fluxomovement/ come proprio canale ufficiale (piu' Facebook e Messenger allo stesso nome); 2) il profilo esiste ed e' attivo, si presenta come «FLUXO 🐼». Fluxo si definisce la piu' grande community outdoor di allenamento in Romagna, San Marino e Montesilvano; a San Marino organizza le sessioni al Campo Bruno Reffi (fonte: sanmarinortv.sm e usc.sm).",
+      "nota": "Aggiunto il 27/07/2026 DOPO che il post del 27/07 era gia' uscito senza tag: l'evento era entrato in coda il 25/07 con un recupero fatto a mano, che salta lo Step 4-bis di /smh-verifica (quello che registra gli organizzatori nuovi). Fluxo e' un ciclo lun-gio fino al 27/08: i prossimi post saranno taggati."
+    },
+    {
+      "nome": "Automobile Club San Marino",
+      "categoria": "organizzatore",
+      "alias": [
+        "Automobile Club San Marino",
+        "Automotoclub Storico Sammarinese",
+        "Giro dei Castelli di San Marino"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": null,
+      "prova": "Aggiunto il 28/07/2026 durante la compilazione della storia del 29/08 (21° Giro dei Castelli): organizzatore osservato su automobileclub.sm, profilo social non ancora cercato/verificato. Nessun tag applicato finche' non risulta 'attivo' con due indizi indipendenti."
+    },
+    {
+      "nome": "Cooperativa Sociale InVolo",
+      "categoria": "organizzatore",
+      "alias": [
+        "Cooperativa Sociale InVolo",
+        "In-Perfetto",
+        "In-Perfetto Bar e Cucina"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-08-03",
+      "prova": "Nuovo in verifica 03/08/2026: organizza (con Barbò Ceramica e In-Perfetto) la prima edizione di 'Notte dell'Unicità' (03/08, Piazza della Porta Vecchia, Faetano) — fonte news.tribunapoliticaweb.sm + sanmarinortv.sm ('A Faetano apre INPerfetto, il bar sociale della Cooperativa InVolo'). Sito cooperativainvolo.com non controllato per link social. Nessun profilo cercato ancora."
+    },
+    {
+      "nome": "Rimini Classica",
+      "categoria": "organizzatore",
+      "alias": [
+        "Rimini Classica"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-08-03",
+      "prova": "Nuovo in verifica 03/08/2026: organizza 'Concerto a Lume di Candela - Da Bach ai Led Zeppelin' (10/08, Orti Borghesi) — fonte visitsanmarino.com (contatto riminiclassica@gmail.com). Associazione con sede probabile fuori San Marino (Rimini). Nessun profilo cercato ancora."
+    },
+    {
+      "nome": "Associazione Fun4All",
+      "categoria": "organizzatore",
+      "alias": [
+        "Fun4All",
+        "Associazione Fun4All"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-08-03",
+      "prova": "Nuovo in verifica 03/08/2026: organizza (con InPerfetto) 'Cena Tramonto & Live' (26/08, InPerfetto Bar&Cucina, Faetano), cena benefica pro Vivere Meglio — fonte visitsanmarino.com, sito fun4all.it. Nessun profilo cercato ancora."
+    },
+    {
+      "nome": "San Marino Food Events",
+      "categoria": "organizzatore",
+      "alias": [
+        "San Marino Food Events"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-08-03",
+      "prova": "Nuovo in verifica 03/08/2026: co-organizzatore (con Consorzio Terra di San Marino, già attivo) di 'Dal Turista al Contadino' (05-06/09 e 12-13/09, Via Eugippo) — fonte visitsanmarino.com. Nessun profilo cercato ancora."
+    },
+    {
+      "nome": "Associazione Artisti in Casa",
+      "categoria": "organizzatore",
+      "alias": [
+        "Artisti in Casa"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-08-03",
+      "prova": "Nuovo in verifica 03/08/2026: organizza 'Artisti in Casa - Festival di Microspettacoli' XVI ed. (26-27/09, Montegiardino) — fonte visitsanmarino.com, sito artistincasa.it. Nessun profilo cercato ancora."
+    },
+    {
+      "nome": "Diocesi di San Marino-Montefeltro",
+      "categoria": "organizzatore",
+      "alias": [
+        "Diocesi di San Marino-Montefeltro",
+        "Diocesi San Marino Montefeltro"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-08-03",
+      "prova": "Nuovo in verifica 03/08/2026: fonte diretta (insieme a sanmarinortv.sm) per la visita pastorale di Papa Leone XIV (22/08/2026) — sito diocesisanmarinomontefeltro.it. Nessun profilo cercato ancora; evento istituzionale di grande rilievo, verificare per primo al prossimo giro."
+    },
+    {
+      "nome": "Comitato Gemellaggi Montecopiolo",
+      "categoria": "organizzatore",
+      "alias": [
+        "Comitato Gemellaggi Montecopiolo"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-08-03",
+      "prova": "Nuovo in verifica 03/08/2026: organizza 'Concerto per l'Europa' (08/08, Cava dei Balestrieri) con la banda francese Harmonie Municipale di Mont Saint Martin, gemellaggio Montecopiolo/Carpegna/Pietrarubbia — fonte visitsanmarino.com. Comitato italiano (fuori San Marino), profilo social probabilmente inesistente o non pertinente al tag; nessuna ricerca fatta."
+    },
+    {
+      "nome": "Orchestra Casadei (Mirko Casadei POPular Folk Orchestra)",
+      "categoria": "organizzatore",
+      "alias": [
+        "Orchestra Casadei",
+        "Mirko Casadei POPular Folk Orchestra",
+        "Balamondo",
+        "Balamondo World Music Festival",
+        "San Marino Goodbye Festival"
+      ],
+      "instagram": null,
+      "facebook_page_id": "mirkocasadeiofficial",
+      "stato": "da-cercare",
+      "verificato_il": "2026-08-08",
+      "prova": "Nuovo in verifica 08/08/2026: il calendario ufficiale dell'artista (orchestracasadei.it/eventi) lista una data a San Marino il 19/08/2026 (\"Balamondo\", Campo Bruno Reffi) e il 20/08/2026 (\"Balamondo, con Marco Ligabue\") — stesso evento che visitsanmarino.com chiamava ancora 'San Marino Goodbye Festival'. Trovata solo la pagina Facebook /mirkocasadeiofficial/ nei risultati di ricerca, profilo Instagram non ancora verificato con un secondo indizio indipendente. Nessun tag finche' non risulta 'attivo'."
+    },
+    {
+      "nome": "Centro Sociale S. Andrea e Montefeltro",
+      "categoria": "organizzatore",
+      "alias": [
+        "Centro Sociale S. Andrea e Montefeltro",
+        "Centro Sociale Sant'Andrea e Montefeltro"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-08-10",
+      "prova": "Nuovo in verifica 10/08/2026: co-organizza (con Diocesi di San Marino-Montefeltro) 'Leone XIV visto da vicino — Un anno con Papa Prevost' (17/08, Sala Montelupo, Domagnano) — fonte sanmarinortv.sm (a294290). Nessun profilo cercato ancora."
+    },
+    {
+      "nome": "Rallylegend",
+      "categoria": "organizzatore",
+      "alias": [
+        "Rallylegend",
+        "Rally Legend San Marino",
+        "24° Rallylegend"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-08-10",
+      "prova": "Nuovo in verifica 10/08/2026: organizza il rally storico Rallylegend (24ª ed., 08-11/10/2026, Serravalle) — fonte sanmarinortv.sm (a284387) + rallylegend.com. Nessun profilo Instagram cercato ancora; verificare se coincide con un profilo gia' noto (es. Scuderia San Marino) o e' un soggetto a se'."
+    },
+    {
+      "nome": "Società Polisportiva Cailungo",
+      "categoria": "organizzatore",
+      "alias": [
+        "SP Cailungo",
+        "Società Polisportiva Cailungo",
+        "Comitato Festa di San Rocco Cailungo"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-08-03",
+      "prova": "Nuovo in verifica 03/08/2026: co-organizzatore (con 'il comitato festa') della Festa di San Rocco - Sagra della Tagliatella (06-10/08, Piazza Cailungo) — fonte usc.sm + ricerca web (spcailungo.com già segnalato in dati/fonti.md come possibile fonte diretta). Nessun profilo social cercato ancora."
+    },
+    {
+      "nome": "Trenino Bianco Azzurro",
+      "alias": [
+        "Trenino Bianco Azzurro",
+        "Piazzale della Stazione"
+      ],
+      "stato": "da-cercare",
+      "instagram": null
+    },
+    {
+      "nome": "Festa dell'Amicizia (PDCS)",
+      "alias": [
+        "Festa dell'Amicizia",
+        "San Marino Amicizia Live Festival",
+        "PDCS"
+      ],
+      "stato": "da-cercare",
+      "instagram": null
+    },
+    {
+      "nome": "Comitato Sagra dell'Uva Ventoso",
+      "alias": [
+        "Sagra dell'Uva",
+        "Sagra dell'Uva Ventoso",
+        "Ventoso"
+      ],
+      "stato": "da-cercare",
+      "instagram": null
+    }
+  ]
+}
