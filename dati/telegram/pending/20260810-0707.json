@@ -1,0 +1,103 @@
+{
+  "giro_id": "20260810-0707",
+  "sent_at": "2026-08-10T07:07:42Z",
+  "eventi": [
+    {
+      "id": "01",
+      "titolo": "Una Sera negli Anni '90",
+      "tipo": "nuovo",
+      "data": "",
+      "luogo": "",
+      "url": ""
+    },
+    {
+      "id": "02",
+      "titolo": "Baseball gara 1 vs Fortitudo Bologna",
+      "tipo": "nuovo",
+      "data": "",
+      "luogo": "",
+      "url": ""
+    },
+    {
+      "id": "03",
+      "titolo": "Baseball gara 2 vs Fortitudo Bologna",
+      "tipo": "nuovo",
+      "data": "",
+      "luogo": "",
+      "url": ""
+    },
+    {
+      "id": "04",
+      "titolo": "Leone XIV visto da vicino",
+      "tipo": "nuovo",
+      "data": "",
+      "luogo": "",
+      "url": ""
+    },
+    {
+      "id": "05",
+      "titolo": "Trenino Bianco Azzurro",
+      "tipo": "nuovo",
+      "data": "",
+      "luogo": "",
+      "url": ""
+    },
+    {
+      "id": "06",
+      "titolo": "Sal Da Vinci - Dalla parte del cuore",
+      "tipo": "nuovo",
+      "data": "",
+      "luogo": "",
+      "url": ""
+    },
+    {
+      "id": "07",
+      "titolo": "Rallylegend 2026",
+      "tipo": "nuovo",
+      "data": "",
+      "luogo": "",
+      "url": ""
+    },
+    {
+      "id": "08",
+      "titolo": "Via Donna Felicissima Dance (dubbio)",
+      "tipo": "dubbio",
+      "data": "",
+      "luogo": "",
+      "url": ""
+    },
+    {
+      "id": "09",
+      "titolo": "Sagra dell'Uva - Ventoso (dubbio)",
+      "tipo": "dubbio",
+      "data": "",
+      "luogo": "",
+      "url": ""
+    },
+    {
+      "id": "10",
+      "titolo": "Festa dell'Amicizia / Live Festival (dubbio)",
+      "tipo": "dubbio",
+      "data": "",
+      "luogo": "",
+      "url": ""
+    },
+    {
+      "id": "11",
+      "titolo": "Campionato Sammarinese Calcio 1ª giornata (dubbio orario)",
+      "tipo": "dubbio",
+      "data": "",
+      "luogo": "",
+      "url": ""
+    },
+    {
+      "id": "12",
+      "titolo": "Mi Gusto San Marino (dubbio, 3° giro senza fonte 2026)",
+      "tipo": "dubbio",
+      "data": "",
+      "luogo": "",
+      "url": ""
+    }
+  ],
+  "_nota": "Recuperato da pending_events prima della migrazione al file-per-giro."
+}
