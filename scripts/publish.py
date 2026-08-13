@@ -879,6 +879,98 @@ def separa_gia_pubblicate(scaduti, pubblicati):
     return scadute_davvero, gia_pubblicate
 
 
+# Nome della sottocartella per cio' che e' uscito A META' e non e' piu' recuperabile.
+# Tenuta separata sia da archivio/AAAA-MM/ (che vuol dire «questo e' uscito», e metterci
+# una mezza uscita renderebbe l'archivio una prova falsa) sia da archivio/non-pubblicati/
+# (che vuol dire «questo non e' mai uscito», e sarebbe falso al contrario).
+PARZIALI_SOTTOCARTELLA = 'parziali'
+
+# Dove si registra, una volta per sempre, quello che il pubblico non ha visto.
+BUCHI_COPERTURA = Path('dati/buchi-copertura.md')
+
+
+def canali_mancanti(busta, pubblicati):
+    """(usciti, mancanti) — su quali canali attivi la busta e' uscita e su quali no.
+    Serve per scrivere una nota che dica la verita' invece di «non pubblicata»."""
+    unita = costruisci_unita(busta['tipo'], busta['json_file'],
+                             busta['immagini'], busta['meta'])
+    usciti, mancanti = [], []
+    for canale in canali_richiesti():
+        if unita and all(gia_pubblicato(u['chiave'], canale, pubblicati) for u in unita):
+            usciti.append(canale)
+        else:
+            mancanti.append(canale)
+    return usciti, mancanti
+
+
+def separa_parziali_scadute(scaduti, pubblicati):
+    """Divide le buste scadute in (da_segnalare, parziali_chiuse).
+
+    Il TERZO caso, quello che cadeva fra le due regole esistenti: una busta uscita su
+    ALMENO UN canale ma non su tutti, e ormai scaduta. Non e' completa (quindi
+    separa_gia_pubblicate non la prende) e non e' mai uscita (quindi
+    separa_scarti_definitivi non la prende): restava in coda a suonare per sempre.
+    Fu il caso di 20260803_Post giornaliero, archiviato a mano il 10/08/2026.
+
+    Si chiude solo se il tipo NON e' un aggregato: per gli aggregati il ritardo e'
+    ancora sanabile a mano (si ridatano e coprono comunque piu' giorni), quindi devono
+    continuare a segnalare. Per un giornaliero o una storia la finestra di recupero e'
+    0 giorni: quel canale non e' piu' recuperabile e l'avviso non e' azionabile.
+    """
+    da_segnalare, parziali = [], []
+    for busta in scaduti:
+        e_parziale = (busta['tipo'] not in TIPI_AGGREGATI
+                      and not busta_completa(busta, pubblicati)
+                      and not busta_mai_uscita(busta, pubblicati))
+        (parziali if e_parziale else da_segnalare).append(busta)
+    return da_segnalare, parziali
+
+
+def scrivi_nota_parziale(cartella, busta, usciti, mancanti):
+    """Accanto alla busta archiviata lascia una nota che dice cosa e' uscito davvero.
+    Generata dai dati di published.log, non scritta a mano: e' la differenza fra una
+    prova e un ricordo."""
+    chiave = busta['json_file'].stem
+    testo = (
+        f"# {chiave} — uscita a meta'\n\n"
+        f"⚠️ **Questa cartella non e' la prova di una pubblicazione completa.**\n\n"
+        f"| | |\n|---|---|\n"
+        f"| Prevista per | {busta['meta'].get('data_pubblicazione')} |\n"
+        f"| Ritardo alla chiusura | {busta['giorni_ritardo']} giorni |\n"
+        f"| Uscita su | {', '.join(usciti) if usciti else 'nessun canale'} |\n"
+        f"| **NON** uscita su | {', '.join(mancanti) if mancanti else 'nessuno'} |\n\n"
+        f"Tipo `{busta['tipo']}`: finestra di recupero 0 giorni, quindi il canale "
+        f"mancante non e' piu' recuperabile da nessun giro futuro. La busta viene "
+        f"chiusa qui perche' l'avviso non era azionabile e suonava a ogni run.\n"
+    )
+    try:
+        (cartella / f"NOTA-{chiave}.md").write_text(testo)
+    except OSError as e:
+        print(f"⚠️  Nota per {chiave} non scritta: {e}")
+
+
+def registra_buco_copertura(busta, usciti, mancanti):
+    """Una riga permanente in dati/buchi-copertura.md. Il pubblico di quel canale non
+    ha visto quel post: e' un fatto da tenere scritto una volta, non da strillare
+    quattro volte al giorno."""
+    riga = (f"- **{busta['meta'].get('data_pubblicazione', '?')[:10]}** · "
+            f"`{busta['json_file'].stem}` ({busta['tipo']}) — uscita su "
+            f"{', '.join(usciti) if usciti else 'nessun canale'}, "
+            f"**mai su {', '.join(mancanti)}**\n")
+    try:
+        if not BUCHI_COPERTURA.exists():
+            BUCHI_COPERTURA.parent.mkdir(parents=True, exist_ok=True)
+            BUCHI_COPERTURA.write_text(
+                "# Buchi di copertura\n\n"
+                "Post usciti solo su una parte dei canali e non piu' recuperabili.\n"
+                "Scritto in automatico da `scripts/publish.py`. Una riga per busta,\n"
+                "poi silenzio: l'avviso ripetuto copriva quelli veri.\n\n")
+        with BUCHI_COPERTURA.open('a') as f:
+            f.write(riga)
+    except OSError as e:
+        print(f"⚠️  Buco di copertura non registrato: {e}")
+
+
 # ---------------------------------------------------------------------------
 # Instagram (graph.instagram.com)
 # ---------------------------------------------------------------------------
