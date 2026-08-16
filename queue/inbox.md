@@ -11,4 +11,5 @@ QUANDO
 
 
 > Riga elaborata dal postino il 10/08/2026 (sera): importata in `dati/eventi/eventi-2026-08-10.md` come `da-verificare`, e ha sciolto il dubbio «uno o due eventi?» del verificato di oggi.
-- [ ] 2026-08-16T09:12:00.307Z — Questo é il calendario completo della festa della birra, mi raccomando non perdiamo niente
+- [x] 2026-08-16T09:12:00.307Z — Questo é il calendario completo della festa della birra, mi raccomando non perdiamo niente
+> Riga elaborata dal postino il 16/08/2026: era la didascalia delle 3 foto inviate un minuto prima (queue/foto-inbox.md), non conteneva dati propri. I 17 eventi del "SanMarinoBeerFest" (11 settembre – 7 novembre 2026, + data extra 31/12) sono stati estratti dalle foto e importati in `dati/eventi/eventi-2026-08-16.md` come `da-verificare`.
