@@ -11,3 +11,4 @@ QUANDO
 
 
 > Riga elaborata dal postino il 10/08/2026 (sera): importata in `dati/eventi/eventi-2026-08-10.md` come `da-verificare`, e ha sciolto il dubbio «uno o due eventi?» del verificato di oggi.
+- [ ] 2026-08-16T09:12:00.307Z — Questo é il calendario completo della festa della birra, mi raccomando non perdiamo niente
