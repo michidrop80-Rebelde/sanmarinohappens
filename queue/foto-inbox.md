@@ -11,3 +11,4 @@ Formato: `- [ ] <ISO> — <mittente> — <percorso .jpg> — didascalia: <testo 
 - [x] 2026-08-07T16:42:12.644Z — Michele Morri @RebeldeRN — queue/foto/archivio/2026-08-07T16-42-11-394Z_AQADKQ1rGws-sFN-.jpg — didascalia: (nessuna) — seguito del tabellone, gare 5-7 → 2 eventi importati (gara 6 il 23/08 e gara 7 il 24/08, condizionali, a Serravalle); gara 5 a Bologna esclusa come trasferta. Ha inoltre permesso di chiudere la gara 5 dei QUARTI (10/08): non si gioca, serie finita 3-0. Archiviata il 07/08
 - [ ] 2026-08-16T09:11:39.590Z — Michele Morri @RebeldeRN — queue/foto/2026-08-16T09-11-37-966Z_AQADlRBrG8P5CFB-.jpg — didascalia: (nessuna)
 - [ ] 2026-08-16T09:11:42.089Z — Michele Morri @RebeldeRN — queue/foto/2026-08-16T09-11-40-763Z_AQADlhBrG8P5CFB-.jpg — didascalia: (nessuna)
+- [ ] 2026-08-16T09:11:44.149Z — Michele Morri @RebeldeRN — queue/foto/2026-08-16T09-11-43-014Z_AQADlxBrG8P5CFB-.jpg — didascalia: (nessuna)
