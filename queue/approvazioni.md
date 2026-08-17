@@ -37,3 +37,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-08-16T17:51:41.376Z — approvato — 20260816-1750-03 — Michele Morri @RebeldeRN — 🆕 Love Generation 90 (DJ set anni 90)
 - [ ] 2026-08-16T17:51:43.625Z — approvato — 20260816-1750-04 — Michele Morri @RebeldeRN — 🆕 Floyd Academy (Pink Floyd Tribute)
 - [ ] 2026-08-16T17:51:44.632Z — approvato — 20260816-1750-05 — Michele Morri @RebeldeRN — 🆕 Floyd Academy (Pink Floyd Tribute)
+- [ ] 2026-08-17T09:10:30.988Z — approvato — 20260817-0848-n1 — Michele Morri @RebeldeRN — 🆕 Cena Tramonto & Live
