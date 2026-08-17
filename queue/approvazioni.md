@@ -45,3 +45,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-08-17T09:10:55.469Z — approvato — 20260817-0848-d3 — Michele Morri @RebeldeRN — ⚠️ Viaggio Musicale attorno al Mondo
 - [ ] 2026-08-17T09:11:24.555Z — approvato — 20260817-0848-d4 — Michele Morri @RebeldeRN — ⚠️ Dal Turista al Contadino — I tappa
 - [ ] 2026-08-17T09:11:34.853Z — approvato — 20260817-0848-d5 — Michele Morri @RebeldeRN — ⚠️ Dal Turista al Contadino — I tappa
+- [ ] 2026-08-17T09:11:37.181Z — approvato — 20260817-0848-d6 — Michele Morri @RebeldeRN — ⚠️ Dal Turista al Contadino — I tappa
