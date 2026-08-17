@@ -32,17 +32,17 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [x] 2026-08-10T20:39:36.847Z — approvato — 09 — Michele Morri @RebeldeRN — ⚠️ Sagra dell'Uva - Ventoso (dubbio, risolto 11/08)
 - [x] 2026-08-10T20:45:59.416Z — approvato — 12 — Michele Morri @RebeldeRN — ⚠️ Mi Gusto San Marino (dubbio)
 - [x] 2026-08-10T20:46:02.743Z — scartato — 12 — Michele Morri @RebeldeRN — ⚠️ Mi Gusto San Marino (scartato, vince sull'approvato di 3s prima)
-- [ ] 2026-08-16T17:51:39.258Z — approvato — 20260816-1750-01 — Michele Morri @RebeldeRN — 🆕 Love Generation 90 (DJ set anni 90)
-- [ ] 2026-08-16T17:51:40.268Z — approvato — 20260816-1750-02 — Michele Morri @RebeldeRN — 🆕 Love Generation 90 (DJ set anni 90)
-- [ ] 2026-08-16T17:51:41.376Z — approvato — 20260816-1750-03 — Michele Morri @RebeldeRN — 🆕 Love Generation 90 (DJ set anni 90)
-- [ ] 2026-08-16T17:51:43.625Z — approvato — 20260816-1750-04 — Michele Morri @RebeldeRN — 🆕 Floyd Academy (Pink Floyd Tribute)
-- [ ] 2026-08-16T17:51:44.632Z — approvato — 20260816-1750-05 — Michele Morri @RebeldeRN — 🆕 Floyd Academy (Pink Floyd Tribute)
-- [ ] 2026-08-17T09:10:30.988Z — approvato — 20260817-0848-n1 — Michele Morri @RebeldeRN — 🆕 Cena Tramonto & Live
-- [ ] 2026-08-17T09:10:34.939Z — approvato — 20260817-0848-m1 — Michele Morri @RebeldeRN — 🆕 Cena Tramonto & Live
-- [ ] 2026-08-17T09:10:37.793Z — approvato — 20260817-0848-m2 — Michele Morri @RebeldeRN — 🆕 Cena Tramonto & Live
-- [ ] 2026-08-17T09:10:46.594Z — approvato — 20260817-0848-d1 — Michele Morri @RebeldeRN — ⚠️ Viaggio Musicale attorno al Mondo
-- [ ] 2026-08-17T09:10:53.390Z — approvato — 20260817-0848-d2 — Michele Morri @RebeldeRN — ⚠️ Viaggio Musicale attorno al Mondo
-- [ ] 2026-08-17T09:10:55.469Z — approvato — 20260817-0848-d3 — Michele Morri @RebeldeRN — ⚠️ Viaggio Musicale attorno al Mondo
-- [ ] 2026-08-17T09:11:24.555Z — approvato — 20260817-0848-d4 — Michele Morri @RebeldeRN — ⚠️ Dal Turista al Contadino — I tappa
-- [ ] 2026-08-17T09:11:34.853Z — approvato — 20260817-0848-d5 — Michele Morri @RebeldeRN — ⚠️ Dal Turista al Contadino — I tappa
-- [ ] 2026-08-17T09:11:37.181Z — approvato — 20260817-0848-d6 — Michele Morri @RebeldeRN — ⚠️ Dal Turista al Contadino — I tappa
+- [x] 2026-08-16T17:51:39.258Z — approvato — 20260816-1750-01 — Michele Morri @RebeldeRN — 🆕 Love Generation 90 (DJ set anni 90)
+- [x] 2026-08-16T17:51:40.268Z — approvato — 20260816-1750-02 — Michele Morri @RebeldeRN — 🆕 Love Generation 90 (DJ set anni 90)
+- [x] 2026-08-16T17:51:41.376Z — approvato — 20260816-1750-03 — Michele Morri @RebeldeRN — 🆕 Love Generation 90 (DJ set anni 90)
+- [x] 2026-08-16T17:51:43.625Z — approvato — 20260816-1750-04 — Michele Morri @RebeldeRN — 🆕 Floyd Academy (Pink Floyd Tribute)
+- [x] 2026-08-16T17:51:44.632Z — approvato — 20260816-1750-05 — Michele Morri @RebeldeRN — 🆕 Floyd Academy (Pink Floyd Tribute)
+- [x] 2026-08-17T09:10:30.988Z — approvato — 20260817-0848-n1 — Michele Morri @RebeldeRN — 🆕 Cena Tramonto & Live
+- [x] 2026-08-17T09:10:34.939Z — approvato — 20260817-0848-m1 — Michele Morri @RebeldeRN — 🆕 Cena Tramonto & Live
+- [x] 2026-08-17T09:10:37.793Z — approvato — 20260817-0848-m2 — Michele Morri @RebeldeRN — 🆕 Cena Tramonto & Live
+- [x] 2026-08-17T09:10:46.594Z — approvato — 20260817-0848-d1 — Michele Morri @RebeldeRN — ⚠️ Viaggio Musicale attorno al Mondo
+- [x] 2026-08-17T09:10:53.390Z — approvato — 20260817-0848-d2 — Michele Morri @RebeldeRN — ⚠️ Viaggio Musicale attorno al Mondo
+- [x] 2026-08-17T09:10:55.469Z — approvato — 20260817-0848-d3 — Michele Morri @RebeldeRN — ⚠️ Viaggio Musicale attorno al Mondo
+- [x] 2026-08-17T09:11:24.555Z — approvato — 20260817-0848-d4 — Michele Morri @RebeldeRN — ⚠️ Dal Turista al Contadino — I tappa
+- [x] 2026-08-17T09:11:34.853Z — approvato — 20260817-0848-d5 — Michele Morri @RebeldeRN — ⚠️ Dal Turista al Contadino — I tappa
+- [x] 2026-08-17T09:11:37.181Z — approvato — 20260817-0848-d6 — Michele Morri @RebeldeRN — ⚠️ Dal Turista al Contadino — I tappa
