@@ -1,6 +1,6 @@
 {
   "permissions": {
-    "defaultMode": "acceptEdits",
+    "defaultMode": "bypassPermissions",
     "allow": [
       "Bash(git status:*)",
       "Bash(git add:*)",
@@ -50,11 +50,16 @@
       "mcp__262f3743-7743-4ac9-8e79-f6ad75598422__copy-design",
       "mcp__262f3743-7743-4ac9-8e79-f6ad75598422__export-design",
       "mcp__262f3743-7743-4ac9-8e79-f6ad75598422__get-export-formats",
+      "mcp__262f3743-7743-4ac9-8e79-f6ad75598422__perform-editing-operations",
+      "mcp__262f3743-7743-4ac9-8e79-f6ad75598422__start-editing-transaction",
+      "mcp__262f3743-7743-4ac9-8e79-f6ad75598422__commit-editing-transaction",
+      "mcp__262f3743-7743-4ac9-8e79-f6ad75598422__get-design-thumbnail",
       "mcp__262f3743-7743-4ac9-8e79-f6ad75598422__search-designs",
       "mcp__262f3743-7743-4ac9-8e79-f6ad75598422__search-folders",
       "mcp__262f3743-7743-4ac9-8e79-f6ad75598422__list-folder-items",
       "mcp__262f3743-7743-4ac9-8e79-f6ad75598422__create-folder",
       "mcp__262f3743-7743-4ac9-8e79-f6ad75598422__move-item-to-folder",
+      "mcp__170f99ed-2ee5-464b-b0ce-b664e0f86358__firecrawl_search",
       "mcp__scheduled-tasks__list_scheduled_tasks",
       "mcp__scheduled-tasks__update_scheduled_task"
     ],
