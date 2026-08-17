@@ -1,6 +1,132 @@
 # Ultimo stato — San Marino Happens
 
-Aggiornato: 2026-08-13 (sessione implementazione piano) — ✅ **PIANO DEL 10/08 IMPLEMENTATO COMPLETAMENTE.** Tutti e 5 i task eseguiti: lucchetto, giro_id, approvazione, buste parziali, catena giornaliera. La catena adesso avanza ogni giorno (08:30 e 18:30), non solo il martedì. Ogni pulsante è auto-identificante e non c'è più il problema delle approvazioni perse. Pronto il git push e il primo giro con la nuova catena.
+Aggiornato: 2026-08-17 (mattina) — 🔧 **SESSIONE DI MANUTENZIONE: tolte le finestre di permesso dai giri, riparata la cartella del giro del lunedì, ruotato il token GitHub.** Nessun contenuto toccato: zero post, zero grafiche, zero pubblicazioni.
+
+Michele: «dobbiamo eliminare le approvazioni dai giri routine» → (chiarito con uno screenshot: i **permessi**, non le approvazioni editoriali ✅/❌) → «interruttore» → «sì togli quella riga dalla cartella madre» → «sì, scrivimi i passaggi per ruotare i token».
+
+## 🔓 I PERMESSI — il 30% delle finestre non era eliminabile, e nessuno lo sapeva
+
+Misurato, non stimato: **42 sessioni, 1770 comandi Bash**. 66% passavano già zitti, ma
+**544 (il 30%) non erano silenziabili da NESSUNA regola**. Contengono `$nome`, `$(...)`,
+backtick, cicli `for` o heredoc, e Claude Code **si rifiuta per principio** di applicare una
+regola a prefisso a un comando con dentro una variabile — è la riga «Contains
+simple_expansion» nella finestra. 📌 Corollario: **allargare l'allowlist non poteva
+funzionare.** L'unica cura vera è spostare la logica ricorrente in **file script**, dove il
+percorso è una stringa fissa: lavoro **non fatto**, resta aperto.
+
+E il motivo per cui non migliorava mai: ogni «Consenti» creava una regola col **comando
+intero congelato**, che non combacia mai più con niente. In `settings.local.json` se n'erano
+accumulate **379, di cui 307 morte** (54 KB) — **ripulite**, ne restano 75.
+
+| | |
+|---|---|
+| `defaultMode` | `acceptEdits` → **`auto`** (commit `022efe9`) |
+| `bypassPermissions` | provato (`35f8d01`) e **scartato in giornata** |
+| `settings.local.json` | 379 → **75** regole |
+
+⚠️ **`bypassPermissions` non si è mai attivato.** Aperta una sessione nuova, il transcript
+diceva `"permissionMode":"auto"`: il **dialogo di responsabilità non è mai comparso** (Michele
+aveva accettato quello della *cartella fidata*, che è un'altra cosa). Senza quell'accettazione
+i documenti dicono che le sessioni in **background vengono rifiutate** — e il giro delle 18:30
+è una sessione in background. `auto` dà lo stesso risultato (zero finestre) con un
+classificatore al posto del click, e **senza dialogo**.
+🔎 **Tecnica da riusare:** la modalità vera di una sessione si legge nel campo
+`"permissionMode"` dentro `~/.claude/projects/<cartella>/<sessione>.jsonl`. È così che il
+bypass finto è stato smascherato — e che si è **dimostrato** che i task pianificati leggono
+davvero `.claude/settings.json` (tutti i giri `smh-catena` dall'11 al 16/08: `acceptEdits`,
+cioè l'impostazione di allora).
+
+`ask` e `deny` reggono in ogni modalità: `rm`/`wget`/`chmod`/`sudo` continuano a chiedere,
+`rm -rf` e il push forzato restano vietati. Provato dal vivo: un `ls .claude/secrets/` è
+stato **negato**.
+
+## 🔴 IL GIRO DEL LUNEDÌ GIRAVA DALLA CARTELLA SBAGLIATA — da mesi
+
+`smh-giro-settimanale` era nato da una sessione aperta nella cartella **madre**
+`/Users/michele/Desktop/PROGETTI`. Conseguenza mai collegata prima: **ogni lunedì il giro
+partiva senza il `CLAUDE.md` del progetto** — quindi senza «leggi subito ULTIMO_REPORT»,
+senza **«NON INVENTARE MAI»**, senza la descrizione della catena — caricando solo il
+`CLAUDE.md` generico di PROGETTI. E senza `.claude/settings.json`, cioè senza i permessi.
+⚠️ **Compreso il giro di stamattina alle 07:53.** I permessi erano il sintomo, non la malattia.
+
+**Riparato:** la cartella **non è modificabile** su un task esistente (né `update` né
+`create` hanno quel campo: si eredita dalla sessione che lo crea), quindi il task è stato
+**cancellato e ricreato** da una sessione dentro il progetto. Stessa cron `0 8 * * 1`,
+prossimo giro **lunedì 24/08 08:05**, verificato che non sia partito subito.
+
+✅ **`smh-catena` era già a posto** — controllato sulle sessioni salvate su disco, non a
+intuito: i suoi run stanno tutti sotto `-Users-michele-Desktop-PROGETTI-San-Marino-Happens`.
+Non toccata.
+
+## 🔐 TOKEN — GitHub ruotato e verificato, Instagram ancora da fare
+
+Cercati nel backup del file coi valori mascherati: gli esposti erano **due**, non tutti.
+
+| Token | Esposto | Stato |
+|---|---|---|
+| GitHub PAT classico `ghp_DF…` | 🔴 sì | ✅ **ruotato e verificato** |
+| Instagram `IGAA…` | 🔴 sì | 🔴 **da fare** |
+| Facebook Page token · Telegram bot · PAT fine-grained di cron-job.org | ✅ no | non toccare (il terzo romperebbe i trigger 7:00/18:00) |
+
+Il nuovo token GitHub, provato dal vivo senza mai stamparlo: **HTTP 200**, account
+`michidrop80-Rebelde`, permessi **`repo, workflow`**, **nessuna scadenza**, e legge
+`PUBLISH_LIVE` = **`true`** dentro `sanmarinohappens`. L'assenza dell'intestazione di
+scadenza è anche la prova che è **il nuovo** (il vecchio scadeva il **6 ottobre 2026** — cioè
+fra sette settimane la catena avrebbe smesso di pubblicare **in silenzio**, leak a parte).
+📌 Le 54 regole che contenevano credenziali sono sparite dal file. **git non le ha mai
+portate fuori** (`settings.local.json` mai committato, in `.gitignore` globale, escluso anche
+dal repo del cervello) — **ma iCloud sì**, e quella copia la pulizia di oggi non la cancella.
+Per questo la rotazione serve comunque.
+
+## ⏭ RESTA DA FARE
+
+| Cosa | Chi / quando |
+|---|---|
+| 🔴 **Token Instagram: scade il 07/09/2026, fra 21 giorni** — rilasciato il 09/07, dura 60 giorni, e il **rinnovo automatico promesso in Tappa 3 non è mai stato costruito** (nessun `refresh_access_token` nei workflow; `metrics.py` avvisa e basta). Rotazione per sicurezza e rigenerazione per scadenza sono **la stessa operazione**. Procedura già scritta in `dati/guida-anello6-tappa2-token.md` — ⚠️ **il Graph API Explorer non funziona con questa app** | Michele + Claude, guidato schermata per schermata |
+| Costruire il **rinnovo automatico** del token IG (una sola chiamata a `graph.instagram.com/refresh_access_token`), altrimenti si ripresenta ogni 60 giorni | sessione dedicata |
+| **Revocare** su GitHub i due classic token vecchi (`anmarinohappens-pubblicazione`, `Push San Marino Happens2`) se non già fatto | Michele |
+| **5 approvazioni ferme in `queue/approvazioni.md`** dall'11/08 + **14 bozze `da-approvare`** (file 08, 10 e 16/08); ultimo file di approvati: **11/08** | la catena di stasera 18:30 |
+| Spostare i controlli ricorrenti dei giri in **file script** — è l'unica cura per il 30% di comandi non silenziabili | sessione dedicata |
+| ⚠️ **Questo report non era aggiornato dal 13/08**: quello che è successo il 14, 15 e 16/08 esiste solo nei transcript | da recuperare |
+
+📌 **Stato editoriale NON verificato oggi**: copertura, buchi e aggregati non sono stati
+guardati. Niente in questa voce dice che siano a posto.
+
+## ⏸️ DOVE SI È FERMATA LA ROTAZIONE DEL TOKEN IG (sessione chiusa per lentezza)
+
+Michele era **dentro l'app** su developers.facebook.com, Dashboard aperta. Due cose imparate,
+già scritte nella guida `dati/guida-anello6-tappa2-token.md`:
+- **Instagram non c'è nel menù di sinistra.** Le voci sono Dashboard · Azioni richieste ·
+  Casi d'uso · Facebook Login for Business · Test · Pubblicazione · Impostazioni app · Ruoli
+  dell'app. La guida diceva «apri il prodotto Instagram nel menù»: **non esiste più**.
+- La strada buona: **Dashboard → prima riga «Personalizza il caso d'uso per gestire i
+  messaggi e i contenuti su Instagram» → ›** (in alternativa la voce «Casi d'uso»). Da lì
+  **Impostazioni** → «Configurazione API con login di Instagram» → sezione **«Genera token di
+  accesso»** → @sanmarinohappens è **già tester dal 07/07**, quindi dovrebbe bastare **«Genera
+  token»** senza rifare «Aggiungi account».
+
+Poi: token nel secret GitHub **`INSTAGRAM_TOKEN`** (`michidrop80-Rebelde/sanmarinohappens` →
+Settings → Secrets and variables → Actions → Update) e verifica con il workflow
+**diagnostica-ig** (Actions → Run workflow). Aggiornare `metriche/storico.json`
+(`token.rilasciato_il`). ⚠️ Michele **non incolla mai il token in chat**.
+
+## 📋 PROMPT PRONTO — prossima sessione
+
+> **(1)** Controlla che la catena di ieri sera abbia raccolto le **5 approvazioni** ferme
+> dall'11/08 e che le 14 bozze `da-approvare` siano avanzate. Se no, guarda **prima** in che
+> modalità è girata (`"permissionMode"` nel transcript del run).
+> **(2)** **Token Instagram** — scade il 07/09. Leggi `dati/guida-anello6-tappa2-token.md`
+> (aggiornata oggi con la navigazione vera) e guida Michele: Dashboard → «Personalizza il caso
+> d'uso… Instagram» → Impostazioni → «Genera token». Rispondi **secco**, un pulsante alla
+> volta. Mai chiedergli di incollare il token in chat.
+> **(3)** Fai il punto **editoriale** vero: copertura, giorni scoperti, aggregati. Il 17/08 non
+> è stato guardato.
+> **(4)** Recupera dai transcript cos'è successo il **14, 15 e 16/08** e scrivilo qui: quei
+> tre giorni non sono in nessun report.
+
+---
+
+(precedente) Aggiornato: 2026-08-13 (sessione implementazione piano) — ✅ **PIANO DEL 10/08 IMPLEMENTATO COMPLETAMENTE.** Tutti e 5 i task eseguiti: lucchetto, giro_id, approvazione, buste parziali, catena giornaliera. La catena adesso avanza ogni giorno (08:30 e 18:30), non solo il martedì. Ogni pulsante è auto-identificante e non c'è più il problema delle approvazioni perse. Pronto il git push e il primo giro con la nuova catena.
 
 Michele: «si» → piano eseguito.
 
