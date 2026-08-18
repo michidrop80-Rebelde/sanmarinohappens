@@ -56,6 +56,13 @@ REPO = pathlib.Path(__file__).resolve().parent.parent
 MASTER = REPO / "dati" / "calendario" / "master.md"
 GIORNI = ["Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato", "Domenica"]
 
+# Le SERIE ricorrenti (Cinema nei Castelli, Alba sul Monte, Trenino, Giovedì in
+# Centro) hanno una riga sola nel master ma tanti appuntamenti distinti, e la
+# catena non le ripescava mai: il 18/08/2026 la pagina non pubblicò niente pur
+# avendo una proiezione vera quella sera. Qui si espandono nelle loro date.
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import serie_ricorrenti  # noqa: E402
+
 GIORNO_SETTIMANALE = 6  # Domenica: esce il settimanale della settimana dopo
 GIORNO_WEEKEND = 3      # Giovedì: esce il weekend ven-sab-dom
 
@@ -145,7 +152,7 @@ def ultimo_giorno_del_mese(d):
 
 
 # ---------------------------------------------------------------------------
-def _scheda_buco(titolo, quando, tipi_mancanti, candidati):
+def _scheda_buco(titolo, quando, tipi_mancanti, candidati, serie=()):
     """Un buco con dentro tutto il necessario per chiuderlo (o per capire
     perché non si può). Mai un ⚠️ nudo: cosa manca, per quando, con che cosa."""
     approvati = [e for e in candidati if e["stato_post"] == "approvato"]
@@ -155,7 +162,8 @@ def _scheda_buco(titolo, quando, tipi_mancanti, candidati):
         "manca": tipi_mancanti,
         "candidati": candidati,
         "approvati": approvati,
-        "chiudibile": bool(approvati),
+        "serie": list(serie),
+        "chiudibile": bool(approvati) or any(o["stato_post"] == "approvato" for o in serie),
     }
 
 
@@ -175,11 +183,13 @@ def main():
 
     buste = coda_dal_remoto()
     master = eventi_master(oggi.year)
+    occorrenze_serie = serie_ricorrenti.occorrenze_serie(oggi.year)
 
     print("Guardia degli imminenti — le prossime 48 ore\n")
     print(f"Oggi     : {oggi.strftime('%d/%m/%Y')} {GIORNI[oggi.weekday()]}")
     print(f"Orizzonte: fino al {dopodomani.strftime('%d/%m/%Y')} {GIORNI[dopodomani.weekday()]}")
-    print(f"Master   : {len(master)} righe con data leggibile\n")
+    print(f"Master   : {len(master)} righe con data leggibile, "
+          f"{len(occorrenze_serie)} appuntamenti di serie ricorrenti\n")
 
     buchi = []
 
@@ -193,7 +203,8 @@ def main():
     if manca:
         buchi.append(_scheda_buco(
             f"Domani {domani.strftime('%d/%m')} {GIORNI[domani.weekday()]} — slot 7:00",
-            domani, manca, eventi_del_giorno(master, domani)))
+            domani, manca, eventi_del_giorno(master, domani),
+            serie=serie_ricorrenti.occorrenze_del_giorno(occorrenze_serie, domani)))
 
     # --- 2. Aggregati in scadenza entro 48 ore -------------------------------
     # Si guarda anche OGGI: un aggregato delle 18:00 di oggi è ancora in tempo
@@ -244,6 +255,18 @@ def main():
         segno = "❌" if b["chiudibile"] else "⚪"
         print(f"{segno} {b['titolo']}")
         print(f"   manca: {' e '.join(b['manca'])}")
+        if b["serie"]:
+            # Questi sono i più insidiosi: una serie ricorrente è già `approvato` da
+            # settimane, non ripassa mai dalla ricerca, e nessuno si accorge che il
+            # suo appuntamento di domani non ha un post. È il buco del 18/08/2026.
+            print("   📌 SERIE RICORRENTI con un appuntamento quel giorno "
+                  "(la catena non le ripesca da sola):")
+            for o in b["serie"]:
+                prog = f" — {o['programma']}" if o["programma"] else ""
+                marchio = "" if o["stato_post"] == "approvato" else f"  ⟵ `{o['stato_post']}`"
+                print(f"      · [{o['id']}] {o['serie']}{prog} · {o['luogo'][:44]}{marchio}")
+            print("      Apri la riga nel master e leggi la nota prima di scrivere:")
+            print("      il titolo qui sopra è ritagliato dalla prosa, non è testo pronto.")
         if b["approvati"]:
             print(f"   CHIUDIBILE ORA — {len(b['approvati'])} eventi già `approvato` a registro:")
             lunghi = False

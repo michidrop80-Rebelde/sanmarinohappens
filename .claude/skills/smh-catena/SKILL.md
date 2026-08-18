@@ -155,12 +155,29 @@ La guardia ti consegna, per ogni buco, **cosa manca, per quando, e con quali eve
 chiude**. Tu lo chiudi. Non passi l'elenco a Michele: lui dà l'ok sui contenuti, non esegue
 i lavori.
 
+📌 **Le SERIE RICORRENTI sono il caso più insidioso, ed è per loro che il 18/08 non uscì
+niente.** Una serie (Cinema nei Castelli, Alba sul Monte, Trenino Bianco Azzurro, Giovedì in
+Centro) è **una riga sola** del master con dentro **tanti appuntamenti distinti**: 12
+proiezioni, un film diverso ogni sera. È `approvato` da settimane, quindi non ripassa più
+dalla ricerca; e gli agenti scrivono bozze solo per gli eventi **nuovi** dell'ultimo giro.
+Risultato: nessuno la ripescava mai. Michele aveva deciso il 06/07/2026 che «ogni proiezione
+va ri-inserita nei riepiloghi settimana/giorno», ma la regola viveva solo dentro una nota.
+
+La guardia le espande da sola (`scripts/serie_ricorrenti.py`) e te le mette in evidenza sotto
+il buco, con data, programma e luogo di quella sera. Per vedere tutta la stagione:
+
+```bash
+python3 scripts/serie_ricorrenti.py 30
+```
+
 **Per ogni buco marcato CHIUDIBILE ORA:**
 
-1. **Apri le righe del master citate** e leggi la NOTA di ognuna. Le righe segnalate come
-   «intervallo lungo» (rassegne, mostre) compaiono perché il loro intervallo tocca quelle
-   date, **non** perché ci sia una data confermata: se la nota non dà quel giorno, l'evento
-   non entra. È lo stesso errore che ha già fatto uscire dati sbagliati il 13/07.
+1. **Apri le righe del master citate** e leggi la NOTA di ognuna. Vale sia per le serie
+   (il titolo che vedi è **ritagliato dalla prosa**, non è testo pronto da pubblicare) sia
+   per le righe segnalate come «intervallo lungo»: quelle compaiono perché il loro intervallo
+   tocca quelle date, **non** perché ci sia una data confermata. Se la nota non dà quel
+   giorno, l'evento non entra. È lo stesso errore che ha già fatto uscire dati sbagliati il
+   13/07.
 2. **Scrivi il dossier** in `dati/post/` (righe per il grafico + caption completa), con lo
    stesso formato di `dati/post/settimanale-2026-08-18-23.md`: giorno·titolo·luogo BREVE sul
    grafico, ora·indirizzo·prezzi in caption, e una sezione che elenca cosa hai **escluso e
@@ -233,6 +250,7 @@ python3 scripts/controllo-integrita.py
 python3 scripts/controllo-copertura.py
 python3 scripts/controllo-export-in-coda.py
 python3 scripts/controllo-imminenti.py    # ricontrollo: i buchi dello Step 2-bis sono chiusi?
+python3 scripts/serie_ricorrenti.py 21    # le serie hanno un post a ogni appuntamento?
 ```
 
 Una guardia che trova un problema lo **chiude** lanciando l'anello che sa risolverlo — non
