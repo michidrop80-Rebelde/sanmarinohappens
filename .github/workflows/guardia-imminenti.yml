@@ -1,0 +1,65 @@
+# Guardia degli imminenti — rende rumorosa l'assenza della catena
+#
+# PERCHE' ESISTE
+# La catena serale (18:30) gira solo mentre l'app Claude e' aperta sul Mac di
+# Michele. Se il Mac e' spento non parte, e non lo dice a nessuno: il buco si
+# scopre giorni dopo, quando non esce un post. E' successo con il weekend di
+# Ferragosto (13/08/2026) e con il settimanale del 16/08.
+#
+# Questo workflow NON sposta la catena e non fa il suo lavoro. Passa un'ora
+# dopo e chiede soltanto: "e' rimasto un buco che qualcuno avrebbe dovuto
+# chiudere?". Se si', manda un Telegram. Trasforma un fallimento silenzioso in
+# uno rumoroso, che e' tutta la differenza fra accorgersene stasera e
+# scoprirlo giovedi'.
+#
+# Gira dove gia' gira il robot di pubblicazione: nessun servizio nuovo, nessun
+# costo nuovo, nessun segreto nuovo (usa gli stessi TELEGRAM_* di publish.yml).
+#
+# QUANDO TACE
+# Se le prossime 48 ore sono coperte, o se i giorni scoperti sono
+# legittimamente vuoti (nessun evento a registro), non manda niente. Un avviso
+# ogni sera insegnerebbe a ignorare gli avvisi.
+
+name: Guardia imminenti
+
+on:
+  schedule:
+    # 18:30 UTC = 20:30 in ora legale, 19:30 in ora solare. In tutti e due i
+    # casi e' DOPO le 18:30 italiane in cui gira la catena, che e' l'unica cosa
+    # che conta: se scattasse prima direbbe "buco" su un lavoro non ancora
+    # fatto. Scegliere un orario piu' vicino avrebbe richiesto di inseguire il
+    # cambio dell'ora due volte l'anno.
+    - cron: '30 18 * * *'
+  workflow_dispatch:
+
+# Se per qualche motivo ne parte una mentre un'altra e' in corso, la seconda
+# aspetta: due avvisi identici a distanza di secondi sono rumore.
+concurrency:
+  group: guardia-imminenti
+  cancel-in-progress: false
+
+jobs:
+  guardia:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      # Lo script decide da solo se c'e' qualcosa da dire. Esce con 0 anche
+      # quando manda l'avviso: il workflow "rosso" significherebbe che si e'
+      # rotta la guardia, non che c'e' un buco -- e i due casi non devono
+      # assomigliarsi.
+      - name: Controlla le prossime 48 ore e avvisa se serve
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python scripts/avviso-imminenti.py

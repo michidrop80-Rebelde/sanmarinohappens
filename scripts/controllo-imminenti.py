@@ -39,10 +39,15 @@ Uso
 
 Codici di uscita
 ----------------
-    0  niente da fare: le prossime 48 ore sono coperte
-    2  c'è almeno un buco CHIUDIBILE -> la catena deve lavorare adesso
-    1  ci sono buchi ma nessuno chiudibile (serve l'ok di Michele, o
-       semplicemente non ci sono eventi) -> solo referto, nessun lavoro
+    0  niente da segnalare: o le 48 ore sono coperte, o i buchi che restano sono
+       giorni **legittimamente vuoti** (nessun evento a registro per quelle date)
+    1  ci sono buchi che aspettano un ✅ di Michele -> vanno mandati su Telegram
+    2  c'è almeno un buco CHIUDIBILE subito -> la catena deve lavorare adesso
+
+Lo 0 mette apposta nello stesso sacco «tutto coperto» e «non c'era niente da
+fare»: sono la stessa cosa per chi legge. Un allarme che suona anche per un
+martedì senza eventi suonerebbe quasi ogni sera, e in una settimana nessuno lo
+leggerebbe più — vedi la memoria `feedback_una_guardia_muta_e_peggio_di_nessuna`.
 """
 
 import collections
@@ -79,10 +84,26 @@ def coda_dal_remoto():
     è già stata spostata lì, e senza contarla il giorno risulterebbe scoperto.
     """
     subprocess.run(["git", "fetch", "-q", "origin"], cwd=REPO, check=False)
-    out = subprocess.run(
-        ["git", "ls-tree", "-r", "--name-only", "origin/main", "posts/", "archivio/"],
-        cwd=REPO, capture_output=True, text=True, check=True,
-    ).stdout
+
+    # Normalmente si legge `origin/main`. Ma questa guardia gira anche su GitHub
+    # Actions (dentro `avviso-imminenti.py`), dove il checkout è superficiale e il
+    # riferimento `origin/main` può non esistere: lì però il codice estratto È
+    # origin/main, quindi `HEAD` dice la stessa cosa. Senza questo ripiego la
+    # guardia morirebbe in cloud proprio mentre serve.
+    riferimento = "origin/main"
+    esito = subprocess.run(
+        ["git", "ls-tree", "-r", "--name-only", riferimento, "posts/", "archivio/"],
+        cwd=REPO, capture_output=True, text=True,
+    )
+    if esito.returncode != 0:
+        riferimento = "HEAD"
+        print("ℹ️  `origin/main` non raggiungibile: leggo la coda da HEAD "
+              "(normale su GitHub Actions, dove il checkout È origin/main).")
+        esito = subprocess.run(
+            ["git", "ls-tree", "-r", "--name-only", riferimento, "posts/", "archivio/"],
+            cwd=REPO, capture_output=True, text=True, check=True,
+        )
+    out = esito.stdout
     buste = collections.defaultdict(set)
     for riga in out.splitlines():
         m = re.search(r"(?:^posts/|^archivio/[^/]+/)(\d{8})_(.+)\.json$", riga)
@@ -299,8 +320,20 @@ def main():
         print("   coda e spingere su origin/main. Non si consegna questo elenco a Michele.")
         return 2
 
-    print(f"ℹ️  {len(buchi)} buchi, nessuno chiudibile da solo (vedi sopra il perché).")
-    return 1
+    # Restano i buchi non chiudibili. Ma sono due cose diverse, e confonderle
+    # trasformerebbe l'avviso in rumore: c'è chi aspetta un ✅ di Michele (azionabile,
+    # va detto) e c'è il giorno semplicemente senza eventi (normale, deve tacere).
+    # Un allarme che suona anche per il secondo caso suonerebbe quasi ogni sera, e
+    # nel giro di una settimana nessuno lo leggerebbe più.
+    aspettano_ok = [b for b in buchi if b["candidati"] and not b["approvati"]]
+    if aspettano_ok:
+        print(f"⚠️  {len(aspettano_ok)} buchi su {len(buchi)} aspettano l'ok di Michele.")
+        print("   Vanno mandati su Telegram coi pulsanti, dicendo entro quando servono.")
+        return 1
+
+    print(f"✅ {len(buchi)} buchi, tutti legittimamente vuoti: nessun evento a registro")
+    print("   per quelle date. Non c'è niente da fare e non c'è niente da segnalare.")
+    return 0
 
 
 if __name__ == "__main__":
