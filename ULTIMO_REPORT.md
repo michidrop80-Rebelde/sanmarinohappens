@@ -18,11 +18,15 @@ Il 18/08 inoltre non aveva post perché il Cinema nei Castelli («Il robot selva
 
 **2. La catena ora guarda avanti** (commit `7b0ddad`). Nuova guardia `scripts/controllo-imminenti.py`: **solo le prossime 48 ore**, solo cose azionabili. Per ogni buco dice cosa manca, per quando e con quali righe del master si chiude, distinguendo `CHIUDIBILE ORA` da «serve l'ok di Michele» da «legittimamente vuoto». Codici: `0` coperto · `1` non chiudibile · `2` lavoro adesso. Nella catena: **quinta domanda** nello Step 0-bis (non si salta mai, nemmeno a giro vuoto — è l'unica che guarda avanti) e nuovo **Step 2-bis** che *chiude* il buco invece di elencarlo. Corretta anche la riga dello Step 4 che sminuiva la copertura. Provata sulle date dei buchi veri: il 12/08 vede il weekend del 13 **e** il giorno scoperto, il 15/08 vede il settimanale del 16 con gli stessi eventi poi usati davvero.
 
+**3. Chiuse anche le serie ricorrenti** (commit `0cfdacf`) — era il gemello del problema. Una serie è **una riga sola** del master con dentro **tanti appuntamenti distinti**: Cinema nei Castelli = 12 proiezioni, Alba sul Monte = 5 concerti, più Trenino e Giovedì in Centro. Essendo `approvato` da settimane non ripassa dalla ricerca, e gli agenti scrivono bozze solo per gli eventi *nuovi*: nessuno la ripescava. La tua decisione del 06/07 («ogni proiezione va ri-inserita nei riepiloghi») viveva solo dentro una nota. Nuovo `scripts/serie_ricorrenti.py`: espande le righe-serie nelle loro date, riconoscendo i due modi in cui sono scritte davvero (elenco nel campo data, programma nella nota col cappello di luogo). Non tocca gli eventi che durano più giorni di fila — una sagra di 3 giorni è UN evento e un post ce l'ha già. Sul master di agosto riconosce **esattamente le 4 serie vere, zero falsi positivi**, col luogo giusto per gruppo. Agganciato a `controllo-imminenti.py`: provato come se fosse il 17/08 dice «domani 18/08 manca il post — Cinema nei Castelli, Il robot selvaggio, Fiorentino», cioè esattamente quello che stamattina non è uscito.
+
 ## Prossimo step
 
-🔴 **Weekend del 20/08 (copre 21–23/08): manca, ed è già segnalato dalla nuova guardia come CHIUDIBILE ORA.** Con lo Step 2-bis lo chiude la catena di stasera alle 18:30 — ma quel meccanismo non ha ancora mai girato davvero da task pianificato. Da decidere con Michele se farlo subito a mano.
+🔴 **Weekend del 20/08 (copre 21–23/08): manca, ed è già segnalato come CHIUDIBILE ORA.** Con lo Step 2-bis lo chiude la catena di stasera alle 18:30 — ma quel meccanismo non ha ancora mai girato davvero da task pianificato. Da decidere con Michele se farlo subito a mano.
 
-Altri aperti: la **serie ricorrente** mai ripescata (Cinema nei Castelli: 24, 25, 26/08 scoperti); il settimanale del 23/08 e il carosello di settembre (31/08); il task `smh-giro-settimanale` ricreato ieri non è ancora mai partito (prima sveglia lunedì 24/08).
+🔴 **Cinema nei Castelli: 24, 25 e 26/08 (Domagnano) sono scoperti.** Ora la guardia li vede e la catena li chiuderà la sera prima di ognuno. Anche qui: è la prima volta che il meccanismo lavora da solo.
+
+Altri aperti: il settimanale del 23/08 e il carosello di settembre (31/08) — entrambi entreranno nella finestra delle 48 ore in tempo; il task `smh-giro-settimanale` ricreato il 17/08 non è ancora mai partito (prima sveglia lunedì 24/08); il rinnovo automatico del token IG (`refresh_access_token`) si ripresenta fra 60 giorni.
 
 ---
 
