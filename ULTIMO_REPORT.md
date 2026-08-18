@@ -1,6 +1,38 @@
 # Ultimo stato — San Marino Happens
 
-Aggiornato: 2026-08-17 (mattina) — 🔧 **SESSIONE DI MANUTENZIONE: tolte le finestre di permesso dai giri, riparata la cartella del giro del lunedì, ruotato il token GitHub.** Nessun contenuto toccato: zero post, zero grafiche, zero pubblicazioni.
+Aggiornato: 2026-08-18 (mattina) — 🔴 **TROVATO PERCHÉ NON USCIVA NIENTE: gli aggregati non erano compito di nessuno.** Michele: «domenica non è stato pubblicato il settimanale, oggi non è stato pubblicato niente».
+
+## La diagnosi
+
+**Il robot di pubblicazione è sanissimo.** Le run del 16/08 18:00 e del 18/08 7:00 sono entrambe `completed/success`, `PUBLISH_LIVE` è ancora `true`, il token IG rigenerato ieri funziona. Ha pubblicato zero perché **in coda non c'era niente**: nessuna busta `20260816_Settimanale`, nessuna busta per il 18/08 — né in `posts/`, né in `archivio/`, né fra i PNG esportati. Il guasto era a monte, ed era **un compito mancante, non un bug**: un compito mancante non lancia eccezioni, tutto sembra funzionare.
+
+**Nessun anello della catena produce gli aggregati.** `/smh-testi` scrive una bozza per singolo evento e non ha nessun passo per settimanale/weekend/carosello. `/smh-grafica` saprebbe compilarli ma compila solo ciò che è già approvato. La catena serale faceva approvazioni → grafica → segnalazioni → guardie, e **non si chiedeva mai «è domenica, tocca il settimanale»**. Li faceva a mano una sessione, quando capitava: l'ultima il 07/08. Da lì in poi **nessun aggregato**, e sono saltati anche il **weekend di Ferragosto (13/08)** — buco mai notato prima di oggi — e il settimanale del 16/08.
+
+**La guardia li vedeva, ma le era stato detto di non gridare.** `controllo-copertura.py` scriveva «settimanale del 16/08: manca la busta», annegato però in ~9 giorni scoperti quasi tutti legittimi; e lo Step 4 della catena istruiva «non è di per sé un allarme». Giusto per i giorni singoli (un giorno senza eventi resta vuoto), **falso per gli aggregati**: la domenica arriva comunque.
+
+Il 18/08 inoltre non aveva post perché il Cinema nei Castelli («Il robot selvaggio», Fiorentino) è una **serie ricorrente** già a registro dal 30/07: la catena scrive bozze solo per gli eventi *nuovi* dell'ultimo giro, e una serie archiviata nel master non viene mai ripescata. 🔴 **Questo pezzo resta aperto** (vale anche per 24, 25, 26/08).
+
+## Cosa è stato fatto oggi
+
+**1. Settimanale 18–23/08 compilato e messo in coda** (commit `73bdaed`, esce **oggi alle 18:00**). Ridatato 18–23/08: il 17/08 era passato e un aggregato non annuncia un giorno trascorso. 12 eventi su 2 slide, pagine 3-4 del master `DAHORdC0zdY` lavorate su copia `DAHSn0pE-pw`. Fix in corsa: tre titoli portati a font 38 (a 40 andavano a capo). Orario della **visita di Papa Leone XIV** verificato oggi su due fonti indipendenti (AgenSIR + Osservatore Romano): non era ancora pubblicato quando il master fu scritto. Esclusi di proposito il baseball gara 6 del 23/08 (condizionale, dipende da gara 5 del 20/08) e Giovedì in Centro del 20/08 (data non confermata dalla fonte). Dossier: `dati/post/settimanale-2026-08-18-23.md`.
+
+**2. La catena ora guarda avanti** (commit `7b0ddad`). Nuova guardia `scripts/controllo-imminenti.py`: **solo le prossime 48 ore**, solo cose azionabili. Per ogni buco dice cosa manca, per quando e con quali righe del master si chiude, distinguendo `CHIUDIBILE ORA` da «serve l'ok di Michele» da «legittimamente vuoto». Codici: `0` coperto · `1` non chiudibile · `2` lavoro adesso. Nella catena: **quinta domanda** nello Step 0-bis (non si salta mai, nemmeno a giro vuoto — è l'unica che guarda avanti) e nuovo **Step 2-bis** che *chiude* il buco invece di elencarlo. Corretta anche la riga dello Step 4 che sminuiva la copertura. Provata sulle date dei buchi veri: il 12/08 vede il weekend del 13 **e** il giorno scoperto, il 15/08 vede il settimanale del 16 con gli stessi eventi poi usati davvero.
+
+## Prossimo step
+
+🔴 **Weekend del 20/08 (copre 21–23/08): manca, ed è già segnalato dalla nuova guardia come CHIUDIBILE ORA.** Con lo Step 2-bis lo chiude la catena di stasera alle 18:30 — ma quel meccanismo non ha ancora mai girato davvero da task pianificato. Da decidere con Michele se farlo subito a mano.
+
+Altri aperti: la **serie ricorrente** mai ripescata (Cinema nei Castelli: 24, 25, 26/08 scoperti); il settimanale del 23/08 e il carosello di settembre (31/08); il task `smh-giro-settimanale` ricreato ieri non è ancora mai partito (prima sveglia lunedì 24/08).
+
+---
+
+(precedente) Aggiornato: 2026-08-17 (pomeriggio) — ✅ **Token Instagram rigenerato e verificato.** Guidato Michele passo-passo su developers.facebook.com (Dashboard → "Personalizza il caso d'uso... Instagram" → Impostazioni → Configurazione API con login di Instagram → Genera token) fino al "Genera token", salvato in GitHub Secret `INSTAGRAM_TOKEN`, verificato dal vivo con la run del workflow **diagnostica-ig** (32037304336, 13:57 UTC, tutti gli step ✅). `metriche/storico.json` → `token.rilasciato_il` = **2026-08-17** (nuova scadenza: **16/10/2026**). Il rinnovo automatico (`refresh_access_token`) resta da costruire — si ripresenterà fra 60 giorni.
+
+Sessione chiusa qui su richiesta di Michele — resto (1) controllo approvazioni, (3) punto editoriale, (4) recupero 14-16/08 lasciati alla catena delle 18:30 e a una prossima sessione.
+
+---
+
+(precedente) Aggiornato: 2026-08-17 (mattina) — 🔧 **SESSIONE DI MANUTENZIONE: tolte le finestre di permesso dai giri, riparata la cartella del giro del lunedì, ruotato il token GitHub.** Nessun contenuto toccato: zero post, zero grafiche, zero pubblicazioni.
 
 Michele: «dobbiamo eliminare le approvazioni dai giri routine» → (chiarito con uno screenshot: i **permessi**, non le approvazioni editoriali ✅/❌) → «interruttore» → «sì togli quella riga dalla cartella madre» → «sì, scrivimi i passaggi per ruotare i token».
 
@@ -82,8 +114,8 @@ Per questo la rotazione serve comunque.
 
 | Cosa | Chi / quando |
 |---|---|
-| 🔴 **Token Instagram: scade il 07/09/2026, fra 21 giorni** — rilasciato il 09/07, dura 60 giorni, e il **rinnovo automatico promesso in Tappa 3 non è mai stato costruito** (nessun `refresh_access_token` nei workflow; `metrics.py` avvisa e basta). Rotazione per sicurezza e rigenerazione per scadenza sono **la stessa operazione**. Procedura già scritta in `dati/guida-anello6-tappa2-token.md` — ⚠️ **il Graph API Explorer non funziona con questa app** | Michele + Claude, guidato schermata per schermata |
-| Costruire il **rinnovo automatico** del token IG (una sola chiamata a `graph.instagram.com/refresh_access_token`), altrimenti si ripresenta ogni 60 giorni | sessione dedicata |
+| ✅ ~~Token Instagram: scadeva il 07/09/2026~~ — **FATTO 17/08 pomeriggio**, rigenerato e verificato via workflow diagnostica-ig, nuova scadenza 16/10/2026 | chiuso |
+| Costruire il **rinnovo automatico** del token IG (una sola chiamata a `graph.instagram.com/refresh_access_token`) — altrimenti si ripresenta il 16/10/2026 | sessione dedicata |
 | **Revocare** su GitHub i due classic token vecchi (`anmarinohappens-pubblicazione`, `Push San Marino Happens2`) se non già fatto | Michele |
 | **5 approvazioni ferme in `queue/approvazioni.md`** dall'11/08 + **14 bozze `da-approvare`** (file 08, 10 e 16/08); ultimo file di approvati: **11/08** | la catena di stasera 18:30 |
 | Spostare i controlli ricorrenti dei giri in **file script** — è l'unica cura per il 30% di comandi non silenziabili | sessione dedicata |
