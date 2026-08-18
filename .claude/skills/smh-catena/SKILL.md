@@ -74,7 +74,7 @@ fare» sbagliando.
 
 ## STEP 0-bis — CONTROLLO SECCO: c'è davvero qualcosa da fare?
 
-Quattro comandi, e nient'altro. Servono a non pagare un giro intero per scoprire che non
+Pochi comandi, e nient'altro. Servono a non pagare un giro intero per scoprire che non
 c'era niente.
 
 ```bash
@@ -87,12 +87,13 @@ python3 -c "
 import json; d=json.load(open('dati/grafica-stato.json'))
 date=[r.get('data_giro','') for r in d['log'] if r.get('data_giro')]
 print(max(date) if date else 'MAI')"
+python3 scripts/controllo-imminenti.py; echo "IMMINENTI_USCITA=$?"
 ```
 
 📌 `grep -c` esce con codice **1** quando il conteggio è zero: è il suo modo di dire «nessuna
 riga trovata», **non un errore**. Leggi il numero, non il codice di uscita.
 
-Le **quattro domande**, in ordine. Basta un sì per lavorare:
+Le **cinque domande**, in ordine. Basta un sì per lavorare:
 
 | # | Domanda | Come si risponde | Se sì |
 |---|---|---|---|
@@ -100,10 +101,18 @@ Le **quattro domande**, in ordine. Basta un sì per lavorare:
 | 2 | C'è approvato non ancora graficato? | l'ultimo file `approvati` è più recente dell'ultimo `data_giro` della grafica | Step 2 |
 | 3 | **Sono arrivate segnalazioni di eventi?** | righe 2 o 3 > 0 (testo **o** foto) | Step 3 |
 | 4 | Sono arrivati annullamenti? | riga 4 > 0 | Step 3-bis, **con precedenza** |
+| 5 | **Manca qualcosa nelle prossime 48 ore?** | `IMMINENTI_USCITA` = **2** | Step 2-bis, **sempre** |
 
-**Se sono tutte no:** salta gli Step 1-5. Vai diretto allo Step 6, rilascia il lucchetto e
-chiudi con una riga sola in chat. **Nessun Telegram.** Non aprire Canva, non leggere i file
-dei post, non lanciare le guardie: un giro a vuoto deve costare quanto una scampanellata.
+⚠️ La domanda 5 non si salta mai, nemmeno quando le altre quattro dicono no. È l'unica che
+guarda **avanti** invece che indietro: le altre quattro reagiscono a qualcosa che è arrivato
+(un'approvazione, una segnalazione), la 5 si accorge di qualcosa che **non arriverà mai da
+solo**. Domenica 16/08/2026 le prime quattro dissero tutte no, il giro si chiuse in trenta
+secondi — e il settimanale non uscì.
+
+**Se sono tutte e cinque no:** salta gli Step 1-5. Vai diretto allo Step 6, rilascia il
+lucchetto e chiudi con una riga sola in chat. **Nessun Telegram.** Non aprire Canva, non
+leggere i file dei post, non lanciare le guardie: un giro a vuoto deve costare quanto una
+scampanellata.
 
 ⚠️ È un filtro, non un giudice: **nel dubbio si prosegue**. Se uno dei comandi fallisce, se
 `dati/post/approvati/` è vuoto, o se il confronto fra le date non è chiaro, **non chiudere**
@@ -131,6 +140,50 @@ da sola `/smh-pubblica`: non lanciarla una seconda volta.
 
 Se Canva va in errore a metà giro, segui la gestione errori scritta nella skill: salta solo
 l'evento colpito, prosegui con gli altri.
+
+## STEP 2-bis — CHIUDI I BUCHI DELLE PROSSIME 48 ORE
+
+Solo se la domanda 5 ha risposto sì (`controllo-imminenti.py` è uscito con **2**).
+
+Questo passo esiste perché fino al 18/08/2026 **nessun anello della catena produceva gli
+aggregati**: l'agente testi scrive una bozza per singolo evento, la grafica compila quello
+che è già approvato, e nessuno si chiedeva mai «è domenica, tocca il settimanale». Gli
+aggregati li faceva a mano una sessione di lavoro, quando capitava. Dal 09/08 al 18/08 non
+ne è uscito nessuno: saltati il weekend di Ferragosto (13/08) e il settimanale (16/08).
+
+La guardia ti consegna, per ogni buco, **cosa manca, per quando, e con quali eventi si
+chiude**. Tu lo chiudi. Non passi l'elenco a Michele: lui dà l'ok sui contenuti, non esegue
+i lavori.
+
+**Per ogni buco marcato CHIUDIBILE ORA:**
+
+1. **Apri le righe del master citate** e leggi la NOTA di ognuna. Le righe segnalate come
+   «intervallo lungo» (rassegne, mostre) compaiono perché il loro intervallo tocca quelle
+   date, **non** perché ci sia una data confermata: se la nota non dà quel giorno, l'evento
+   non entra. È lo stesso errore che ha già fatto uscire dati sbagliati il 13/07.
+2. **Scrivi il dossier** in `dati/post/` (righe per il grafico + caption completa), con lo
+   stesso formato di `dati/post/settimanale-2026-08-18-23.md`: giorno·titolo·luogo BREVE sul
+   grafico, ora·indirizzo·prezzi in caption, e una sezione che elenca cosa hai **escluso e
+   perché**.
+3. **Compila la grafica** seguendo `/smh-grafica` (sezione «Aggregati»): sempre su una COPIA
+   del master, rotazione a pagine, giorno della settimana calcolato in Python, controllo al
+   contrario prima di esportare.
+4. **Metti in coda** con `/smh-pubblica` e spingi su `origin/main`. Finché la busta non è su
+   origin/main **non esiste**: il robot fa il checkout di lì, non del Mac.
+5. **Rilancia la guardia** per verificare che il buco si sia davvero chiuso.
+
+**Per ogni buco NON chiudibile:**
+
+- *Ci sono eventi ma nessuno è `approvato`* → mandali a Michele su Telegram **subito**, con i
+  pulsanti, dicendo per quando servono. Se non risponde in tempo, quel giorno resta scoperto:
+  è una scelta sua, non un fallimento della catena.
+- *Nel master non c'è niente per quelle date* → **è legittimo**. Un giorno senza eventi veri
+  resta vuoto. Non si inventano eventi per riempire una casella, mai.
+
+⚠️ **Gli aggregati non si saltano perché «è tardi».** Un settimanale in ritardo di un giorno
+si ridata sui giorni che restano ed esce lo stesso (finestra di recupero: 2 giorni). Quello
+che non si fa **mai** è annunciare un giorno già passato: si tolgono i giorni trascorsi e si
+ricalcola l'intestazione, come è stato fatto il 18/08/2026.
 
 ## STEP 3 — SEGNALAZIONI ARRIVATE AL BOT
 
@@ -179,21 +232,35 @@ pubblicato per sbaglio sono entrambi errori, e il secondo non si può ritirare.
 python3 scripts/controllo-integrita.py
 python3 scripts/controllo-copertura.py
 python3 scripts/controllo-export-in-coda.py
+python3 scripts/controllo-imminenti.py    # ricontrollo: i buchi dello Step 2-bis sono chiusi?
 ```
 
 Una guardia che trova un problema lo **chiude** lanciando l'anello che sa risolverlo — non
 consegna un elenco a Michele.
 
-📌 La copertura elenca sempre parecchi giorni scoperti, e **non è di per sé un allarme**: un
-giorno senza eventi veri resta scoperto per forza, e non si inventano eventi per riempirlo.
-Guarda se lo scoperto ha una causa che sai chiudere (un approvato mai graficato, un PNG mai
-messo in coda), non il numero.
+📌 **Come si legge la copertura a 14 giorni.** Elenca sempre parecchi giorni scoperti, e per
+i **giorni singoli** (feed/storie) non è di per sé un allarme: un giorno senza eventi veri
+resta scoperto per forza, e non si inventano eventi per riempirlo. Guarda se lo scoperto ha
+una causa che sai chiudere (un approvato mai graficato, un PNG mai messo in coda), non il
+numero.
+
+🔴 **Per gli AGGREGATI vale il contrario, ed è la lezione del 16/08/2026.** Un settimanale o
+un weekend che manca non è mai «normale»: la domenica arriva comunque, il giovedì pure. Un
+giorno vuoto è colpa del calendario, un aggregato vuoto è colpa nostra. Se `controllo-
+copertura.py` segnala un aggregato scoperto **oltre** le 48 ore, non è un lavoro da fare
+stasera, ma va scritto nel referto con la sua data — e quando entrerà nelle 48 ore sarà lo
+Step 2-bis a chiuderlo. Non ci si abitua mai a vederlo lì.
 
 ## STEP 5 — REFERTO TELEGRAM
 
 Manda il referto **solo se c'è un esito**: approvazioni elaborate, PNG prodotti, segnalazioni
-importate, un annullamento, o una guardia in ❌. Un referto «non ho fatto niente» ogni sera
-insegna a ignorare i referti.
+importate, un annullamento, **un buco delle 48 ore chiuso o rimasto aperto**, o una guardia
+in ❌. Un referto «non ho fatto niente» ogni sera insegna a ignorare i referti.
+
+🔴 Un buco che **non** hai potuto chiudere perché mancano le approvazioni va sempre su
+Telegram, e va scritto come una domanda a cui Michele può rispondere adesso: quale contenuto
+manca, per quale giorno e a che ora esce, quali eventi lo riempirebbero, e che quei pulsanti
+✅ servono **entro stasera**. È l'unico caso in cui la catena ha davvero bisogno di lui.
 
 Ogni dubbio deve dire **qual è**: cosa non torna, perché, e cosa serve per scioglierlo. Un
 ⚠️ nudo non basta.
@@ -219,9 +286,11 @@ Giro pieno:
 0) Lucchetto: preso / occupato da X
 1) Approvazioni: N elaborate (o "nessuna nuova")
 2) Grafica: N PNG → N buste in coda (o "niente da graficare")
+2-bis) Imminenti 48h: N buchi trovati → N chiusi, N in attesa dell'ok di Michele,
+       N legittimamente vuoti (o "prossime 48h già coperte")
 3) Segnalazioni: N importate → N verificate → N bozze (o "code vuote")
    Annullamenti: N trattati (o "nessuno")
-4) Guardie: copertura ✅/⚠️ · export→coda ✅/⚠️ · integrità ✅/⚠️
+4) Guardie: imminenti ✅/❌ · copertura ✅/⚠️ · export→coda ✅/⚠️ · integrità ✅/⚠️
 5) Telegram: inviato / non serviva
 6) Lucchetto rilasciato
 ```
@@ -229,8 +298,11 @@ Giro pieno:
 Giro a vuoto — **una riga, e basta**:
 
 ```
-🔗 Catena — AAAA-MM-GG HH:MM · niente da fare (0 approvazioni, 0 segnalazioni, 0 annullamenti, ultimo approvato del <data> già graficato il <data>) · lucchetto rilasciato
+🔗 Catena — AAAA-MM-GG HH:MM · niente da fare (0 approvazioni, 0 segnalazioni, 0 annullamenti, ultimo approvato del <data> già graficato il <data>, prossime 48h coperte) · lucchetto rilasciato
 ```
+
+⚠️ Un giro può chiudersi «a vuoto» **solo** se anche la domanda 5 ha risposto no. Se hai
+chiuso un buco, il giro non è a vuoto: usa il formato pieno.
 
 ## SICUREZZA
 
