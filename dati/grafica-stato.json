@@ -22,7 +22,7 @@
       "design_id": "DAHORdC0zdY",
       "nome_canva": "SMH - Settimanale Master",
       "totale_pagine": 4,
-      "ultima_pagina_usata": 4,
+      "ultima_pagina_usata": 2,
       "struttura_riga": "8 righe evento. Ogni riga = casella giorno/data (es. 'Martedì 21/07') + casella titolo evento + casella LUOGO BREVE (solo Castello/venue, es. 'Valdragone' — semplificato dall'agente dal luogo completo della fonte) + linea divisoria (SHAPE). SUL GRAFICO niente ora e niente prezzi. Ora/indirizzo completo/prezzi/prenotazione vanno in CAPTION. Vedi memoria project_architettura_info_aggregati."
     },
     "weekend": {
@@ -1122,7 +1122,10 @@
       "tipo": "weekend",
       "riferimento": "21-23/08/2026",
       "copia_design_id": "DAHSqcthTj0",
-      "pagine_master_usate": [1, 2],
+      "pagine_master_usate": [
+        1,
+        2
+      ],
       "eventi": 9,
       "slide": 2,
       "export": [
@@ -1130,6 +1133,24 @@
         "marketing/3 Export/4 Weekend - Post/20260820_Weekend_2.png"
       ],
       "nota": "Compilazione mirata per chiudere il buco 21-23/08 rilevato dalla guardia scripts/controllo-imminenti.py (Step 2-bis, 18/08). Dossier gia' pronto in dati/post/weekend-2026-08-21-23.md, fonte dati/calendario/master.md righe 32,45,57,69,70, tutti gia' approvato. Giorni calcolati in Python (21/08=Venerdi, 22/08=Sabato, 23/08=Domenica), riverificati anche a mano su master.md prima della compilazione. Split cronologico 6+3 (stesso schema gia' testato sul weekend 07-09/08): pag1 = VEN Sagra dell'Uva+Festa dell'Amicizia, SAB Visita Papa Leone XIV+Sagra dell'Uva+Festa dell'Amicizia, DOM Alba sul Monte-Gioacchino (6 righe piene, nessun taglio). pag2 = DOM Sagra dell'Uva+Festa dell'Amicizia+Tributo a Battisti (3 righe), righe 4-5-6 cancellate (pattern cancella->rileggi, nessun orfano residuo) e blocco ricentrato con position_element (+230px circa, verificato via thumbnail). Fix in corsa: titolo sorgente 'Alba sul Monte — «Gioacchino, Maestro…in cucina»' abbreviato a 'Alba sul Monte - Gioacchino' (stessa convenzione gia' in uso per la serie Alba sul Monte nei giri precedenti: l'ellissi '…' non renderizza, come il simbolo '°', e il testo pieno non ci stava comunque nella casella titolo). Cinema nei Castelli e Buonenove 2 esclusi di proposito (vedi note del dossier: nessuna proiezione nella finestra, mostra diffusa senza data propria). Validazione al contrario: tutte e 9 le righe controllate campo per campo contro il dossier, nessuna discrepanza, nessuna pagina saltata. Copia usa-e-getta DAHSqcthTj0 da cestinare a mano."
+    },
+    {
+      "data_giro": "2026-08-21",
+      "tipo": "settimanale",
+      "riferimento": "24-30/08/2026",
+      "copia_design_id": "DAHS804G2Io",
+      "pagine_master_usate": [
+        1,
+        2
+      ],
+      "eventi": 13,
+      "slide": 2,
+      "export": [
+        "marketing/3 Export/3 Settimanali - Post/20260823_Settimanale_1.png",
+        "marketing/3 Export/3 Settimanali - Post/20260823_Settimanale_2.png"
+      ],
+      "busta": "posts/20260823_Settimanale.json",
+      "nota": "Step 2-bis della catena (guardia controllo-imminenti.py, buco slot regolare domenica 23/08 18:00, copre 24/08-30/08). Dossier dati/post/settimanale-2026-08-24-30.md, fonte master.md righe 36,36b,46,46b,46d,46e,66,71,77,78,M02 (tutte approvato salvo M02 in corso). Slide 1 = 8 righe piene. Slide 2 = 5 righe: cancellate le 3 vuote (6-8) e blocco ricentrato (geometria project_architettura_info_aggregati, pitch=882.5/4). Titoli senza il simbolo ° (San Marino Revival, Giro dei Castelli). ESCLUSI Giovedi' in Centro (27/08, serie M09 da-approvare) e Cocktails Ronzanti (29/08, riga 46c non pianificato) - entrambi mandati a Michele su Telegram con i pulsanti (giro 20260821-1931); Campionato Calcio 1a giornata (58) e Baseball gara 7 eventuale (56d) esclusi per data/esito non certi. CORRETTO PRIMA DEL PUSH: la caption conteneva 'gratis'/'€45' (regola equita' del 13/07, mai prezzi ne' gratuita' in caption) - ripulita prima di mettere in coda. Trovata e archiviata anche la busta gemella della settimana scorsa (20260818_Settimanale, mai pubblicata in 3+ giorni: stessa causa, 'gratis'/€ in caption la bloccava in automatico ad ogni run) -> archivio/2026-08/non-pubblicati/. Copia Canva usa-e-getta DAHS804G2Io da cestinare a mano."
     }
   ],
   "_nota_26-07-2026": "Settimanale 27/07-02/08 rifatto da zero: la bozza in dati/post/aggregati-luglio-agosto-2026.md era del 30/06 e aveva solo 3 dei 10 eventi (non conosceva il recupero del 25/07). Fonte usata: le buste gia' in coda in posts/, che avevano gia' passato /smh-check. Titolo tennis accorciato da 'San Marino Open - tennis ATP' (andava a capo e sbatteva sulla riga sotto) a 'San Marino Open - tennis': su questo design il titolo sta su una riga fino a ~25 caratteri. COPIA usa-e-getta da cestinare a mano: DAHQbtk6OaI.",
