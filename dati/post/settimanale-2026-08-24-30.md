@@ -27,25 +27,28 @@ Fonte di ogni riga: `dati/calendario/master.md` (righe 36, 36b, 46, 46b, 46d, 46
 | 2 | Martedì 25/08 | Cinema: Rapunzel | Domagnano |
 | 3 | Mercoledì 26/08 | Cinema: Jumpers | Domagnano |
 | 4 | Mercoledì 26/08 | Cena Tramonto & Live | Faetano |
-| 5 | Ven-Sab 28-29/08 | Trenino Bianco Azzurro | Piazzale Stazione |
-| 6 | Venerdì 28/08 | Noche Argentina | Torraccia |
-| 7 | Ven-Dom 28-30/08 | San Marino Comics | Centro Storico |
-| 8 | Sab-Dom 29-30/08 | 33° San Marino Revival | Serravalle |
+| 5 | Giovedì 27/08 | Giovedì in Centro | Centro Storico |
+| 6 | Ven-Sab 28-29/08 | Trenino Bianco Azzurro | Piazzale Stazione |
+| 7 | Venerdì 28/08 | Noche Argentina | Torraccia |
+| 8 | Ven-Dom 28-30/08 | San Marino Comics | Centro Storico |
 
 ### Slide 2
 | # | Giorno/data | Titolo | Luogo breve |
 |---|---|---|---|
-| 9 | Sabato 29/08 | 21° Giro dei Castelli | 9 Castelli |
-| 10 | Sabato 29/08 | Piano: Malferrari | Fiorentino |
-| 11 | Sabato 29/08 | Pellegrinaggio | Vari luoghi |
-| 12 | Domenica 30/08 | Viaggio Musicale | Teatro Titano |
-| 13 | Fino al 03/09 | Buonenove 2 - Arte Urbana | 9 Castelli |
+| 9 | Sab-Dom 29-30/08 | 33° San Marino Revival | Serravalle |
+| 10 | Sabato 29/08 | 21° Giro dei Castelli | 9 Castelli |
+| 11 | Sabato 29/08 | Piano: Malferrari | Fiorentino |
+| 12 | Sabato 29/08 | Cocktails Ronzanti | Montecchio |
+| 13 | Sabato 29/08 | Pellegrinaggio | Vari luoghi |
+| 14 | Domenica 30/08 | Viaggio Musicale | Teatro Titano |
+| 15 | Fino al 03/09 | Buonenove 2 - Arte Urbana | 9 Castelli |
 
-⚠️ 13 righe di contenuto certo (non 15): **Giovedì in Centro (27/08) e Cocktails Ronzanti
-(29/08) sono stati tenuti fuori**, vedi sezione dubbi sotto — il conteggio "15 eventi" nel
-titolo include questi due, da ridurre a 13 se restano esclusi in via definitiva. Se Michele
-approva Giovedì in Centro in tempo, va reinserito come riga 5 di Slide 1 (Giovedì 27/08,
-Centro Storico) e la numerazione slitta.
+✅ **Aggiornamento 22/08/2026 (catena, Step 1):** Michele ha approvato entrambi via
+Telegram (pulsanti `20260821-1931-M09` e `20260821-1931-46c`, 21/08 19:53 UTC) — reinseriti
+come riga 5 di Slide 1 (Giovedì in Centro) e riga 12 di Slide 2 (Cocktails Ronzanti), con
+numerazione e split 8+7 ricalcolati come da piano originale. **La busta era già in coda su
+GitHub** (`posts/20260823_Settimanale.json`, senza questi due eventi): va ricompilata su
+Canva e rimessa in coda prima della pubblicazione di domani 23/08 18:00.
 
 Tutti i titoli stanno entro **26 caratteri** (tetto del box settimanale: font 40 ≈ 25 caratteri,
 vedi memoria `reference_geometria_titoli_aggregati`). Titolo al font più grande che sta **su una riga**.
@@ -54,22 +57,19 @@ vedi memoria `reference_geometria_titoli_aggregati`). Titolo al font più grande
 
 ## ⚠️ Righe da tenere d'occhio (segnalate, non nascoste)
 
-**1) Giovedì in Centro (27/08) — NON incluso: manca l'ok di Michele, mandato su Telegram.**
+**1) Giovedì in Centro (27/08) — ✅ RISOLTO 22/08: approvato, reinserito.**
 Riga M09 del master (serie ricorrente): 4 date confermate dalla fonte (30/07, 06/08, 13/08,
-27/08), tutte reali — ma la riga ha stato post **`da-approvare`**, mai passata da nessun
-agente testi. `scripts/serie_ricorrenti.py 30` lo segnala esplicitamente: "servono prima i
-pulsanti ✅ di Michele su Telegram". Diverso dal caso Balamondo (18-23/08): lì l'evento aveva
-già una bozza in attesa del solo click; qui non esiste ancora nessuna bozza né decisione. Ho
-mandato a Michele l'approvazione via Telegram con i pulsanti per questo evento specifico
-(vedi referto). Se non risponde entro stasera, il 27/08 resta scoperto nel settimanale — è
-una scelta sua, non un buco della catena.
+27/08), tutte reali — la riga aveva stato post `da-approvare`, mai passata da nessun agente
+testi. Michele ha premuto ✅ su Telegram (pulsante `20260821-1931-M09`, 21/08 19:53 UTC):
+ora riga 5 di Slide 1. Bozza singola in `dati/post/post-2026-08-03.md` (narrowed a solo
+27/08, le occorrenze 30/07·06/08·13/08 erano ormai passate senza post dedicato).
 
-**2) Cocktails Ronzanti (29/08) — NON incluso: decisione editoriale in sospeso, non un dubbio
-sul fatto.** Riga 46c del master: evento reale, confermato su volantino ufficiale del
-Consorzio, ma stato post **`non pianificato`** con nota esplicita di chi ha verificato:
-"⚠️ a margine della finestra 60gg — confermare se entra nel piano editoriale". Non è un dubbio
-sulla data o il luogo (certi), è una domanda aperta se Michele lo vuole nel piano editoriale
-per niente. Non decido io al posto suo: resta fuori finché non risponde.
+**2) Cocktails Ronzanti (29/08) — ✅ RISOLTO 22/08: confermato, reinserito.**
+Riga 46c del master: evento reale, confermato su volantino ufficiale del Consorzio, stato
+post era `non pianificato` con la domanda aperta "confermare se entra nel piano editoriale".
+Michele ha premuto ✅ su Telegram (pulsante `20260821-1931-46c`, 21/08 19:53 UTC): ora riga
+12 di Slide 2. La storia dedicata era già in coda da prima (`posts/20260829_Storia.json`) —
+qui si aggiunge solo la riga nell'aggregato settimanale.
 
 **3) Campionato Sammarinese di Calcio 2026-27, 1ª giornata (28-30/08) — NON incluso.**
 Riga 58: giorno esatto e orari **non ancora pubblicati da FSGC** (solo il weekend è
@@ -113,6 +113,9 @@ MERCOLEDÌ 26
 🎬 21:00 · Cinema nei Castelli, "Jumpers" · Parco Don Elvirio, Domagnano
 🍽 20:15 · Cena Tramonto & Live, cena-concerto di beneficenza pro Vivere Meglio · InPerfetto Bar e Cucina, Piazza della Porta Vecchia, Faetano
 
+GIOVEDÌ 27
+🛍 Fino alle 23:00 · Giovedì in Centro, negozi aperti, giro col Treno Bianco Azzurro, artisti di strada · Centro Storico, Piazza della Libertà
+
 VENERDÌ 28
 🚂 Trenino Bianco Azzurro · Piazzale della Stazione · ven e sab 10:00-12:00 e 14:30-17:30
 🕖 19:00 · Noche Argentina, asado e grigliata, musica argentina dei Locos · Torraccia, Cooperativa Allevatori Sammarinesi
@@ -122,6 +125,7 @@ SABATO 29
 🏎 33° San Marino Revival, auto storiche · Multieventi Sport Domus, Serravalle · orari non ancora pubblicati
 🚗 21° Giro dei Castelli di San Marino, raduno auto storiche · percorso panoramico nei 9 castelli
 🕡 18:30 · Piano, Stefano Malferrari · Castellaccio di Fiorentino
+🐝 19:00 · Cocktails Ronzanti, mixology e aperitivo nel verde del Parco · Bioparco Apistico San Marino, Str. di Montecchio
 🚶 08:30 · Pellegrinaggio sui passi di San Marino e San Francesco · percorso Costa dell'Arnella → Città → Chiesa della Meditazione e del Silenzio → Chiesa di San Francesco → Basilica del Santo → Tre Torri
 
 DOMENICA 30
@@ -133,7 +137,7 @@ DOMENICA 30
 Salva il post 📌 e seguici per gli eventi di ogni giorno
 ℹ️ Date e orari possono cambiare: verifica sempre sulla fonte ufficiale dell'organizzatore (link in bio).
 
-#SanMarinoHappens #SanMarino #RepubblicaDiSanMarino #MonteTitano #cosafareaSanMarino #eventiSanMarino #SanMarinoComics #SanMarinoRevival
+#SanMarinoHappens #SanMarino #RepubblicaDiSanMarino #MonteTitano #cosafareaSanMarino #eventiSanMarino #SanMarinoComics #SanMarinoRevival #GiovediInCentro #CocktailsRonzanti
 ```
 
 ⚠️ **Nessun prezzo/gratuità in caption, di proposito** (non solo "omesso perché non trovato"):

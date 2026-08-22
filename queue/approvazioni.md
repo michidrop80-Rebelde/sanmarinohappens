@@ -46,5 +46,5 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [x] 2026-08-17T09:11:24.555Z — approvato — 20260817-0848-d4 — Michele Morri @RebeldeRN — ⚠️ Dal Turista al Contadino — I tappa
 - [x] 2026-08-17T09:11:34.853Z — approvato — 20260817-0848-d5 — Michele Morri @RebeldeRN — ⚠️ Dal Turista al Contadino — I tappa
 - [x] 2026-08-17T09:11:37.181Z — approvato — 20260817-0848-d6 — Michele Morri @RebeldeRN — ⚠️ Dal Turista al Contadino — I tappa
-- [ ] 2026-08-21T19:53:14.335Z — approvato — 20260821-1931-M09 — Michele Morri @RebeldeRN — ⚠️ Giovedì in Centro — 27/08
-- [ ] 2026-08-21T19:53:25.260Z — approvato — 20260821-1931-46c — Michele Morri @RebeldeRN — ⚠️ Giovedì in Centro — 27/08
+- [x] 2026-08-21T19:53:14.335Z — approvato — 20260821-1931-M09 — Michele Morri @RebeldeRN — ⚠️ Giovedì in Centro — 27/08
+- [x] 2026-08-21T19:53:25.260Z — approvato — 20260821-1931-46c — Michele Morri @RebeldeRN — ⚠️ Giovedì in Centro — 27/08
