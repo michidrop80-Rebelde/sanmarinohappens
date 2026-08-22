@@ -58,7 +58,7 @@
         "design_id": "DAHSASb8IAU",
         "nome_canva": "SMH - Storie Singolo Master",
         "totale_pagine": 14,
-        "ultima_pagina_usata": 10,
+        "ultima_pagina_usata": 12,
         "_verificato": "11/08/2026 — lette tutte e 14 le pagine: un solo blocco evento su ognuna."
       },
       "doppio": {
@@ -1203,6 +1203,24 @@
       ],
       "busta": "posts/20260823_Settimanale.json",
       "nota": "RICOMPILAZIONE della busta gia' in coda (compilata il 21/08 con 13 eventi, PRIMA dell'approvazione di Michele su Giovedi' in Centro e Cocktails Ronzanti arrivata alle 19:53 UTC dello stesso giorno). La copia precedente DAHS804G2Io aveva gia' 3 righe cancellate irreversibilmente su Slide 2 (compattazione a 5 righe) quindi non riutilizzabile per aggiungere righe: rifatta una copia PULITA dal master (pagine 1-2, stesse gia' usate) invece di patchare quella vecchia. Slide 1 = 8 righe (Cinema x3, Cena Tramonto & Live, Giovedi' in Centro come riga 5, Trenino, Noche Argentina, Comics - San Marino Revival spostato in Slide 2 per far posto). Slide 2 = 7 righe (Revival, Giro Castelli, Piano Malferrari, Cocktails Ronzanti come riga 12, Pellegrinaggio, Viaggio Musicale, Buonenove2), 8a riga cancellata e blocco ricentrato (+63px, meta' pitch riga). Titoli senza il simbolo ° confermato di nuovo (San Marino Revival, Giro dei Castelli). Contatore hook aggiornato a '15 eventi'/'15 cose da fare' su entrambe le slide. Copia precedente DAHS804G2Io ora orfana, da cestinare a mano (gia' marcata DA ELIMINARE). Copia nuova DAHTBMVFOE8 = usa-e-getta, cestinare a mano."
+    },
+    {
+      "data_giro": "2026-08-22",
+      "tipo": "storia",
+      "mazzo": "singolo",
+      "design": "DAHTBXICap4",
+      "pagina": 11,
+      "file": "20260824_Storia_1.png",
+      "evento": "RECUPERO buco (guardia scripts/serie_ricorrenti.py): Cinema nei Castelli - Rental Family, Lunedi' 24 Agosto, Parco Don Elvirio (Domagnano), ore 21:00, CTA chiusura (unico evento del giorno). Titolo abbreviato 'Cinema: Rental Family' (la forma lunga 'Cinema nei Castelli - Rental Family' andava a 4 righe e si sovrapponeva alla descrizione). Copia dal master DAHSASb8IAU pag.11."
+    },
+    {
+      "data_giro": "2026-08-22",
+      "tipo": "storia",
+      "mazzo": "singolo",
+      "design": "DAHTBXICap4",
+      "pagina": 12,
+      "file": "20260825_Storia_1.png",
+      "evento": "RECUPERO buco (guardia scripts/serie_ricorrenti.py): Cinema nei Castelli - Rapunzel, Martedi' 25 Agosto, Parco Don Elvirio (Domagnano), ore 21:00, CTA chiusura (unico evento del giorno). Copia dal master DAHSASb8IAU pag.12. Copia DAHTBXICap4 = usa-e-getta, cestinare a mano."
     }
   ],
   "_nota_26-07-2026": "Settimanale 27/07-02/08 rifatto da zero: la bozza in dati/post/aggregati-luglio-agosto-2026.md era del 30/06 e aveva solo 3 dei 10 eventi (non conosceva il recupero del 25/07). Fonte usata: le buste gia' in coda in posts/, che avevano gia' passato /smh-check. Titolo tennis accorciato da 'San Marino Open - tennis ATP' (andava a capo e sbatteva sulla riga sotto) a 'San Marino Open - tennis': su questo design il titolo sta su una riga fino a ~25 caratteri. COPIA usa-e-getta da cestinare a mano: DAHQbtk6OaI.",
