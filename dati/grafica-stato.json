@@ -14,7 +14,7 @@
       "design_id": "DAHOLS6Zdpw",
       "nome_canva": "SMH - Giornaliero Master",
       "totale_pagine": 10,
-      "ultima_pagina_usata": 9
+      "ultima_pagina_usata": 1
     },
     "_nota_21-07-2026": "Giro 21/07/2026 (prima meta'): rotazione giornaliero completata per intero (pag.4->10 poi wrap 1->3, 10 eventi). 16 eventi con box grafica erano in coda (17 meno Festa di San Marino gia' esportata prima): compilati i primi 10 in ordine di data, i restanti 6 (Benji&Fede 07/08, Molella 14/08, Comics 28-30/08, Dal Turista al Contadino 05-06+12-13/09, MotoGP 11-13/09, Sport in Fiera 18-20/09) restati in coda per esaurimento pagine disponibili nella rotazione.",
     "_nota_21-07-2026-seconda-meta": "Giro 21/07/2026 (seconda meta'): ciclo ripartito, pagine 4-9 di nuovo libere -> compilati ed esportati i 6 eventi rimasti in coda (vedi log). Pagina 10 lasciata intatta (SMIAF, gia' esportato in precedenza). Convenzione multi-giorno confermata da Michele: evento con range lungo -> post singolo con prima data come riferimento sul grafico (range in caption), applicata a Comics, MotoGP, Sport in Fiera (range compatto 3gg 'Ven-Dom') e Dal Turista al Contadino (due weekend separati -> usato il primo, 'Sab-Dom 5-6 Settembre', il secondo weekend 12-13/09 resta solo in caption). Fix in corsa: titolo Comics ripartito da font ereditato troppo grande (5 righe, sovrapposto a luogo/ora) a font_size 90 (3 righe, pulito); campo data con 'Settembre' andava a capo sovrapponendo il sottotitolo su pag 7/8/9 -> allargata la casella (950px) e su pag 7+9 ridotto font_size a 52 (uniformato anche il campo giorno per armonia visiva) per farlo stare su una riga senza toccare il logo SMH in alto a destra. Dal Turista al Contadino: luogo e ora NON specificati ne' dalla fonte ne' da ricerca web mirata (stessa verifica gia' fatta per le storie, riconfermata con una nuova ricerca vuota) -> elemento luogo cancellato (nessun placeholder), ora gia' assente sulla pagina riciclata. MotoGP: ora 'Gara Dom 14:00' riusata dalla verifica gia' fatta per la storia (motogpmisano.com/it/orario-13, gara domenica 13/09 ore 14:00) essendo lo stesso giorno di verifica.",
@@ -58,7 +58,7 @@
         "design_id": "DAHSASb8IAU",
         "nome_canva": "SMH - Storie Singolo Master",
         "totale_pagine": 14,
-        "ultima_pagina_usata": 8,
+        "ultima_pagina_usata": 10,
         "_verificato": "11/08/2026 — lette tutte e 14 le pagine: un solo blocco evento su ognuna."
       },
       "doppio": {
@@ -1151,6 +1151,58 @@
       ],
       "busta": "posts/20260823_Settimanale.json",
       "nota": "Step 2-bis della catena (guardia controllo-imminenti.py, buco slot regolare domenica 23/08 18:00, copre 24/08-30/08). Dossier dati/post/settimanale-2026-08-24-30.md, fonte master.md righe 36,36b,46,46b,46d,46e,66,71,77,78,M02 (tutte approvato salvo M02 in corso). Slide 1 = 8 righe piene. Slide 2 = 5 righe: cancellate le 3 vuote (6-8) e blocco ricentrato (geometria project_architettura_info_aggregati, pitch=882.5/4). Titoli senza il simbolo ° (San Marino Revival, Giro dei Castelli). ESCLUSI Giovedi' in Centro (27/08, serie M09 da-approvare) e Cocktails Ronzanti (29/08, riga 46c non pianificato) - entrambi mandati a Michele su Telegram con i pulsanti (giro 20260821-1931); Campionato Calcio 1a giornata (58) e Baseball gara 7 eventuale (56d) esclusi per data/esito non certi. CORRETTO PRIMA DEL PUSH: la caption conteneva 'gratis'/'€45' (regola equita' del 13/07, mai prezzi ne' gratuita' in caption) - ripulita prima di mettere in coda. Trovata e archiviata anche la busta gemella della settimana scorsa (20260818_Settimanale, mai pubblicata in 3+ giorni: stessa causa, 'gratis'/€ in caption la bloccava in automatico ad ogni run) -> archivio/2026-08/non-pubblicati/. Copia Canva usa-e-getta DAHS804G2Io da cestinare a mano."
+    },
+    {
+      "data_giro": "2026-08-22",
+      "tipo": "giornaliero",
+      "design": "DAHTBKp6Mxs",
+      "pagina": 10,
+      "file": "20260826_Post giornaliero.png",
+      "evento": "RECUPERO buco (mai compilato dall'approvazione del 17/08): Cena Tramonto & Live, Mercoledi' 26 Agosto, InPerfetto Bar e Cucina (Faetano), ore 20:15. Copia dal master DAHOLS6Zdpw pag.10 (10 pagine ok, contrariamente a una nota vecchia che la dava priva del campo ora - verificata oggi, campo presente). Luogo abbreviato a 'InPerfetto, Faetano' per la casella (era 'InPerfetto Bar e Cucina, Piazza della Porta Vecchia, Faetano'). Copia usa-e-getta DAHTBKp6Mxs (condivisa con pag.1/Giovedi' in Centro), cestinare a mano."
+    },
+    {
+      "data_giro": "2026-08-22",
+      "tipo": "giornaliero",
+      "design": "DAHTBKp6Mxs",
+      "pagina": 1,
+      "file": "20260827_Post giornaliero.png",
+      "evento": "Giovedi' in Centro, serie M09 approvata da Michele via Telegram (pulsante 20260821-1931-M09, 21/08 19:53 UTC), Giovedi' 27 Agosto, Centro Storico, fino alle 23:00 (abbreviato 'Fino 23:00' sul grafico per la casella stretta). Occorrenze 30/07-06/08-13/08 ormai passate senza post dedicato. Copia dal master DAHOLS6Zdpw pag.1 (wrap dopo pag.10). Copia usa-e-getta DAHTBKp6Mxs, cestinare a mano."
+    },
+    {
+      "data_giro": "2026-08-22",
+      "tipo": "storia",
+      "mazzo": "singolo",
+      "design": "DAHTBGjx3aU",
+      "pagina": 9,
+      "file": "20260826_Storia_1.png",
+      "evento": "RECUPERO buco: storia Cena Tramonto & Live, InPerfetto Bar e Cucina (Faetano), ore 20:15, CTA chiusura (unico evento del giorno). Copia dal master DAHSASb8IAU pag.9. Copia usa-e-getta DAHTBGjx3aU, cestinare a mano."
+    },
+    {
+      "data_giro": "2026-08-22",
+      "tipo": "storia",
+      "mazzo": "singolo",
+      "design": "DAHTBGjx3aU",
+      "pagina": 10,
+      "file": "20260827_Storia_1.png",
+      "evento": "Storia Giovedi' in Centro (27/08, approvato M09), Centro Storico, fino alle 23:00 (font ora ridotto a 34 e casella spostata per evitare sovrapposizione col campo luogo, larghezza 198), CTA chiusura (unico evento del giorno). Copia dal master DAHSASb8IAU pag.10. Copia usa-e-getta DAHTBGjx3aU, cestinare a mano."
+    },
+    {
+      "data_giro": "2026-08-22",
+      "tipo": "settimanale",
+      "riferimento": "24-30/08/2026 (RICOMPILATA)",
+      "copia_design_id": "DAHTBMVFOE8",
+      "pagine_master_usate": [
+        1,
+        2
+      ],
+      "eventi": 15,
+      "slide": 2,
+      "export": [
+        "marketing/3 Export/3 Settimanali - Post/20260823_Settimanale_1.png",
+        "marketing/3 Export/3 Settimanali - Post/20260823_Settimanale_2.png"
+      ],
+      "busta": "posts/20260823_Settimanale.json",
+      "nota": "RICOMPILAZIONE della busta gia' in coda (compilata il 21/08 con 13 eventi, PRIMA dell'approvazione di Michele su Giovedi' in Centro e Cocktails Ronzanti arrivata alle 19:53 UTC dello stesso giorno). La copia precedente DAHS804G2Io aveva gia' 3 righe cancellate irreversibilmente su Slide 2 (compattazione a 5 righe) quindi non riutilizzabile per aggiungere righe: rifatta una copia PULITA dal master (pagine 1-2, stesse gia' usate) invece di patchare quella vecchia. Slide 1 = 8 righe (Cinema x3, Cena Tramonto & Live, Giovedi' in Centro come riga 5, Trenino, Noche Argentina, Comics - San Marino Revival spostato in Slide 2 per far posto). Slide 2 = 7 righe (Revival, Giro Castelli, Piano Malferrari, Cocktails Ronzanti come riga 12, Pellegrinaggio, Viaggio Musicale, Buonenove2), 8a riga cancellata e blocco ricentrato (+63px, meta' pitch riga). Titoli senza il simbolo ° confermato di nuovo (San Marino Revival, Giro dei Castelli). Contatore hook aggiornato a '15 eventi'/'15 cose da fare' su entrambe le slide. Copia precedente DAHS804G2Io ora orfana, da cestinare a mano (gia' marcata DA ELIMINARE). Copia nuova DAHTBMVFOE8 = usa-e-getta, cestinare a mano."
     }
   ],
   "_nota_26-07-2026": "Settimanale 27/07-02/08 rifatto da zero: la bozza in dati/post/aggregati-luglio-agosto-2026.md era del 30/06 e aveva solo 3 dei 10 eventi (non conosceva il recupero del 25/07). Fonte usata: le buste gia' in coda in posts/, che avevano gia' passato /smh-check. Titolo tennis accorciato da 'San Marino Open - tennis ATP' (andava a capo e sbatteva sulla riga sotto) a 'San Marino Open - tennis': su questo design il titolo sta su una riga fino a ~25 caratteri. COPIA usa-e-getta da cestinare a mano: DAHQbtk6OaI.",
