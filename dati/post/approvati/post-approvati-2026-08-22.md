@@ -33,6 +33,39 @@ Salva il post 📌 e seguici per non perdere gli eventi di San Marino
 **Nota:** occorrenze 30/07, 06/08, 13/08 ormai passate senza post dedicato, non recuperabili — resta solo 27/08. Una quinta data (20/08) non confermata dalla fonte, non inclusa.
 
 ---
+## [23/08] — San Marino Baseball — Semifinale playoff gara 6 vs Unipol Fortitudo Bologna   ·   tipo: sport
+
+Approvato da Michele in chat (22/08, non via pulsante Telegram): priorità esplicita su
+"Quel gran genio — Tributo a Battisti" (riga master 45), che perdeva lo slot feed del
+23/08. Sostituita la busta già in coda (`posts/20260823_Post giornaliero.json`).
+
+**📷 Testo per la grafica**
+- Titolo breve: SM Baseball vs Fortitudo Bologna
+- Sottotitolo: Gara 6 semifinale · 23 agosto, ore 20:00 · La Ciarulla, Serravalle
+
+**📝 Caption (Instagram + Facebook)**
+⚾ Gara decisiva a Serravalle: San Marino deve vincere per restare in corsa.
+
+Dopo la sconfitta in gara 5 a Bologna, la serie è 3-2 per la Fortitudo. San Marino torna sul diamante di casa per gara 6 della semifinale scudetto.
+
+🗓 23/08/2026 · 🕗 20:00 · 📍 Campo Baseball Comunale La Ciarulla, Serravalle
+👉 Tutti gli altri eventi di oggi nelle nostre storie.
+Salva il post 📌 e seguici per non perdere gli eventi di San Marino.
+ℹ️ Date e orari possono cambiare: verifica sempre sulla fonte ufficiale dell'organizzatore (link in bio).
+
+**#️⃣ Hashtag**
+#SanMarinoHappens #SanMarino #RepubblicaDiSanMarino #MonteTitano #cosafareaSanMarino #eventiSanMarino #SanMarinoBaseball #SerieAGold #Baseball
+
+**🔗 Fonte:** https://www.oasport.it/2026/08/baseball-la-fortitudo-supera-san-marino-in-gara-5-nelle-semifinali-scudetto/ · https://www.sanmarinortv.sm/sport/sport-sammarinese-c16/san-marino-sotto-per-10-1-in-gara-5-di-semifinale-contro-la-fortitudo-bologna-a294835
+
+## Nota — gara 7 (24/08), condizionale
+
+Michele ha chiesto priorità "anche il 24 in caso": gara 7 si gioca SOLO se San Marino vince
+gara 6 (23/08). Non compilata ora (l'evento potrebbe non esistere affatto) — da chiudere
+appena si conosce l'esito di gara 6, la sera del 23/08. Dati già pronti in
+`dati/eventi/verificati/eventi-verificati-2026-08-22.md`, sezione "Da confermare".
+
+---
 ## Nota — Cocktails Ronzanti (29/08, riga 46c)
 
 Approvato nello stesso giro (pulsante `20260821-1931-46c`), ma **non richiede una nuova
