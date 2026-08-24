@@ -107,6 +107,42 @@ Salva il post 📌 e seguici per non perdere gli eventi di San Marino.
 
 **Organizzatore da taggare:** @torraccia__eventi (`dati/handle-organizzatori.json`, Cooperativa Montelupo, verificato 24/08/2026) — sul post feed e su tutte e 3 le storie.
 
+---
+---
+
+# Aggiunta — Step 2-bis, catena 24/08/2026 18:30 (buco imminenti 48h)
+
+`controllo-imminenti.py` segnala **manca: post feed** per domani 25/08 (slot 7:00). La
+storia di questa data è **già in coda** (`posts/20260825_Storia.json`, compilata il
+22/08): qui si compila **solo il post feed** mancante. Stesso schema già usato il 23/08
+per il 24/08 (Rental Family, sopra). Fonte: riga master **36b** (Cinema nei Castelli
+2026), stato `approvato`, calendario verificato il 30/07/2026 su 2 fonti concordi
+(sanmarinocinema.sm + Tribuna Politica Web). Decisione di Michele del 06/07/2026: ogni
+singola proiezione va ri-inserita nei riepiloghi settimana/giorno — non serve una nuova
+approvazione puntuale, la serie è già approvata nel suo insieme.
+
+---
+## [25/08] — Cinema nei Castelli — Rapunzel (Domagnano)   ·   tipo: cultura
+
+**📷 Testo per la grafica**
+- Titolo breve: Cinema nei Castelli — Domagnano
+- Sottotitolo: "Rapunzel" · 25 agosto, ore 21:00 · Parco Don Elvirio
+
+**📝 Caption (Instagram + Facebook)**
+🎬 Il cinema sotto le stelle fa ancora tappa a Domagnano.
+
+Questa sera in programma "Rapunzel", ingresso gratuito.
+
+🗓 25/08/2026 · 🕘 21:00 · 📍 Parco Don Elvirio, Domagnano
+👉 Tutti gli altri eventi di oggi nelle nostre storie.
+Salva il post 📌 e seguici per non perdere gli eventi di San Marino.
+ℹ️ Date e orari possono cambiare: verifica sempre sulla fonte ufficiale dell'organizzatore (link in bio).
+
+**#️⃣ Hashtag**
+#SanMarinoHappens #SanMarino #RepubblicaDiSanMarino #MonteTitano #cosafareaSanMarino #eventiSanMarino #CinemaNeiCastelli #Domagnano #CinemaAllAperto
+
+**🔗 Fonte:** http://www.sanmarinocinema.sm (calendario completo verificato 30/07/2026 su 2 fonti concordi con Tribuna Politica Web del 27/07)
+
 **Nota:** il 30/08 ha anche "Viaggio Musicale attorno al Mondo" (riga 78, approvato) come possibile
 candidato feed — nessuno dei due ha ancora una busta compilata su quella data, quindi non c'è
 conflitto reale ancora aperto in coda, ma segnalo per quando arriva quel giorno: **solo uno dei
