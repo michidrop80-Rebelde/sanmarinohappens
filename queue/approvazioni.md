@@ -51,3 +51,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-08-24T08:03:55.293Z — approvato — 20260824-0721-80 — Michele Morri @RebeldeRN — 🆕 Serravalle in Wellness — Settembre 2026
 - [ ] 2026-08-24T08:03:56.752Z — approvato — 20260824-0721-81 — Michele Morri @RebeldeRN — 🆕 Serravalle in Wellness — Settembre 2026
 - [ ] 2026-08-24T08:03:57.911Z — approvato — 20260824-0721-82 — Michele Morri @RebeldeRN — 🆕 Serravalle in Wellness — Settembre 2026
+- [ ] 2026-08-24T08:04:26.082Z — approvato — 20260824-0721-59 — Michele Morri @RebeldeRN — ✏️ Dal Turista al Contadino — I tappa (dubbio risolto)
