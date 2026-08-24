@@ -1,0 +1,10 @@
+{
+  "tipo": "storia",
+  "data_pubblicazione": "2026-08-24",
+  "ora_pubblicazione": "18:00",
+  "titolo_evento": "San Marino vs Bologna — Gara 7 (baseball, ore 20:00)",
+  "immagini": ["20260824_Storia_2.png"],
+  "user_tags": {
+    "20260824_Storia_2.png": [ {"username": "sanmarinobaseball", "x": 0.5, "y": 0.78} ]
+  }
+}
