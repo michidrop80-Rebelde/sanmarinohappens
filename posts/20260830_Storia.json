@@ -1,0 +1,12 @@
+{
+  "tipo": "storia",
+  "data_pubblicazione": "2026-08-30",
+  "ora_pubblicazione": "07:00",
+  "titolo_evento": "Storia del 30 agosto (San Marino Comics + San Marino Revival)",
+  "immagini": ["20260830_Storia_1.png", "20260830_Storia_2.png"],
+  "user_tags": {
+    "20260830_Storia_1.png": [
+      {"username": "sanmarinocomics", "x": 0.50, "y": 0.78}
+    ]
+  }
+}

@@ -2,11 +2,17 @@
   "tipo": "storia",
   "data_pubblicazione": "2026-08-29",
   "ora_pubblicazione": "07:00",
-  "titolo_evento": "Storia del 29 agosto (Piano — Stefano Malferrari + Cocktails Ronzanti + Giro dei Castelli di San Marino)",
-  "immagini": ["20260829_Storia_1.png", "20260829_Storia_2.png"],
+  "titolo_evento": "Storia del 29 agosto (Piano — Stefano Malferrari + Cocktails Ronzanti + Giro dei Castelli di San Marino + Pellegrinaggio San Marino e San Francesco + San Marino Comics + San Marino Revival)",
+  "immagini": ["20260829_Storia_1.png", "20260829_Storia_2.png", "20260829_Storia_3.png", "20260829_Storia_4.png", "20260829_Storia_5.png"],
   "user_tags": {
     "20260829_Storia_1.png": [
       {"username": "consorzioterradisanmarin", "x": 0.50, "y": 0.78}
+    ],
+    "20260829_Storia_3.png": [
+      {"username": "sanmarino_turismo", "x": 0.50, "y": 0.78}
+    ],
+    "20260829_Storia_4.png": [
+      {"username": "sanmarinocomics", "x": 0.50, "y": 0.78}
     ]
   }
 }
