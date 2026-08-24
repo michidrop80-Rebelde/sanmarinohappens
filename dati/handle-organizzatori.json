@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-08-10",
+  "aggiornato": "2026-08-24",
   "_nota": "Registro degli handle social verificati. Solo le voci con stato 'attivo' E instagram non nullo producono un tag. Un handle entra come 'attivo' solo con DUE indizi indipendenti di ufficialita' (di norma: il sito ufficiale linka quel profilo E il profilo esiste col nome corrispondente); la conferma diretta di Michele vale come secondo indizio. Mai un handle dedotto dal nome del soggetto.",
   "_regole_25_07_2026": [
     "OGNI evento nuovo che entra in verifica porta con se' il controllo di chi lo organizza: se il soggetto e' nuovo va aggiunto qui (almeno come 'da-cercare'). Vedi Step 4-bis di /smh-verifica.",
@@ -528,13 +528,15 @@
       "nome": "San Marino Food Events",
       "categoria": "organizzatore",
       "alias": [
-        "San Marino Food Events"
+        "San Marino Food Events",
+        "SanMarinoBeerFest",
+        "San Marino Beer Fest"
       ],
-      "instagram": null,
-      "facebook_page_id": null,
-      "stato": "da-cercare",
-      "verificato_il": "2026-08-03",
-      "prova": "Nuovo in verifica 03/08/2026: co-organizzatore (con Consorzio Terra di San Marino, già attivo) di 'Dal Turista al Contadino' (05-06/09 e 12-13/09, Via Eugippo) — fonte visitsanmarino.com. Nessun profilo cercato ancora."
+      "instagram": "sanmarinobeerfest",
+      "facebook_page_id": "sanmarinobeerfestival",
+      "stato": "attivo",
+      "verificato_il": "2026-08-24",
+      "prova": "Nuovo in verifica 03/08/2026: co-organizzatore (con Consorzio Terra di San Marino, già attivo) di 'Dal Turista al Contadino' (05-06/09 e 12-13/09, Via Eugippo) — fonte visitsanmarino.com. AGGIORNATO 16/08/2026: risulta anche organizzatore del 'SanMarinoBeerFest' — confermato da giornalesm.com (cita esplicitamente 'San Marino Food Events' come organizzatore, stessi numeri di prenotazione 3357342728/3899456402 della locandina). AGGIORNATO 24/08/2026: secondo indizio soddisfatto — Michele ha mandato in chat lo screenshot diretto della pagina Facebook facebook.com/sanmarinobeerfestival/ (5541 follower, contatti 3357342728/daniloforcellini@gmail.com) con calendario completo settembre-dicembre 2026. 🔴 **Luogo corretto lo stesso giorno**: la locandina Facebook indica 'PARCO DI DOGANA, SAN MARINO', non Campo Bruno Reffi come registrato finora — vedi correzione righe 72-76 del master."
     },
     {
       "nome": "Associazione Artisti in Casa",
@@ -658,6 +660,46 @@
       ],
       "stato": "da-cercare",
       "instagram": null
+    },
+    {
+      "nome": "Cooperativa Montelupo",
+      "categoria": "organizzatore",
+      "alias": [
+        "Cooperativa Montelupo",
+        "Festa di Torraccia"
+      ],
+      "instagram": "torraccia__eventi",
+      "facebook_page_id": null,
+      "stato": "attivo",
+      "verificato_il": "2026-08-24",
+      "prova": "AGGIORNATO 24/08/2026: evento CONFERMATO per il 2026 — Michele ha mandato in chat la locandina ufficiale del post Instagram di @torraccia__eventi (in collaborazione con @giuntadicastello.domagnano, già attivo), con programma completo 28-30/08/2026 a Parco Montelupo/Piazzale della Torre, Torraccia. Handle @torraccia__eventi visto direttamente nell'header dello screenshot come autore del post — due indizi indipendenti soddisfatti (post ufficiale + conferma diretta di Michele)."
+    },
+    {
+      "nome": "Palio Don Bosco (Borgo Maggiore)",
+      "categoria": "organizzatore",
+      "alias": [
+        "Palio Don Bosco",
+        "36° Palio Don Bosco",
+        "Borgo Don Bosco"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-08-24",
+      "prova": "Nuovo in verifica 24/08/2026: palio tradizionale tra le sei frazioni di Borgo Maggiore (13/09/2026, Piazza Grande) — fonte diretta news.tribunapoliticaweb.sm. Organizzatore non specificato esplicitamente dalla fonte; esiste un sito borgodonbosco.com (probabile comitato/gruppo parrocchiale) non ancora verificato con due indizi indipendenti. Nessun profilo social cercato ancora."
+    },
+    {
+      "nome": "Federazione Sammarinese Sport Speciali",
+      "categoria": "organizzatore",
+      "alias": [
+        "Federazione Sammarinese Sport Speciali",
+        "Sport Speciali"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-08-24",
+      "prova": "Nuovo in verifica 24/08/2026: organizza (con FSGC, già attiva @fsgc_official) il 'San Marino Special Cup 2026' (19-20/09, Campo Sportivo Montecchio) — torneo di calcio a 5 per sport speciali, 10 squadre — fonte diretta sanmarinortv.sm (san-marino-special-cup-2026-e5131). Nessun profilo social cercato ancora."
     }
   ]
 }
