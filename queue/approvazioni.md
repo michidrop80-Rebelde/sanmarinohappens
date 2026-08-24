@@ -48,3 +48,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [x] 2026-08-17T09:11:37.181Z — approvato — 20260817-0848-d6 — Michele Morri @RebeldeRN — ⚠️ Dal Turista al Contadino — I tappa
 - [x] 2026-08-21T19:53:14.335Z — approvato — 20260821-1931-M09 — Michele Morri @RebeldeRN — ⚠️ Giovedì in Centro — 27/08
 - [x] 2026-08-21T19:53:25.260Z — approvato — 20260821-1931-46c — Michele Morri @RebeldeRN — ⚠️ Giovedì in Centro — 27/08
+- [ ] 2026-08-24T08:03:55.293Z — approvato — 20260824-0721-80 — Michele Morri @RebeldeRN — 🆕 Serravalle in Wellness — Settembre 2026
