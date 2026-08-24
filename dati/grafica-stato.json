@@ -14,7 +14,7 @@
       "design_id": "DAHOLS6Zdpw",
       "nome_canva": "SMH - Giornaliero Master",
       "totale_pagine": 10,
-      "ultima_pagina_usata": 3
+      "ultima_pagina_usata": 6
     },
     "_nota_21-07-2026": "Giro 21/07/2026 (prima meta'): rotazione giornaliero completata per intero (pag.4->10 poi wrap 1->3, 10 eventi). 16 eventi con box grafica erano in coda (17 meno Festa di San Marino gia' esportata prima): compilati i primi 10 in ordine di data, i restanti 6 (Benji&Fede 07/08, Molella 14/08, Comics 28-30/08, Dal Turista al Contadino 05-06+12-13/09, MotoGP 11-13/09, Sport in Fiera 18-20/09) restati in coda per esaurimento pagine disponibili nella rotazione.",
     "_nota_21-07-2026-seconda-meta": "Giro 21/07/2026 (seconda meta'): ciclo ripartito, pagine 4-9 di nuovo libere -> compilati ed esportati i 6 eventi rimasti in coda (vedi log). Pagina 10 lasciata intatta (SMIAF, gia' esportato in precedenza). Convenzione multi-giorno confermata da Michele: evento con range lungo -> post singolo con prima data come riferimento sul grafico (range in caption), applicata a Comics, MotoGP, Sport in Fiera (range compatto 3gg 'Ven-Dom') e Dal Turista al Contadino (due weekend separati -> usato il primo, 'Sab-Dom 5-6 Settembre', il secondo weekend 12-13/09 resta solo in caption). Fix in corsa: titolo Comics ripartito da font ereditato troppo grande (5 righe, sovrapposto a luogo/ora) a font_size 90 (3 righe, pulito); campo data con 'Settembre' andava a capo sovrapponendo il sottotitolo su pag 7/8/9 -> allargata la casella (950px) e su pag 7+9 ridotto font_size a 52 (uniformato anche il campo giorno per armonia visiva) per farlo stare su una riga senza toccare il logo SMH in alto a destra. Dal Turista al Contadino: luogo e ora NON specificati ne' dalla fonte ne' da ricerca web mirata (stessa verifica gia' fatta per le storie, riconfermata con una nuova ricerca vuota) -> elemento luogo cancellato (nessun placeholder), ora gia' assente sulla pagina riciclata. MotoGP: ora 'Gara Dom 14:00' riusata dalla verifica gia' fatta per la storia (motogpmisano.com/it/orario-13, gara domenica 13/09 ore 14:00) essendo lo stesso giorno di verifica.",
@@ -58,7 +58,7 @@
         "design_id": "DAHSASb8IAU",
         "nome_canva": "SMH - Storie Singolo Master",
         "totale_pagine": 14,
-        "ultima_pagina_usata": 12,
+        "ultima_pagina_usata": 6,
         "_verificato": "11/08/2026 — lette tutte e 14 le pagine: un solo blocco evento su ognuna."
       },
       "doppio": {
@@ -1237,6 +1237,102 @@
       "pagina": 3,
       "file": "20260824_Post giornaliero.png",
       "evento": "Step 2-bis catena giornaliera (buco slot feed 24/08 segnalato da controllo-imminenti.py): Cinema nei Castelli - Rental Family, Lunedi' 24 Agosto, Parco Don Elvirio (Domagnano), ore 21:00. Titolo 'Cinema nei Castelli — Domagnano' (dal box 'Titolo breve' del post approvato), font massimizzato a 75 (da 60 ereditato) su 3 righe senza sovrapposizioni. Storia dello stesso giorno gia' in coda da un giro precedente (posts/20260824_Storia.json), non ricompilata. Copia dal master DAHOLS6Zdpw pag.3, usa-e-getta DAHTImYthUM da cestinare a mano. Validazione al contrario: nessuna discrepanza."
+    },
+    {
+      "data_giro": "2026-08-24",
+      "tipo": "storia",
+      "mazzo": "singolo",
+      "design": "DAHTLtNp904",
+      "pagina": 13,
+      "file": "20260824_Storia_2.png",
+      "evento": "Storia AGGIUNTIVA richiesta con urgenza da Michele in chat (partita stasera): Gara 7 baseball, San Marino vs Fortitudo Bologna (semifinale scudetto), Lunedi' 24 Agosto, ore 20:00, Campo Baseball Comunale La Ciarulla (Serravalle, abbreviato 'Campo La Ciarulla, Serravalle'). La storia del mattino (Cinema nei Castelli, gia' in coda come posts/20260824_Storia.json) NON e' stata toccata: questa e' una SECONDA busta storia per lo stesso giorno, su pagina diversa (13, non la 11 gia' usata). CTA chiusura (storia indipendente, non in sequenza scorri con altre). Copia dal master DAHSASb8IAU pag.13, usa-e-getta DAHTLtNp904 da cestinare a mano. Validazione al contrario: nessuna discrepanza. NON ancora messa in coda (posts/): resta al passo successivo (/smh-pubblica)."
+    },
+    {
+      "data_giro": "2026-08-24",
+      "tipo": "storia",
+      "mazzo": "singolo",
+      "design": "DAHTND3AA1o",
+      "pagina": 14,
+      "file": "20260829_Storia_3.png",
+      "evento": "RECUPERO buchi trovati da scripts/controllo-storie-complete.py (guardia nuova): Pellegrinaggio sui passi di San Marino e San Francesco, Sabato 29 Agosto, ore 08:30, San Marino (punto di partenza non specificato dalla fonte). Aggiunta come 3a immagine alla busta gia' in coda posts/20260829_Storia.json (esistenti Storia_1 doppio Piano-Malferrari+Cocktails Ronzanti e Storia_2 Giro dei Castelli NON toccate). CTA scorri (non ultima del giorno). Copia dal master DAHSASb8IAU pag.14."
+    },
+    {
+      "data_giro": "2026-08-24",
+      "tipo": "storia",
+      "mazzo": "singolo",
+      "design": "DAHTND3AA1o",
+      "pagina": 1,
+      "file": "20260829_Storia_4.png",
+      "evento": "RECUPERO: San Marino Comics 2026 - giorno 2 (sabato), Sabato 29 Agosto, ore 10:00, Centro storico (abbreviato da 'Centro Storico + Campo Bruno Reffi'). Aggiunta 4a immagine a posts/20260829_Storia.json. CTA scorri. Copia dal master DAHSASb8IAU pag.1 (wrap dopo pag.14)."
+    },
+    {
+      "data_giro": "2026-08-24",
+      "tipo": "storia",
+      "mazzo": "singolo",
+      "design": "DAHTND3AA1o",
+      "pagina": 2,
+      "file": "20260829_Storia_5.png",
+      "evento": "RECUPERO: 33° San Marino Revival - giorno 1 (sabato), Sabato 29 Agosto, Sport Domus Serravalle (abbreviato). Titolo senza il simbolo '°' ('San Marino Revival — auto storiche'). Ora e descrizione NON copiate dal box storia vecchio (post-approvati-2026-07-21.md, date/orario superati dal rinvio) ne' lasciate vuote come da istruzione iniziale: fatta una RICERCA WEB MIRATA che ha trovato il programma orario reale gia' pubblicato (sanmarinortv.sm 'San Marino Revival, iscrizioni fino al 26 agosto', confermato anche da libertas.sm) — apertura verifiche sportive ore 13:30, Power Stage Classic ore 17:30. Usato '⏰ 13:30' sul grafico (stessa convenzione gia' in uso per questo evento il 21/07). Il master.md riga 36 ('Orari non ancora pubblicati') va aggiornato: ora lo sono. Ultima immagine aggiunta alla busta 29/08 -> CTA chiusura. Copia dal master DAHSASb8IAU pag.2."
+    },
+    {
+      "data_giro": "2026-08-24",
+      "tipo": "storia",
+      "mazzo": "singolo",
+      "design": "DAHTND3AA1o",
+      "pagina": 3,
+      "file": "20260830_Storia_1.png",
+      "evento": "RECUPERO: San Marino Comics 2026 - giorno 3 (domenica), Domenica 30 Agosto, ore 10:00, Centro storico. NUOVA busta creata da zero: posts/20260830_Storia.json (non esisteva alcuna storia per questo giorno). CTA scorri (segue Revival giorno 2). Copia dal master DAHSASb8IAU pag.3."
+    },
+    {
+      "data_giro": "2026-08-24",
+      "tipo": "storia",
+      "mazzo": "singolo",
+      "design": "DAHTND3AA1o",
+      "pagina": 4,
+      "file": "20260830_Storia_2.png",
+      "evento": "RECUPERO: 33° San Marino Revival - giorno 2 (domenica), Domenica 30 Agosto, Sport Domus Serravalle, ore 09:00 (partenza gara, stessa ricerca web verificata di pag.2: sanmarinortv.sm + libertas.sm, arrivo 16:30 e premiazione 17:45 non mostrati sul grafico per spazio, restano per la caption). Titolo senza '°'. 2a e ultima immagine di posts/20260830_Storia.json -> CTA chiusura. Copia dal master DAHSASb8IAU pag.4. Copia condivisa DAHTND3AA1o (5 pagine, master pag.14+1+2+3+4) = usa-e-getta, da rinominare '🗑 DA ELIMINARE' (fatto nel primo batch) e cestinare a mano. NON ancora messe in coda su GitHub (posts/ e' locale): resta al passo successivo (/smh-pubblica), come da istruzione del giro."
+    },
+    {
+      "data_giro": "2026-08-24",
+      "tipo": "giornaliero",
+      "design": "DAHTOR1bnUc",
+      "pagina": 4,
+      "file": "20260909_Post giornaliero.png",
+      "evento": "Step 1 catena (approvazione Telegram giro 20260824-0721-80): Serravalle in Wellness — Settembre 2026, Mercoledi' 9 Settembre, La Ciarulla (parcheggio Globo), Serravalle, ore 18:00. Luogo abbreviato a solo il venue ('La Ciarulla', senza castello) per evitare sovrapposizione col campo ora (box si era allargato oltre il limite). Copia dal master DAHOLS6Zdpw pag.4, usa-e-getta DAHTOR1bnUc (3 pagine) da cestinare a mano. Validazione al contrario: nessuna discrepanza."
+    },
+    {
+      "data_giro": "2026-08-24",
+      "tipo": "giornaliero",
+      "design": "DAHTOR1bnUc",
+      "pagina": 5,
+      "file": "20260913_Post giornaliero.png",
+      "evento": "Step 1 catena (approvazione Telegram giro 20260824-0721-81): 36 Palio Don Bosco, Domenica 13 Settembre, Piazza Grande, Borgo Maggiore, ore 11:00 (Santa Messa). Titolo senza il numero edizione ('36 Palio Don Bosco' -> 'Palio Don Bosco', il simbolo degree non rende sul font titolo). Luogo abbreviato 'Piazza Grande'. Organizzatore non specificato dalla fonte, nessun tag. Copia dal master DAHOLS6Zdpw pag.5, usa-e-getta DAHTOR1bnUc, cestinare a mano. Validazione al contrario: nessuna discrepanza."
+    },
+    {
+      "data_giro": "2026-08-24",
+      "tipo": "giornaliero",
+      "design": "DAHTOR1bnUc",
+      "pagina": 6,
+      "file": "20260825_Post giornaliero.png",
+      "evento": "Step 2-bis catena giornaliera (buco slot feed 25/08 segnalato da controllo-imminenti.py): Cinema nei Castelli - Rapunzel, Martedi' 25 Agosto, Parco Don Elvirio (Domagnano), ore 21:00. Titolo 'Cinema nei Castelli — Domagnano' (stesso schema del 24/08). Storia dello stesso giorno gia' in coda da un giro precedente (posts/20260825_Storia.json, compilata il 22/08), non ricompilata. Copia dal master DAHOLS6Zdpw pag.6, usa-e-getta DAHTOR1bnUc, cestinare a mano. Validazione al contrario: nessuna discrepanza."
+    },
+    {
+      "data_giro": "2026-08-24",
+      "tipo": "storia",
+      "mazzo": "singolo",
+      "design": "DAHTOb2VCtY",
+      "pagina": 5,
+      "file": "20260912_Storia_1.png",
+      "evento": "RICOMPILAZIONE (luogo corretto, approvazione Telegram giro 20260824-0721-60): Dal Turista al Contadino — II tappa, Sabato 12 Settembre, Via Eugippo (Citta') e Piazza Mercatale (Borgo Maggiore) — due sedi confermate su usc.sm, non solo Via Eugippo come nella versione precedente. Ora non specificata dalla fonte -> elemento ora cancellato, luogo riposizionato a left=59. File posts/20260912_Storia_1.png SOVRASCRITTO (stesso nome, busta gia' in coda dal 25/07). Copia dal master DAHSASb8IAU pag.5, usa-e-getta DAHTOb2VCtY, cestinare a mano. Validazione al contrario: nessuna discrepanza."
+    },
+    {
+      "data_giro": "2026-08-24",
+      "tipo": "storia",
+      "mazzo": "singolo",
+      "design": "DAHTOb2VCtY",
+      "pagina": 6,
+      "file": "20260919_Storia_2.png",
+      "evento": "Storia AGGIUNTIVA (approvazione Telegram giro 20260824-0721-82): San Marino Special Cup 2026, Sabato 19 Settembre, Campo Sportivo di Montecchio, ora non specificata dalla fonte -> elemento ora cancellato, luogo riposizionato a left=59. SOLO STORIA per conflitto di calendario (19/09 e 20/09 gia' occupati dai post feed Nuvolari/Sport in Fiera) — cross-mention aggiunta alla caption di posts/20260919_Post giornaliero.json. Aggiunta come 2a immagine alla busta gia' in coda posts/20260919_Storia.json (Storia_1 Gran Premio Nuvolari NON toccata, resta CTA indipendente come da convenzione gia' in uso il 24/08). Copia dal master DAHSASb8IAU pag.6, usa-e-getta DAHTOb2VCtY, cestinare a mano. Validazione al contrario: nessuna discrepanza."
     }
   ],
   "_nota_26-07-2026": "Settimanale 27/07-02/08 rifatto da zero: la bozza in dati/post/aggregati-luglio-agosto-2026.md era del 30/06 e aveva solo 3 dei 10 eventi (non conosceva il recupero del 25/07). Fonte usata: le buste gia' in coda in posts/, che avevano gia' passato /smh-check. Titolo tennis accorciato da 'San Marino Open - tennis ATP' (andava a capo e sbatteva sulla riga sotto) a 'San Marino Open - tennis': su questo design il titolo sta su una riga fino a ~25 caratteri. COPIA usa-e-getta da cestinare a mano: DAHQbtk6OaI.",
