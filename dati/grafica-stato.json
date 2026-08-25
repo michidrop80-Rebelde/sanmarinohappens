@@ -58,7 +58,7 @@
         "design_id": "DAHSASb8IAU",
         "nome_canva": "SMH - Storie Singolo Master",
         "totale_pagine": 14,
-        "ultima_pagina_usata": 6,
+        "ultima_pagina_usata": 7,
         "_verificato": "11/08/2026 — lette tutte e 14 le pagine: un solo blocco evento su ognuna."
       },
       "doppio": {
@@ -1333,6 +1333,15 @@
       "pagina": 6,
       "file": "20260919_Storia_2.png",
       "evento": "Storia AGGIUNTIVA (approvazione Telegram giro 20260824-0721-82): San Marino Special Cup 2026, Sabato 19 Settembre, Campo Sportivo di Montecchio, ora non specificata dalla fonte -> elemento ora cancellato, luogo riposizionato a left=59. SOLO STORIA per conflitto di calendario (19/09 e 20/09 gia' occupati dai post feed Nuvolari/Sport in Fiera) — cross-mention aggiunta alla caption di posts/20260919_Post giornaliero.json. Aggiunta come 2a immagine alla busta gia' in coda posts/20260919_Storia.json (Storia_1 Gran Premio Nuvolari NON toccata, resta CTA indipendente come da convenzione gia' in uso il 24/08). Copia dal master DAHSASb8IAU pag.6, usa-e-getta DAHTOb2VCtY, cestinare a mano. Validazione al contrario: nessuna discrepanza."
+    },
+    {
+      "data_giro": "2026-08-25",
+      "tipo": "storia",
+      "mazzo": "singolo",
+      "design": "DAHTS022LYw",
+      "pagina": 7,
+      "file": "20260825_Storia_2.png",
+      "evento": "URGENTE segnalato da Michele via bot (link Instagram + didascalia 'urgente per stasera', 25/08 mattina): Summer Night - 1 Anniversario Cuore Giovane, Martedi' 25 Agosto, Piazza Bertoldi (Serravalle), dalle 18:00 (Move Run Club 18:00, Rejected Band live 19:15, Chica DJ dalle 21:00). Fonte diretta: post Instagram @_cuore_giovane (organizzatore, unica fonte ma diretta). Titolo abbreviato senza il numero '1 anniversario' (solo 'Summer Night - Cuore Giovane', il font titolo non rende il grado). Font titolo ridotto da 90 a 70 per farlo stare su 2 righe senza sovrapporsi alla descrizione. Storia INDIPENDENTE (non in sequenza con quella del mattino, Rapunzel, gia' pubblicata/archiviata): CTA chiusura. Nuovo in master.md riga 96 e in dati/handle-organizzatori.json (@_cuore_giovane, attivo). Copia dal master DAHSASb8IAU pag.7, usa-e-getta DAHTS022LYw, cestinare a mano. Validazione al contrario: nessuna discrepanza."
     }
   ],
   "_nota_26-07-2026": "Settimanale 27/07-02/08 rifatto da zero: la bozza in dati/post/aggregati-luglio-agosto-2026.md era del 30/06 e aveva solo 3 dei 10 eventi (non conosceva il recupero del 25/07). Fonte usata: le buste gia' in coda in posts/, che avevano gia' passato /smh-check. Titolo tennis accorciato da 'San Marino Open - tennis ATP' (andava a capo e sbatteva sulla riga sotto) a 'San Marino Open - tennis': su questo design il titolo sta su una riga fino a ~25 caratteri. COPIA usa-e-getta da cestinare a mano: DAHQbtk6OaI.",

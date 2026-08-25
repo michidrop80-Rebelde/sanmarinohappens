@@ -700,6 +700,32 @@
       "stato": "da-cercare",
       "verificato_il": "2026-08-24",
       "prova": "Nuovo in verifica 24/08/2026: organizza (con FSGC, già attiva @fsgc_official) il 'San Marino Special Cup 2026' (19-20/09, Campo Sportivo Montecchio) — torneo di calcio a 5 per sport speciali, 10 squadre — fonte diretta sanmarinortv.sm (san-marino-special-cup-2026-e5131). Nessun profilo social cercato ancora."
+    },
+    {
+      "nome": "Associazione Sammarinese Cuore Giovane",
+      "categoria": "organizzatore",
+      "alias": [
+        "Cuore Giovane",
+        "Associazione Sammarinese Cuore Giovane"
+      ],
+      "instagram": "_cuore_giovane",
+      "facebook_page_id": null,
+      "stato": "attivo",
+      "verificato_il": "2026-08-25",
+      "prova": "Nuovo in verifica 25/08/2026: e' l'autore diretto del post Instagram che pubblicizza il proprio evento 'Summer Night - 1 Anniversario Cuore Giovane' (25/08, Piazza Bertoldi Serravalle) - bio/caption si firma come Associazione Sammarinese Cuore Giovane. Segnalato da Michele via bot (link Instagram, urgente per stasera)."
+    },
+    {
+      "nome": "Rejected Band",
+      "categoria": "artista",
+      "alias": [
+        "Rejected Band",
+        "Rejected"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-08-25",
+      "prova": "Visto taggato (account rejectedband_official) nel post Instagram di @_cuore_giovane per 'Summer Night' (25/08): live 19:15-20:15. Handle osservato ma non confermato dal profilo diretto, nessun tag finche' non verificato."
     }
   ]
 }
