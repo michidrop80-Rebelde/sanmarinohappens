@@ -30,7 +30,7 @@
       "nome_canva": "SMH - Weekend Master",
       "formato": "1080x1350 (4:5 verticale)",
       "totale_pagine": 4,
-      "ultima_pagina_usata": 2,
+      "ultima_pagina_usata": 4,
       "struttura_riga": "REGISTRATO 07/07/2026. 4 pagine-variante colore (rotazione indipendente). Layout LISTA PULITA (deciso da Michele 07/07): tutte le righe evento uguali, come il settimanale. Titolo fisso 'Questo weekend in Repubblica' + casella DATA variabile (range weekend, es. '3-5 luglio 2026'). 6 RIGHE evento per pagina: ogni riga = casella 'data . luogo BREVE' (piccola sopra) + TITOLO grande sotto + linea divisoria. Sul grafico solo data+luogo+titolo, niente ora/prezzi (quelli in caption). Freccia 'scorri' = elemento separato in basso (cancellabile). Settimana con <6 eventi: cancella righe vuote + position_element blocco compatto centrato (come settimanale/carosello). Titoli MASSIMIZZATI (casella larga). Lavorare SEMPRE su COPIA. Nota: creato da Michele copiando il settimanale e ristilizzando i colori. Element_id da rileggere con read-design sulla copia."
     },
     "bisettimanale": {
@@ -1342,6 +1342,23 @@
       "pagina": 7,
       "file": "20260825_Storia_2.png",
       "evento": "URGENTE segnalato da Michele via bot (link Instagram + didascalia 'urgente per stasera', 25/08 mattina): Summer Night - 1 Anniversario Cuore Giovane, Martedi' 25 Agosto, Piazza Bertoldi (Serravalle), dalle 18:00 (Move Run Club 18:00, Rejected Band live 19:15, Chica DJ dalle 21:00). Fonte diretta: post Instagram @_cuore_giovane (organizzatore, unica fonte ma diretta). Titolo abbreviato senza il numero '1 anniversario' (solo 'Summer Night - Cuore Giovane', il font titolo non rende il grado). Font titolo ridotto da 90 a 70 per farlo stare su 2 righe senza sovrapporsi alla descrizione. Storia INDIPENDENTE (non in sequenza con quella del mattino, Rapunzel, gia' pubblicata/archiviata): CTA chiusura. Nuovo in master.md riga 96 e in dati/handle-organizzatori.json (@_cuore_giovane, attivo). Copia dal master DAHSASb8IAU pag.7, usa-e-getta DAHTS022LYw, cestinare a mano. Validazione al contrario: nessuna discrepanza."
+    },
+    {
+      "data_giro": "2026-08-26",
+      "tipo": "weekend",
+      "riferimento": "28-30/08/2026",
+      "copia_design_id": "DAHTaPyWRAE",
+      "pagine_master_usate": [
+        3,
+        4
+      ],
+      "eventi": 10,
+      "slide": 2,
+      "export": [
+        "marketing/3 Export/4 Weekend - Post/20260827_Weekend_1.png",
+        "marketing/3 Export/4 Weekend - Post/20260827_Weekend_2.png"
+      ],
+      "nota": "Step 2-bis catena giornaliera (26/08 sera): buco weekend 27/08 (copre 28-30/08) rilevato da scripts/controllo-imminenti.py (uscita 2). Dossier dati/post/weekend-2026-08-28-30.md, fonte master.md righe 36,46,46b,46c,46d,46e,66,77,78,83. Copia DAHTaPyWRAE dal master DAHOp1t_N1A pag.3-4, usa-e-getta 'DA ELIMINARE'. 10 eventi 5+5, riga 6 cancellata su entrambe le pagine. Multi-giorno = una riga con range (come il settimanale). Esclusi documentati nel dossier: Buonenove M02 (intervallo lungo, solo caption), IBS baseball finale scudetto (gara 2 del 28/08 a Parma = trasferta), campionato calcio 1a giornata (orari non pubblicati). Giorni calcolati in Python: 28=Ven 29=Sab 30=Dom. Validazione al contrario: nessuna discrepanza. Slot pubblicazione: giovedi 27/08 18:00 (regolare)."
     }
   ],
   "_nota_26-07-2026": "Settimanale 27/07-02/08 rifatto da zero: la bozza in dati/post/aggregati-luglio-agosto-2026.md era del 30/06 e aveva solo 3 dei 10 eventi (non conosceva il recupero del 25/07). Fonte usata: le buste gia' in coda in posts/, che avevano gia' passato /smh-check. Titolo tennis accorciato da 'San Marino Open - tennis ATP' (andava a capo e sbatteva sulla riga sotto) a 'San Marino Open - tennis': su questo design il titolo sta su una riga fino a ~25 caratteri. COPIA usa-e-getta da cestinare a mano: DAHQbtk6OaI.",
