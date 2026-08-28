@@ -22,7 +22,7 @@
       "design_id": "DAHORdC0zdY",
       "nome_canva": "SMH - Settimanale Master",
       "totale_pagine": 4,
-      "ultima_pagina_usata": 2,
+      "ultima_pagina_usata": 3,
       "struttura_riga": "8 righe evento. Ogni riga = casella giorno/data (es. 'Martedì 21/07') + casella titolo evento + casella LUOGO BREVE (solo Castello/venue, es. 'Valdragone' — semplificato dall'agente dal luogo completo della fonte) + linea divisoria (SHAPE). SUL GRAFICO niente ora e niente prezzi. Ora/indirizzo completo/prezzi/prenotazione vanno in CAPTION. Vedi memoria project_architettura_info_aggregati."
     },
     "weekend": {
@@ -1359,6 +1359,22 @@
         "marketing/3 Export/4 Weekend - Post/20260827_Weekend_2.png"
       ],
       "nota": "Step 2-bis catena giornaliera (26/08 sera): buco weekend 27/08 (copre 28-30/08) rilevato da scripts/controllo-imminenti.py (uscita 2). Dossier dati/post/weekend-2026-08-28-30.md, fonte master.md righe 36,46,46b,46c,46d,46e,66,77,78,83. Copia DAHTaPyWRAE dal master DAHOp1t_N1A pag.3-4, usa-e-getta 'DA ELIMINARE'. 10 eventi 5+5, riga 6 cancellata su entrambe le pagine. Multi-giorno = una riga con range (come il settimanale). Esclusi documentati nel dossier: Buonenove M02 (intervallo lungo, solo caption), IBS baseball finale scudetto (gara 2 del 28/08 a Parma = trasferta), campionato calcio 1a giornata (orari non pubblicati). Giorni calcolati in Python: 28=Ven 29=Sab 30=Dom. Validazione al contrario: nessuna discrepanza. Slot pubblicazione: giovedi 27/08 18:00 (regolare)."
+    },
+    {
+      "data_giro": "2026-08-28",
+      "tipo": "settimanale",
+      "riferimento": "31/08-06/09/2026",
+      "copia_design_id": "DAHTk9ow4Qg",
+      "pagine_master_usate": [
+        3
+      ],
+      "eventi": 5,
+      "slide": 1,
+      "export": [
+        "marketing/3 Export/3 Settimanali - Post/20260830_Settimanale.png"
+      ],
+      "busta": "posts/20260830_Settimanale.json",
+      "nota": "Step 2-bis catena giornaliera (28/08 sera): buco slot regolare domenica 30/08 18:00 (copre 31/08-06/09), guardia controllo-imminenti.py uscita 2. Dossier dati/post/settimanale-2026-08-31-06-09.md, fonte master.md righe 56e,56f,47,59,M02. Copia pag.3 dal master DAHORdC0zdY, usa-e-getta DAHTk9ow4Qg titolata DA ELIMINARE (cestinare a mano). 5 eventi 1 slide: righe 6-7-8 cancellate, blocco ridistribuito e centrato (pitch 220.6, area 254-1137). Fix in corsa: sottotitolo data a font 42 (a 68 andava a 2 righe), giorno riga 4: prima Ven-Sab 5-6/9 (errore), corretto in Sab-Dom 5-6/9 dopo il controllo (05/09=Sabato, 06/09=Domenica) e riesportato. Titolo Buonenove: Arte Urbana (ridotto da Buonenove 2 - Arte Urbana nei 9 Castelli). Giorni Python: 31/08 Lun, 01/09 Mar, 03/09 Gio, 05-06/09 Ven-Sab. Esclusi documentati nel dossier: baseball gara 5 eventuale/6/7 (condizionale + trasferte), Calcio al Parco (solo caption, no luogo per il grafico), mostre M03/M04/M07/M08 (da-approvare). Validazione al contrario: nessuna discrepanza. Slot pubblicazione: domenica 30/08 18:00 (regolare)."
     }
   ],
   "_nota_26-07-2026": "Settimanale 27/07-02/08 rifatto da zero: la bozza in dati/post/aggregati-luglio-agosto-2026.md era del 30/06 e aveva solo 3 dei 10 eventi (non conosceva il recupero del 25/07). Fonte usata: le buste gia' in coda in posts/, che avevano gia' passato /smh-check. Titolo tennis accorciato da 'San Marino Open - tennis ATP' (andava a capo e sbatteva sulla riga sotto) a 'San Marino Open - tennis': su questo design il titolo sta su una riga fino a ~25 caratteri. COPIA usa-e-getta da cestinare a mano: DAHQbtk6OaI.",
