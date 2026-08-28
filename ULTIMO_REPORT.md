@@ -1,6 +1,23 @@
 # Ultimo stato — San Marino Happens
 
-Aggiornato: 2026-08-18 (mattina) — 🔴 **TROVATO PERCHÉ NON USCIVA NIENTE: gli aggregati non erano compito di nessuno.** Michele: «domenica non è stato pubblicato il settimanale, oggi non è stato pubblicato niente».
+Aggiornato: 2026-08-28 (sera) — 🔗 **CATENA GIORNALIERA (task pianificato): chiuso il buco del settimanale del 30/08 — primo Step 2-bis che gira davvero da task.**
+
+Giro serale automatico. Step 0-bis: 0 approvazioni, 0 segnalazioni, 0 annullamenti, ultimo approvato (17/08) già graficato (26/08) — ma **domanda 5 = sì** (`controllo-imminenti.py` uscita 2): mancava il **settimanale del 30/08** (copre 31/08–06/09).
+
+**Fatto (Step 2-bis):** dossier `dati/post/settimanale-2026-08-31-06-09.md`, grafica compilata su copia pag.3 del master `DAHORdC0zdY` (usa-e-getta `DAHTk9ow4Qg`, «DA ELIMINARE»), 5 eventi 1 slide (righe 6-8 cancellate, blocco ridistribuito), auto-validata, esportata, busta `posts/20260830_Settimanale.json` **pushata su origin/main** (commit `174a2cb`). Riga aggiunta al piano editoriale. 5 eventi: Baseball finale scudetto g3 (31/08) + g4 (01/09) vs Parma, Festa di San Marino (03/09), Dal Turista al Contadino I tappa (5–6/09), Buonenove 2 fino al 3/09. Esclusi documentati: baseball gara 5 eventuale/6/7, Calcio al Parco (solo caption), mostre M03/M04/M07/M08 (da-approvare). ⚠️ Errore intercettato dal controllo e corretto prima del push: giorno riga 4 era «Ven-Sab 5-6/9», il 05/09 è **Sabato** → corretto in «Sab-Dom 5-6/9», riesportato.
+
+**Guardie:** imminenti ✅ (buco richiuso, uscita 0) · export→coda ✅ · integrità ✅ · copertura ⚠️.
+
+🔴 **Aggregati scoperti OLTRE le 48h — da chiudere nei prossimi giri (segnalati anche su Telegram):**
+- **CAROSELLO SETTEMBRE** — esce **31/08 18:00** (fra 3 giorni). Se il Mac resta spento fino a domenica, rischia di saltare come il weekend di Ferragosto. Prima cosa da guardare al prossimo avvio.
+- Weekend 03/09 · Settimanale 06/09 · Weekend 10/09.
+- Serravalle in Wellness 16/09 senza busta: **voluto** — coperto dal rimando in caption del post del 09/09 (decisione 24/08). Nessuna azione.
+
+🟢 `PUBLISH_LIVE=true`: il settimanale esce **davvero** su IG+FB domenica 30/08 18:00.
+
+---
+
+(precedente) Aggiornato: 2026-08-18 (mattina) — 🔴 **TROVATO PERCHÉ NON USCIVA NIENTE: gli aggregati non erano compito di nessuno.** Michele: «domenica non è stato pubblicato il settimanale, oggi non è stato pubblicato niente».
 
 ## La diagnosi
 
