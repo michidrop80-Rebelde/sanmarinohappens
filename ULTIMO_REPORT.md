@@ -23,6 +23,18 @@ Giro serale automatico. Step 0-bis: 0 approvazioni, ultimo approvato (17/08) gi�
 
 🟢 `PUBLISH_LIVE=true`: baseball gara 3 esce **davvero** lunedì 31/08 07:00; carosello Settembre lunedì 31/08 18:00 su IG+FB.
 
+### 🔧 Fix sistemico stessa sera (commit `05d9338`) — «prezzi/gratis in caption» non passano più in silenzio
+
+Michele: «è 2 mesi che pubblichi, non possono ancora esserci questi errori». Il bug ha morso **4 volte**: settimanale 18–23/08 mai uscito · giornaliero «Rapunzel» 25/08 mai uscito (storie sì, feed no — scoperto oggi) · carosello Settembre intercettato a mano stasera · (+ il tentativo del settimanale 24–30/08). Causa: `publish.py` scarta in **silenzio** le buste con prezzi/gratuità in caption, e le istruzioni nelle skill erano ferme alla regola pre-13/07 («ora + gratis/€ dove noti»).
+
+Fatto:
+1. **`scripts/guardia_contenuti.py`** — unica fonte del pattern prezzi + lunghezza caption. `publish.py` e `smh_check.py` ora lo importano (basta le 3 copie che divergevano).
+2. **`scripts/controllo-caption-prezzi.py`** — guardia PRE-PUSH: `exit 1` = blocco vero, salta le buste già scadute. In `smh-catena` Step 4 e `smh-pubblica` Step 4-bis (punto 0).
+3. Corrette le istruzioni sbagliate in `smh-catena`, `smh-grafica`, `smh-pubblica`, `aggregati-luglio-agosto-2026.md` («solo ora, MAI prezzi/gratuità»).
+4. **In repo 8 script guardia/utility** referenziati dalle skill ma mai committati (`controllo-copertura`, `controllo-integrita`, `controllo-export-in-coda`, `segnala-doppioni`, `recupera-da-transcript`, `genera-calendario`…) — un clone li trovava mancanti, stesso danno silenzioso delle 9 skill mancanti del 18/08.
+
+Test: `publish_*` + `lucchetto` verdi. 🔴 **Resta:** archiviare a mano la busta scaduta `20260825_Post giornaliero` (caso «uscita a metà»).
+
 ---
 
 (precedente) Aggiornato: 2026-08-28 (sera) — 🔗 **CATENA GIORNALIERA (task pianificato): chiuso il buco del settimanale del 30/08 — primo Step 2-bis che gira davvero da task.**
