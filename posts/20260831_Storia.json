@@ -1,0 +1,18 @@
+{
+  "tipo": "storia",
+  "data_pubblicazione": "2026-08-31",
+  "ora_pubblicazione": "07:00",
+  "titolo_evento": "Storie del 31 agosto",
+  "immagini": [
+    "20260831_Storia_1.png"
+  ],
+  "user_tags": {
+    "20260831_Storia_1.png": [
+      {
+        "username": "sanmarinobaseball",
+        "x": 0.5,
+        "y": 0.78
+      }
+    ]
+  }
+}
