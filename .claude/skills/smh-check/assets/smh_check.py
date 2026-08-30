@@ -45,18 +45,20 @@ SECRETS_TELEGRAM = PROJECT_DEFAULT / '.claude' / 'secrets' / 'telegram.json'
 
 GIORNI_IT = ['Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato', 'Domenica']
 
-# Termini di prezzo/gratuita' vietati (stessa regola di publish.py: regola equita').
-PREZZI_PATTERN = re.compile(
-    r'€'
-    r'|\bgratis\b'
-    r'|\bgratuit[oaie]\b'
-    r'|\bgratuitamente\b'
-    r'|\ba\s+pagamento\b'
-    r'|\bingresso\s+(?:libero|gratuito|gratis)\b'
-    r'|\bentrata\s+(?:libera|gratuita|gratis)\b'
-    r'|\bprezzo\b|\bprezzi\b|\bbigliett[oi]\b|\bcosto\b|\bcosti\b',  # extra: /smh-check e' piu' severo di publish.py
-    re.IGNORECASE,
-)
+# Termini di prezzo/gratuita' vietati — UNICA fonte: scripts/guardia_contenuti.py
+# (stessa regola-equita' di publish.py; qui usiamo il set SEVERO, /smh-check vede
+# anche fonti e immagini e puo' segnalare i casi sfumati).
+sys.path.insert(0, str(PROJECT_DEFAULT / 'scripts'))
+try:
+    from guardia_contenuti import PREZZI_PATTERN_SEVERO as PREZZI_PATTERN
+except Exception:
+    # fallback difensivo se lo script condiviso non e' raggiungibile
+    PREZZI_PATTERN = re.compile(
+        r'€|\bgratis\b|\bgratuit[oaie]\b|\bgratuitamente\b|\ba\s+pagamento\b'
+        r'|\bingresso\s+(?:libero|gratuito|gratis)\b|\bentrata\s+(?:libera|gratuita|gratis)\b'
+        r'|\bprezzo\b|\bprezzi\b|\bbigliett[oi]\b|\bcosto\b|\bcosti\b',
+        re.IGNORECASE,
+    )
 
 # Date nella caption: "14/07/2026", "14/07", "18–19/07" (prende la prima del range).
 DATA_PATTERN = re.compile(r'\b(\d{1,2})/(\d{1,2})(?:/(\d{4}))?\b')

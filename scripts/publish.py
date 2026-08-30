@@ -80,6 +80,7 @@ INTERRUTTORE DI SICUREZZA: se la variabile d'ambiente PUBLISH_LIVE non e' esatta
 
 import os
 import re
+import sys
 import json
 import time
 import requests
@@ -87,6 +88,15 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from urllib.parse import quote
 from zoneinfo import ZoneInfo
+
+# Controlli sul CONTENUTO delle caption (prezzi/gratuita' + lunghezza): unica fonte
+# di verita', condivisa con /smh-check e la guardia pre-push sul Mac. Vedi
+# scripts/guardia_contenuti.py. (Lo script sta nella stessa cartella: quando si
+# lancia `python scripts/publish.py`, `scripts/` e' su sys.path[0].)
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from guardia_contenuti import (  # noqa: E402
+    PREZZI_PATTERN, caption_prezzi, IG_CAPTION_MAX, lunghezza_caption,
+)
 
 # --- Instagram (binario sempre attivo) ---
 INSTAGRAM_TOKEN = os.getenv('INSTAGRAM_TOKEN')
@@ -324,27 +334,8 @@ def costruisci_unita(tipo, json_file, immagini, meta=None):
 # CERTI e ad alta confidenza (i termini indicati da Michele); i dubbi piu' sfumati e i
 # prezzi che stanno SULL'IMMAGINE (non leggibili da qui) li intercetta /smh-check sul
 # Mac, che vede anche il testo-sorgente e le immagini. Le storie non hanno caption.
-PREZZI_PATTERN = re.compile(
-    r'€'
-    r'|\bgratis\b'
-    r'|\bgratuit[oaie]\b'          # gratuito / gratuita / gratuiti / gratuite
-    r'|\bgratuitamente\b'
-    r'|\ba\s+pagamento\b'
-    r'|\bingresso\s+(?:libero|gratuito|gratis)\b'
-    r'|\bentrata\s+(?:libera|gratuita|gratis)\b',
-    re.IGNORECASE,
-)
-
-
-def caption_prezzi(caption):
-    """Ritorna la lista (senza duplicati, nell'ordine trovato) dei termini di
-    prezzo/gratuita' presenti nella caption. Lista vuota = nessun problema."""
-    trovati = []
-    for m in PREZZI_PATTERN.finditer(caption or ''):
-        termine = m.group(0).strip()
-        if termine.lower() not in [t.lower() for t in trovati]:
-            trovati.append(termine)
-    return trovati
+# PREZZI_PATTERN e caption_prezzi() sono importati da guardia_contenuti (in cima al file):
+# lo stesso pattern lo usano /smh-check e la guardia pre-push, senza rischio di drift.
 
 
 # ---------------------------------------------------------------------------
@@ -359,12 +350,7 @@ def caption_prezzi(caption):
 # marcata "anomala" e finisce nell'avviso Telegram, che scoprirlo dai log di Actions.
 # Si conta in unita' UTF-16 (il modo piu' severo: gli emoji possono valere 2), con un
 # piccolo margine, cosi' il controllo non e' mai piu' permissivo di quello di Meta.
-IG_CAPTION_MAX = 2200
-
-
-def lunghezza_caption(caption):
-    """Lunghezza della caption in unita' UTF-16 (come la conta Meta nel caso peggiore)."""
-    return len((caption or '').encode('utf-16-le')) // 2
+# IG_CAPTION_MAX e lunghezza_caption() sono importati da guardia_contenuti (in cima).
 
 
 def tag_anomalie(meta, tipo, immagini):

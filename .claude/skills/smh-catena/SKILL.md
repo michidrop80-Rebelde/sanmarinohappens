@@ -180,8 +180,13 @@ python3 scripts/serie_ricorrenti.py 30
    13/07.
 2. **Scrivi il dossier** in `dati/post/` (righe per il grafico + caption completa), con lo
    stesso formato di `dati/post/settimanale-2026-08-18-23.md`: giorno·titolo·luogo BREVE sul
-   grafico, ora·indirizzo·prezzi in caption, e una sezione che elenca cosa hai **escluso e
-   perché**.
+   grafico, ora·indirizzo in caption, e una sezione che elenca cosa hai **escluso e perché**.
+   🔴 **MAI prezzi né gratuità in caption** (regola equità 13/07/2026): niente «€», «gratis»,
+   «gratuito», «ingresso libero». `publish.py` blocca in silenzio le buste (aggregate e
+   giornaliere) che li contengono — è già successo tre volte (settimanale 18–23/08 mai uscito;
+   giornaliero Rapunzel 25/08 mai uscito; carosello Settembre intercettato all'ultimo il
+   30/08). ⚠️ Se copi la struttura di un dossier vecchio come modello, **NON fidarti che sia
+   pulito**: quelli pre-13/07 hanno prezzi/gratuità ovunque.
 3. **Compila la grafica** seguendo `/smh-grafica` (sezione «Aggregati»): sempre su una COPIA
    del master, rotazione a pagine, giorno della settimana calcolato in Python, controllo al
    contrario prima di esportare.
@@ -249,9 +254,13 @@ pubblicato per sbaglio sono entrambi errori, e il secondo non si può ritirare.
 python3 scripts/controllo-integrita.py
 python3 scripts/controllo-copertura.py
 python3 scripts/controllo-export-in-coda.py
+python3 scripts/controllo-caption-prezzi.py   # ⛔ exit 1 = una busta in coda ha prezzi/gratuità → NON pushare, correggi la caption
 python3 scripts/controllo-imminenti.py    # ricontrollo: i buchi dello Step 2-bis sono chiusi?
 python3 scripts/serie_ricorrenti.py 21    # le serie hanno un post a ogni appuntamento?
 ```
+⛔ **`controllo-caption-prezzi.py` che esce con 1 è un blocco vero**, non un avviso: quella
+busta, se pushata, verrebbe scartata in silenzio da `publish.py` e non uscirebbe mai. Correggi
+la caption nella busta **e** nel dossier sorgente, poi rilancia. Non pushare finché non è a 0.
 
 Una guardia che trova un problema lo **chiude** lanciando l'anello che sa risolverlo — non
 consegna un elenco a Michele.

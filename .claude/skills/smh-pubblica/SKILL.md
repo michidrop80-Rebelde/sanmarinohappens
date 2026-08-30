@@ -281,6 +281,17 @@ di lanciare: fa parte della pubblicazione.
 
 Sulle buste che hai appena preparato in `posts/` (Step 4), esegui il controllo completo della
 skill **`/smh-check`** (procedura in `.claude/skills/smh-check/SKILL.md`):
+
+0. ⛔ **Guardia prezzi/gratuità in caption (BLOCCO, prima di tutto):**
+   ```bash
+   python3 scripts/controllo-caption-prezzi.py
+   ```
+   Se esce con **1**, la busta segnalata contiene «€», «gratis», «gratuito», «ingresso libero»
+   o una caption oltre i 2200 caratteri: `publish.py` la scarterebbe **in silenzio** e non
+   uscirebbe mai (è già successo col settimanale 18–23/08, il giornaliero Rapunzel 25/08 e per
+   un soffio col carosello Settembre). **Togli quella busta da `posts/`** (o correggi la
+   caption nella busta **e** nel dossier sorgente e rigenera), NON committarla, e avvisa
+   Michele. Le altre buste proseguono. Non passare oltre finché la guardia non esce con 0.
 1. Dossier meccanico: `python3 .claude/skills/smh-check/assets/smh_check.py`
 2. Per OGNI busta nuova **apri il/i PNG (vision)**, trascrivi giorno·data·titolo·luogo·ora·prezzi,
    incrocia con fonti + caption + aggregato, e classifica coi 5 controlli → **✅ / ⚠️ / ❌**.
