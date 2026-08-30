@@ -1,6 +1,31 @@
 # Ultimo stato — San Marino Happens
 
-Aggiornato: 2026-08-28 (sera) — 🔗 **CATENA GIORNALIERA (task pianificato): chiuso il buco del settimanale del 30/08 — primo Step 2-bis che gira davvero da task.**
+Aggiornato: 2026-08-30 (sera) — 🔗 **CATENA GIORNALIERA (task pianificato): Step 2-bis ha chiuso 2 buchi delle 48h — giornaliero+storia baseball G3 (31/08) e il CAROSELLO DI SETTEMBRE.**
+
+Giro serale automatico. Step 0-bis: 0 approvazioni, ultimo approvato (17/08) già graficato (28/08) — ma **domanda 3 = sì** (1 segnalazione al bot) e **domanda 5 = sì** (`controllo-imminenti.py` uscita 2).
+
+**Step 3 (segnalazione bot, 29/08):** «San Marino baseball sta 1 pari…». Nessun evento nuovo da importare (le 3 gare casalinghe della finale sono già a registro, righe 56e/56f/56g). Ha sciolto la condizione «eventuale» della **gara 5 (02/09)**: serie 1-1 dopo gara 2 (Parma 15-8, verificato oasport + sanmarinortv a295178) → nel meglio-delle-7 la gara 5 si gioca comunque. **Riga 56g promossa `da-approvare` → `approvato`.**
+
+**Step 2-bis — buco 1: giornaliero+storia del 31/08.** Il 31/08 (Lunedì) era scoperto feed+storie. Il **baseball, finale scudetto gara 3 vs Parma** (ore 20:00, Campo La Ciarulla Serravalle) vince lo slot feed su Calcio al Parco (riga 79, bozza vaga senza fonte, resta non pubblicabile). Giornaliero su copia pag.7 del master `DAHOLS6Zdpw`, storia su copia pag.8 del mazzo singolo `DAHSASb8IAU` (unica del giorno → CTA chiusura). Titolo sportivo su 3 righe «SM Baseball / vs / Parma», tag `@sanmarinobaseball` (registro). Auto-validati ed esportati. Dossier `dati/post/post-2026-08-31-baseball-g3.md`.
+
+**Step 2-bis — buco 2: CAROSELLO MENSILE SETTEMBRE** (slot regolare 31/08 18:00 — era la «prima cosa da guardare» segnalata il 28/08). Copia `DAHTySzRv4Q` del master mensile `DAHOd72cNmY` («DA ELIMINARE»), copertina n.3 (SETTEMBRE, font ridotto a 86 per stare su una riga) + 4 slide-settimana (1–6/9, 7–13/9, 14–20/9, 21–30/9), ~21 eventi approvati. Righe vuote cancellate e blocchi ricentrati (slide 1-3), titoli lunghi ridotti a una riga individualmente, freccia «scorri» cancellata sull'ultima slide. 5 PNG esportati. Dossier `dati/post/carosello-settembre-2026.md`.
+🔴 **Intercettato prima del push:** la caption del carosello conteneva «gratis» ovunque (copiata dal formato pre-13/07) → `publish.py` l'avrebbe bloccata in silenzio come il settimanale 18–23/08. **Ripulita** (solo orari, niente prezzi/gratuità). Corretta anche la riga fuorviante in `.claude/skills/smh-grafica/SKILL.md` («ora + gratis/€ dove noti» → «ora», + avviso regola equità).
+
+**Messe in coda 3 buste** (commit `899866f`, pushato su origin/main): `20260831_Post giornaliero.*`, `20260831_Storia.*`, `20260831_Carosello.*` (5 PNG). Cancello `/smh-check`: tutte ✅ (il ⚠️ «gratis» sul carosello risolto prima del push). 2 righe aggiunte al piano editoriale.
+
+**Guardie:** imminenti ✅ (2 buchi richiusi, uscita 0) · integrità ✅ (127 rif.) · export→coda ✅ · copertura ⚠️.
+
+🔴 **Aggregati/serie scoperti OLTRE le 48h — li chiuderà lo Step 2-bis quando entrano in finestra (segnalati su Telegram):**
+- **Settimanale del 06/09** · **Weekend del 10/09**
+- **Serravalle in Wellness del 16/09** (serie ricorrente, senza post dedicato — è nel carosello come voce indice, ma la guardia `serie_ricorrenti` vuole un post per appuntamento)
+
+⚠️ **Nota qualità carosello:** slide 4 (Settimana 4, sfondo viola→verde, testo bianco) ha il blocco eventi nella metà alta e il terzo inferiore lasciato al degradé — leggibile ma non centrato in verticale come le altre 3. Non è una discrepanza di dati: se non convince si ritocca su Canva prima delle 18:00 di lunedì.
+
+🟢 `PUBLISH_LIVE=true`: baseball gara 3 esce **davvero** lunedì 31/08 07:00; carosello Settembre lunedì 31/08 18:00 su IG+FB.
+
+---
+
+(precedente) Aggiornato: 2026-08-28 (sera) — 🔗 **CATENA GIORNALIERA (task pianificato): chiuso il buco del settimanale del 30/08 — primo Step 2-bis che gira davvero da task.**
 
 Giro serale automatico. Step 0-bis: 0 approvazioni, 0 segnalazioni, 0 annullamenti, ultimo approvato (17/08) già graficato (26/08) — ma **domanda 5 = sì** (`controllo-imminenti.py` uscita 2): mancava il **settimanale del 30/08** (copre 31/08–06/09).
 

@@ -174,7 +174,12 @@ Il settimanale è **attivo** (design `SMH · Settimanale` = `DAHORdC0zdY`, 4 pag
 - Con copertina restano **9 slide di eventi**: un mese normale ci sta. Se il contenuto
   supera 9 slide → **accorpa due settimane leggere**, non tagliare eventi né sforare le 10.
 - **Caption = indice (opzione 2)**: intro breve + elenco per settimana con solo l'osso
-  essenziale (**ora + gratis/€ dove noti**). Info mancante → si OMETTE, non si inventa.
+  essenziale (**ora**). Info mancante → si OMETTE, non si inventa.
+  🔴 **MAI prezzi né gratuità in caption** (regola equità 13/07/2026): niente «€», «gratis»,
+  «gratuito», «ingresso libero». Vale per TUTTI gli aggregati. `publish.py` (`caption_prezzi()`)
+  blocca in silenzio, per sempre, le buste aggregate che li contengono — è successo col
+  settimanale 18–23/08. I costi vanno solo nel link in bio. La vecchia dicitura «ora + gratis/€
+  dove noti» era di prima del 13/07: superata.
 - **Link in bio (opzione 1)**: la caption chiude con "orari completi, indirizzi e link nel
   profilo 👉". Motivo: nel feed IG non esistono link per-slide, quindi il "di più" (biglietti,
   descrizione, indirizzo) sta nella pagina-agenda del mese (Linktree ora, sito in Fase 1), così
