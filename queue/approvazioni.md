@@ -61,3 +61,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-08-31T17:53:23.366Z — approvato — 20260831-1742-finlandia — Michele Morri @RebeldeRN — 🆕 Musikfest Adriatica
 - [ ] 2026-08-31T17:53:43.954Z — approvato — 20260831-1742-albania — Michele Morri @RebeldeRN — 🆕 San Marino vs Albania (Nations League C)
 - [ ] 2026-08-31T17:53:45.127Z — approvato — 20260831-1742-u21spagna — Michele Morri @RebeldeRN — 🆕 San Marino vs Albania (Nations League C)
+- [ ] 2026-08-31T17:53:46.273Z — approvato — 20260831-1742-matsuri — Michele Morri @RebeldeRN — 🆕 San Marino vs Albania (Nations League C)
