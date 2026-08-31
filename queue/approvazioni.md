@@ -57,3 +57,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-08-31T17:53:07.256Z — approvato — 20260831-1742-bunta — Michele Morri @RebeldeRN — ✏️ Dal Turista al Contadino 2026 (1° weekend)
 - [ ] 2026-08-31T17:53:08.793Z — approvato — 20260831-1742-candela — Michele Morri @RebeldeRN — ✏️ Dal Turista al Contadino 2026 (1° weekend)
 - [ ] 2026-08-31T17:53:21.004Z — approvato — 20260831-1742-musikfest — Michele Morri @RebeldeRN — 🆕 Musikfest Adriatica
+- [ ] 2026-08-31T17:53:22.225Z — approvato — 20260831-1742-u21kosovo — Michele Morri @RebeldeRN — 🆕 Musikfest Adriatica
