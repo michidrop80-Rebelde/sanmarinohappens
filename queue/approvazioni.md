@@ -62,3 +62,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-08-31T17:53:43.954Z — approvato — 20260831-1742-albania — Michele Morri @RebeldeRN — 🆕 San Marino vs Albania (Nations League C)
 - [ ] 2026-08-31T17:53:45.127Z — approvato — 20260831-1742-u21spagna — Michele Morri @RebeldeRN — 🆕 San Marino vs Albania (Nations League C)
 - [ ] 2026-08-31T17:53:46.273Z — approvato — 20260831-1742-matsuri — Michele Morri @RebeldeRN — 🆕 San Marino vs Albania (Nations League C)
+- [ ] 2026-08-31T17:54:24.133Z — approvato — 20260831-1742-fineestate — Michele Morri @RebeldeRN — ⚠️ Festa di Fine Estate (Acquaviva)
