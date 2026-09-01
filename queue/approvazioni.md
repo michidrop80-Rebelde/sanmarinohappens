@@ -53,15 +53,15 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [x] 2026-08-24T08:03:57.911Z — approvato — 20260824-0721-82 — Michele Morri @RebeldeRN — 🆕 Serravalle in Wellness — Settembre 2026
 - [x] 2026-08-24T08:04:26.082Z — approvato — 20260824-0721-59 — Michele Morri @RebeldeRN — ✏️ Dal Turista al Contadino — I tappa (dubbio risolto)
 - [x] 2026-08-24T08:04:27.204Z — approvato — 20260824-0721-60 — Michele Morri @RebeldeRN — ✏️ Dal Turista al Contadino — I tappa (dubbio risolto)
-- [ ] 2026-08-31T17:53:05.891Z — approvato — 20260831-1742-dtc1weekend — Michele Morri @RebeldeRN — ✏️ Dal Turista al Contadino 2026 (1° weekend)
-- [ ] 2026-08-31T17:53:07.256Z — approvato — 20260831-1742-bunta — Michele Morri @RebeldeRN — ✏️ Dal Turista al Contadino 2026 (1° weekend)
-- [ ] 2026-08-31T17:53:08.793Z — approvato — 20260831-1742-candela — Michele Morri @RebeldeRN — ✏️ Dal Turista al Contadino 2026 (1° weekend)
-- [ ] 2026-08-31T17:53:21.004Z — approvato — 20260831-1742-musikfest — Michele Morri @RebeldeRN — 🆕 Musikfest Adriatica
-- [ ] 2026-08-31T17:53:22.225Z — approvato — 20260831-1742-u21kosovo — Michele Morri @RebeldeRN — 🆕 Musikfest Adriatica
-- [ ] 2026-08-31T17:53:23.366Z — approvato — 20260831-1742-finlandia — Michele Morri @RebeldeRN — 🆕 Musikfest Adriatica
-- [ ] 2026-08-31T17:53:43.954Z — approvato — 20260831-1742-albania — Michele Morri @RebeldeRN — 🆕 San Marino vs Albania (Nations League C)
-- [ ] 2026-08-31T17:53:45.127Z — approvato — 20260831-1742-u21spagna — Michele Morri @RebeldeRN — 🆕 San Marino vs Albania (Nations League C)
-- [ ] 2026-08-31T17:53:46.273Z — approvato — 20260831-1742-matsuri — Michele Morri @RebeldeRN — 🆕 San Marino vs Albania (Nations League C)
-- [ ] 2026-08-31T17:54:24.133Z — approvato — 20260831-1742-fineestate — Michele Morri @RebeldeRN — ⚠️ Festa di Fine Estate (Acquaviva)
-- [ ] 2026-08-31T17:54:25.456Z — approvato — 20260831-1742-micologica — Michele Morri @RebeldeRN — ⚠️ Festa di Fine Estate (Acquaviva)
-- [ ] 2026-08-31T17:54:26.783Z — approvato — 20260831-1742-festasocio — Michele Morri @RebeldeRN — ⚠️ Festa di Fine Estate (Acquaviva)
+- [x] 2026-08-31T17:53:05.891Z — approvato — 20260831-1742-dtc1weekend — Michele Morri @RebeldeRN — ✏️ Dal Turista al Contadino 2026 (1° weekend) — ✅ elaborato 01/09/2026 (catena Step 1, giro 20260831-1742)
+- [x] 2026-08-31T17:53:07.256Z — approvato — 20260831-1742-bunta — Michele Morri @RebeldeRN — ✏️ Dal Turista al Contadino 2026 (1° weekend) — ✅ elaborato 01/09/2026 (catena Step 1, giro 20260831-1742)
+- [x] 2026-08-31T17:53:08.793Z — approvato — 20260831-1742-candela — Michele Morri @RebeldeRN — ✏️ Dal Turista al Contadino 2026 (1° weekend) — ✅ elaborato 01/09/2026 (catena Step 1, giro 20260831-1742)
+- [x] 2026-08-31T17:53:21.004Z — approvato — 20260831-1742-musikfest — Michele Morri @RebeldeRN — 🆕 Musikfest Adriatica — ✅ elaborato 01/09/2026 (catena Step 1, giro 20260831-1742)
+- [x] 2026-08-31T17:53:22.225Z — approvato — 20260831-1742-u21kosovo — Michele Morri @RebeldeRN — 🆕 Musikfest Adriatica — ✅ elaborato 01/09/2026 (catena Step 1, giro 20260831-1742)
+- [x] 2026-08-31T17:53:23.366Z — approvato — 20260831-1742-finlandia — Michele Morri @RebeldeRN — 🆕 Musikfest Adriatica — ✅ elaborato 01/09/2026 (catena Step 1, giro 20260831-1742)
+- [x] 2026-08-31T17:53:43.954Z — approvato — 20260831-1742-albania — Michele Morri @RebeldeRN — 🆕 San Marino vs Albania (Nations League C) — ✅ elaborato 01/09/2026 (catena Step 1, giro 20260831-1742)
+- [x] 2026-08-31T17:53:45.127Z — approvato — 20260831-1742-u21spagna — Michele Morri @RebeldeRN — 🆕 San Marino vs Albania (Nations League C) — ✅ elaborato 01/09/2026 (catena Step 1, giro 20260831-1742)
+- [x] 2026-08-31T17:53:46.273Z — approvato — 20260831-1742-matsuri — Michele Morri @RebeldeRN — 🆕 San Marino vs Albania (Nations League C) — ✅ elaborato 01/09/2026 (catena Step 1, giro 20260831-1742)
+- [x] 2026-08-31T17:54:24.133Z — approvato — 20260831-1742-fineestate — Michele Morri @RebeldeRN — ⚠️ Festa di Fine Estate (Acquaviva) — ✅ elaborato 01/09/2026 (catena Step 1, giro 20260831-1742)
+- [x] 2026-08-31T17:54:25.456Z — approvato — 20260831-1742-micologica — Michele Morri @RebeldeRN — ⚠️ Festa di Fine Estate (Acquaviva) — ✅ elaborato 01/09/2026 (catena Step 1, giro 20260831-1742)
+- [x] 2026-08-31T17:54:26.783Z — approvato — 20260831-1742-festasocio — Michele Morri @RebeldeRN — ⚠️ Festa di Fine Estate (Acquaviva) — ✅ elaborato 01/09/2026 (catena Step 1, giro 20260831-1742)
