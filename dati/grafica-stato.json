@@ -14,7 +14,7 @@
       "design_id": "DAHOLS6Zdpw",
       "nome_canva": "SMH - Giornaliero Master",
       "totale_pagine": 10,
-      "ultima_pagina_usata": 7
+      "ultima_pagina_usata": 8
     },
     "_nota_21-07-2026": "Giro 21/07/2026 (prima meta'): rotazione giornaliero completata per intero (pag.4->10 poi wrap 1->3, 10 eventi). 16 eventi con box grafica erano in coda (17 meno Festa di San Marino gia' esportata prima): compilati i primi 10 in ordine di data, i restanti 6 (Benji&Fede 07/08, Molella 14/08, Comics 28-30/08, Dal Turista al Contadino 05-06+12-13/09, MotoGP 11-13/09, Sport in Fiera 18-20/09) restati in coda per esaurimento pagine disponibili nella rotazione.",
     "_nota_21-07-2026-seconda-meta": "Giro 21/07/2026 (seconda meta'): ciclo ripartito, pagine 4-9 di nuovo libere -> compilati ed esportati i 6 eventi rimasti in coda (vedi log). Pagina 10 lasciata intatta (SMIAF, gia' esportato in precedenza). Convenzione multi-giorno confermata da Michele: evento con range lungo -> post singolo con prima data come riferimento sul grafico (range in caption), applicata a Comics, MotoGP, Sport in Fiera (range compatto 3gg 'Ven-Dom') e Dal Turista al Contadino (due weekend separati -> usato il primo, 'Sab-Dom 5-6 Settembre', il secondo weekend 12-13/09 resta solo in caption). Fix in corsa: titolo Comics ripartito da font ereditato troppo grande (5 righe, sovrapposto a luogo/ora) a font_size 90 (3 righe, pulito); campo data con 'Settembre' andava a capo sovrapponendo il sottotitolo su pag 7/8/9 -> allargata la casella (950px) e su pag 7+9 ridotto font_size a 52 (uniformato anche il campo giorno per armonia visiva) per farlo stare su una riga senza toccare il logo SMH in alto a destra. Dal Turista al Contadino: luogo e ora NON specificati ne' dalla fonte ne' da ricerca web mirata (stessa verifica gia' fatta per le storie, riconfermata con una nuova ricerca vuota) -> elemento luogo cancellato (nessun placeholder), ora gia' assente sulla pagina riciclata. MotoGP: ora 'Gara Dom 14:00' riusata dalla verifica gia' fatta per la storia (motogpmisano.com/it/orario-13, gara domenica 13/09 ore 14:00) essendo lo stesso giorno di verifica.",
@@ -30,7 +30,7 @@
       "nome_canva": "SMH - Weekend Master",
       "formato": "1080x1350 (4:5 verticale)",
       "totale_pagine": 4,
-      "ultima_pagina_usata": 4,
+      "ultima_pagina_usata": 1,
       "struttura_riga": "REGISTRATO 07/07/2026. 4 pagine-variante colore (rotazione indipendente). Layout LISTA PULITA (deciso da Michele 07/07): tutte le righe evento uguali, come il settimanale. Titolo fisso 'Questo weekend in Repubblica' + casella DATA variabile (range weekend, es. '3-5 luglio 2026'). 6 RIGHE evento per pagina: ogni riga = casella 'data . luogo BREVE' (piccola sopra) + TITOLO grande sotto + linea divisoria. Sul grafico solo data+luogo+titolo, niente ora/prezzi (quelli in caption). Freccia 'scorri' = elemento separato in basso (cancellabile). Settimana con <6 eventi: cancella righe vuote + position_element blocco compatto centrato (come settimanale/carosello). Titoli MASSIMIZZATI (casella larga). Lavorare SEMPRE su COPIA. Nota: creato da Michele copiando il settimanale e ristilizzando i colori. Element_id da rileggere con read-design sulla copia."
     },
     "bisettimanale": {
@@ -58,7 +58,7 @@
         "design_id": "DAHSASb8IAU",
         "nome_canva": "SMH - Storie Singolo Master",
         "totale_pagine": 14,
-        "ultima_pagina_usata": 8,
+        "ultima_pagina_usata": 9,
         "_verificato": "11/08/2026 — lette tutte e 14 le pagine: un solo blocco evento su ognuna."
       },
       "doppio": {
@@ -1396,6 +1396,38 @@
       "pagina": "copertina 3 (pag.5 master) + interne 2/4/6/8",
       "file": "20260831_Carosello_1..5.png",
       "evento": "Carosello mensile SETTEMBRE 2026 — 5 slide (cover + 4 settimane), Step 2-bis catena"
+    },
+    {
+      "data_giro": "2026-09-01",
+      "tipo": "giornaliero",
+      "pagina": 8,
+      "copia_design_id": "DAHT-T9wvkc",
+      "file": "20260902_Post giornaliero.png",
+      "evento": "Baseball Finale Scudetto gara 5 vs Parma (02/09) — Step 2-bis catena. Dossier dati/post/post-2026-09-02-baseball-g5.md. Copia pag.8 master DAHOLS6Zdpw, DA ELIMINARE. Giorno Python: 02/09=Mercoledi. Titolo 'SM Baseball vs Parma' font ridotto 60->46 per 1 riga; luogo abbreviato a 'Campo La Ciarulla' per non toccare l'ora. Validazione al contrario: nessuna discrepanza."
+    },
+    {
+      "data_giro": "2026-09-01",
+      "tipo": "storia",
+      "mazzo": "singolo",
+      "pagina": 9,
+      "copia_design_id": "DAHT-a_CoYw",
+      "file": "20260902_Storia_1.png",
+      "evento": "Baseball Finale Scudetto gara 5 vs Parma (02/09) — Step 2-bis catena. Unica storia del giorno -> CTA chiusura. Titolo accorciato a 'SM Baseball vs Parma' (la 'gara 5' e' nella descrizione). Validazione al contrario: nessuna discrepanza."
+    },
+    {
+      "data_giro": "2026-09-01",
+      "tipo": "weekend",
+      "riferimento": "04-06/09/2026",
+      "copia_design_id": "DAHT-U6b6BE",
+      "pagine_master_usate": [
+        1
+      ],
+      "eventi": 4,
+      "slide": 1,
+      "export": [
+        "marketing/3 Export/4 Weekend - Post/20260904_Weekend_1.png"
+      ],
+      "nota": "Step 2-bis catena giornaliera (01/09 sera): buco weekend 04-06/09 (guardia controllo-imminenti.py uscita 2). Dossier dati/post/weekend-2026-09-04-06.md, fonte master.md righe 59,97,104,105. Copia pag.1 dal master DAHOp1t_N1A (wrap da pag.4), DA ELIMINARE. 4 eventi 1 slide: righe 5-6 (gruppi) cancellate, blocco ridistribuito e centrato (tops 454/629/804/979, pitch 175). Giorni Python: 04/09=Ven, 05/09=Sab, 06/09=Dom. Esclusi documentati nel dossier: Festa del Socio Ass. Micologica [106] (approvato ma forse non pubblico + fonte unica -> in attesa conferma Michele), Festa di San Marino [47] (03/09, fuori finestra), baseball gare 6-7 (Parma, trasferte), Buonenove M02 (finisce 03/09). Validazione al contrario: nessuna discrepanza. Slot: giovedi 03/09 18:00."
     }
   ],
   "_nota_26-07-2026": "Settimanale 27/07-02/08 rifatto da zero: la bozza in dati/post/aggregati-luglio-agosto-2026.md era del 30/06 e aveva solo 3 dei 10 eventi (non conosceva il recupero del 25/07). Fonte usata: le buste gia' in coda in posts/, che avevano gia' passato /smh-check. Titolo tennis accorciato da 'San Marino Open - tennis ATP' (andava a capo e sbatteva sulla riga sotto) a 'San Marino Open - tennis': su questo design il titolo sta su una riga fino a ~25 caratteri. COPIA usa-e-getta da cestinare a mano: DAHQbtk6OaI.",
