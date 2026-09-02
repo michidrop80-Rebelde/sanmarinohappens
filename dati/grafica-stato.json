@@ -58,7 +58,7 @@
     "design_id": "DAHSASb8IAU",
     "nome_canva": "SMH - Storie Singolo Master",
     "totale_pagine": 14,
-    "ultima_pagina_usata": 11,
+    "ultima_pagina_usata": 12,
     "_verificato": "11/08/2026 — lette tutte e 14 le pagine: un solo blocco evento su ognuna."
    },
    "doppio": {
@@ -1445,7 +1445,16 @@
    "pagina": 11,
    "copia_design_id": "DAHUFeF0tt4",
    "file": "20260905_Storia_1.png",
-   "evento": "Dal Turista al Contadino 1° weekend (05/09) — RIFATTA: la busta 20260905_Storia in coda aveva date sbagliate (\"5-6 Settembre\" ok ma layout rotto, Settembre sotto la linea) e descrizione stantia (\"Luogo e orari da confermare\"). Dati corretti da post-approvati-2026-09-01.md. Copia pag.11 master DAHSASb8IAU, DA ELIMINARE. Giorno Python: 05/09=Sab, 06/09=Dom. Font giorno+data ridotto a 82 (uniforme) per tenere \"5-6 Settembre\" su una riga (regola blocco data). Titolo 74 (2 righe). Ora cancellata (Villaggio del contadino sab-dom senza orario preciso confermato) + luogo riallineato a left 59. CTA di chiusura (unica storia in coda per il 05/09). Validazione al contrario: nessuna discrepanza. ⚠️ Non copre venerdì 4 (San Marino nel piatto): segnalato a Michele."
+   "evento": "[SUPERATA] Dal Turista al Contadino 1° weekend (05/09) — RIFATTA: la busta 20260905_Storia in coda aveva date sbagliate (\"5-6 Settembre\" ok ma layout rotto, Settembre sotto la linea) e descrizione stantia (\"Luogo e orari da confermare\"). Dati corretti da post-approvati-2026-09-01.md. Copia pag.11 master DAHSASb8IAU, DA ELIMINARE. Giorno Python: 05/09=Sab, 06/09=Dom. Font giorno+data ridotto a 82 (uniforme) per tenere \"5-6 Settembre\" su una riga (regola blocco data). Titolo 74 (2 righe). Ora cancellata (Villaggio del contadino sab-dom senza orario preciso confermato) + luogo riallineato a left 59. CTA di chiusura (unica storia in coda per il 05/09). Validazione al contrario: nessuna discrepanza. ⚠️ Non copre venerdì 4 (San Marino nel piatto): segnalato a Michele. — poi la storia DTC e stata ridatata al 04/09 (guardia imminenti del 03/09 chiedeva feed+storie per il venerdi, giorno di apertura). Export 20260905 spostato in _vecchi/."
+  },
+  {
+   "data_giro": "2026-09-02",
+   "tipo": "storia",
+   "mazzo": "singolo",
+   "pagina": 12,
+   "copia_design_id": "DAHUFgt-JT0",
+   "file": "20260904_Storia_1.png",
+   "evento": "Dal Turista al Contadino 1° weekend — APERTURA (04/09) — catena Step 2-bis (guardia controllo-imminenti.py del 03/09: 04/09 scoperto). Storia ridatata da 05/09 a 04/09 (giorno di apertura, \"San Marino nel piatto\" Piazza Sant Agata ven 4 dalle 18:00). Sostituisce la busta stantia 20260905_Storia (rimossa). Copia pag.12 master DAHSASb8IAU, DA ELIMINARE. Giorno Python: 04/09=Venerdi. Font giorno 95/data 115 (\"4 Settembre\" sta su una riga), titolo 74 (2 righe), descrizione 48. Ora 18:00 mostrata. CTA di chiusura (DTC e story-only per decisione Michele 23/07, nessun altro evento il 04/09 -> feed 04/09 legittimamente vuoto). Validazione al contrario: nessuna discrepanza."
   }
  ],
  "_nota_26-07-2026": "Settimanale 27/07-02/08 rifatto da zero: la bozza in dati/post/aggregati-luglio-agosto-2026.md era del 30/06 e aveva solo 3 dei 10 eventi (non conosceva il recupero del 25/07). Fonte usata: le buste gia' in coda in posts/, che avevano gia' passato /smh-check. Titolo tennis accorciato da 'San Marino Open - tennis ATP' (andava a capo e sbatteva sulla riga sotto) a 'San Marino Open - tennis': su questo design il titolo sta su una riga fino a ~25 caratteri. COPIA usa-e-getta da cestinare a mano: DAHQbtk6OaI.",
