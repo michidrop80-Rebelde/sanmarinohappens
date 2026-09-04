@@ -22,7 +22,7 @@
    "design_id": "DAHORdC0zdY",
    "nome_canva": "SMH - Settimanale Master",
    "totale_pagine": 4,
-   "ultima_pagina_usata": 3,
+   "ultima_pagina_usata": 4,
    "struttura_riga": "8 righe evento. Ogni riga = casella giorno/data (es. 'Martedì 21/07') + casella titolo evento + casella LUOGO BREVE (solo Castello/venue, es. 'Valdragone' — semplificato dall'agente dal luogo completo della fonte) + linea divisoria (SHAPE). SUL GRAFICO niente ora e niente prezzi. Ora/indirizzo completo/prezzi/prenotazione vanno in CAPTION. Vedi memoria project_architettura_info_aggregati."
   },
   "weekend": {
@@ -1480,6 +1480,14 @@
    "copia_design_id": "DAHUIJtd8oU",
    "file": "20260905_Storia_1.png",
    "evento": "Festa di Fine Estate Acquaviva (05/09) - catena Step 2-bis. Copia pag.13 master DAHSASb8IAU, DA ELIMINARE. Giorno Python: 05/09=Sabato. Ora accorciata a '19:00' ('dalle 19:00' si sovrapponeva al luogo, rientro fisso a 230). CTA di chiusura (unica storia del 05/09). Validazione al contrario: nessuna discrepanza."
+  },
+  {
+   "data_giro": "2026-09-04",
+   "tipo": "settimanale",
+   "pagina": 4,
+   "copia_design_id": "DAHUOLLiFaw",
+   "file": "20260906_Settimanale.png",
+   "evento": "Settimanale 07-13/09/2026 (esce dom 06/09 18:00) - catena Step 2-bis (controllo-imminenti.py uscita 2: buco settimanale 06/09 in finestra 48h). Copia pag.4 master DAHORdC0zdY, DA ELIMINARE. 8 eventi -> 8 righe piene (nessuna cancellazione). Giorni Python: 08/09=Mar, 09/09=Mer, 11/09=Ven, 12/09=Sab, 13/09=Dom. Righe: 1 Concerto Morricone (m98), 2 Serravalle in Wellness (m80), 3 BeerFest Queen Tribute/Vipers (m84), 4 GP MotoGP San Marino (m48), 5 Musikfest Adriatica (m99), 6 BeerFest Anni 90/Love Gen 90 (m72), 7 Dal Turista al Contadino II tappa (m60), 8 Palio Don Bosco (m81). Luogo BeerFest = Parco di Dogana (master corretto 24/08, non Campo Bruno Reffi). Nessun font ridotto. Validazione al contrario: nessuna discrepanza."
   }
  ],
  "_nota_26-07-2026": "Settimanale 27/07-02/08 rifatto da zero: la bozza in dati/post/aggregati-luglio-agosto-2026.md era del 30/06 e aveva solo 3 dei 10 eventi (non conosceva il recupero del 25/07). Fonte usata: le buste gia' in coda in posts/, che avevano gia' passato /smh-check. Titolo tennis accorciato da 'San Marino Open - tennis ATP' (andava a capo e sbatteva sulla riga sotto) a 'San Marino Open - tennis': su questo design il titolo sta su una riga fino a ~25 caratteri. COPIA usa-e-getta da cestinare a mano: DAHQbtk6OaI.",
