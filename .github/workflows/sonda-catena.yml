@@ -1,0 +1,217 @@
+# Sonda della catena in cloud — un giro FINTO che prova la strada
+#
+# PERCHE' ESISTE (ticket 05 della mappa "La catena si stacca dal Mac")
+# Prima di riscrivere i quattro anelli di testo per farli girare su GitHub
+# Actions, questo workflow dimostra in mezz'ora che la strada regge — o dice
+# esattamente dove si rompe. La lezione di agosto: misurare, non stimare.
+#
+# COSA FA (si lancia A MANO dal sito GitHub: Actions -> Sonda catena -> Run)
+#   1. clona il repo su un computer di GitHub
+#   2. installa Claude Code e si autentica con l'abbonamento di Michele
+#   3. Claude legge dati/calendario/master.md e DEVE citare un evento vero
+#   4. Claude fa UNA ricerca web su una fonte del progetto
+#   5. Claude lancia una guardia del progetto (controllo-integrita.py) e ne
+#      riporta l'uscita — se fallisce per il percorso assoluto (ticket 11) e'
+#      un'informazione utile, non un fallimento della sonda
+#   6. Claude scrive il referto in dati/sonda/
+#   7. un passo di shell fa commit + push del referto
+#   8. un passo di shell manda un Telegram con l'esito e i due NUMERI:
+#      quanto e' durata la run e quanto abbonamento ha consumato
+#
+# CHI VEDE COSA
+#   - Il passo di Claude ha in mano SOLO il token dell'abbonamento. Non vede
+#     mai i token Telegram/Meta (regola del ticket 02, punto 7).
+#   - Il commit usa il GITHUB_TOKEN della run, limitato a "contents: write".
+#
+# ESITO ATTESO: run verde, Telegram arrivato, commit presente, due numeri in
+# mano. Se qualcosa non passa, si legge nel referto e nel Telegram: una sonda
+# che fallisce ha comunque fatto il suo lavoro.
+
+name: Sonda catena
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sonda-catena
+  cancel-in-progress: false
+
+jobs:
+  sonda:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Installa dipendenze Python
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Installa Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Segna l'ora di inizio
+        id: start
+        run: echo "epoch=$(date +%s)" >> "$GITHUB_OUTPUT"
+
+      # --- IL GIRO FINTO ------------------------------------------------------
+      # Claude fa i passi 3-6 in un colpo solo. Ha in mano solo il token
+      # dell'abbonamento. --output-format json fa scrivere a fine run un
+      # oggetto con durata, numero di turni e costo: sono i numeri da misurare.
+      # Se questo passo fallisce, i passi dopo girano lo stesso (if: always()).
+      - name: Claude fa il giro finto
+        id: giro
+        continue-on-error: true
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          mkdir -p dati/sonda
+          PROMPT=$(cat <<'EOF'
+          Sei una SONDA di prova. Non stai facendo il lavoro vero della catena:
+          stai solo dimostrando che questo ambiente (GitHub Actions) puo' fare
+          cio' che serve. Fai ESATTAMENTE questi passi, in ordine, poi scrivi il
+          referto. Non chiedere conferme.
+
+          1. Leggi il file dati/calendario/master.md. Trova un evento VERO
+             (nome, data, luogo) citato li' dentro e tienilo da parte. Se il
+             file non c'e' o e' illeggibile, annotalo.
+
+          2. Fai UNA sola ricerca web (WebSearch) su una fonte del progetto:
+             cerca "visitsanmarino.com eventi San Marino settembre 2026".
+             Annota se la ricerca ha restituito qualcosa di sensato.
+
+          3. Lancia la guardia del progetto con Bash:
+               python3 scripts/controllo-integrita.py
+             Annota il codice di uscita e le ultime ~15 righe dell'output.
+             ATTENZIONE: questa guardia potrebbe fallire per un percorso
+             assoluto /Users/michele/... (e' il ticket 11 della mappa). Se
+             succede quello, scrivilo chiaramente come informazione utile, NON
+             come errore della sonda, e prosegui.
+
+          4. Scrivi un file dati/sonda/ESITO.md (in italiano semplice) con:
+             - data e ora UTC
+             - l'evento vero citato al passo 1 (nome + data + luogo)
+             - esito della ricerca web del passo 2
+             - codice di uscita + ultime righe della guardia del passo 3
+             - una riga di giudizio: "la strada regge" oppure "si rompe qui: ..."
+
+          Non fare git. Non mandare Telegram. Ci pensano i passi dopo.
+          EOF
+          )
+          set +e
+          claude -p "$PROMPT" \
+            --output-format json \
+            --allowedTools "Read,WebSearch,Write,Bash(python3:*),Bash(python:*)" \
+            --dangerously-skip-permissions \
+            --max-turns 40 \
+            > dati/sonda/claude-run.json
+          echo "exit_claude=$?" >> "$GITHUB_OUTPUT"
+          set -e
+          echo "----- claude-run.json -----"
+          cat dati/sonda/claude-run.json || true
+
+      # --- I DUE NUMERI -----------------------------------------------------
+      - name: Estrai i numeri (durata + consumo)
+        id: numeri
+        if: always()
+        run: |
+          START=${{ steps.start.outputs.epoch }}
+          NOW=$(date +%s)
+          WALL=$((NOW - START))
+          echo "wall_sec=$WALL" >> "$GITHUB_OUTPUT"
+
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json, os, sys
+          p = "dati/sonda/claude-run.json"
+          try:
+              d = json.load(open(p))
+          except Exception as e:
+              print(f"cost_usd=n/d ({e})")
+              print("turns=n/d")
+              print("dur_api_sec=n/d")
+              print("tokens=n/d")
+              sys.exit(0)
+          if isinstance(d, list):
+              d = d[-1] if d else {}
+          cost = d.get("total_cost_usd", "n/d")
+          turns = d.get("num_turns", "n/d")
+          dur_ms = d.get("duration_ms")
+          u = d.get("usage", {}) or {}
+          tin = u.get("input_tokens", 0)
+          tout = u.get("output_tokens", 0)
+          cache_r = u.get("cache_read_input_tokens", 0)
+          cache_c = u.get("cache_creation_input_tokens", 0)
+          print(f"cost_usd={cost}")
+          print(f"turns={turns}")
+          print(f"dur_api_sec={round(dur_ms/1000,1) if dur_ms else 'n/d'}")
+          print(f"tokens=in {tin} / out {tout} / cache-read {cache_r} / cache-create {cache_c}")
+          PY
+
+      - name: Scrivi il riepilogo nella pagina della run
+        if: always()
+        run: |
+          {
+            echo "## Sonda catena — esito"
+            echo ""
+            echo "| voce | valore |"
+            echo "|---|---|"
+            echo "| passo Claude (exit) | ${{ steps.giro.outputs.exit_claude }} |"
+            echo "| durata totale run | ${{ steps.numeri.outputs.wall_sec }} s |"
+            echo "| durata vista da Claude | ${{ steps.numeri.outputs.dur_api_sec }} s |"
+            echo "| turni | ${{ steps.numeri.outputs.turns }} |"
+            echo "| costo (valore \$ equivalente sull'abbonamento) | ${{ steps.numeri.outputs.cost_usd }} |"
+            echo "| token | ${{ steps.numeri.outputs.tokens }} |"
+            echo ""
+            echo "### Referto di Claude"
+            echo ""
+            echo '```'
+            cat dati/sonda/ESITO.md 2>/dev/null || echo "(ESITO.md non scritto)"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      # --- COMMIT + PUSH DEL REFERTO ---------------------------------------
+      - name: Commit e push del referto
+        if: always()
+        id: commit
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action (sonda)"
+          STAMP=$(date -u +%Y-%m-%d-%H%M)
+          mkdir -p dati/sonda
+          if [ -f dati/sonda/ESITO.md ]; then
+            cp dati/sonda/ESITO.md "dati/sonda/sonda-$STAMP.md"
+          fi
+          git add -A dati/sonda
+          git commit -m "Sonda catena in cloud — $STAMP" || { echo "Niente da committare"; echo "sha=nessuno" >> "$GITHUB_OUTPUT"; exit 0; }
+          git pull --rebase origin main
+          git push origin HEAD:main
+          echo "sha=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
+
+      # --- TELEGRAM -------------------------------------------------------
+      - name: Avvisa Michele su Telegram
+        if: always()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          TESTO="🛰️ SONDA CATENA IN CLOUD
+          Passo Claude (exit): ${{ steps.giro.outputs.exit_claude }}
+          Durata run: ${{ steps.numeri.outputs.wall_sec }}s  (vista da Claude: ${{ steps.numeri.outputs.dur_api_sec }}s)
+          Turni: ${{ steps.numeri.outputs.turns }}
+          Consumo (valore \$ equiv.): ${{ steps.numeri.outputs.cost_usd }}
+          Token: ${{ steps.numeri.outputs.tokens }}
+          Commit referto: ${{ steps.commit.outputs.sha }}
+          Log completo: $RUN_URL"
+          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
+            --data-urlencode "text=${TESTO}" > /dev/null
+          echo "Telegram inviato."
