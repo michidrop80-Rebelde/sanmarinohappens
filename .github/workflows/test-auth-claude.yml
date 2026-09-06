@@ -1,0 +1,14 @@
+name: test-auth-claude
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Installa Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+      - name: Prova autenticazione
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: claude -p "Rispondi solo con: AUTENTICAZIONE OK"
