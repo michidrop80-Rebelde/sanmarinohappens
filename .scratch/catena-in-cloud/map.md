@@ -133,6 +133,16 @@ ticket di discussione; le skill del progetto (`smh-*`) come fonte di verità sul
   Telegram reale** (Michele l'ha lanciata: messaggio arrivato via ripiego su `curl`). Credenziali:
   env var `TELEGRAM_*` in Actions, `.claude/secrets/telegram.json` sul Mac. Commit `9bd1f64` + 2.
 
+- [12 — Accorgersi che il token è scaduto PRIMA che la catena si fermi](issues/12-avviso-scadenza-token.md) —
+  **Fatto.** `scripts/controllo-scadenze-token.py` legge `dati/scadenze-token.json` (lista-macchina
+  delle scadenze: oggi solo `CLAUDE_CODE_OAUTH_TOKEN` → 06/09/2027, soglia 21 giorni), calcola i
+  giorni in Python e manda un Telegram azionabile («⚠️ in scadenza» / «🔴 già scaduto», con come
+  rigenerare). Gira come passo `continue-on-error` del workflow *Metriche settimanali* (ogni lunedì),
+  che aveva già i segreti Telegram. Stessa forma del promemoria token IG in `metrics.py`, ma script
+  a parte perché quello si ferma se manca `INSTAGRAM_TOKEN`. Provato forzando la data (17 gg / soglia
+  esatta / scaduto). Commit `dd47ba5`. Resta da confermare l'invio Telegram dal vivo (10 s Michele) e,
+  vedi sotto, il PAT di cron-job.org.
+
 ## Non ancora specificato
 
 - **Aggiornare Node 20 → 24 in tutti i workflow del repo.** La sonda ha fatto emergere l'avviso di
@@ -147,6 +157,14 @@ ticket di discussione; le skill del progetto (`smh-*`) come fonte di verità sul
   quindi la domanda sopravvive tale e quale: un backup a mano si dimentica. Da riguardare quando la
   catena quotidiana in cloud esiste — a quel punto il repo pubblico si riempie da solo ogni notte e
   il rischio si sposta su cosa il backup **non** copre.
+
+- **Le altre scadenze da mettere nella guardia del ticket 12.** Il meccanismo
+  (`dati/scadenze-token.json` + `controllo-scadenze-token.py`) è generico: manca solo aggiungere le
+  righe. Due candidati noti: (a) il **PAT fine-grained di cron-job.org** che fa i `workflow_dispatch`
+  puntuali — se scade, i trigger delle 7:00/18:00 muoiono e restano solo i cron interni di GitHub
+  (in ritardo di ore); (b) l'`INSTAGRAM_TOKEN`, oggi seguito solo da `metrics.py`. Serve prima
+  recuperare le date vere da GitHub — non si inventano. Da fare quando Michele le ha sottomano.
+  Quando esiste la catena quotidiana in cloud, chiamare la guardia anche lì, non solo il lunedì.
 
 - **L'accumulo dei file di catena.** Il giro quotidiano aggiungerà ~1.000 file l'anno (6 MB circa).
   Deciso nel ticket 01 di **non archiviare nulla adesso**: sarebbe un pezzo in più che può spostare
