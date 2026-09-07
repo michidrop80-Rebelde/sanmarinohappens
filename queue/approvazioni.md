@@ -68,3 +68,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-09-07T07:34:29.788Z — approvato — 20260907-0654-01 — Michele Morri @RebeldeRN — 🆕 Giornata Mondiale Fair Play 2026
 - [ ] 2026-09-07T07:34:32.141Z — approvato — 20260907-0654-02 — Michele Morri @RebeldeRN — 🆕 Giornata Mondiale Fair Play 2026
 - [ ] 2026-09-07T07:34:33.280Z — approvato — 20260907-0654-03 — Michele Morri @RebeldeRN — 🆕 Giornata Mondiale Fair Play 2026
+- [ ] 2026-09-07T07:34:44.239Z — approvato — 20260907-0654-04 — Michele Morri @RebeldeRN — ⚠️ XXXII Mostra Micologica
