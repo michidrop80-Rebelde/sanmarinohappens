@@ -117,7 +117,23 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action (prova pulsanti)"
-          git add -A dati/telegram queue/telegram-da-inviare.json 2>/dev/null || true
+
+          # ⚠️ DUE `git add` SEPARATI, e non per pignoleria (guasto del 07/09/2026).
+          # Erano su una riga sola insieme alla busta: ma dopo un invio riuscito la
+          # busta NON esiste più, `git add` falliva su tutto il comando e il `|| true`
+          # si mangiava l'errore. Risultato: passo verde, mappa del giro MAI committata.
+          # In un giro vero vorrebbe dire perdere il foglio che dice quale pulsante
+          # corrisponde a quale evento.
+          git add -A dati/telegram
+          [ -f queue/telegram-da-inviare.json ] && git add queue/telegram-da-inviare.json
+
+          # Se l'invio è riuscito, una mappa DEVE esserci. Se non c'è, è un guasto,
+          # non un "niente da fare": meglio rosso adesso che scoprirlo in un giro vero.
+          if [ "${{ steps.invio.outcome }}" = "success" ] && [ -z "$(git diff --cached --name-only)" ]; then
+            echo "🛑 L'invio è riuscito ma non c'è niente da committare: la mappa del giro manca."
+            exit 1
+          fi
+
           git commit -m "Prova pulsanti (ticket 07): mappa del giro di collaudo" || {
             echo "Niente da committare"; exit 0; }
           git pull --rebase origin main
