@@ -58,3 +58,11 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python scripts/avviso-integrita.py
+
+      # Seconda guardia, stesso spirito: la regola «l'agente non tocca mai una
+      # chiave» (ticket 07) finora viveva dentro un commento, e un commento non
+      # ferma nessuno. Qui si legge davvero cosa ha in mano ogni passo che
+      # lancia `claude`. Rosso = qualcuno ha dato una chiave all'agente.
+      # Non ha bisogno di segreti: legge solo i file dei workflow.
+      - name: L'agente ha in mano qualche chiave?
+        run: python scripts/controllo-token-agente.py

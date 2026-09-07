@@ -64,6 +64,11 @@ PERCORSO = re.compile(
 # Ognuno con il motivo scritto: se un giorno il motivo non vale piu', si toglie da qui.
 TOLLERATI = {
     ".claude/secrets/telegram-state.json": "creato al volo dal primo giro con pulsanti",
+    # Questa e' l'unica voce che e' normale NON trovare: la busta dei pulsanti
+    # esiste solo fra il "prepara" e l'"invia". Se la trovi, vuol dire che
+    # l'ultimo invio NON e' riuscito (ticket 07) — se ne accorge chi legge, non
+    # questa guardia, che sennò direbbe ✅ proprio quando qualcosa non va.
+    "queue/telegram-da-inviare.json": "busta di passaggio: normale che non ci sia",
 }
 if IN_CLOUD:
     TOLLERATI.update({

@@ -1,0 +1,139 @@
+# Prova pulsanti — l'agente manda i tasti ✅/❌ SENZA avere la chiave in mano
+#
+# PERCHE' ESISTE (ticket 07 della mappa "La catena si stacca dal Mac")
+# L'agente che prepara il giro legge pagine web scritte da sconosciuti. Se una
+# contenesse istruzioni nascoste, non deve avere niente di pericoloso a portata:
+# in particolare NON deve mai vedere la chiave del bot Telegram.
+# Qui si dimostra, dal vivo, che si può fare:
+#
+#   passo 1 (l'agente)   ha SOLO il token dell'abbonamento. Prima ancora di
+#                        partire, controlla il proprio ambiente e va in rosso se
+#                        vede una variabile TELEGRAM. Poi scrive la "busta"
+#                        queue/telegram-da-inviare.json con `prepara`.
+#   passo 2 (il postino) ha SOLO le chiavi Telegram, non ragiona: legge la
+#                        busta, controlla che i pulsanti abbiano la forma
+#                        giusta, spedisce, salva la mappa del giro e cancella
+#                        la busta.
+#
+# COME SI LANCIA: a mano. Actions -> "Prova pulsanti" -> Run workflow.
+# ESITO ATTESO: sul telefono di Michele arriva un messaggio marcato 🧪 PROVA con
+# due eventi finti e i tasti veri; il giro si chiama PROVA-<data>-<ora>, così
+# nessuno lo scambia per un giro vero.
+#
+# Questo blocco a due passi è il pezzo che il ticket 08 (giro del lunedì in
+# cloud) si porterà dentro già collaudato.
+
+name: Prova pulsanti
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: prova-pulsanti
+  cancel-in-progress: false
+
+jobs:
+  prova:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Installa dipendenze
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+          npm install -g @anthropic-ai/claude-code
+
+      # --- PASSO 1: L'AGENTE, SENZA CHIAVI ----------------------------------
+      # env: qui c'è SOLO il token dell'abbonamento. La prima cosa che fa il
+      # passo è guardarsi in tasca: se trovasse una variabile TELEGRAM_*, si
+      # ferma. Non è teatro — è la prova che si può leggere nel log pubblico.
+      - name: L'agente prepara la busta (senza la chiave)
+        id: agente
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          echo "--- Cosa ha in tasca questo passo (nomi, mai valori) ---"
+          env | cut -d= -f1 | grep -iE 'telegram|instagram|facebook|canva' && {
+            echo "🛑 Questo passo vede una chiave che non dovrebbe vedere."
+            exit 1
+          } || echo "✅ Nessuna variabile Telegram/Instagram/Facebook/Canva in questo passo."
+
+          PROMPT=$(cat <<'EOF'
+          Sei il passo agentico di una PROVA. Devi solo dimostrare che sai
+          preparare la busta dei pulsanti senza toccare nessuna chiave.
+
+          Lancia esattamente questo comando con Bash, una volta sola:
+
+          python3 .claude/scripts/telegram-giro.py prepara --prova --summary "Messaggio di collaudo del ticket 07: nessun evento qui e' vero." --events '[{"id":"01","titolo":"PROVA A - non e un evento vero","tipo":"nuovo","data":"01/01","luogo":"nessun luogo","url":"https://example.com/prova-a"},{"id":"02","titolo":"PROVA B - non e un evento vero","tipo":"nuovo","data":"02/01","luogo":"nessun luogo","url":"https://example.com/prova-b"}]'
+
+          Poi stampa l'uscita del comando e fermati. Non mandare niente su
+          Telegram: non hai la chiave, e non e' compito tuo. Non fare git.
+          EOF
+          )
+          set +e
+          claude -p "$PROMPT" \
+            --output-format json \
+            --allowedTools "Bash(python3:*),Read" \
+            --dangerously-skip-permissions \
+            --max-turns 15 \
+            > /tmp/claude-prova.json
+          echo "exit_claude=$?" >> "$GITHUB_OUTPUT"
+          set -e
+          python3 -c "import json;d=json.load(open('/tmp/claude-prova.json'));d=d[-1] if isinstance(d,list) else d;print('costo:',d.get('total_cost_usd'),'turni:',d.get('num_turns'))" || true
+
+          echo "--- La busta scritta dall'agente ---"
+          cat queue/telegram-da-inviare.json
+
+      # --- PASSO 2: IL POSTINO, L'UNICO CON LA CHIAVE -----------------------
+      # Non ragiona: legge la busta, la controlla e spedisce. Se la busta non
+      # c'è, si ferma rosso invece di far finta di niente.
+      - name: Spedisci i pulsanti (l'unico passo con la chiave)
+        id: invio
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          if [ ! -f queue/telegram-da-inviare.json ]; then
+            echo "🛑 L'agente non ha scritto nessuna busta: non c'è niente da spedire."
+            exit 1
+          fi
+          python3 .claude/scripts/telegram-giro.py invia
+
+      # --- LA PROVA RESTA SCRITTA -------------------------------------------
+      # La mappa del giro va committata: è il foglio che dice quale pulsante
+      # corrisponde a quale evento. Se l'invio fosse fallito, qui finirebbe in
+      # git la BUSTA rimasta — ed è esattamente l'allarme che vogliamo.
+      - name: Commit della mappa del giro
+        if: always()
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action (prova pulsanti)"
+          git add -A dati/telegram queue/telegram-da-inviare.json 2>/dev/null || true
+          git commit -m "Prova pulsanti (ticket 07): mappa del giro di collaudo" || {
+            echo "Niente da committare"; exit 0; }
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Riepilogo
+        if: always()
+        run: |
+          {
+            echo "## Prova pulsanti — ticket 07"
+            echo ""
+            echo "| voce | valore |"
+            echo "|---|---|"
+            echo "| passo agente (exit) | ${{ steps.agente.outputs.exit_claude }} |"
+            echo "| esito invio | ${{ steps.invio.outcome }} |"
+            echo ""
+            echo "L'agente non ha mai avuto in mano TELEGRAM_BOT_TOKEN: il passo"
+            echo "si controlla le tasche da solo prima di partire (vedi log)."
+          } >> "$GITHUB_STEP_SUMMARY"

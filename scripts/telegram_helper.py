@@ -18,6 +18,7 @@ USO
 Legge il token e la chat da `TELEGRAM_BOT_TOKEN` / `TELEGRAM_CHAT_ID`
 (variabili d'ambiente, come in GitHub Actions). Se mancano, non manda e lo dice.
 """
+import json
 import os
 import subprocess
 
@@ -57,6 +58,56 @@ def manda_telegram(testo: str) -> bool:
         if esito.returncode == 0 and '"ok":true' in esito.stdout:
             return True
         print(f"(anche curl ha fallito: {esito.returncode} {esito.stdout[:200]})")
+    except Exception as e:
+        print(f"(curl non disponibile: {e})")
+    return False
+
+
+def manda_messaggio(testo: str, tasti=None, parse_mode: str = None,
+                    token: str = None, chat_id: str = None) -> bool:
+    """Come `manda_telegram`, ma sa mandare anche i PULSANTI (`tasti`).
+
+    `tasti` è l'oggetto `reply_markup` di Telegram (di norma
+    `{"inline_keyboard": [[...]]}`). Quando c'è, il messaggio va spedito in
+    JSON — non come campi di modulo — quindi qui il corpo è sempre JSON.
+
+    Il token si può passare a mano (`token`/`chat_id`); se non si passa, si
+    legge da `TELEGRAM_BOT_TOKEN` / `TELEGRAM_CHAT_ID`. È l'unico punto del
+    progetto che tocca il token: chi chiama non deve mai vederlo.
+    """
+    token = token or os.getenv("TELEGRAM_BOT_TOKEN")
+    chat_id = chat_id or os.getenv("TELEGRAM_CHAT_ID")
+    if not token or not chat_id:
+        print("(Telegram non configurato: TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID mancanti)")
+        return False
+
+    url = f"https://api.telegram.org/bot{token}/sendMessage"
+    corpo = {"chat_id": chat_id, "text": testo}
+    if parse_mode:
+        corpo["parse_mode"] = parse_mode
+    if tasti:
+        corpo["reply_markup"] = tasti
+    dati = json.dumps(corpo)
+
+    try:
+        import requests
+        r = requests.post(url, data=dati.encode("utf-8"),
+                          headers={"Content-Type": "application/json"}, timeout=20)
+        if r.ok and r.json().get("ok"):
+            return True
+        print(f"(requests: Telegram ha risposto {r.status_code} {r.text[:200]} — provo con curl)")
+    except Exception as e:
+        print(f"(requests non ha funzionato: {e} — provo con curl)")
+
+    try:
+        esito = subprocess.run(
+            ["curl", "-sS", "--max-time", "20", "-X", "POST", url,
+             "-H", "Content-Type: application/json", "-d", dati],
+            capture_output=True, text=True, timeout=30,
+        )
+        if esito.returncode == 0 and '"ok":true' in esito.stdout:
+            return True
+        print(f"(anche curl ha fallito: {esito.returncode} {esito.stdout[:200]}{esito.stderr[:200]})")
     except Exception as e:
         print(f"(curl non disponibile: {e})")
     return False

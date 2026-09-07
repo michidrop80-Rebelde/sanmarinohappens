@@ -23,8 +23,10 @@ risposta, dillo e fermati — non toccare i file.
 ## Flusso
 
 ### Step 1 — Carica il contesto
-Leggi `.claude/secrets/telegram-state.json` per l'`ultimo_giro_id`, che ti serve per caricare
-la mappa del giro (`dati/telegram/pending/<ultimo_giro_id>.json`). Tieni anche da parte
+L'`ultimo_giro_id` sta in **`dati/telegram/pending/ultimo-giro.txt`** (versionato: funziona
+anche in cloud, dove `.claude/secrets/` non esiste). Se quel file manca, ripiega su
+`.claude/secrets/telegram-state.json` (`ultimo_giro_id`), che sul Mac resta allineato.
+Ti serve per caricare la mappa del giro (`dati/telegram/pending/<ultimo_giro_id>.json`). Tieni anche da parte
 eventuali `approvazioni_raccolte` da sessioni precedenti, se presenti.
 
 ### Step 2 — Leggi le risposte dal FILE, non da Telegram
@@ -62,6 +64,11 @@ ha reso ambigue le 6 righe dell'08/08/2026. Si chiude la riga marcandola `- [x]`
 aggiungendo in fondo ` — ⚠️ non mappabile (formato pre-fix del 10/08)`, si scrive **una
 riga sola** nel referto, e non se ne parla più: un avviso non azionabile ripetuto a ogni
 giro copre quelli veri.
+
+**Righe di collaudo (`PROVA-...`):** un id che comincia con `PROVA-` viene da un giro di
+prova (workflow *Prova pulsanti*, ticket 07): **non è un evento vero e non tocca niente**.
+Si chiude subito come `- [x] ... — 🧪 riga di collaudo, ignorata` e non entra nel referto
+se non come una riga sola.
 
 **File del giro mancante:** stesso trattamento del formato vecchio. Un `giro_id` che non
 ha il suo file non è ricostruibile.

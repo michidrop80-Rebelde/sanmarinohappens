@@ -143,12 +143,21 @@ Se non ci sono differenze → salta Step 4 e vai a Step 5 con messaggio "✅ Nes
 stato saltato silenziosamente (Michele ha ricevuto testo senza pulsanti). Usa SEMPRE
 lo script dedicato, che costruisce l'`inline_keyboard` corretto e salva lo stato.
 
-**Cosa fa lo script `.claude/scripts/telegram-giro.py`:**
-1. Manda il **Messaggio 1** = riepilogo numerico (🆕/✏️/🗑/⚠️ con i conteggi).
-2. Manda gli eventi **a blocchi di 3**, ogni evento con due pulsanti reali
-   `✅ [titolo]` / `❌` (callback_data `approve_[ID]` / `reject_[ID]`).
-3. Salva `pending_events` + `sent_at` in `.claude/secrets/telegram-state.json`
-   (lo legge poi smh-approvazione).
+**Lo script si lancia in DUE tempi** (ticket 07, 07/09/2026) — e non è una
+complicazione: tu leggi pagine web scritte da sconosciuti, quindi **non devi mai avere
+in mano il token di Telegram**. Prepari il messaggio, a spedirlo è un passo separato.
+
+1. **`prepara`** — non serve nessuna chiave. Gli passi la lista degli eventi; lui
+   costruisce riepilogo, blocchi da 3 e pulsanti veri (`approve_<giro>-<id>` /
+   `reject_<giro>-<id>`) e scrive la **busta** `queue/telegram-da-inviare.json`.
+2. **`invia`** — il passo col token. Legge la busta, **controlla che i pulsanti abbiano
+   la forma giusta** (una busta scritta a mano viene rifiutata), spedisce, salva la mappa
+   del giro in `dati/telegram/pending/<giro_id>.json` + il puntatore
+   `dati/telegram/pending/ultimo-giro.txt`, e **solo allora** cancella la busta.
+
+⚠️ **Se la busta resta lì, l'invio non è riuscito.** È un allarme, non un file di scarto:
+`prepara` si rifiuta di sovrascriverne una e esce con codice 6. Prima si capisce perché è
+rimasta (rete? token?), poi si rilancia `invia`.
 
 **Come chiamarlo:** prepara un array JSON degli eventi non-invariati e passalo a `--events`.
 Ogni evento è un oggetto con questi campi:
@@ -184,8 +193,7 @@ Michele se li spulcia da sé. Meglio la pagina-lista che nessun link.
 
 ```bash
 cd "$(git rev-parse --show-toplevel)"
-python3 .claude/scripts/telegram-giro.py \
-  --secrets .claude/secrets/telegram.json \
+python3 .claude/scripts/telegram-giro.py prepara \
   --events '[
     {"id":"09","titolo":"Sergio Caputo","tipo":"nuovo","data":"03/07","luogo":"Campo Bruno Reffi","url":"https://visitsanmarino.com/eventi/sergio-caputo-2026"},
     {"id":"08","titolo":"Borgo in Festa","tipo":"nuovo","data":"03-05/07","luogo":"Borgo Maggiore","url":"https://usc.sm/eventi/borgo-in-festa-2026"},
@@ -193,10 +201,19 @@ python3 .claude/scripts/telegram-giro.py \
   ]'
 ```
 
-Lo script stampa l'esito di ogni messaggio (✅/❌). Se un messaggio fallisce, lo segnala
-ma continua con gli altri. Riporta in chat l'output dello script.
+Poi, subito dopo, spedisci:
 
-Se **non ci sono eventi non-invariati**, chiama lo script con `--events '[]'`:
+```bash
+python3 .claude/scripts/telegram-giro.py invia
+```
+
+Lo script stampa l'esito di ogni messaggio (✅/❌). Codici di uscita: **0** tutto partito ·
+**1** non è partito NIENTE (la busta resta, nessuno stato salvato) · **3** partito a metà
+(la mappa si salva lo stesso e Michele riceve una riga che dice che la lista è incompleta:
+i pulsanti già arrivati valgono) · **4** busta malfatta, non spedita. Riporta in chat
+l'output di tutti e due i comandi.
+
+Se **non ci sono eventi non-invariati**, chiama `prepara --events '[]'` e poi `invia`:
 manda solo il riepilogo "✅ Nessuna novità questa settimana" e non crea pulsanti.
 
 ### Step 5 — Aggiorna il calendario pubblico (sito)

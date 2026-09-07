@@ -229,7 +229,11 @@ In sequenza rigida, uno alla volta:
    sulla coda e riscrive bozze di post già pronti. Va lanciata **prima** di mandare i
    pulsanti, altrimenti Michele approva roba già in coda.
 5. **Telegram con i pulsanti**: usa **sempre** `.claude/scripts/telegram-giro.py`, mai
-   `curl` a mano (i pulsanti costruiti a mano sono già stati saltati in silenzio).
+   `curl` a mano (i pulsanti costruiti a mano sono già stati saltati in silenzio). Dal
+   07/09/2026 va lanciato in **due tempi**: `prepara --events '[...]'` (scrive la busta
+   `queue/telegram-da-inviare.json`, nessuna chiave in mano) e poi `invia` (l'unico passo
+   che tocca il token). Se dopo `invia` la busta è ancora lì, **l'invio non è riuscito**:
+   dillo nel referto, non proseguire come se niente fosse.
 
 Se il postino non trova niente di importabile (segnalazione doppia, foto illeggibile, evento
 già presente), **fermati lì e dillo**: non ha senso far girare verifica e testi a vuoto.
