@@ -74,18 +74,58 @@ RIPRESA_A_VUOTO = {
 }
 
 
-def corri(extra, gia_avvisato=False):
-    """Lancia il referto in una cartella usa-e-getta e restituisce (testo, manda)."""
+D = BASE["DATA"]
+FILE = {
+    "eventi": f"dati/eventi/eventi-{D}.md",
+    "verificati": f"dati/eventi/verificati/eventi-verificati-{D}.md",
+    "post": f"dati/post/post-{D}.md",
+}
+
+
+def _git(dove, *a):
+    subprocess.run(["git", *a], cwd=dove, check=True, capture_output=True)
+
+
+def scena(tmp: Path, scritti):
+    """Un repo git finto: `main` col giro del Mac, il ramo col giro del cloud.
+
+    ⚠️ Serve un repo VERO perché il referto deve distinguere un file scritto dal
+    cloud da uno solo COPIATO da main. Senza questa scena la prova non
+    proverebbe proprio la bugia che è costata la prima corsa del 07/09/2026.
+    `scritti` dice quali file il cloud ha davvero riscritto.
+    """
+    _git(tmp, "init", "--quiet", "-b", "main")
+    _git(tmp, "config", "user.email", "prova@example.com")
+    _git(tmp, "config", "user.name", "Prova")
+    for chiave, percorso in FILE.items():
+        f = tmp / percorso
+        f.parent.mkdir(parents=True, exist_ok=True)
+        f.write_text(f"# giro del Mac — {chiave}\n", encoding="utf-8")
+    _git(tmp, "add", "-A")
+    _git(tmp, "commit", "--quiet", "-m", "giro del Mac")
+    _git(tmp, "checkout", "--quiet", "-b", "giro-cloud")
+    for chiave in scritti:
+        (tmp / FILE[chiave]).write_text(f"# giro del CLOUD — {chiave}\n",
+                                        encoding="utf-8")
+    if scritti:
+        _git(tmp, "add", "-A")
+        _git(tmp, "commit", "--quiet", "-m", "giro del cloud")
+
+
+def corri(extra, gia_avvisato=False, scritti=("eventi", "verificati", "post")):
+    """Lancia il referto in un repo usa-e-getta e restituisce (testo, manda)."""
     with tempfile.TemporaryDirectory() as tmp:
+        tmp = Path(tmp)
+        scena(tmp, scritti)
         amb = dict(os.environ)
         amb.update(BASE)
         amb.update({k: str(v) for k, v in extra.items()})
-        uscite = Path(tmp) / "github_output"
+        uscite = tmp / "github_output"
         uscite.write_text("")
         amb["GITHUB_OUTPUT"] = str(uscite)
         if gia_avvisato:
-            d = Path(tmp) / "dati" / "cloud-giro" / BASE["DATA"]
-            d.mkdir(parents=True)
+            d = tmp / "dati" / "cloud-giro" / BASE["DATA"]
+            d.mkdir(parents=True, exist_ok=True)
             (d / "avvisato.ok").write_text("spedito")
         subprocess.run([sys.executable, str(SCRIPT)], cwd=tmp, env=amb,
                        check=True, capture_output=True)
@@ -140,6 +180,25 @@ def main():
     verifica("silenzio quando è a posto", "Integrità" not in t)
     t, _ = corri(COMPLETO | {"INTEGRITA": "❌ file mancanti (vedi la run)"})
     verifica("compare quando manca qualcosa", "Integrità: ❌ file mancanti" in t)
+
+    print("\n[7] Il guasto vero della corsa #1: tappe «fatte» che non hanno prodotto niente")
+    # Le tappe dicono tutte «fatta», ma sul ramo ci sono ancora i file del Mac:
+    # e' quello che e' successo il 07/09/2026 col serbatoio esaurito, e il
+    # referto diceva «1 Ricerca: 22 eventi — fatta». Era una bugia.
+    t, manda = corri(COMPLETO, scritti=())
+    verifica("NON dice più «fatta»", "— fatta" not in t)
+    verifica("dice che non ha prodotto niente", "nessun lavoro prodotto" in t)
+    verifica("NON riporta i numeri dei file del Mac come suoi",
+             "22 eventi" not in t and "24 bozze" not in t)
+    verifica("mette in cima che il giro è passato a vuoto", "passato a vuoto" in t)
+    verifica("dice la causa più probabile (serbatoio)", "serbatoio" in t)
+    verifica("avvisa comunque", manda == "si")
+
+    print("\n[8] Se solo UNA tappa è passata a vuoto, le altre restano leggibili")
+    t, _ = corri(COMPLETO, scritti=("eventi", "verificati"))
+    verifica("la ricerca resta contata", "22 eventi" in t)
+    verifica("i testi sono segnalati come vuoti", "nessun lavoro prodotto" in t)
+    verifica("NON dichiara tutto il giro a vuoto", "passato a vuoto" not in t)
 
     print(f"\n{'='*60}\n✅ {OK} verifiche passate   ❌ {KO} fallite\n{'='*60}")
     return 1 if KO else 0

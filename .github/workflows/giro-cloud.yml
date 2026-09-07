@@ -42,6 +42,13 @@ on:
     # GitHub conta in UTC. San Marino e' UTC+2 d'estate, UTC+1 d'inverno.
     - cron: '0 1 * * 1'   # lunedi' 03:00 (d'inverno 02:00) — la sveglia vera
     - cron: '0 7 * * 1'   # lunedi' 09:00 (d'inverno 08:00) — la RIPRESA a +6h
+    # 🔴 UNA TANTUM — DA TOGLIERE dopo la corsa dell'8 settembre 2026.
+    # Serve a rifare il collaudo di notte, col serbatoio dell'abbonamento pieno:
+    # la prima corsa (07/09 alle 21:12) e' passata a vuoto, quasi certamente
+    # perche' il serbatoio era esaurito. Se resta qui, l'8 settembre dell'anno
+    # prossimo fa partire un giro che nessuno si aspetta.
+    - cron: '0 1 8 9 *'   # 8 settembre, 03:00 — il collaudo notturno
+    - cron: '0 7 8 9 *'   # 8 settembre, 09:00 — la sua ripresa
   workflow_dispatch:
 
 permissions:
@@ -222,7 +229,14 @@ jobs:
         env:
           DATA: ${{ needs.prepara.outputs.data }}
           SALTATA: ${{ steps.serve.outputs.salta }}
+          # ⚠️ NON `steps.agente.outcome`: il passo dell'agente finisce con un
+          # `tail`, e in shell il passo prende il codice dell'ULTIMO comando —
+          # quindi risultava «riuscito» anche quando `claude` era morto.
+          # Guasto vero, visto nella corsa #1 del 07/09/2026: tre tappe con
+          # l'agente morto in 1 secondo, marcatore scritto lo stesso, e la
+          # ripresa che non le avrebbe mai rifatte. Conta il codice di `claude`.
           ESITO_AGENTE: ${{ steps.agente.outcome }}
+          EXIT_CLAUDE: ${{ steps.agente.outputs.exit_claude }}
         run: bash .github/scripts/chiudi-tappa.sh 1 ricerca
 
   # ==========================================================================
@@ -326,7 +340,14 @@ jobs:
         env:
           DATA: ${{ needs.prepara.outputs.data }}
           SALTATA: ${{ steps.serve.outputs.salta }}
+          # ⚠️ NON `steps.agente.outcome`: il passo dell'agente finisce con un
+          # `tail`, e in shell il passo prende il codice dell'ULTIMO comando —
+          # quindi risultava «riuscito» anche quando `claude` era morto.
+          # Guasto vero, visto nella corsa #1 del 07/09/2026: tre tappe con
+          # l'agente morto in 1 secondo, marcatore scritto lo stesso, e la
+          # ripresa che non le avrebbe mai rifatte. Conta il codice di `claude`.
           ESITO_AGENTE: ${{ steps.agente.outcome }}
+          EXIT_CLAUDE: ${{ steps.agente.outputs.exit_claude }}
         run: bash .github/scripts/chiudi-tappa.sh 2 postino
 
   # ==========================================================================
@@ -430,7 +451,14 @@ jobs:
         env:
           DATA: ${{ needs.prepara.outputs.data }}
           SALTATA: ${{ steps.serve.outputs.salta }}
+          # ⚠️ NON `steps.agente.outcome`: il passo dell'agente finisce con un
+          # `tail`, e in shell il passo prende il codice dell'ULTIMO comando —
+          # quindi risultava «riuscito» anche quando `claude` era morto.
+          # Guasto vero, visto nella corsa #1 del 07/09/2026: tre tappe con
+          # l'agente morto in 1 secondo, marcatore scritto lo stesso, e la
+          # ripresa che non le avrebbe mai rifatte. Conta il codice di `claude`.
           ESITO_AGENTE: ${{ steps.agente.outcome }}
+          EXIT_CLAUDE: ${{ steps.agente.outputs.exit_claude }}
         run: bash .github/scripts/chiudi-tappa.sh 3 verifica
 
   # ==========================================================================
@@ -540,7 +568,14 @@ jobs:
         env:
           DATA: ${{ needs.prepara.outputs.data }}
           SALTATA: ${{ steps.serve.outputs.salta }}
+          # ⚠️ NON `steps.agente.outcome`: il passo dell'agente finisce con un
+          # `tail`, e in shell il passo prende il codice dell'ULTIMO comando —
+          # quindi risultava «riuscito» anche quando `claude` era morto.
+          # Guasto vero, visto nella corsa #1 del 07/09/2026: tre tappe con
+          # l'agente morto in 1 secondo, marcatore scritto lo stesso, e la
+          # ripresa che non le avrebbe mai rifatte. Conta il codice di `claude`.
           ESITO_AGENTE: ${{ steps.agente.outcome }}
+          EXIT_CLAUDE: ${{ steps.agente.outputs.exit_claude }}
         run: bash .github/scripts/chiudi-tappa.sh 4 testi
 
   # ==========================================================================
@@ -571,6 +606,11 @@ jobs:
       - name: Installa dipendenze
         run: pip install requests
 
+      # Serve `main` per sapere se un file sul ramo è lavoro del cloud o solo
+      # la copia di quello del Mac (vedi «I FILE FANTASMA» nel referto).
+      - name: Prendi main per il confronto
+        run: git fetch --depth=1 origin main
+
       - name: Scrivi il referto
         id: referto
         env:
@@ -595,7 +635,7 @@ jobs:
           T3_RES: ${{ needs.tappa3-verifica.result }}
           T4_RES: ${{ needs.tappa4-testi.result }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          E_RIPRESA: ${{ github.event.schedule == '0 7 * * 1' }}
+          E_RIPRESA: ${{ github.event.schedule == '0 7 * * 1' || github.event.schedule == '0 7 8 9 *' }}
         run: python3 .github/scripts/referto-giro-cloud.py
 
       - name: Prepara la busta (NESSUNA chiave in questo passo)

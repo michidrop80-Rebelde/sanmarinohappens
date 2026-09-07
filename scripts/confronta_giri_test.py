@@ -10,9 +10,43 @@ difetto che non ha. Qui si prova proprio quello, su titoli veri del progetto.
 """
 
 import importlib.util
+import os
+import subprocess
 import sys
 import tempfile
 from pathlib import Path
+
+DATA = "2026-09-07"
+
+
+def _git(dove, *a):
+    subprocess.run(["git", *a], cwd=dove, check=True, capture_output=True)
+
+
+def scena_git(tmp: Path, scritti):
+    """Un repo finto: `main` col giro del Mac, il ramo `giro-cloud` col cloud."""
+    percorsi = {
+        "eventi": f"dati/eventi/eventi-{DATA}.md",
+        "verificati": f"dati/eventi/verificati/eventi-verificati-{DATA}.md",
+        "post": f"dati/post/post-{DATA}.md",
+    }
+    _git(tmp, "init", "--quiet", "-b", "main")
+    _git(tmp, "config", "user.email", "prova@example.com")
+    _git(tmp, "config", "user.name", "Prova")
+    for chiave, percorso in percorsi.items():
+        f = tmp / percorso
+        f.parent.mkdir(parents=True, exist_ok=True)
+        f.write_text(f"# giro del Mac\n\n## Evento {chiave}\n", encoding="utf-8")
+    _git(tmp, "add", "-A")
+    _git(tmp, "commit", "--quiet", "-m", "giro del Mac")
+    _git(tmp, "checkout", "--quiet", "-b", "giro-cloud")
+    for chiave in scritti:
+        (tmp / percorsi[chiave]).write_text(
+            f"# giro del CLOUD\n\n## Evento {chiave} riscritto\n", encoding="utf-8")
+    if scritti:
+        _git(tmp, "add", "-A")
+        _git(tmp, "commit", "--quiet", "-m", "giro del cloud")
+    _git(tmp, "checkout", "--quiet", "main")
 
 QUI = Path(__file__).resolve().parent
 _spec = importlib.util.spec_from_file_location("confronta", QUI / "confronta-giri.py")
@@ -100,10 +134,32 @@ def main():
 
     print("\n[7] Se il giro in cloud non c'è, lo dice invece di inventarselo")
     with tempfile.TemporaryDirectory() as tmp:
-        dove, errore = c.materializza_cloud("ramo-che-non-esiste-mai",
-                                            "2026-09-07", Path(tmp))
+        dove, errore, _ = c.materializza_cloud("ramo-che-non-esiste-mai",
+                                               "2026-09-07", Path(tmp))
         verifica("nessuna cartella", dove is None)
         verifica("spiega perché", "non esiste" in (errore or ""))
+
+    print("\n[8] Il guasto vero del 07/09: un file che il cloud NON ha scritto")
+    # Il ramo nasce come copia di main, che ha già i file del giro del Mac. Se un
+    # anello in cloud muore, sul ramo resta la copia — e il confronto diceva
+    # «✅ identici» confrontando quei file CON SE' STESSI. Era una bugia, ed è
+    # esattamente il caso che si è verificato nella prima corsa.
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp = Path(tmp)
+        scena_git(tmp, scritti=("post",))
+        vecchia = os.getcwd()
+        try:
+            os.chdir(tmp)
+            dove, errore, scritti = c.materializza_cloud("giro-cloud", DATA, tmp / "estratti")
+            verifica("nessun errore: i file ci sono", errore is None)
+            verifica("l'evento NON è considerato scritto dal cloud",
+                     scritti[f"dati/eventi/eventi-{DATA}.md"] is False)
+            verifica("i verificati NON sono considerati scritti dal cloud",
+                     scritti[f"dati/eventi/verificati/eventi-verificati-{DATA}.md"] is False)
+            verifica("le bozze SI', quelle le ha riscritte davvero",
+                     scritti[f"dati/post/post-{DATA}.md"] is True)
+        finally:
+            os.chdir(vecchia)
 
     print(f"\n{'='*60}\n✅ {OK} verifiche passate   ❌ {KO} fallite\n{'='*60}")
     return 1 if KO else 0

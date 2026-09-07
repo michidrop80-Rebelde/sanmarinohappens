@@ -12,6 +12,8 @@
 #
 # USO:  bash .github/scripts/chiudi-tappa.sh <numero> <nome>
 # ENV:  DATA (AAAA-MM-GG) · SALTATA (si/no) · ESITO_AGENTE (success/failure/skipped)
+#       EXIT_CLAUDE (il codice d'uscita VERO di `claude`, non quello del passo:
+#       il passo finisce con un `tail` e sarebbe verde comunque)
 # SCRIVE su $GITHUB_OUTPUT: ok · stato · costo · eventi · verificati · bozze
 
 set -euo pipefail
@@ -39,7 +41,7 @@ echo "costo=$COSTO" >> "$GITHUB_OUTPUT"
 if [ "${SALTATA}" = "si" ]; then
   STATO="saltata (già fatta in una corsa precedente)"
   OK=true
-elif [ "${ESITO_AGENTE}" = "success" ]; then
+elif [ "${ESITO_AGENTE}" = "success" ] && [ "${EXIT_CLAUDE:-0}" = "0" ]; then
   STATO="fatta"
   OK=true
   mkdir -p "$(dirname "$MARCATORE")"
@@ -51,7 +53,11 @@ elif [ "${ESITO_AGENTE}" = "success" ]; then
 else
   # Nessun marcatore: così la ripresa delle 09:00 la rifà invece di darla
   # per buona. Il lavoro parziale si salva lo stesso — meglio di niente.
-  STATO="FALLITA"
+  if [ "${EXIT_CLAUDE:-0}" != "0" ]; then
+    STATO="FALLITA (claude uscito ${EXIT_CLAUDE})"
+  else
+    STATO="FALLITA"
+  fi
   OK=false
 fi
 echo "ok=$OK" >> "$GITHUB_OUTPUT"

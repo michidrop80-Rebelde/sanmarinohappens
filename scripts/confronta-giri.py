@@ -145,10 +145,32 @@ def accosta(a: list, b: list):
 # Lettura dei due giri
 # ---------------------------------------------------------------------------
 
+def impronta(rif: str, percorso: str):
+    """L'impronta git del file su quel riferimento, o None se lì non c'è."""
+    r = git("rev-parse", f"{rif}:{percorso}")
+    return r.stdout.strip() if r.returncode == 0 else None
+
+
+def base_del_ramo(ramo: str) -> str:
+    """Da dove è nato il ramo: è la copia di partenza, non il lavoro del cloud."""
+    for candidato in ("origin/main", "main"):
+        if git("rev-parse", "--verify", "--quiet", candidato).returncode == 0:
+            return candidato
+    return ""
+
+
 def materializza_cloud(ramo: str, data: str, dove: Path):
     """Tira fuori dal ramo i file del giro e li appoggia in una cartella finta.
 
     Cosi' si possono leggere con LO STESSO lettore usato per i file del Mac.
+
+    ⚠️ Restituisce anche quali file il cloud ha DAVVERO scritto. Il ramo nasce
+    come copia di `main`, che contiene già i file del giro del Mac: se un anello
+    in cloud non scrive niente, sul ramo resta la copia del Mac — e il confronto
+    direbbe «✅ identici» confrontando quei file CON SE' STESSI.
+    E' successo davvero nella prima corsa (07/09/2026): tre anelli morti in un
+    secondo, e il confronto che dava tutto identico. Un file la cui impronta git
+    è la stessa di `main` NON è lavoro del cloud, ed è una bugia contarlo.
     """
     rif = None
     for candidato in (f"origin/{ramo}", ramo):
@@ -156,21 +178,25 @@ def materializza_cloud(ramo: str, data: str, dove: Path):
             rif = candidato
             break
     if rif is None:
-        return None, f"il ramo «{ramo}» non esiste (né in locale né su origin)"
+        return None, f"il ramo «{ramo}» non esiste (né in locale né su origin)", {}
 
+    base = base_del_ramo(ramo)
     trovato = False
+    scritti = {}
     for cartella, modello in FILE_DEL_GIRO:
         percorso = f"{cartella}/{modello.format(d=data)}"
         r = git("show", f"{rif}:{percorso}")
         if r.returncode != 0:
+            scritti[percorso] = False
             continue
         trovato = True
+        scritti[percorso] = not (base and impronta(rif, percorso) == impronta(base, percorso))
         f = dove / percorso
         f.parent.mkdir(parents=True, exist_ok=True)
         f.write_text(r.stdout, encoding="utf-8")
     if not trovato:
-        return None, f"su «{rif}» non c'è nessun file del giro del {data}"
-    return dove, None
+        return None, f"su «{rif}» non c'è nessun file del giro del {data}", {}
+    return dove, None, scritti
 
 
 def leggi(radice: Path, data: str) -> dict:
@@ -217,16 +243,31 @@ def main() -> int:
     git("fetch", "--quiet", "origin", a.ramo)      # se non c'è rete, si prosegue col locale
 
     with tempfile.TemporaryDirectory() as tmp:
-        radice_cloud, errore = materializza_cloud(a.ramo, a.data, Path(tmp))
+        radice_cloud, errore, scritti = materializza_cloud(a.ramo, a.data, Path(tmp))
         if errore:
             print(f"⚠️ Nessun giro in cloud da confrontare per il {a.data}: {errore}.")
             print("   (Non è un guasto se il giro in cloud non ha ancora girato oggi.)")
             return 3
 
+        # Quali anelli in cloud hanno davvero scritto qualcosa?
+        fantasmi = [p for p, vero in scritti.items() if not vero]
+        if len(fantasmi) == len(scritti):
+            print(f"🛑 Il giro in cloud del {a.data} NON HA PRODOTTO NIENTE.")
+            print("   Tutti i file sul ramo sono la copia identica di quelli di main,")
+            print("   cioè del giro del Mac: gli anelli in cloud non hanno scritto nulla.")
+            print("   Non c'è niente da confrontare — e «identici» qui sarebbe una bugia.")
+            print("   Guarda i log della run: quasi certamente l'agente è morto subito.")
+            return 4
+
         mac = leggi(radice_mac, a.data)
         cloud = leggi(radice_cloud, a.data)
 
         if a.una_riga:
+            if fantasmi:
+                print("Confronto col cloud: NON CONFRONTABILE — il cloud non ha "
+                      f"scritto {len(fantasmi)} file su {len(scritti)} (sono la copia "
+                      "di quelli del Mac). Guarda i log della run.")
+                return 4
             c, sm, sc = accosta(mac["eventi"], cloud["eventi"])
             cv, svm, svc = accosta(mac["verificati"], cloud["verificati"])
             print(f"Confronto col cloud: eventi {len(mac['eventi'])}/{len(cloud['eventi'])} "
@@ -237,13 +278,31 @@ def main() -> int:
 
         print(f"Confronto del giro del {a.data} — Mac contro cloud (ramo {a.ramo})")
         print("=" * 66)
-        for nome, chiave in (("Eventi trovati", "eventi"),
-                             ("Verificati", "verificati"),
-                             ("Da confermare", "da_confermare"),
-                             ("Scartati", "scartati")):
+        if fantasmi:
+            print("\n⚠️ Questi file il cloud NON li ha scritti: sul ramo c'è la copia")
+            print("   identica di main, cioè il lavoro del Mac. Le sezioni che ne")
+            print("   dipendono qui sotto NON dicono niente sul cloud.")
+            for f in fantasmi:
+                print(f"     · {f}")
+
+        f_eventi = f"dati/eventi/eventi-{a.data}.md"
+        f_verif = f"dati/eventi/verificati/eventi-verificati-{a.data}.md"
+        f_post = f"dati/post/post-{a.data}.md"
+        for nome, chiave, sorgente in (("Eventi trovati", "eventi", f_eventi),
+                                       ("Verificati", "verificati", f_verif),
+                                       ("Da confermare", "da_confermare", f_verif),
+                                       ("Scartati", "scartati", f_verif)):
+            if sorgente in fantasmi:
+                print(f"\n{nome}: ⛔ non confrontabile — il cloud non ha scritto "
+                      f"{sorgente.split('/')[-1]}")
+                continue
             testo, _, _ = blocco(nome, mac[chiave], cloud[chiave])
             print(testo)
-        print(f"\nBozze scritte: Mac {mac['bozze']} · cloud {cloud['bozze']}")
+        if f_post in fantasmi:
+            print("\nBozze scritte: ⛔ non confrontabile — il cloud non ha scritto "
+                  f"{f_post.split('/')[-1]}")
+        else:
+            print(f"\nBozze scritte: Mac {mac['bozze']} · cloud {cloud['bozze']}")
         print("\n⚠️ Fra i due giri passano cinque ore: qualche differenza è normale.")
         print("   Quello che conta è che non siano tante, e che si sappia spiegare "
               "perché ci sono.")

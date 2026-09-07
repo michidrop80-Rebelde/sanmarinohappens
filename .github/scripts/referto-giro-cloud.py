@@ -18,6 +18,7 @@ SCRIVE: /tmp/referto.txt (per Telegram) · /tmp/riepilogo.md (pagina della run)
 """
 
 import os
+import subprocess
 import time
 from pathlib import Path
 
@@ -33,8 +34,47 @@ def env(nome, default=""):
     return os.environ.get(nome, default) or default
 
 
+# ---------------------------------------------------------------------------
+# I FILE FANTASMA
+# ---------------------------------------------------------------------------
+# Il ramo del giro nasce come copia di `main`, che contiene già i file del giro
+# del Mac. Se un anello in cloud non scrive niente, sul ramo resta la copia del
+# Mac — e contarla vuol dire dire a Michele «22 eventi trovati» quando il cloud
+# non ne ha trovato nemmeno uno. E' successo nella prima corsa (07/09/2026):
+# tre anelli morti sul serbatoio esaurito, e il referto che diceva «fatta» a
+# tutte e quattro le tappe.
+# Un file con la stessa impronta git di `main` NON è lavoro del cloud, punto.
+
+FILE_DELL_ANELLO = {
+    "1": "dati/eventi/eventi-{d}.md",
+    "2": "dati/eventi/eventi-{d}.md",
+    "3": "dati/eventi/verificati/eventi-verificati-{d}.md",
+    "4": "dati/post/post-{d}.md",
+}
+
+
+def _git(*args):
+    r = subprocess.run(["git", *args], capture_output=True, text=True)
+    return r.stdout.strip() if r.returncode == 0 else None
+
+
+def fantasma(numero: str) -> bool:
+    """True se il file di quell'anello è identico a quello di main (= non scritto)."""
+    percorso = FILE_DELL_ANELLO[numero].format(d=env("DATA"))
+    qui = _git("rev-parse", f"HEAD:{percorso}")
+    if qui is None:
+        return True                      # non c'è proprio: di sicuro non l'ha scritto
+    for base in ("origin/main", "main"):
+        la = _git("rev-parse", f"{base}:{percorso}")
+        if la is not None:
+            return qui == la
+    return False                         # senza main non si può dire: non si accusa
+
+
 def riga_numeri(n: str) -> str:
     """La riga di numeri di ogni tappa, misurati dai file."""
+    if fantasma(n):
+        return "NIENTE (il file è la copia di quello del Mac)"
     if n == "1":
         e = env("T1_EVENTI", "-")
         return f"{e} eventi" if e != "-" else "nessun file di eventi"
@@ -57,7 +97,8 @@ def stato_leggibile(n: str) -> str:
     if stato.startswith("saltata"):
         return "già fatta prima"
     if stato == "fatta":
-        return "fatta"
+        # «fatta» senza aver prodotto niente non è fatta: è passata senza lavorare.
+        return "🛑 nessun lavoro prodotto" if fantasma(n) else "fatta"
     if res == "skipped":
         return "non partita"
     if res in ("failure", "cancelled"):
@@ -143,9 +184,20 @@ def costruisci() -> tuple[str, bool]:
                      "hanno prodotto qualcosa. Mi sono fermato prima della "
                      "verifica invece di girare a vuoto. Non è un guasto.")
     else:
-        righe.append(f"🤖 <b>SMH — giro in cloud del {data_italiana(data)}</b> "
-                     f"(secondo parere)")
-        righe.append("")
+        vuote = [nome for n, nome in TAPPE if fantasma(n)]
+        if len(vuote) == len(TAPPE):
+            righe.append(f"🛑 <b>SMH — giro in cloud del {data_italiana(data)}: "
+                         f"passato a vuoto</b>")
+            righe.append("")
+            righe.append("Le tappe risultano finite ma NON hanno prodotto niente: sul "
+                         "ramo ci sono ancora i file del giro del Mac, copiati uguali. "
+                         "Di solito vuol dire che l'agente è morto subito — la causa "
+                         "più probabile è il serbatoio dell'abbonamento esaurito.")
+            righe.append("")
+        else:
+            righe.append(f"🤖 <b>SMH — giro in cloud del {data_italiana(data)}</b> "
+                         f"(secondo parere)")
+            righe.append("")
         for n, nome in TAPPE:
             righe.append(f"{n} {nome}: {riga_numeri(n)} — {stato_leggibile(n)}")
 
