@@ -9,14 +9,15 @@ titolo).
 
 **2 pronti per la grafica in questo giro** (cluster 08/09): Cronotitano Hill Climb [109] a feed,
 Concerto a Lume di Candela — Morricone [98] a storia.
-**1 approvato ma NON imminente** (in fondo, non compilare in questo giro): Artisti in Casa XVI ed.
-[61] — evento 26–27/09, da ricontrollare alla fonte org. prima della grafica.
-**2 approvati ma NON in questo file:**
+**2 approvati ma NON imminenti** (sezione in fondo, non compilare in questo giro):
+- Artisti in Casa XVI ed. [61] — evento 26–27/09, da ricontrollare alla fonte org. prima della grafica.
+- XXXII Mostra Micologica del Titano [107] — ✅ **SBLOCCATA 07/09** (sede + date da Michele via
+  micologica.sm: 26–27/09, Logge del Mercato, Borgo Maggiore). Storia 26/09. Grafica nel prossimo giro
+  con Canva.
+**1 approvato ma NON in questo file:**
 - Giornata Mondiale Fair Play 2026 [108] — evento 07/09 ore 21:00: approvazione arrivata stamattina,
   catena gira alle 18:30 → fuori da ogni finestra di recupero. Nessuna pubblicazione (miss legittimo
   per tempistica). Master riga 108, piano-editoriale riga 07/09.
-- XXXII Mostra Micologica [107] — ri-confermata da Michele ma **sede e data esatta 2026 ancora
-  mancanti**: resta BLOCCATA, nessun contenuto grafico. Chiesto a Michele su Telegram.
 
 Fonte bozze: `dati/post/post-2026-09-07.md`. Master aggiornato: righe 61 (da-approvare → approvato),
 107 (nota ri-conferma), 108–109 (nuove).
@@ -116,3 +117,33 @@ Salva il post 📌 e seguici per non perdere gli eventi di San Marino
 
 **🔗 Fonte:** https://www.visitsanmarino.com/pub1/VisitSM/it/eventi.html
 **Nota:** dubbio del verificato 07/09 (nessuna fonte 2026 oltre l'aggregatore) **sciolto da Michele** col pulsante 20260907-0654-03. Dati da master riga 61. ⚠️ **Prima della grafica**: ricontrollo alla fonte org. (info.artistincasa@gmail.com / +39 337 1010558) per confermare programma e orari 2026. Pianificato STORIA 26/09 (feed occupato da San Marino–Finlandia [101]).
+
+---
+## [26–27/09] — XXXII Mostra Micologica del Titano   ·   tipo: cultura   ·   master 107 (SBLOCCATA 07/09)
+
+**📷 Testo per la grafica**
+- Titolo breve: XXXII Mostra Micologica del Titano
+- Sottotitolo: 26–27 settembre · Logge del Mercato, Borgo Maggiore
+- Dettagli: Esposizione di funghi del territorio · esperti per consigli e norme di raccolta · stand gastronomici · premi per il fungo più grosso e il più raro
+
+**📝 Caption (Instagram + Facebook)**
+🍄 Due giorni di funghi sotto le Logge del Mercato.
+
+XXXII edizione della Mostra Micologica del Titano, a cura dell'Associazione Micologica Sammarinese: una ricca esposizione di specie fungine del territorio, con gli esperti a disposizione per consigli e norme di raccolta sicura. Stand gastronomici con piatti tipici e premi per il fungo più grosso e il più raro.
+
+🗓 26–27/09/2026 · 📍 Logge del Mercato, Borgo Maggiore
+Salva il post 📌 e seguici per non perdere gli eventi di San Marino
+ℹ️ Date e orari possono cambiare: verifica sempre sulla fonte ufficiale dell'organizzatore (link in bio).
+
+**#️⃣ Hashtag**
+#SanMarinoHappens #SanMarino #RepubblicaDiSanMarino #MonteTitano #cosafareaSanMarino #eventiSanMarino #MostraMicologica #Funghi #BorgoMaggiore
+
+**📱 Testo storia**
+- Titolo storia: XXXII Mostra Micologica del Titano
+- Data: 26/09/2026
+- Ora: non specificato
+- Luogo: Logge del Mercato, Borgo Maggiore
+- Descrizione breve: Esposizione di funghi del territorio a cura dell'Associazione Micologica Sammarinese, con esperti per la raccolta sicura, stand gastronomici e premi per il fungo più grosso e il più raro.
+
+**🔗 Fonte:** https://micologica.sm/
+**Nota:** dubbio sciolto da Michele il 07/09 con la fonte ufficiale micologica.sm (sede + date). Pianificato STORIA 26/09 (feed occupato da San Marino–Finlandia [101]). Orari giornalieri non pubblicati → "non specificato".
