@@ -1,5 +1,214 @@
 # Ultimo stato — San Marino Happens
 
+Aggiornato: 2026-09-07 — 🗺️ **MAPPA CATENA IN CLOUD: chiuso il ticket 03 — la memoria di lavoro è nel repo pubblico, il clone non è più monco.**
+
+**Stato della mappa `.scratch/catena-in-cloud/` — 9 ticket su 13 chiusi.**
+
+| | ticket |
+|---|---|
+| ✅ chiusi | **01** cervello nel repo pubblico · **02** limiti di Claude Code in Actions · **03** file mancanti dal clone · **04** token abbonamento nei segreti · **05** la sonda (giro finto verde) · **06** consumo + forma delle due sveglie · **11** 45 percorsi assoluti tolti · **12** avviso scadenza token · **13** guardia di freschezza |
+| 🟢 frontiera (prendibile) | **07** — mandare i pulsanti Telegram **senza dare il token** all'agente di ricerca (grilling, Opus, 1 sessione) |
+| 🔴 bloccati | **08** giro del lunedì in cloud (aspetta 07) → **09** cloud e Mac insieme (aspetta 08) → **10** catena quotidiana + spegnere i task locali (aspetta 08, 09) |
+
+**Cosa ha chiuso il ticket 03 (questa sessione).** Un clone pulito del repo dava `❌ 8 assenti` a `controllo-integrita.py` mentre sul Mac dava ✅: 6 file veri citati dalle skill non erano **mai stati committati**, solo rimasti `??` per mesi. Ora nel repo pubblico c'è **tutta la memoria di lavoro della catena** (63 file: `dati/eventi/`, `verificati/`, `post/`, `approvati/`, `telegram/pending/`, `config.json`, `fonti-sport.md`, metriche, diario). Fuori restano le 2 guide con l'email personale di Michele; `fonti-sport.md` è entrato **ripulito** dalla password Sportity `RBA25`. Segreti cercati sui 63 file: nessuno.
+- `scripts/controllo-integrita.py` ora sa se gira **fuori dal Mac** (in cloud non cerca `~/.claude/scheduled-tasks`, tollera i `.claude/secrets/*`).
+- **Nuova guardia automatica** `.github/workflows/guardia-integrita.yml`: a ogni push su `main` (il checkout è un clone pulito), una volta a settimana e a mano → workflow **rosso + Telegram** se manca un file. Invio Telegram condiviso in `scripts/telegram_helper.py`.
+- Verificato dal vivo: run Actions [#34148842889](https://github.com/michidrop80-Rebelde/sanmarinohappens/actions/runs/34148842889) **verde** sul clone vero. Commit `2b67c1c` + `b315945`.
+
+**Prossimo passo consigliato: ticket 07.** È l'unico prendibile ed è il collo di bottiglia — 08, 09 e 10 gli stanno tutti dietro. Sessione nuova e pulita, modello **Opus** (decisione di sicurezza: qui un errore lo paghi, non lo scopri).
+
+⚠️ Nota: gli ultimi commit sono firmati `Michele <michele@iMac-di-Michele.local>` — git non è configurato con nome/email veri (`git config --global user.email "..."`).
+
+---
+
+Aggiornato: 2026-09-07 — 🗺️ **MAPPA CATENA IN CLOUD: chiuso il ticket 06 (consumo) — decisa la forma delle due sveglie.**
+
+**Misurato, non stimato.** Letti i 71 transcript delle sessioni (14/07 → 06/09) e sommato il consumo vero delle catene che già girano sul Mac (script tenuto: `.scratch/catena-in-cloud/misura-consumo.py`).
+
+| chi | corse | peso (valore equivalente) |
+|---|---|---|
+| `smh-catena` — sere **senza** grafica | 13 | $0,35 – $2,96 (mediana $0,80) |
+| `smh-catena` — sere **con** grafica | 14 | $5,57 – $32,58 (mediana ~$15) |
+| `smh-giro-settimanale` (giro completo 24/08) | 1 | **$40,85** · 449 turni · 147 M token |
+| **Michele davanti allo schermo** | 37 | **$1.068 = il 77% del totale** |
+
+**Tre scoperte:**
+- **La sera cara è sempre e solo quella con la grafica** (11–25 occorrenze «canva» nelle sere da $1, 150–320 in quelle da $11–33). La parte che va in cloud pesa **$0,5–3**; la parte cara **resta sul Mac**, come già deciso.
+- 🔴 **Il serbatoio si è già svuotato 9 volte in 2 mesi.** Sei volte ha fermato Michele; **tre volte ha ucciso una catena programmata**: 04/08 grafica tagliata · **21/08 `smh-catena` morta appena nata sul limite SETTIMANALE** · **24/08 il giro settimanale tagliato a metà** (partito 06:24, morto 11:06 sul limite delle 5 ore — proprio la corsa da $40,85). Il rischio del ticket 02 **non è futuro: è già successo tre volte e nessuno se n'era accorto.**
+- **Chi svuota il serbatoio è Michele (77%), non la catena.** Quindi la leva non è «consumare meno», è **non consumare quando consuma lui**.
+
+**Risposta del ticket: il consumo regge, perché quel consumo c'è già oggi** — le corse sul Mac pescano dallo stesso abbonamento. Spostarle in cloud non aggiunge nulla; il target ~€20-25/mese resta intatto (Actions gratis su repo pubblico).
+
+**Forma decisa delle due sveglie (Michele, 07/09):**
+1. **Quotidiana — prima gli script, l'agente solo se serve.** Le 6 guardie girano in Python (costo zero); se tacciono tutte, il workflow finisce lì e **non sveglia nessun agente**. Le 13 sere vuote passano da ~$1 a zero.
+2. **Settimanale — 4 tappe con `commit` fra l'una e l'altra** (ricerca → postino → verifica → testi): se il serbatoio finisce a metà, il fatto è salvo.
+3. **Sveglie di notte:** giro **lunedì 03:00**, catena **02:00**. Non risparmia token — risparmia **scontri**. ⚠️ Le 18:30 di oggi sono l'ora peggiore: il limite settimanale si azzera alle 18:00.
+4. **Sul 429: riprova a +6h, poi un Telegram di una riga.** Un silenzio non è un esito.
+
+⚠️ **Rovescio accettato:** in cloud nessuno ferma a mano una corsa che va male. Il freno è il cancello degli script + le tappe con salvataggio.
+
+Le 4 scelte sono scritte come **capitolato dentro i ticket 08 e 10** — non si riaprono. Mappa aggiornata (nebbia sul serbatoio diradata). Backup cervello `a40eed7`.
+
+**Frontiera della mappa ora: 01 · 03 (dopo 01) · 11 · 12.** Il prossimo passo consigliato è **01 — dove vive il cervello che il cloud deve leggere**: è il perno, e i ticket 03, 08 e 10 gli stanno dietro.
+
+---
+
+Aggiornato: 2026-09-06 (sera) — 🔒 **MESSA IN SICUREZZA prima di valutare la catena in cloud.** Nessuna migrazione fatta: solo rete di protezione + misure.
+
+**Perché:** Michele vuole staccare la catena dall'app Claude sul Mac. Prima di muovere qualsiasi cosa ha chiesto certezza sui backup e una via di ritorno. Verificato invece di rassicurare — **il punto di partenza NON era sicuro.**
+
+**Cosa ho trovato (misurato, non ipotizzato):**
+- 🔴 **Backup cervello fermo al 13/08** (24 giorni): 42 file mai salvati + 18 modificati. Eventi, verificati, bozze e master di tutto agosto/settembre esistevano **in copia unica sul Mac**.
+- 🔴 **Time Machine armato ma disco esterno NON collegato** (`AutoBackup=1`, destinazione «Time Machine iM» non montabile). Restano solo le istantanee APFS locali — stesso disco, non proteggono da un guasto.
+- 🔴 **Un clone pulito del repo è MONCO**: `controllo-integrita.py` sul Mac dà ✅ 129/129, **sullo stesso repo clonato dà ❌ 8 assenti**. Due sono i segreti (giusto). Gli altri sei no: `dati/config.json`, **`dati/fonti-sport.md`**, `references/formato-grafica.md`, `docs/FIX-APPROVAZIONI-CHE-SCADONO.md`, `sito/STATO-SITO.md`, `sito/calendario-eventi.html`. Un giro in cloud oggi cercherebbe eventi **senza la mappa delle fonti sportive**, in silenzio.
+- ✅ La pubblicazione è già indipendente dal Mac: il remoto era **avanti** al locale (settimanale 07–13/09 uscito davvero oggi 18:01, commit `0450f2a`).
+
+**Cosa ho fatto:**
+- `git pull` — Mac riallineato a origin/main.
+- **Backup cervello completo**: 62 file → `sanmarinohappens-cervello` commit `0096015`. Residuo scoperto: solo `published.log`, escluso apposta perché versionato nel repo pubblico. Verificati dentro: `config.json`, `master.md`, `piano-editoriale.md`, `fonti-sport.md`, `ULTIMO_REPORT.md`.
+- **Punto di ritorno `prima-del-cloud`**: tag annotato creato e inviato su **entrambi** i repo (pubblico + cervello). Per tornare indietro: `git checkout prima-del-cloud`.
+
+✅ **Time Machine sistemato (06/09 19:11).** Michele ha collegato il disco e lanciato il backup a mano (`tmutil startbackup` da qui non funziona: Claude Code non ha l'Accesso completo al disco). Esito `RESULT = 0` — il precedente `702` era il tentativo fallito col disco staccato. Backup registrati 9 → 10. ⚠️ Storia del 2026 molto rada (20/01 · 09/02 · 18/05 · 25/07 · 12/08 · 16/08 · 03/09 · 06/09): **il disco viene collegato di rado**, quindi Time Machine è la terza copia, non la prima. Le prime due restano i repo GitHub.
+
+🗺️ **MAPPA APERTA — `.scratch/catena-in-cloud/`** (metodo wayfinder, tracker locale e non le issue di GitHub: il repo è pubblico e la pianificazione interna non va in vetrina). Destinazione: la preparazione della catena gira su GitHub Actions senza l'app Claude aperta; la grafica Canva resta sul Mac per scelta. **10 ticket**, frontiera = **01, 02, 04** (prendibili subito, in parallelo).
+
+🔴 **Scoperta che ha riscritto la mappa:** il repo pubblico contiene solo una frazione della memoria di lavoro — `dati/eventi` 2 su 12 · `verificati` 1 su 12 · `dati/post` 8 su 25 · `approvati` 4 su 14 · `telegram/pending` 1 su 6 (`queue` invece è completo). Gli agenti verifica e testi leggono «l'ultimo file»: in cloud pescherebbero roba di mesi fa e lavorerebbero su dati morti **senza accorgersene**. Nessuna guardia oggi intercetta questo caso. È diventato il ticket 01, il perno di tutta la mappa.
+
+✅ **`.scratch/` ora entra nel backup del cervello** (`scripts/backup-cervello.sh`, lista `CONTENUTI` + regole): la pianificazione stava in copia unica sul Mac. Con essa è rientrata anche la mappa **`sport-invernale`** (9 ticket, aperta il 26/08, ultimo tocco 31/08) che era fuori da ogni backup — 🔴 il suo ticket **07 «direzione visiva» è fermo in attesa di una scelta di Michele**.
+
+🤖 Agente di ricerca lanciato in sottofondo sul ticket 02 (limiti di Claude Code dentro Actions) → esito in `.scratch/catena-in-cloud/research/`.
+
+🟡 **Deciso ma non ancora fatto** — migrazione in cloud, ordine concordato: (0) ✅ questa messa in sicurezza · (1) chiudere i 6 file mancanti dal repo · (2) sonda su GitHub Actions · (3) giro del lunedì in cloud col task locale ancora acceso · (4) catena quotidiana + spegnere i task locali. Piattaforma scelta: **GitHub Actions** (n8n/Coolify scartati: n8n Cloud non ha più il piano gratuito e la catena *ragiona*, non è cablabile a scatolette; Coolify richiede un server). La **grafica Canva resta sul Mac** in questa fase.
+
+⚠️ Non committati (come sempre): `dati/calendario/master.md`, `dati/piano-editoriale.md`, `dati/grafica-stato.json`, `dati/handle-organizzatori.json`, questo report — sono però **tutti dentro il backup cervello `0096015`**. La migrazione cambierà questa abitudine: il repo dovrà diventare l'unica verità.
+
+---
+
+Aggiornato: 2026-09-05 (pomeriggio) — 🔗 **CATENA GIORNALIERA (lanciata da Michele in chat): chiuso il buco del 06/09 (feed+storia) con lo Step 2-bis — San Marino Matsuri.**
+
+Giro lanciato a mano da Michele («possiamo girare adesso?»), non dal task delle 18:30. Step 0-bis: 0 approvazioni · 0 segnalazioni · 0 annullamenti · ultimo approvato (01/09) già graficato (04/09) — ma **domanda 5 = sì** (`controllo-imminenti.py` uscita 2): il 06/09 (Domenica, slot 7:00) mancava di post feed+storie. Il `git pull` ha portato l'archiviazione fatta dal robot delle buste del 05/09 (giornaliero+storia, DTC/Bunta's/Fine Estate) → `archivio/2026-09/` + righe in `published.log`: **sono uscite davvero**.
+
+**Step 2-bis — buco 06/09 (feed+storie) CHIUSO — San Marino Matsuri:**
+- La guardia proponeva 3 candidati `approvato`: Dal Turista al Contadino [59], San Marino Matsuri [104], Festa del Socio — Ass. Micologica [106].
+- **Festa del Socio [106]** SCARTATO: nota del master dice ancora "confermare che sia aperto al pubblico" — nessuna nuova conferma trovata (solo un'ordinanza 2025, nessun dato 2026 sull'apertura al pubblico). Resta bloccata.
+- **DTC [59]** SCARTATO per un post dedicato di domenica: decisione già presa il 01/09 ("nessun post feed per il 06/09" per questo evento) — copertura già assicurata dal weekend aggregato (04–06/09) e dal post di venerdì 04/09; la nota di domenica ("gran finale zona Funivia") non ha un orario proprio.
+- **San Marino Matsuri [104]** USATO — era bloccato dal 01/09 per sede non confermata ("Podere Lesignano" su fonte singola sanmarinosite). **Dubbio sciolto oggi con 2 fonti indipendenti 2026** (GiornaleSM, Tribuna Politica Web): sede reale **Podere Lesignano, Serravalle** (laboratori sab-dom) + **Centro Storico** (sfilata del Mikoshi dorato, **domenica**) — master riga 104 aggiornata, non più "in via di conferma".
+- Post datato **06/09** (non 05/09) perché il momento distintivo di domenica — la sfilata del Mikoshi — è quello che riempiva lo slot scoperto. Giornaliero: copia pag.1 (wrap) del master `DAHOLS6Zdpw`; storia: copia pag.14 (mazzo singolo) `DAHSASb8IAU`, CTA di chiusura (unico evento del giorno). Orario non trovato su nessuna fonte (nemmeno japansanmarino.com) → campo ora cancellato, non inventato. Dossier `dati/post/post-2026-09-06-matsuri.md`.
+- Organizzatore "San Marino Jinja" aggiunto al registro come `da-cercare` (nessun profilo social trovato oggi) — nessun tag sul post.
+- Auto-validazione al contrario: nessuna discrepanza. `/smh-check` ✅ (niente prezzi, caption pulita). Buste `posts/20260906_Post giornaliero.json` + `posts/20260906_Storia.json` **pushate su origin/main** (commit `18602bf`). Piano editoriale aggiornato (righe 05/09 e 06/09 di Matsuri).
+
+**Step 4 — guardie:** imminenti ✅ (buco chiuso, uscita 0) · integrità ✅ (129 rif.) · export→coda ✅ · caption-prezzi ✅ (exit 0) · copertura ⚠️ (3 aggregati oltre 48h già noti: weekend 10/09, settimanale 13/09, weekend 17/09 — li chiuderà lo Step 2-bis quando entrano in finestra) · serie ricorrenti ⚠️ (Serravalle in Wellness 16/09 e 23/09 senza busta — **voluto**, decisione 24/08, coperto dal rimando in caption del 09/09).
+
+🔴 **Resta aperto, non urgente:** Festa del Socio — Ass. Micologica Sammarinese (06/09) ancora senza conferma "aperta al pubblico?" da Michele. Non blocca niente (lo slot 06/09 è già coperto da Matsuri) — se/quando arriva l'ok, si può comunque aggiungere in coda un contenuto extra.
+
+⚠️ Non committati (come sempre): `dati/calendario/master.md`, `dati/piano-editoriale.md`, `dati/grafica-stato.json`, `dati/post/*.md`, `dati/handle-organizzatori.json`, questo report — non sono nel repo pubblico.
+
+🟢 `PUBLISH_LIVE=true`: il post San Marino Matsuri esce **davvero** domenica 06/09 07:00 su IG+FB.
+
+---
+
+Aggiornato: 2026-09-04 (sera) — 🔗 **CATENA GIORNALIERA (task pianificato): chiuso il buco del SETTIMANALE 07–13/09 con lo Step 2-bis.**
+
+Giro serale automatico. Step 0-bis: 0 approvazioni · 0 segnalazioni · 0 annullamenti · ultimo approvato (01/09) già graficato (grafica ultima 03/09) — ma **domanda 5 = sì** (`controllo-imminenti.py` uscita 2: buco «settimanale del 06/09» entrato nella finestra 48h). Il `git pull` ha portato l'archiviazione fatta dal robot delle buste 03–04/09 (weekend 03/09, giornaliero+storia 04/09) → `archivio/2026-09/` + 6 righe in `published.log`: **sono usciti davvero**.
+
+**Step 2-bis — buco settimanale 07/09–13/09 CHIUSO:**
+- Slot regolare **domenica 06/09 18:00** (copre 07–13/09). Copia **pag.4** del master settimanale `DAHORdC0zdY` (`DAHUOLLiFaw`, «DA ELIMINARE»), `ultima_pagina_usata` settimanale 3→**4**.
+- **8 eventi → 1 slide** (template a 8 righe, tutte piene, nessuna cancellazione). Righe master 48, 60, 72, 80, 81, 84, 98, 99. Giorni calcolati in Python: 08/09 Mar · 09/09 Mer · 11/09 Ven · 12/09 Sab · 13/09 Dom.
+  1. Concerto Morricone — Orti Borghesi (m98) · 2. Serravalle in Wellness — La Ciarulla (m80) · 3. BeerFest Queen Tribute/Vipers — Parco di Dogana (m84) · 4. GP MotoGP San Marino — Misano (m48) · 5. Musikfest Adriatica — Centro Storico (m99) · 6. BeerFest Anni '90/Love Gen 90 — Parco di Dogana (m72) · 7. Dal Turista al Contadino II tappa — Città e Borgo (m60) · 8. Palio Don Bosco — Borgo Maggiore (m81).
+- 🔴 **Luogo BeerFest = Parco di Dogana** (master corretto il 24/08 sulla locandina ufficiale), **non** «Campo Bruno Reffi» come dicono ancora le bozze vecchie (`post-approvati-2026-08-17`).
+- Dossier `dati/post/settimanale-2026-09-07-13.md`. Auto-validazione al contrario: nessuna discrepanza, nessun font ridotto. `/smh-check` ✅ (niente prezzi/gratuità, caption 1880 char). Busta `posts/20260906_Settimanale.json` + PNG **in coda su origin/main** (commit `89c1886`). Riga AGG aggiunta al piano editoriale.
+- ⚠️ Nota cosmetica: nei due titoli «BeerFest · …» il carattere «·» non si disegna nel font del template (resta uno spazio doppio) — leggibile, nessun dato sbagliato.
+
+**Step 4 — guardie:** imminenti ✅ (buco chiuso, uscita 0) · integrità ✅ (129 rif.) · export→coda ✅ · caption-prezzi ✅ (exit 0) · copertura ⚠️ · serie ricorrenti ⚠️ (16/09 e 23/09 Serravalle in Wellness senza busta — **voluto**, coperte dal rimando in caption del 09/09, decisione 24/08).
+
+🔴 **Aggregati scoperti OLTRE le 48h — li chiude lo Step 2-bis quando entrano in finestra (serve il Mac acceso i 2 giorni prima):** weekend del 10/09 (esce mer 09/09 18:00) · settimanale del 13/09 (esce dom 13/09 18:00) · weekend del 17/09.
+
+⚠️ **Restano da graficare** (entrano in finestra più avanti): Concerto Morricone (feed 08/09), Musikfest Adriatica (storia 12/09), SM U21–Kosovo (feed 24/09), SM–Finlandia (feed 26/09), SM–Albania (feed 29/09), SM U21–Spagna (storia 01/10). SM–Finlandia: swap col Beer Fest "Dicono di Cesare" confermato da Michele il 03/09.
+
+⚠️ 1 copia Canva «DA ELIMINARE» in più da cestinare a mano: settimanale 07-13/09 (`DAHUOLLiFaw`), oltre alle 4 già segnalate il 03/09.
+
+⚠️ Non committati (come sempre): `dati/post/*.md` (incl. il dossier), `dati/handle-organizzatori.json`, questo report — non sono nel repo pubblico.
+
+🟢 `PUBLISH_LIVE=true`: il settimanale esce **davvero** domenica 06/09 18:00 su IG+FB.
+
+---
+
+Aggiornato: 2026-09-02→03 (notte) — 🔗 **CATENA GIORNALIERA (task pianificato): chiusi 3 buchi di storie con lo Step 2-bis (03/09 e 04/09).**
+
+Giro partito il 02/09 ~23:30, finito dopo mezzanotte (03/09). Step 0-bis: 0 approvazioni · 0 segnalazioni · 0 annullamenti · ultimo approvato (01/09) già "graficato" nel senso della domanda 2 (stesso giorno), MA **domanda 5 = sì** (`controllo-imminenti.py` uscita 2).
+
+**Step 2-bis — buchi di storie chiusi:**
+- **Storia "Festa di San Marino" (03/09)** — il 03/09 era scoperto storie (feed già in coda). Compilata su pag.10 mazzo storie singolo (copia `DAHUFR0oAck`), giorno Python = Giovedì, ora 10:00, Centro Storico. `/smh-check` ✅. Busta `posts/20260903_Storia` in coda → **esce oggi 03/09 07:00** (PUBLISH_LIVE=true).
+- **Storia "Dal Turista al Contadino — 1° weekend" ridatata 05/09 → 04/09** — trovata in coda la busta `20260905_Storia` **stantia e col layout rotto** ("Settembre" sotto la linea divisoria, descrizione "Luogo e orari da confermare"). Poi, allo scoccare del 03/09, la guardia imminenti ha chiesto feed+storie per **venerdì 04/09** (giorno di apertura DTC, "San Marino nel piatto" Piazza Sant'Agata dalle 18:00). Ricompilata da zero coi dati corretti di `post-approvati-2026-09-01.md`, spostata al **04/09** (giorno di apertura), copia pag.12 (`DAHUFgt-JT0`). Vecchia busta `20260905_Storia` **rimossa**; nuova `posts/20260904_Storia`. Vecchio export in `marketing/3 Export/2 Giornalieri - Stories/_vecchi/`. `/smh-check` ✅. (La copia intermedia pag.11 `DAHUFeF0tt4` col taglio "5-6 Settembre" è superata — DA ELIMINARE su Canva come le altre.)
+- Puntatore storie singolo: 9 → **12**.
+
+**Step 4 — guardie:** imminenti ⚠️ (storie ok; **04/09 "manca feed"** — falso positivo: DTC è story-only per tua decisione del 23/07, nessun altro evento verificato il 04/09 → il feed del 04/09 resta legittimamente vuoto, coperto da storia + weekend aggregato) · integrità ✅ (129 rif.) · export→coda ✅ · caption-prezzi ✅ · copertura ⚠️ · serie ricorrenti ⚠️ (16/09 e 23/09 Serravalle in Wellness senza busta — **voluto**, coperte dal rimando in caption del 09/09, decisione 24/08).
+
+🔴 **Aggregati scoperti OLTRE le 48h — li chiude lo Step 2-bis quando entrano in finestra (serve il Mac acceso i 2 giorni prima):** settimanale del 06/09 (esce dom 06/09 18:00) · weekend del 10/09 · settimanale del 13/09.
+
+**AGGIORNAMENTO 03/09 (Michele in chat, giro extra):**
+- **Regola chiarita:** 1 evento/giorno → il post va **sia nel feed sia nella storia**. La vecchia eccezione "DTC 1° weekend è story-only" (23/07) valeva coi dati parziali; ora che i dati ci sono, decade.
+- **Compilati e messi in coda subito** (commit `a4db39f`), così non serve tenere il Mac acceso nei prossimi giorni per questi:
+  - `20260904_Post giornaliero` — feed DTC apertura (Piazza Sant'Agata, dalle 18:00) — affianca la storia già in coda
+  - `20260905_Post giornaliero` — feed Bunta's Car Meeting (Cava degli Umbri, dalle 14:00)
+  - `20260905_Storia` — storia Festa di Fine Estate (Acquaviva, 19:00)
+- Puntatori: giornaliero 8→**10**, storie singolo 12→**13**. Copertura 03–05/09 ora **piena (feed+storia)**. `/smh-check` ✅ su tutte.
+- **Restano da graficare** (entrano in finestra più avanti): Concerto Morricone (feed 08/09), Musikfest Adriatica (storia 12/09), SM U21–Kosovo (feed 24/09), SM–Finlandia (feed 26/09), SM–Albania (feed 29/09), SM U21–Spagna (storia 01/10). **SM–Finlandia: swap col Beer Fest "Dicono di Cesare" CONFERMATO da Michele il 03/09.**
+
+⚠️ 4 copie Canva «DA ELIMINARE» da cestinare a mano (giornaliero 04/09 + 05/09, storie 05/09 Fine Estate; + le 3 storie del giro precedente).
+
+✅ **Stash git orfano recuperato** (03/09, commit `bcd4663`): `stash@{0}` "pending pre-existing edits before pull check" (creato da un giro del 17/08 e mai ripristinato) conteneva le date reali del Trenino Bianco Azzurro (21/22/23/28/29 agosto, non 14/08) in `dati/post/post-2026-08-10.md` + la data del token IG `2026-08-17` in `metriche/storico.json`. Applicato con merge 3-way (metriche recenti intatte), committato, stash svuotato.
+
+⚠️ Non committati (come sempre): `dati/post/*.md`, `dati/handle-organizzatori.json`, questo report.
+
+---
+
+Aggiornato: 2026-09-01 (sera) — 🔗 **CATENA GIORNALIERA (task pianificato): elaborate le 12 approvazioni del giro settimanale + chiuso il buco weekend 04–06/09 (Step 2-bis).**
+
+**Step 1 — approvazioni (giro `20260831-1742`, Michele 31/08 17:53–17:54, tutte ✅):**
+- **1 modificato:** riga master 59 "Dal Turista al Contadino — 1° weekend" → data corretta 05–06/09 **→ 04–06/09** (venerdì 4 "San Marino nel piatto" Piazza Sant'Agata, 5 fonti).
+- **7 nuovi** (righe master 97–103): Bunta's Car Meeting 05/09, Concerto a Lume di Candela — Morricone 08/09, Musikfest Adriatica 12/09, SM U21–Kosovo 24/09, SM–Finlandia NL 26/09, SM–Albania NL 29/09, SM U21–Spagna 01/10.
+- **4 dubbi approvati** (righe 104–107): Matsuri (05–06/09, sede da confermare), Festa Fine Estate Acquaviva (05/09, fonte unica), Festa del Socio Ass. Micologica (06/09, fonte unica + forse non pubblico), XXXII Mostra Micologica (26/09, 🔴 manca il luogo).
+- File pronti-grafica: `dati/post/approvati/post-approvati-2026-09-01.md` (**9 pronti, 3 bloccati**: Matsuri/Festa del Socio/Mostra Micologica finché non è sciolto il nodo). Bozze aggiornate in `post-2026-08-31.md` (8 status → approvato + 4 nuove per i dubbi). Piano editoriale: righe settembre/ottobre aggiunte. Commit `756a0f0` (master + piano + queue/approvazioni). `queue/approvazioni.md`: 12 righe segnate [x].
+
+**Step 2-bis — buco weekend 04–06/09 CHIUSO:**
+- **Baseball finale scudetto GARA 5 vs Parma** (02/09, La Ciarulla Serravalle, 20:00) — il 02/09 era scoperto feed+storie. Giornaliero (copia master pag.8) + storia (copia pag.9 mazzo singolo), tag `@sanmarinobaseball`, auto-validati ed esportati. Dossier `dati/post/post-2026-09-02-baseball-g5.md`.
+- **Weekend 04–06/09** (copia master weekend pag.1, wrap) — 4 eventi 1 slide (righe 5-6 cancellate + blocco ricentrato): Dal Turista al Contadino, Bunta's Car Meeting, Festa di Fine Estate, San Marino Matsuri. Esclusi: Festa del Socio Micologica (in attesa conferma "è pubblico?"), Festa di San Marino (03/09 fuori finestra), baseball gare 6-7 (Parma), Buonenove (finisce 03/09). Dossier `dati/post/weekend-2026-09-04-06.md`.
+- **3 buste in coda** (commit `ca2bbc3` + fix nome `5b4372a`): `20260902_Post giornaliero`, `20260902_Storia`, `20260903_Weekend`. Cancello `/smh-check`: tutte ✅. 🔴 Fix: la busta weekend era `20260904_*` → rinominata `20260903_*` (convenzione: prefisso = data di pubblicazione), altrimenti `controllo-imminenti` e `controllo-export-in-coda` la segnalavano mancante.
+
+**Step 4 — guardie:** imminenti ✅ (buco richiuso, uscita 0) · integrità ✅ (129 rif.) · export→coda ✅ · caption-prezzi ✅ · copertura ⚠️ · serie ricorrenti: 16/09 Serravalle in Wellness senza busta (voluto — coperto dal rimando in caption del 09/09, decisione 24/08).
+
+🔴 **Aggregati scoperti OLTRE le 48h — li chiude lo Step 2-bis quando entrano in finestra:** weekend del 10/09 · settimanale del 13/09.
+
+⚠️ **SERVONO DECISIONI DI MICHELE (referto Telegram inviato):**
+1. **SM–Finlandia (26/09)**: messo come post FEED, Beer Fest "Dicono di Cesare" spostato a storia (Nazionale a Serravalle = evento maggiore). Da confermare.
+2. **Festa del Socio Ass. Micologica (06/09)**: approvato ma "aperto ai soci e ospiti" + fonte unica → tenuto fuori dal weekend. È pubblico?
+3. **Matsuri (05–06/09)** e **Mostra Micologica (26/09)**: nessun post dedicato finché sede non confermata.
+4. Busta `posts/20260905_Storia` (DTC 1° weekend): controllare che non citi solo "5–6 settembre" (ora evento 04–06/09).
+5. Busta `posts/20260825_Post giornaliero` (Rapunzel) scaduta e mai archiviata (caso "uscita a metà").
+
+⚠️ Non committati (come il giro settimanale): `dati/post/*.md`, `dati/handle-organizzatori.json`, questo report — non sono nel repo pubblico.
+
+🟢 `PUBLISH_LIVE=true`: baseball gara 5 esce **davvero** mer 02/09 07:00; weekend gio 03/09 18:00 su IG+FB.
+
+---
+
+Aggiornato: 2026-08-31 (sera) — 🔁 **GIRO SETTIMANALE (task `smh-giro-settimanale`, prima volta che parte davvero dopo il ricreamento del 17/08).** Catena ricerca→postino→verifica→testi eseguita per intero. 31 eventi trovati → 20 verificati (8 nuovi + 1 modificato) → 20 bozze in `dati/post/post-2026-08-31.md`. Telegram inviato con i pulsanti: **12 eventi** (8 nuovi/modificati + 4 dubbi). Approvazioni attese entro martedì 10:05.
+
+🔴 **Trovato e chiuso in corsa: `segnala-doppioni.py` era CIECO.** L'agente testi ha scritto le intestazioni come `## GG/MM —` invece di `## [GG/MM] —` (formato storico) → la regex dello script non agganciava nessun blocco, 0 doppioni rilevati su un file che ne aveva 8. Intestazioni normalizzate a mano, script ri-lanciato: **8 bozze messe in `gia-in-coda`** (03/09 Festa di San Marino, 11/09 MotoGP + Il senso di ogni cosa, 13/09 Palio Don Bosco, 15/09 Renata Tebaldi, 18/09 Sport in Fiera, 19/09 GP Nuvolari, 08/10 Rallylegend — tutti già in coda/master). 🔴 **Resta da fare:** correggere la skill `/smh-testi` perché produca il formato `## [GG/MM] —`, oppure rendere `segnala-doppioni.py` tollerante ai due formati (una guardia muta è peggio di nessuna).
+
+**1 modificato da approvare:** Dal Turista al Contadino 1° weekend → date reali **04–06/09** (non 05–06/09), con venerdì 4 «San Marino nel piatto» in Piazza Sant'Agata (5 fonti 2026). ⚠️ La busta storia già in coda `posts/20260905_Storia` va ricontrollata prima del 05/09: se cita solo «5–6 settembre» esclude il venerdì.
+
+**4 dubbi girati a Michele:** San Marino Matsuri (sede «Podere Lesignano» su fonte unica), Festa di Fine Estate Acquaviva (fonte unica), Festa del Socio Ass. Micologica (fonte unica + forse non pubblico), XXXII Mostra Micologica (fonte unica, manca il luogo).
+
+**Postino:** code vuote (testo 0 · foto 0). **Sito:** `sito/calendario-eventi.html` rigenerato (47→36 eventi, cadono i passati d'agosto); i nuovi eventi di settembre entrano in pagina solo dopo l'approvazione (→ master). 🔴 Anteprima Artifact NON ripubblicata in questo giro automatico. **`dati/handle-organizzatori.json`:** +4 organizzatori `da-cercare` (Bunta's Car Meeting, Musikfest Adriatica, «Il senso di ogni cosa», Ass. Micologica Sammarinese).
+
+**Guardie:** integrità ✅ (129 rif.) · export→coda ✅ (nessun orfano) · copertura ⚠️ 4 aggregati scoperti (weekend 03/09, settimanale 06/09, weekend 10/09, settimanale 13/09) — li chiude lo Step 2-bis della catena giornaliera quando entrano nella finestra 48h; già noti da ULTIMO_REPORT del 28-30/08.
+
+⚠️ Niente commit/push in questo giro (task automatico): i file restano sul disco.
+
+---
+
 Aggiornato: 2026-08-30 (sera) — 🔗 **CATENA GIORNALIERA (task pianificato): Step 2-bis ha chiuso 2 buchi delle 48h — giornaliero+storia baseball G3 (31/08) e il CAROSELLO DI SETTEMBRE.**
 
 Giro serale automatico. Step 0-bis: 0 approvazioni, ultimo approvato (17/08) già graficato (28/08) — ma **domanda 3 = sì** (1 segnalazione al bot) e **domanda 5 = sì** (`controllo-imminenti.py` uscita 2).
