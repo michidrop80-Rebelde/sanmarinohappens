@@ -106,3 +106,45 @@ riscritto e segnalato nei due versi l'evento scambiato.
 3. Deciso di proposito **fuori** da questa fase, e da rimettere quando il cloud diventa titolare
    (ticket 10): lo Step 5 (`/smh-sito`), la guardia export→coda e quella di copertura. Il loro
    rimedio è pubblicare, e pubblicare è ancora affare di `main`, non del ramo di prova.
+
+---
+
+## Corsa #1 (07/09/2026, 21:12) — verde, e completamente a vuoto
+
+Run [#34162080929](https://github.com/michidrop80-Rebelde/sanmarinohappens/actions/runs/34162080929):
+tutti e sei i job verdi in 4m43s, Telegram arrivato. **E il cloud non aveva prodotto niente.**
+
+I tempi: tappa 1 l'agente **155s**, tappe 2-3-4 l'agente **1s l'una**, peso **$0,87**. Causa quasi
+certa: **serbatoio dell'abbonamento esaurito** (intuizione di Michele; i numeri la reggono, ed è il
+rischio già misurato dal ticket 06, che aveva già ucciso tre catene programmate).
+
+**Il guasto vero non è il serbatoio: è che nessuno se n'era accorto.** Tre bugie, tutte corrette:
+
+1. **Il passo dell'agente risultava «riuscito» con `claude` morto.** Il passo finisce con un `tail`,
+   e in shell il passo prende il codice dell'**ultimo** comando. Quindi marcatore scritto, tappa
+   «fatta», e **la ripresa delle 09:00 — che esiste apposta per il 429 — non l'avrebbe mai rifatta.**
+   Il codice vero di `claude` lo salvavo già in `exit_claude` e non lo usavo. Ora `chiudi-tappa.sh`
+   lo guarda.
+2. **Il confronto diceva «✅ 22/22 identici».** Il ramo nasce come copia di `main`, che contiene già
+   i file del giro del Mac: confrontava quei file **con sé stessi**. Ora `materializza_cloud`
+   confronta l'impronta git di ogni file col suo omologo su `main` e marca come «non scritto dal
+   cloud» quelli identici; le sezioni che ne dipendono dicono **«⛔ non confrontabile»** e
+   `--una-riga` esce **4**.
+3. **Il referto Telegram diceva «1 Ricerca: 22 eventi — fatta».** Stessa radice. Ora dice
+   **«🛑 nessun lavoro prodotto»** e, se tutte le tappe sono a vuoto, apre con «giro passato a vuoto»
+   e la causa probabile.
+
+**La regola che ne esce, e che vale oltre questo ticket:** un giro in cloud non si giudica da
+«verde», né da quello che l'agente racconta di aver fatto. Si giudica da **cosa ha cambiato nei
+file** — e il metro va costruito in modo che non possa scambiare il lavoro di qualcun altro per il
+proprio. Qui il metro stava dentro un ramo che partiva già pieno del lavoro del Mac.
+
+Prove aggiunte: `referto_giro_cloud_test.py` sale a **32/32** (due casi nuovi, su repo git veri:
+giro tutto a vuoto e una sola tappa a vuoto), `confronta_giri_test.py` a **24/24** (caso [8]).
+Il referto corretto è stato fatto girare **sulla corsa vera** e ora dice la verità.
+
+## Corsa #2 — armata per la notte dell'8 settembre
+
+Cron una-tantum `0 1 8 9 *` (03:00) + `0 7 8 9 *` (la ripresa, 09:00). 🔴 **Da togliere dopo.**
+Martedì il giro del Mac non gira: questa corsa prova la **macchina**, non l'accordo fra i due giri.
+L'accordo si misura lunedì 14/09.

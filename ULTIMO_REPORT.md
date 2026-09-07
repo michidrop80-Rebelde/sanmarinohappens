@@ -1,57 +1,70 @@
 # Ultimo stato — San Marino Happens
 
-Aggiornato: 2026-09-07 (notte) — 🗺️ **MAPPA CATENA IN CLOUD: ticket 08 costruito e provato — il giro del lunedì gira in cloud su un ramo suo. Manca solo il lunedì vero.**
+Aggiornato: 2026-09-08 (notte) — 🗺️ **TICKET 08: il giro in cloud è costruito e ha girato per la prima volta. È passato a vuoto — e la cosa grave è che diceva di essere andato bene.**
 
-**Stato della mappa `.scratch/catena-in-cloud/` — 10 ticket su 13 chiusi, il 08 costruito ma ancora aperto.**
+**Stato della mappa `.scratch/catena-in-cloud/` — 10 su 13 chiusi; il 08 costruito, aperto, in attesa di una corsa vera.**
 
-| | ticket |
-|---|---|
-| ✅ chiusi | **01** cervello nel repo · **02** limiti in Actions · **03** file mancanti dal clone · **04** token abbonamento · **05** la sonda · **06** consumo + forma delle sveglie · **07** pulsanti senza token · **11** percorsi assoluti · **12** avviso scadenza token · **13** guardia di freschezza |
-| 🔨 costruito, aspetta il lunedì | **08** — il giro settimanale in cloud |
-| 🔴 bloccati | **09** cloud e Mac insieme (aspetta 08) → **10** catena quotidiana + spegnere i task locali (aspetta 08, 09) |
+## Cosa è successo stanotte (corsa #1, ore 21:12)
 
-**Il nodo del ticket 08 era: due catene che scrivono gli stessi file.** Mac e cloud lo stesso lunedì
-si sovrascriverebbero il file eventi di oggi e manderebbero due messaggi Telegram. Risolto **togliendo
-la sovrapposizione invece di gestirla**: il cloud lavora su un **ramo git separato** (`giro-cloud`),
-stessi percorsi e stesse skill, ma niente di quello che scrive tocca dove lavora il Mac. Il ramo è
-usa-e-getta: ogni lunedì riparte da `main`. Il confronto fra i due giri diventa un `git diff`.
+Il workflow è girato tutto verde in **4m43s**. Michele ha ricevuto un Telegram che diceva
+«1 Ricerca: 22 eventi — fatta». **Era falso.** Il cloud non ha prodotto niente: quei 22 eventi
+erano quelli del giro del Mac di stamattina, e il ramo se li portava dietro perché nasce come
+copia di `main`.
 
-**Decisione di Michele (07/09):** un solo mazzo di pulsanti. Alle 03:00 il cloud manda **un messaggio
-senza pulsanti** (secondo parere: quanti eventi, quanti verificati, quante bozze); alle 08:05 il Mac
-manda i ✅/❌ come sempre. Il blocco a due passi del ticket 07 resta comunque esercitato davvero —
-`prepara --solo-riepilogo` (nessuna chiave) e `invia` (l'unico passo col token).
+I tempi lo dicono: tappa 1 l'agente **155 secondi**, tappe 2-3-4 l'agente **1 secondo l'una**,
+peso totale **$0,87**. Causa quasi certa (intuizione di Michele, e i numeri la reggono):
+**serbatoio dell'abbonamento esaurito** — è il rischio che il ticket 06 aveva già misurato,
+e che aveva già ucciso tre catene programmate (21/08 e 24/08).
 
-**Cosa c'è adesso:**
-- `.github/workflows/giro-cloud.yml` — 6 job: `prepara` + le 4 tappe + `avviso`. **Ogni tappa è un job
-  a sé**: 6 ore di tempo ciascuna invece di 6 in tutto (il giro del 24/08 era morto a metà sul limite),
-  e il lavoro si salva sul ramo prima di passare il testimone. Si ferma con grazia se ricerca e postino
-  danno entrambi zero.
-- **La ripresa delle 09:00** salta le tappe già uscite bene e rifà solo quelle rimaste indietro: è anche
-  la riprova «a +6h» decisa per il serbatoio vuoto (429). Un solo meccanismo per tutti e due i casi.
-- `scripts/conta-giro.py` — i numeri di un giro **misurati dai file**, mai chiesti all'agente.
-- `scripts/confronta-giri.py` — il confronto Mac/cloud. I titoli si accostano per **contenimento di
-  parole**, non per somiglianza: la somiglianza fondeva «San Marino - Finlandia» con «San Marino -
-  Albania» (due partite diverse) e separava «Concerto a lume di candela» dal suo stesso concerto col
-  sottotitolo.
-- `smh-giro` ha un nuovo **Step 3c**: il giro del Mac fa il confronto da solo e ne mette la riga nel
-  messaggio Telegram. Michele lo vede dove già guarda, senza lanciare niente.
+⚠️ **Ma il guasto non è quello. Il guasto è che nessuno se n'era accorto.** Tre bugie, tutte
+corrette e coperte da prove:
 
-🔒 **Buco chiuso di passaggio:** `controllo-token-agente.py` guardava solo `.github/workflows/*.yml` e
-solo i `${{ secrets.X }}` — bastava spostare un passo in un'azione composita o passare la chiave da
-`inputs.` per sfuggirle. Ora guarda anche `.github/actions/*/action.yml` e riconosce la chiave dal
-**nome della variabile**, da dovunque arrivi il valore.
+| # | la bugia | perché |
+|---|---|---|
+| 1 | il passo dell'agente risultava **«riuscito»** con `claude` morto | il passo finisce con un `tail`, e in shell il passo prende il codice dell'**ultimo** comando. Marcatore scritto, tappa «fatta», e la **ripresa delle 09:00 — che esiste apposta per questo caso — non l'avrebbe mai rifatta.** Ora conta `exit_claude` |
+| 2 | il confronto diceva **«✅ 22/22 identici»** | confrontava i file di `main` **con sé stessi**. Ora riconosce dall'impronta git quelli che il cloud non ha scritto e dice **«⛔ non confrontabile»** |
+| 3 | il referto Telegram diceva **«22 eventi — fatta»** | stessa radice. Ora dice **«🛑 nessun lavoro prodotto»**, e se sono a vuoto tutte mette in cima «giro passato a vuoto» con la causa probabile |
 
-Prove: `chiudi_tappa_test.sh` **14/14** (repo e remoto finti — compreso il caso del 07/09: passo verde
-che non committava) · `referto_giro_cloud_test.py` **23/23** · `confronta_giri_test.py` **20/20** su
-titoli veri · `telegram_giro_test.py` **48/48** · `controllo_token_agente_test.py` **12/12** ·
-integrità ✅ 133 riferimenti. Confronto provato **end-to-end contro un ramo git vero**.
+**La morale, che vale oltre questo ticket:** un giro in cloud non si giudica da «verde», né da
+quello che l'agente racconta. Si giudica da **cosa ha cambiato nei file** — e il metro va costruito
+in modo che non possa scambiare il lavoro di qualcun altro per il proprio.
 
-⚠️ **Cosa serve a Michele per chiudere il ticket 08:** il primo giro vero — lunedì 14/09 alle 03:00, o
-subito a mano da *Actions → Giro settimanale in cloud → Run workflow*. Poi si guarda il confronto.
+## Cosa c'è adesso
 
-🔴 **Trovato di passaggio (task a parte):** `scripts/segnala_doppioni_test.py` va in errore appena parte
-(cerca una funzione che nello script non esiste più). Lo **script funziona** — verificato con `--prova` —
-ma la sua prova non protegge niente da mesi.
+- `.github/workflows/giro-cloud.yml` — `prepara` + 4 tappe + `avviso`. Il cloud lavora sul **ramo
+  `giro-cloud`**, mai su `main`: stessi percorsi e stesse skill, ma niente tocca dove lavora Michele.
+  **Ogni tappa è un job a sé** (6 ore ciascuna invece di 6 in tutto) e salva prima di passare il
+  testimone. La **ripresa** rifà solo le tappe rimaste indietro — è anche la riprova «a +6h» per il
+  serbatoio vuoto.
+- Michele riceve **un solo mazzo di pulsanti**: il cloud manda un riepilogo senza ✅/❌, il Mac manda
+  i pulsanti alle 08:05 come sempre (sua decisione, 07/09).
+- `scripts/conta-giro.py` — i numeri **misurati dai file**. `scripts/confronta-giri.py` — il
+  confronto Mac/cloud, per **contenimento di parole** e non per somiglianza (la somiglianza fondeva
+  «San Marino - Finlandia» con «San Marino - Albania» e separava «Concerto a lume di candela» dal
+  suo stesso concerto). `smh-giro` **Step 3c** mette la riga di confronto nel Telegram che già arriva.
+- 🔒 Chiuso di passaggio un buco in `controllo-token-agente.py`: guardava solo i workflow e solo i
+  `${{ secrets.X }}`. Ora guarda anche `.github/actions/*/action.yml` e riconosce la chiave dal
+  **nome della variabile**.
+
+Prove: referto **32/32** · confronto **24/24** · chiudi-tappa **14/14** (repo e remoti git veri) ·
+telegram **48/48** · token-agente **12/12** · integrità ✅ 133 riferimenti.
+
+## Il prossimo passo, già armato
+
+🔴 **Sveglia UNA TANTUM per la notte dell'8 settembre: 03:00 (+ ripresa alle 09:00)**, per rifare il
+collaudo col serbatoio pieno. Cron `0 1 8 9 *` e `0 7 8 9 *` in `giro-cloud.yml`.
+**VANNO TOLTI dopo la corsa**, altrimenti l'8 settembre dell'anno prossimo parte un giro che nessuno
+si aspetta.
+
+Cosa guardare al risveglio:
+1. Il Telegram: se dice «passato a vuoto», il serbatoio non era il problema e va cercata altra causa.
+2. `python3 scripts/confronta-giri.py --data 2026-09-08` — ma **attenzione**: martedì il giro del Mac
+   non gira, quindi non ci sarà confronto. La corsa di stanotte prova la **macchina**, non l'accordo
+   fra i due giri: quello arriva lunedì 14/09.
+
+🔴 **Trovato di passaggio (task a parte, già avviato):** `scripts/segnala_doppioni_test.py` va in
+errore appena parte — cerca una funzione che nello script non esiste più. Lo script funziona
+(verificato con `--prova`), ma la sua prova non protegge niente da mesi.
 
 ---
 
