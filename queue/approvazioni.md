@@ -66,3 +66,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [x] 2026-08-31T17:54:25.456Z — approvato — 20260831-1742-micologica — Michele Morri @RebeldeRN — ⚠️ Festa di Fine Estate (Acquaviva) — ✅ elaborato 01/09/2026 (catena Step 1, giro 20260831-1742)
 - [x] 2026-08-31T17:54:26.783Z — approvato — 20260831-1742-festasocio — Michele Morri @RebeldeRN — ⚠️ Festa di Fine Estate (Acquaviva) — ✅ elaborato 01/09/2026 (catena Step 1, giro 20260831-1742)
 - [ ] 2026-09-07T07:34:29.788Z — approvato — 20260907-0654-01 — Michele Morri @RebeldeRN — 🆕 Giornata Mondiale Fair Play 2026
+- [ ] 2026-09-07T07:34:32.141Z — approvato — 20260907-0654-02 — Michele Morri @RebeldeRN — 🆕 Giornata Mondiale Fair Play 2026
