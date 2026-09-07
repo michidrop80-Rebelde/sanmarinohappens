@@ -129,9 +129,9 @@ ticket di discussione; le skill del progetto (`smh-*`) come fonte di verità sul
   provato) e ferma l'anello se è vecchio: `eventi` = stesso giorno, `verificato` = max 2 giorni.
   Su stop manda un Telegram di una riga (file + data + giorni), stesso helper di
   `avviso-imminenti.py`. Step 1 di `smh-verifica` e `smh-testi` ora la invocano e si fermano senza
-  bozze su exit 1/2. Verificato con file veri (exit 0 / 1 / 2 e mtime azzerati). Commit `9bd1f64`.
-  Resta da fare a Michele una conferma da 10 s dell'invio Telegram reale (segreti fuori dalla
-  sessione): `python3 scripts/controllo-freschezza.py verifica --oggi 2026-12-01`.
+  bozze su exit 1/2. Verificato con file veri (exit 0 / 1 / 2, mtime azzerati) **e con l'invio
+  Telegram reale** (Michele l'ha lanciata: messaggio arrivato via ripiego su `curl`). Credenziali:
+  env var `TELEGRAM_*` in Actions, `.claude/secrets/telegram.json` sul Mac. Commit `9bd1f64` + 2.
 
 ## Non ancora specificato
 

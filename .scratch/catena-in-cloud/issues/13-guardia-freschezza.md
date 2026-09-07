@@ -85,13 +85,10 @@ Step 1 di `smh-verifica/SKILL.md` e `smh-testi/SKILL.md`: se non è stato indica
 un file specifico a mano, lanciano la guardia e su exit 1/2 **si fermano senza
 produrre bozze**.
 
-### Unico pezzo non verificato in questa sessione
-L'invio Telegram **reale** non è stato fatto: i segreti stanno in `.claude/secrets/`
-(giustamente fuori dalla portata di questa sessione) e le env var non erano
-impostate. Il codice di invio è **identico** a quello di `avviso-imminenti.py`, già
-in produzione, ed è stato esercitato con `--prova`. Conferma da 10 secondi per
-Michele, quando ha le credenziali in ambiente:
-
-    python3 scripts/controllo-freschezza.py verifica --oggi 2026-12-01
-
-(deve arrivare un Telegram che nomina l'ultimo file di `dati/eventi/` e i suoi giorni.)
+### Invio Telegram — verificato davvero
+Michele ha lanciato `python3 scripts/controllo-freschezza.py verifica --oggi 2026-12-01`:
+il Telegram è arrivato (`Mandato: True`) col messaggio che nomina `eventi-2026-09-07.md`
+e «85 giorni fa». Sul Mac `requests` non è installato → è partito il ripiego su
+`curl`, come previsto. Le credenziali sul Mac vengono da `.claude/secrets/telegram.json`
+(chiavi `bot_token`/`chat_id`, come `telegram-giro.py`); in Actions dalle env var
+`TELEGRAM_*`. Commit `+2` rispetto a `9bd1f64`.
