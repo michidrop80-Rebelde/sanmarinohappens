@@ -1,0 +1,19 @@
+{
+  "tipo": "storia",
+  "data_pubblicazione": "2026-09-08",
+  "ora_pubblicazione": "07:00",
+  "titolo_evento": "Storie del 8 settembre (Cronotitano Hill Climb + Concerto a Lume di Candela)",
+  "immagini": [
+    "20260908_Storia_1.png",
+    "20260908_Storia_2.png"
+  ],
+  "user_tags": {
+    "20260908_Storia_2.png": [
+      {
+        "username": "sanmarino_turismo",
+        "x": 0.5,
+        "y": 0.78
+      }
+    ]
+  }
+}
