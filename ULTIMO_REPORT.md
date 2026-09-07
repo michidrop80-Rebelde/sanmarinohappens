@@ -1,5 +1,35 @@
 # Ultimo stato — San Marino Happens
 
+Aggiornato: 2026-09-07 (sera) — 🗺️ **MAPPA CATENA IN CLOUD: chiuso il ticket 07 — i pulsanti Telegram partono senza che l'agente veda mai la chiave.**
+
+**Stato della mappa `.scratch/catena-in-cloud/` — 10 ticket su 13 chiusi.**
+
+| | ticket |
+|---|---|
+| ✅ chiusi | **01** cervello nel repo · **02** limiti in Actions · **03** file mancanti dal clone · **04** token abbonamento · **05** la sonda · **06** consumo + forma delle sveglie · **07** pulsanti senza token · **11** percorsi assoluti · **12** avviso scadenza token · **13** guardia di freschezza |
+| 🟢 frontiera | **08** — il giro del lunedì gira in cloud (il ticket più grosso: più di una sessione, Opus) |
+| 🔴 bloccati | **09** cloud e Mac insieme (aspetta 08) → **10** catena quotidiana + spegnere i task locali (aspetta 08, 09) |
+
+**Cosa ha chiuso il ticket 07.** L'agente di ricerca legge pagine web di sconosciuti: se una nascondesse istruzioni malevole, non deve avere niente in mano. Ora `telegram-giro.py` è **due comandi**: `prepara` (nessuna chiave — costruisce testo, blocchi da 3 e pulsanti, e scrive la busta `queue/telegram-da-inviare.json`) e `invia` (l'unico passo che tocca il token).
+
+**Quattro decisioni di Michele** (grilling, 07/09): i pulsanti li disegna lo **script**, non l'agente · **una strada sola**, uguale sul Mac e in cloud · **la busta che resta è l'allarme** (si cancella solo dopo la conferma di Telegram; `prepara` si rifiuta di sovrascriverne una) · invio a metà = **mappa del giro salvata comunque** + una riga che dice che la lista è incompleta (i pulsanti già arrivati valgono).
+
+- `invia` **rifiuta una busta malfatta** (callback del giro giusto, solo `approve`/`reject`, testo ✅/❌, evento presente in busta): è il muro che regge la prima decisione invece di lasciarla a un commento.
+- Due punti del ticket erano **stantii**: il `giro_id` nei pulsanti c'è dal 10/08 (verificato sulle 4 approvazioni vere di stamattina), e il modello «passo stupido col token» era già provato dalla sonda.
+- **Prova dal vivo**: run [#34155483208](https://github.com/michidrop80-Rebelde/sanmarinohappens/actions/runs/34155483208) verde — messaggio 🧪 PROVA coi **pulsanti veri** sul telefono di Michele (giro `PROVA-20260907-1925`), suo ✅ tornato in `queue/approvazioni.md` via Worker (commit `6182017`). **L'agente non ha mai visto il token**: il passo si controlla le tasche da solo prima di partire.
+- 🔴 **Difetto trovato proprio verificando**: il passo di commit era **verde ma non aveva committato la mappa del giro** — `git add -A dati/telegram queue/telegram-da-inviare.json` fallisce tutto quando la busta non esiste più, e il `|| true` mangiava l'errore. In un giro vero = mappa numero→evento persa. Corretto (`e53d7dd`): due `git add` separati + rosso se l'invio è riuscito e non c'è niente da committare. Provato in un repo finto.
+- **Due guardie nuove**: `controllo-token-agente.py` (rosso se un passo che lancia `claude` ha in mano una chiave, **anche ereditata dall'env del job** — la trappola che non si vede) agganciata a `guardia-integrita.yml` che gira a ogni push; `controllo-busta-rimasta.py` (i pulsanti non sono mai partiti → la catena aspetta a vuoto) nello Step 4 di `smh-catena`.
+- **`telegram_helper` non è più muto sul Mac**: il ripiego sul file dei segreti è finito nel posto unico. Prima le guardie lanciate in locale stampavano «Telegram non configurato» e nessun avviso partiva.
+- Skill allineate: `smh-giro`, `smh-catena`, `smh-approvazione` (che ora ignora le righe `PROVA-` e legge l'ultimo giro da `dati/telegram/pending/ultimo-giro.txt`, versionato: in cloud `.claude/secrets/` non esiste).
+
+Prove: `telegram_giro_test` **38/38** · `controllo_token_agente_test` **7/7** · integrità ✅ 130 riferimenti. Commit `978efbd`, `e53d7dd`, `74694cd`.
+
+⚠️ **Unica conferma rimasta (30 secondi di Michele):** rilanciare *Actions → Prova pulsanti → Run workflow* dopo la correzione, per vedere la mappa del giro **committata** (la prima corsa non lo aveva fatto). Il resto del giro è già dimostrato.
+
+**Prossimo passo consigliato: ticket 08** — il giro del lunedì in cloud, con il task del Mac ancora acceso come secondo parere. Si porta dentro il blocco a due passi già collaudato; il capitolato è scritto dentro il ticket (mai riaprirlo).
+
+---
+
 Aggiornato: 2026-09-07 — 🗺️ **MAPPA CATENA IN CLOUD: chiuso il ticket 03 — la memoria di lavoro è nel repo pubblico, il clone non è più monco.**
 
 **Stato della mappa `.scratch/catena-in-cloud/` — 9 ticket su 13 chiusi.**
