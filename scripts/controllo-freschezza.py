@@ -59,8 +59,28 @@ import sys
 
 REPO = pathlib.Path(__file__).resolve().parent.parent
 
-TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
-CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
+def _credenziali_telegram():
+    """Token e chat_id, da dove capita di girare.
+
+    - In **GitHub Actions**: le env var `TELEGRAM_BOT_TOKEN` / `TELEGRAM_CHAT_ID`
+      (i segreti del repo), come fa `publish.py` / `avviso-imminenti.py`.
+    - Sul **Mac**, lanciata a mano: `.claude/secrets/telegram.json`
+      (chiavi `bot_token` / `chat_id`), come fa `.claude/scripts/telegram-giro.py`.
+      Quel file è in `.gitignore` e non arriva mai in cloud.
+    """
+    token = os.getenv("TELEGRAM_BOT_TOKEN")
+    chat_id = os.getenv("TELEGRAM_CHAT_ID")
+    if token and chat_id:
+        return token, chat_id
+    segreti = REPO / ".claude" / "secrets" / "telegram.json"
+    try:
+        dati = json.loads(segreti.read_text(encoding="utf-8"))
+        return dati.get("bot_token"), str(dati.get("chat_id")) if dati.get("chat_id") else None
+    except Exception:
+        return token, chat_id
+
+
+TOKEN, CHAT_ID = _credenziali_telegram()
 
 MESI = [
     "", "gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno",
