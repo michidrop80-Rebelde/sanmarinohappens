@@ -14,7 +14,7 @@ Catena: **ricerca → postino → verifica → testi** → (grafica e pubblicazi
 
 ## Base del progetto
 Tutti i percorsi sono relativi a:
-`/Users/michele/Desktop/PROGETTI/San Marino Happens`
+la radice del repo (sul Mac `~/Desktop/PROGETTI/San Marino Happens`, in GitHub Actions il checkout)
 Config condivisa: `dati/config.json`.
 
 ⚠️ **Regola che sta sopra a tutto, valida per tutta la catena: NON INVENTARE MAI.**
@@ -31,7 +31,7 @@ quello che dicono va riportato — sono lì apposta perché questi guasti sono s
 
 **a) Integrità** — tutti i file citati dalle skill e dagli agenti esistono davvero:
 ```bash
-cd "/Users/michele/Desktop/PROGETTI/San Marino Happens"
+cd "$(git rev-parse --show-toplevel)"
 python3 scripts/controllo-integrita.py
 ```
 ⚠️ **Se segnala file mancanti, NON fermarti ma NON far finta di niente**: un anello a
@@ -44,7 +44,7 @@ Michele lo vede subito. Quasi sempre si recuperano con
 
 **b) Export → coda** — le grafiche già esportate hanno la loro busta in `posts/`:
 ```bash
-cd "/Users/michele/Desktop/PROGETTI/San Marino Happens"
+cd "$(git rev-parse --show-toplevel)"
 python3 scripts/controllo-export-in-coda.py
 ```
 ⚠️ Fra grafica (anello 5) e pubblicazione (anello 6) il testimone passa a mano: un PNG
@@ -69,7 +69,7 @@ resta la finestra di veto.
 
 **c) Copertura** — nei prossimi giorni non manca niente rispetto al calendario:
 ```bash
-cd "/Users/michele/Desktop/PROGETTI/San Marino Happens"
+cd "$(git rev-parse --show-toplevel)"
 python3 scripts/controllo-copertura.py
 ```
 ⚠️ **Questa esce 1 anche quando va tutto bene**: un giorno senza eventi reali resta
@@ -119,7 +119,7 @@ Aspetta. Tieni il riassunto (file bozze, N bozze, intervallo date).
 L'agente dei testi scrive una bozza per **ogni** evento verificato: non sa cosa c'è già in
 coda di pubblicazione. Prima di chiedere l'approvazione a Michele, lancia sempre:
 ```bash
-cd "/Users/michele/Desktop/PROGETTI/San Marino Happens"
+cd "$(git rev-parse --show-toplevel)"
 python3 scripts/segnala-doppioni.py
 ```
 Mette in stato `gia-in-coda` le bozze per giorni che hanno già il loro post giornaliero, così
@@ -183,7 +183,7 @@ pagina-lista generica (es. `usc.sm/eventi/`), **va bene lo stesso**: mettila lì
 Michele se li spulcia da sé. Meglio la pagina-lista che nessun link.
 
 ```bash
-cd "/Users/michele/Desktop/PROGETTI/San Marino Happens"
+cd "$(git rev-parse --show-toplevel)"
 python3 .claude/scripts/telegram-giro.py \
   --secrets .claude/secrets/telegram.json \
   --events '[

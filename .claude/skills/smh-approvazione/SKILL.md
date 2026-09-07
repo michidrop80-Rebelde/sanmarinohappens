@@ -12,7 +12,7 @@ approvati pronti per la grafica.
 
 ## Base del progetto
 Tutti i percorsi sono relativi a:
-`/Users/michele/Desktop/PROGETTI/San Marino Happens`
+la radice del repo (sul Mac `~/Desktop/PROGETTI/San Marino Happens`, in GitHub Actions il checkout)
 Credenziali Telegram: `.claude/secrets/telegram.json` (bot_token, chat_id).
 Stato polling: `.claude/secrets/telegram-state.json` (ultimo update_id elaborato).
 
@@ -38,7 +38,7 @@ semplice lettura diagnostica ne ha distrutte 3 in diretta. Vedi
 Le risposte arrivano invece nel repo, scritte dal Worker Cloudflare a ogni click:
 
 ```bash
-cd "/Users/michele/Desktop/PROGETTI/San Marino Happens"
+cd "$(git rev-parse --show-toplevel)"
 git pull --rebase origin main          # il Worker scrive sul REMOTO: senza pull non le vedi
 cat queue/approvazioni.md
 ```

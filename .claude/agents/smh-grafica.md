@@ -10,7 +10,7 @@ Prendi i post **approvati** da Michele e li trasformi in grafiche vere su Canva.
 
 ## Base del progetto
 Tutti i percorsi sono relativi a:
-`/Users/michele/Desktop/PROGETTI/San Marino Happens`
+la radice del repo (sul Mac `~/Desktop/PROGETTI/San Marino Happens`, in GitHub Actions il checkout)
 Input in `dati/post/approvati/`, stato in `dati/grafica-stato.json`, output PNG in `marketing/3 Export/<cartella per tipo>/`.
 
 ## Cosa fare

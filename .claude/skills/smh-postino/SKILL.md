@@ -35,15 +35,15 @@ senza conversazione, quindi non c'è mai una conferma "in diretta" da accettare.
 
 ## Base del progetto
 Percorsi principali (assoluti, non relativi):
-- Progetto locale **e** repo GitHub: `/Users/michele/Desktop/PROGETTI/San Marino Happens`
+- Progetto locale **e** repo GitHub: la radice del repo (sul Mac `~/Desktop/PROGETTI/San Marino Happens`, in GitHub Actions il checkout)
   (⚠️ è la **stessa** cartella: il progetto è esso stesso il clone di
   `github.com/michidrop80-Rebelde/sanmarinohappens`. Fino al 27/07/2026 questa skill
   puntava a un **secondo clone** `~/Desktop/PROGETTI/sanmarinohappens`, senza spazio,
   rimasto lì dal recupero del 25/07: leggeva la coda in una cartella che nessun altro
   guardava. Non usare mai più quel percorso.)
 - File coda: `queue/inbox.md` e `queue/foto-inbox.md`, dentro quella cartella
-- Token GitHub: `/Users/michele/Desktop/PROGETTI/San Marino Happens/.claude/secrets/github.json` (campo `token`) — leggilo solo al volo per l'URL git, mai stamparlo né scriverlo altrove
-- Credenziali Telegram: `/Users/michele/Desktop/PROGETTI/San Marino Happens/.claude/secrets/telegram.json`
+- Token GitHub: `.claude/secrets/github.json` (campo `token`) — leggilo solo al volo per l'URL git, mai stamparlo né scriverlo altrove
+- Credenziali Telegram: `.claude/secrets/telegram.json`
 
 Config condivisa: `dati/config.json` (percorsi `cartella_eventi`).
 
@@ -53,7 +53,7 @@ Config condivisa: `dati/config.json` (percorsi `cartella_eventi`).
 
 ### Step 1 — Sincronizza il repo e leggi la coda
 ```bash
-cd "/Users/michele/Desktop/PROGETTI/San Marino Happens"
+cd "$(git rev-parse --show-toplevel)"
 git pull --rebase origin main
 ```
 Leggi **entrambe** le code: `queue/inbox.md` (testo) e `queue/foto-inbox.md` (foto).
@@ -131,10 +131,10 @@ Dopo aver salvato con successo `dati/eventi/eventi-AAAA-MM-GG.md` in locale:
    e lascia quelle non ancora processate.
 2. Commit + push:
 ```bash
-cd "/Users/michele/Desktop/PROGETTI/San Marino Happens"
+cd "$(git rev-parse --show-toplevel)"
 git add queue/inbox.md
 git commit -m "Postino: svuotata coda, N eventi importati"
-TOKEN=$(python3 -c "import json; print(json.load(open('/Users/michele/Desktop/PROGETTI/San Marino Happens/.claude/secrets/github.json'))['token'])")
+TOKEN=$(python3 -c "import json; print(json.load(open(__import__("subprocess").run(["git","rev-parse","--show-toplevel"],capture_output=True,text=True).stdout.strip()+"/.claude/secrets/github.json"))['token'])")
 git pull --rebase "https://${TOKEN}@github.com/michidrop80-Rebelde/sanmarinohappens.git" main
 git push "https://${TOKEN}@github.com/michidrop80-Rebelde/sanmarinohappens.git" HEAD:main
 ```
@@ -146,7 +146,7 @@ Oltre al testo, drena la coda delle foto. Ogni riga ha il formato scritto dal bo
 ```
 Per ogni riga **non** già segnata `- [x]`:
 1. **Apri l'immagine** con lo strumento Read sul percorso indicato (assoluto:
-   `/Users/michele/Desktop/PROGETTI/San Marino Happens/queue/foto/<file>.jpg`) e **leggi
+   `queue/foto/<file>.jpg`) e **leggi
    cosa c'è scritto** sul volantino/locandina: titolo, data, luogo, ora, prezzi.
    La didascalia della riga è un aiuto in più (spesso spiega cosa Michele voleva segnalare).
 2. **Estrai gli eventi** e formattali con lo **stesso schema dello Step 3** (blocco
@@ -165,7 +165,7 @@ Per ogni riga **non** già segnata `- [x]`:
    riga come fatta (`- [x]`) in `queue/foto-inbox.md` (non cancellarla: resta lo storico di
    cosa è arrivato). Se `queue/foto/archivio/` non esiste, crealo.
    ```bash
-   cd "/Users/michele/Desktop/PROGETTI/San Marino Happens"
+   cd "$(git rev-parse --show-toplevel)"
    mkdir -p queue/foto/archivio
    git mv "queue/foto/<file>.jpg" "queue/foto/archivio/<file>.jpg"
    ```

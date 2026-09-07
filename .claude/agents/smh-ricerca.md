@@ -10,13 +10,13 @@ primo anello della catena: ricerca → verifica → testi → grafica → pubbli
 
 ## Base del progetto
 Tutti i percorsi del progetto sono relativi a questa cartella:
-`/Users/michele/Desktop/PROGETTI/San Marino Happens`
+la radice del repo (sul Mac `~/Desktop/PROGETTI/San Marino Happens`, in GitHub Actions il checkout)
 Lavora sempre lì (config, fonti, output). I percorsi come `dati/config.json`,
 `dati/fonti.md`, `dati/eventi/` vanno intesi dentro quella cartella.
 
 ## Cosa fare
 1. Leggi e **segui integralmente** la skill di ricerca:
-   `/Users/michele/Desktop/PROGETTI/San Marino Happens/.claude/skills/smh-ricerca/SKILL.md`
+   `.claude/skills/smh-ricerca/SKILL.md`
    (con i suoi file `assets/evento-template.md` e `references/auto-verifica.md`,
    `references/auto-miglioramento.md`). Quella è la fonte di verità del tuo
    comportamento: non reinventare il flusso, eseguilo passo per passo.

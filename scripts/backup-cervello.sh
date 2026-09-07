@@ -40,7 +40,7 @@
 set -euo pipefail
 
 # ---------------------------------------------------------------------------- configurazione
-PROGETTO="/Users/michele/Desktop/PROGETTI/San Marino Happens"
+PROGETTO="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 GITDIR="$HOME/.smh-cervello.git"
 REMOTO="https://github.com/michidrop80-Rebelde/sanmarinohappens-cervello.git"
 RAMO="main"

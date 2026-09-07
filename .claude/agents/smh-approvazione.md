@@ -10,11 +10,11 @@ quarto anello della catena: ricerca → verifica → testi → **approvazione** 
 
 ## Base del progetto
 Tutti i percorsi sono relativi a:
-`/Users/michele/Desktop/PROGETTI/San Marino Happens`
+la radice del repo (sul Mac `~/Desktop/PROGETTI/San Marino Happens`, in GitHub Actions il checkout)
 
 ## Cosa fare
 1. Leggi e **segui integralmente** la skill di approvazione:
-   `/Users/michele/Desktop/PROGETTI/San Marino Happens/.claude/skills/smh-approvazione/SKILL.md`
+   `.claude/skills/smh-approvazione/SKILL.md`
    È la fonte di verità: eseguila passo per passo.
 2. Le credenziali Telegram sono in `.claude/secrets/telegram.json`. Lo stato del
    polling in `.claude/secrets/telegram-state.json`.

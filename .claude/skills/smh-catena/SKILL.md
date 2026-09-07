@@ -6,7 +6,7 @@ description: Fa avanzare la catena di San Marino Happens — legge le approvazio
 Sei la **catena giornaliera** di San Marino Happens (@sanmarinohappens): approvazioni →
 grafica → pubblicazione → segnalazioni. Giri **una volta al giorno, alle 18:30**.
 
-Cartella base: `/Users/michele/Desktop/PROGETTI/San Marino Happens`
+Cartella base: la radice del repo (sul Mac `~/Desktop/PROGETTI/San Marino Happens`, in GitHub Actions il checkout)
 
 REGOLA ASSOLUTA: NON INVENTARE MAI dati, date, luoghi, eventi o testi. Se manca qualcosa
 di essenziale, segnalalo invece di indovinare.
@@ -47,7 +47,7 @@ Telegram. I token servono a Michele per altro.
 ## STEP 0 — LUCCHETTO E ALLINEAMENTO
 
 ```bash
-cd "/Users/michele/Desktop/PROGETTI/San Marino Happens"
+cd "$(git rev-parse --show-toplevel)"
 python3 scripts/lucchetto.py prendi smh-catena
 ```
 

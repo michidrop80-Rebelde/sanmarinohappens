@@ -11,7 +11,7 @@ Prendi i post **approvati** da Michele e li trasformi in grafiche vere su Canva.
 
 ## Base del progetto
 Tutti i percorsi sono relativi a:
-`/Users/michele/Desktop/PROGETTI/San Marino Happens`
+la radice del repo (sul Mac `~/Desktop/PROGETTI/San Marino Happens`, in GitHub Actions il checkout)
 
 | File | Ruolo |
 |------|-------|
@@ -456,7 +456,7 @@ Il tuo lavoro finisce con un PNG su disco, non con un post pubblicato: la busta 
 che si sono aperti i buchi del 28/07 (11 giornalieri esportati e mai messi in coda),
 del 30/07 (il settimanale 03-09/08, scoperto il 02/08 a slot passato) e del 14/07.
 ```bash
-cd "/Users/michele/Desktop/PROGETTI/San Marino Happens"
+cd "$(git rev-parse --show-toplevel)"
 python3 scripts/controllo-export-in-coda.py
 ```
 L'elenco che stampa contiene sia le grafiche che hai appena esportato tu (la busta non

@@ -114,8 +114,9 @@ data di pubblicazione** `AAAAMMGG_`:
 leggibile, il valore vero sta comunque dentro il JSON.)
 
 ## Base del progetto
-- Progetto principale: `/Users/michele/Desktop/PROGETTI/San Marino Happens`
-- Repo GitHub (cartella senza spazi): `/Users/michele/Desktop/PROGETTI/San Marino Happens`
+- Progetto **e** repo GitHub sono la **stessa cartella**: la radice del repo
+  (sul Mac `~/Desktop/PROGETTI/San Marino Happens`; in GitHub Actions, il checkout).
+  Da qualsiasi punto la ritrovi con `git rev-parse --show-toplevel`.
 - Token GitHub: `.claude/secrets/github.json` (campo `token`) — nel progetto principale
 - Piano editoriale: `dati/piano-editoriale.md` (colonna **Tipo**: `F`=giornaliero feed,
   `S`=storie, `AGG`=aggregato → la colonna *Contenuto* dice quale: `WEEKEND…`,
@@ -138,7 +139,7 @@ Prima di mettere in coda roba nuova, controlla che le buste GIÀ in coda siano a
 allineate al piano. Il piano può cambiare (è successo con Sarah Toscano: spostata
 09→10/07, ma la busta era rimasta al 09 → il robot non l'avrebbe mai trovata).
 
-Per ogni `posts/*.json` nel repo `/Users/michele/Desktop/PROGETTI/San Marino Happens/`:
+Per ogni `posts/*.json` nel repo (dalla radice del checkout):
 1. Leggi `tipo`, `titolo_evento`, `data_pubblicazione`.
 2. Trova nel piano la riga corrispondente:
    - `giornaliero` → riga **Tipo = F** con quel titolo (o Data evento).
@@ -201,7 +202,7 @@ Componi la busta secondo lo schema sopra (con `tipo`; per carosello/storia con
 `immagini`). Copia in `posts/` del repo TUTTI i PNG del contenuto, con i nomi della
 convenzione, e scrivi il JSON gemello/di gruppo. Esempio carosello:
 ```bash
-REPO="/Users/michele/Desktop/PROGETTI/San Marino Happens"
+REPO="$(git rev-parse --show-toplevel)"
 SRC="marketing/3 Export/5 Mensili"
 cp "$SRC/<slide1>.png" "$REPO/posts/20260630_Carosello_1.png"
 cp "$SRC/<slide2>.png" "$REPO/posts/20260630_Carosello_2.png"
@@ -314,13 +315,13 @@ c'è davvero qualcosa da sistemare.
 (Committa SOLO le buste sopravvissute al cancello: le ❌ le hai già tolte da `posts/`, quindi
 `git add posts/` prende in automatico solo le buste ✅/⚠️.)
 ```bash
-cd "/Users/michele/Desktop/PROGETTI/San Marino Happens"
+cd "$(git rev-parse --show-toplevel)"
 git add posts/
 git commit -m "Metti in coda [<tipo>]: <titolo> (pub AAAA-MM-GG)"
 ```
 Per il push, leggi il token e usalo SOLO al volo (mai in `git config`):
 ```bash
-TOKEN=$(python3 -c "import json; print(json.load(open('/Users/michele/Desktop/PROGETTI/San Marino Happens/.claude/secrets/github.json'))['token'])")
+TOKEN=$(python3 -c "import json; print(json.load(open(__import__("subprocess").run(["git","rev-parse","--show-toplevel"],capture_output=True,text=True).stdout.strip()+"/.claude/secrets/github.json"))['token'])")
 git pull --rebase "https://${TOKEN}@github.com/michidrop80-Rebelde/sanmarinohappens.git" main
 git push "https://${TOKEN}@github.com/michidrop80-Rebelde/sanmarinohappens.git" HEAD:main
 ```
@@ -357,7 +358,7 @@ qualcosa non convince. Manda con `sendMessage` (credenziali `.claude/secrets/tel
 
 ## Verificare/lanciare il robot GitHub (facoltativo, solo se Michele chiede)
 ```bash
-TOKEN=$(python3 -c "import json; print(json.load(open('/Users/michele/Desktop/PROGETTI/San Marino Happens/.claude/secrets/github.json'))['token'])")
+TOKEN=$(python3 -c "import json; print(json.load(open(__import__("subprocess").run(["git","rev-parse","--show-toplevel"],capture_output=True,text=True).stdout.strip()+"/.claude/secrets/github.json"))['token'])")
 # È attivo?
 curl -s -H "Authorization: token $TOKEN" \
   https://api.github.com/repos/michidrop80-Rebelde/sanmarinohappens/actions/workflows/publish.yml | grep '"state"'

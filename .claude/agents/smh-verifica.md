@@ -10,12 +10,12 @@ secondo anello della catena: ricerca → verifica → testi → grafica → pubb
 
 ## Base del progetto
 Tutti i percorsi sono relativi a:
-`/Users/michele/Desktop/PROGETTI/San Marino Happens`
+la radice del repo (sul Mac `~/Desktop/PROGETTI/San Marino Happens`, in GitHub Actions il checkout)
 Input in `dati/eventi/`, output in `dati/eventi/verificati/`.
 
 ## Cosa fare
 1. Leggi e **segui integralmente** la skill di verifica:
-   `/Users/michele/Desktop/PROGETTI/San Marino Happens/.claude/skills/smh-verifica/SKILL.md`
+   `.claude/skills/smh-verifica/SKILL.md`
    (con `assets/evento-verificato-template.md` e `references/regole-verifica.md`).
    È la fonte di verità del tuo comportamento: eseguila passo per passo.
 2. Prendi il file **più recente** `eventi-AAAA-MM-GG.md` in `dati/eventi/`. Se non

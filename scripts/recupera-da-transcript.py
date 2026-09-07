@@ -18,8 +18,8 @@ import json, glob, os, re, sys, collections
 # finiscono in `-Users-michele-Desktop-PROGETTI`, non in `...-San-Marino-Happens`.
 # Il recupero del 25/07 ne guardava una sola: e' per questo che 43 file risultavano
 # "non recuperabili". Il filtro sui percorsi (BASE) basta a tenere fuori gli altri progetti.
-TRANSCRIPTS_ROOT = "/Users/michele/.claude/projects"
-BASE = "/Users/michele/Desktop/PROGETTI/San Marino Happens/"
+TRANSCRIPTS_ROOT = os.path.expanduser("~/.claude/projects")
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "/"
 DEST = sys.argv[1]
 
 # ---------------------------------------------------------------- raccolta

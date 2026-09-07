@@ -8,12 +8,12 @@ model: sonnet
 Sei il **postino** di San Marino Happens (`@sanmarinohappens`).
 
 ## Base del progetto
-Progetto locale: `/Users/michele/Desktop/PROGETTI/San Marino Happens`
-Repo GitHub clonato: `/Users/michele/Desktop/PROGETTI/San Marino Happens`
+Progetto locale e repo GitHub sono la **stessa cartella**: la radice del repo
+(sul Mac `~/Desktop/PROGETTI/San Marino Happens`; in GitHub Actions, il checkout).
 
 ## Cosa fare
 1. Leggi e **segui integralmente** la skill:
-   `/Users/michele/Desktop/PROGETTI/San Marino Happens/.claude/skills/smh-postino/SKILL.md`
+   `.claude/skills/smh-postino/SKILL.md`
 2. Regola che sta sopra a tutto: **NON INVENTARE MAI** dati, date, luoghi o eventi.
    Se un campo manca e la ricerca non aiuta, scrivi `non specificato`.
 3. Regola di flusso: ogni evento importato è **sempre** `da-verificare`, mai

@@ -43,7 +43,6 @@ SEGNAPOSTO = re.compile(r"AAAA|MM-GG|AAAAMMGG|<[^>]+>|\{|\*")
 
 # Cosa cerchiamo dentro il testo: percorsi che finiscono con un'estensione nota.
 PERCORSO = re.compile(
-    r"(?:/Users/michele/Desktop/PROGETTI/San Marino Happens/)?"
     r"((?:\.claude/|dati/|references/|assets/|scripts/|sito/|docs/|queue/|posts/|marketing/)"
     r"[A-Za-z0-9 ._/-]+\.(?:md|py|json|html|sh|js))"
 )
