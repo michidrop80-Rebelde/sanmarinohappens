@@ -1,0 +1,22 @@
+{
+  "giro_id": "20260821-1931",
+  "sent_at": "2026-08-21T19:31:57Z",
+  "eventi": [
+    {
+      "id": "M09",
+      "titolo": "Giovedì in Centro — 27/08",
+      "tipo": "dubbio",
+      "data": "27/08",
+      "luogo": "Centro Storico, Piazza della Libertà",
+      "url": ""
+    },
+    {
+      "id": "46c",
+      "titolo": "Cocktails Ronzanti — 29/08",
+      "tipo": "dubbio",
+      "data": "29/08",
+      "luogo": "Bioparco Apistico San Marino",
+      "url": ""
+    }
+  ]
+}

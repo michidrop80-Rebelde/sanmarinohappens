@@ -1,0 +1,60 @@
+# Guardia di integrità — il clone deve essere tutto intero
+#
+# PERCHE' ESISTE
+# `controllo-integrita.py` controlla che ogni file citato dalle skill esista
+# davvero. Finora girava solo sul Mac di Michele, dove i file ci sono SEMPRE —
+# anche quelli mai messi nel repo. Per due mesi nessuno si è accorto che 6 file
+# veri (dati/config.json, dati/fonti-sport.md, references/formato-grafica.md,
+# docs/FIX-APPROVAZIONI-CHE-SCADONO.md, sito/STATO-SITO.md,
+# sito/calendario-eventi.html) non erano MAI stati committati: in cloud la
+# catena li cercherebbe e lavorerebbe monca.
+#
+# Questo workflow gira su un checkout, che È un clone pulito: vede esattamente
+# quello che vedrebbe la catena in cloud. Se manca un pezzo, il workflow diventa
+# rosso e arriva un Telegram. Un file dimenticato non può più restare nascosto
+# per mesi.
+#
+# QUANDO GIRA
+#  - a ogni push su main (il momento in cui un file può "sparire" dal repo);
+#  - una volta a settimana, come rete;
+#  - a mano (workflow_dispatch).
+#
+# Usa gli stessi TELEGRAM_* già presenti nel repo: nessun segreto nuovo.
+
+name: Guardia integrità
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '40 5 * * 1'   # lunedì mattina, prima del giro
+  workflow_dispatch:
+
+concurrency:
+  group: guardia-integrita
+  cancel-in-progress: false
+
+jobs:
+  guardia:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      # Lo script lancia controllo-integrita.py; se trova un buco manda il
+      # Telegram e ESCE 1 -> il workflow diventa rosso. Rosso qui significa
+      # "manca un file dal repo", che è esattamente il caso da non ignorare.
+      - name: Il clone è tutto intero?
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python scripts/avviso-integrita.py

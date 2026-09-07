@@ -1,0 +1,78 @@
+{
+  "giro_id": "20260817-0848",
+  "sent_at": "2026-08-17T08:48:42Z",
+  "eventi": [
+    {
+      "id": "n1",
+      "titolo": "Cena Tramonto & Live",
+      "tipo": "nuovo",
+      "data": "26/08",
+      "luogo": "InPerfetto Bar e Cucina, Faetano",
+      "url": "https://www.sanmarinortv.sm/news/comunicati-c9/cena-tramonto-live-presentato-l-evento-in-conferenza-stampa-a294354"
+    },
+    {
+      "id": "m1",
+      "titolo": "Trenino Bianco Azzurro",
+      "tipo": "modificato",
+      "data": "21,22,23,28,29/08",
+      "luogo": "San Marino",
+      "url": "https://www.usc.sm/eventi/"
+    },
+    {
+      "id": "m2",
+      "titolo": "E...state col Consorzio — Noche Argentina",
+      "tipo": "modificato",
+      "data": "28/08",
+      "luogo": "Torraccia, Cooperativa Allevatori Sammarinesi",
+      "url": "https://giornalesm.com/noche-argentina-e-cocktails-ronzanti-due-serate-a-tema-per-chiudere-e-state-col-consorzio-4/"
+    },
+    {
+      "id": "d1",
+      "titolo": "Viaggio Musicale attorno al Mondo",
+      "tipo": "dubbio",
+      "data": "30/08",
+      "luogo": "Teatro Titano / Macinare Cultura (sede esatta non specificata)",
+      "url": "https://www.sanmarinoteatro.sm"
+    },
+    {
+      "id": "d2",
+      "titolo": "Pellegrinaggio sui passi di San Marino e San Francesco",
+      "tipo": "dubbio",
+      "data": "29/08",
+      "luogo": "Percorso interno a San Marino, punto di partenza esatto non confermato",
+      "url": "https://www.sanmarinortv.sm/eventi"
+    },
+    {
+      "id": "d3",
+      "titolo": "Calcio al Parco",
+      "tipo": "dubbio",
+      "data": "31/08",
+      "luogo": "non specificato",
+      "url": "https://www.sanmarinosite.com/en/events/"
+    },
+    {
+      "id": "d4",
+      "titolo": "Dal Turista al Contadino — I tappa",
+      "tipo": "dubbio",
+      "data": "05-06/09",
+      "luogo": "Via Eugippo, Centro Storico",
+      "url": "https://www.usc.sm/evento/dal-turista-al-contadino-2/"
+    },
+    {
+      "id": "d5",
+      "titolo": "Il senso di ogni cosa",
+      "tipo": "dubbio",
+      "data": "11/09",
+      "luogo": "probabile Parco Ausa, Dogana",
+      "url": "https://www.sanmarinortv.sm/eventi"
+    },
+    {
+      "id": "d6",
+      "titolo": "CEMEC: Primo Soccorso Pediatrico",
+      "tipo": "dubbio",
+      "data": "23/09",
+      "luogo": "non specificato",
+      "url": "https://www.sanmarinosite.com/en/events/"
+    }
+  ]
+}

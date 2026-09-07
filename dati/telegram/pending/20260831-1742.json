@@ -1,0 +1,102 @@
+{
+  "giro_id": "20260831-1742",
+  "sent_at": "2026-08-31T17:42:13Z",
+  "eventi": [
+    {
+      "id": "dtc1weekend",
+      "titolo": "Dal Turista al Contadino 2026 (1° weekend)",
+      "tipo": "modificato",
+      "data": "04–06/09",
+      "luogo": "Città di San Marino",
+      "url": "https://www.sanmarinortv.sm/news/attualita-c4/dal-turista-al-contadino-dal-4-al-6-settembre-l-evento-di-squadra-per-valorizzare-le-bonta-del-territorio-a295032"
+    },
+    {
+      "id": "bunta",
+      "titolo": "Bunta's Car Meeting 2026 (6ª ed.)",
+      "tipo": "nuovo",
+      "data": "05/09",
+      "luogo": "Cava degli Umbri – P7 Parking",
+      "url": "https://www.visitsanmarino.com/pub1/VisitSM/it/eventi.html"
+    },
+    {
+      "id": "candela",
+      "titolo": "Concerto a Lume di Candela — omaggio a Ennio Morricone",
+      "tipo": "nuovo",
+      "data": "08/09",
+      "luogo": "Orti Borghesi, Centro Storico",
+      "url": "https://www.sanmarinortv.sm/news/attualita-c4/concerto-a-lume-di-candela-doppio-appuntamento-musicale-agli-orti-borghesi-a294316"
+    },
+    {
+      "id": "musikfest",
+      "titolo": "Musikfest Adriatica",
+      "tipo": "nuovo",
+      "data": "12/09",
+      "luogo": "Centro Storico, Città di San Marino",
+      "url": "https://www.visitsanmarino.com/pub1/VisitSM/it/eventi.html"
+    },
+    {
+      "id": "u21kosovo",
+      "titolo": "San Marino U21 vs Kosovo U21",
+      "tipo": "nuovo",
+      "data": "24/09",
+      "luogo": "San Marino Stadium, Serravalle",
+      "url": "https://www.visitsanmarino.com/pub1/VisitSM/it/eventi.html"
+    },
+    {
+      "id": "finlandia",
+      "titolo": "San Marino vs Finlandia (Nations League C)",
+      "tipo": "nuovo",
+      "data": "26/09",
+      "luogo": "San Marino Stadium, Serravalle",
+      "url": "https://www.sanmarinortv.sm/sport/calcio-sammarinese-c15/nations-league-san-marino-finlandia-apre-la-lega-c-a287038"
+    },
+    {
+      "id": "albania",
+      "titolo": "San Marino vs Albania (Nations League C)",
+      "tipo": "nuovo",
+      "data": "29/09",
+      "luogo": "San Marino Stadium, Serravalle",
+      "url": "https://www.sanmarinortv.sm/sport/calcio-sammarinese-c15/nations-league-san-marino-nel-c1-con-albania-finlandia-e-bielorussia-a286422"
+    },
+    {
+      "id": "u21spagna",
+      "titolo": "San Marino U21 vs Spagna U21",
+      "tipo": "nuovo",
+      "data": "01/10",
+      "luogo": "San Marino Stadium, Serravalle",
+      "url": "https://www.visitsanmarino.com/pub1/VisitSM/it/eventi.html"
+    },
+    {
+      "id": "matsuri",
+      "titolo": "San Marino Matsuri 2026",
+      "tipo": "dubbio",
+      "data": "05–06/09",
+      "luogo": "Serravalle (sede da confermare)",
+      "url": "https://www.visitsanmarino.com/pub1/VisitSM/it/eventi.html"
+    },
+    {
+      "id": "fineestate",
+      "titolo": "Festa di Fine Estate (Acquaviva)",
+      "tipo": "dubbio",
+      "data": "05/09",
+      "luogo": "Piazzale Cava della Fonte, Acquaviva",
+      "url": "https://www.sanmarinosite.com/en/events/"
+    },
+    {
+      "id": "festasocio",
+      "titolo": "Festa del Socio – Ass. Micologica Sammarinese",
+      "tipo": "dubbio",
+      "data": "06/09",
+      "luogo": "Parco Montecchio, Città di San Marino",
+      "url": "https://www.sanmarinosite.com/en/events/"
+    },
+    {
+      "id": "micologica",
+      "titolo": "XXXII Mostra Micologica",
+      "tipo": "dubbio",
+      "data": "26/09",
+      "luogo": "non specificato (nel 2025 era a Borgo Maggiore)",
+      "url": "https://www.sanmarinortv.sm/eventi"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "brand": {
+    "nome": "San Marino Happens",
+    "handle": "@sanmarinohappens"
+  },
+  "percorsi": {
+    "fonti_generali": "dati/fonti.md",
+    "fonti_sport": "dati/fonti-sport.md",
+    "cartella_eventi": "dati/eventi/",
+    "cartella_verificati": "dati/eventi/verificati/",
+    "cartella_bozze": "dati/post/"
+  },
+  "ricerca": {
+    "categorie": ["sport", "cultura", "musica", "sociale", "istituzionale", "altro"],
+    "finestra_giorni": 60,
+    "includi_sport": true
+  },
+  "post": {
+    "tono": "amichevole, informativo, orgoglio locale sammarinese; mai gridato; emoji con misura (2-4 per post)",
+    "hashtag_fissi": ["#SanMarinoHappens", "#SanMarino", "#RepubblicaDiSanMarino", "#MonteTitano", "#cosafareaSanMarino", "#eventiSanMarino"],
+    "lunghezza_caption": "breve-media (3-6 righe), leggibile da mobile",
+    "cta_default": "Salva il post 📌 e seguici per non perdere gli eventi di San Marino",
+    "disclaimer": "ℹ️ Date e orari possono cambiare: verifica sempre sulla fonte ufficiale dell'organizzatore (link in bio)."
+  },
+  "lingua": "it"
+}

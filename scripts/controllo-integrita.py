@@ -23,6 +23,7 @@ USO
 
 Esce con codice 1 se manca qualcosa, cosi' si puo' agganciare a un giro automatico.
 """
+import os
 import re
 import sys
 from pathlib import Path
@@ -30,12 +31,24 @@ from pathlib import Path
 PROGETTO = Path(__file__).resolve().parent.parent
 TASK_PIANIFICATI = Path.home() / ".claude" / "scheduled-tasks"
 
+# Girano fuori dal Mac di Michele? (GitHub Actions o un clone senza la cartella
+# segreti). In cloud due cose sono LEGITTIMAMENTE assenti e non vanno segnalate:
+#  - i file .claude/secrets/*  → in Actions i segreti arrivano da variabili
+#    d'ambiente, non da file su disco (e non devono MAI finire nel repo pubblico);
+#  - ~/.claude/scheduled-tasks → i task pianificati sono roba del Mac, in cloud
+#    la catena parte dai workflow di GitHub, non da quei file.
+IN_CLOUD = (
+    os.environ.get("GITHUB_ACTIONS") == "true"
+    or not (PROGETTO / ".claude" / "secrets").is_dir()
+)
+
 # Cartelle di istruzioni da spulciare
 SORGENTI = [
     PROGETTO / ".claude" / "skills",
     PROGETTO / ".claude" / "agents",
-    TASK_PIANIFICATI,
 ]
+if not IN_CLOUD:
+    SORGENTI.append(TASK_PIANIFICATI)
 
 # Percorsi citati che NON sono file veri: sono modelli con dei buchi da riempire
 # (`AAAA-MM-GG` = una data), o esempi. Non ha senso cercarli sul disco.
@@ -52,6 +65,11 @@ PERCORSO = re.compile(
 TOLLERATI = {
     ".claude/secrets/telegram-state.json": "creato al volo dal primo giro con pulsanti",
 }
+if IN_CLOUD:
+    TOLLERATI.update({
+        ".claude/secrets/telegram.json": "in cloud i segreti sono variabili d'ambiente, non file",
+        ".claude/secrets/github.json": "in cloud i segreti sono variabili d'ambiente, non file",
+    })
 
 
 def radice_skill(da_file: Path) -> Path | None:

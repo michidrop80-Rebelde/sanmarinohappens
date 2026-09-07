@@ -1,0 +1,46 @@
+{
+  "giro_id": "20260816-1750",
+  "sent_at": "2026-08-16T17:50:07Z",
+  "eventi": [
+    {
+      "id": "01",
+      "titolo": "Love Generation 90 (DJ set anni 90)",
+      "tipo": "nuovo",
+      "data": "12/09",
+      "luogo": "Campo Bruno Reffi",
+      "url": "https://giornalesm.com/vipers-best-european-queen-tribute-band-san-marino-beer-fest-19-giugno-2026-ore-2000-campo-bruno-reffi/"
+    },
+    {
+      "id": "02",
+      "titolo": "Nirvana.it (Nirvana Tribute)",
+      "tipo": "nuovo",
+      "data": "25/09",
+      "luogo": "Campo Bruno Reffi",
+      "url": "https://giornalesm.com/vipers-best-european-queen-tribute-band-san-marino-beer-fest-19-giugno-2026-ore-2000-campo-bruno-reffi/"
+    },
+    {
+      "id": "03",
+      "titolo": "Dicono di Cesare (Cesare Cremonini Tribute)",
+      "tipo": "nuovo",
+      "data": "26/09",
+      "luogo": "Campo Bruno Reffi",
+      "url": "https://giornalesm.com/vipers-best-european-queen-tribute-band-san-marino-beer-fest-19-giugno-2026-ore-2000-campo-bruno-reffi/"
+    },
+    {
+      "id": "04",
+      "titolo": "Floyd Academy (Pink Floyd Tribute)",
+      "tipo": "nuovo",
+      "data": "02/10",
+      "luogo": "Campo Bruno Reffi",
+      "url": "https://giornalesm.com/vipers-best-european-queen-tribute-band-san-marino-beer-fest-19-giugno-2026-ore-2000-campo-bruno-reffi/"
+    },
+    {
+      "id": "05",
+      "titolo": "Voglio Tornare Negli Anni 90",
+      "tipo": "nuovo",
+      "data": "03/10",
+      "luogo": "Campo Bruno Reffi",
+      "url": "https://giornalesm.com/vipers-best-european-queen-tribute-band-san-marino-beer-fest-19-giugno-2026-ore-2000-campo-bruno-reffi/"
+    }
+  ]
+}

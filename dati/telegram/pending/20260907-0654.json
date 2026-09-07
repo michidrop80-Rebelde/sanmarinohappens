@@ -1,0 +1,38 @@
+{
+  "giro_id": "20260907-0654",
+  "sent_at": "2026-09-07T06:54:30Z",
+  "eventi": [
+    {
+      "id": "01",
+      "titolo": "Giornata Mondiale Fair Play 2026",
+      "tipo": "nuovo",
+      "data": "07/09",
+      "luogo": "Auditorium \"Little Tony\", Serravalle",
+      "url": "https://www.sanmarinortv.sm/news/comunicati-c9/giornata-mondiale-fair-play-2026-presente-hanna-wawrowska-vice-presidente-cifp-a295274"
+    },
+    {
+      "id": "02",
+      "titolo": "Cronotitano Hill Climb – The Trailer",
+      "tipo": "nuovo",
+      "data": "08/09",
+      "luogo": "Città di San Marino, Centro Storico",
+      "url": "https://www.libertas.sm/cronotitano-hill-climb-the-trailer-il-gran-premio-red-bull-di-san-marino-e-della-riviera-di-rimini-parte-dal-titano/"
+    },
+    {
+      "id": "03",
+      "titolo": "Artisti in Casa — XVI edizione",
+      "tipo": "dubbio",
+      "data": "26-27/09",
+      "luogo": "Montegiardino, Piazza della Pace",
+      "url": "https://www.visitsanmarino.com/pub1/VisitSM/it/eventi.html"
+    },
+    {
+      "id": "04",
+      "titolo": "XXXII Mostra Micologica",
+      "tipo": "dubbio",
+      "data": "26/09 (incerta)",
+      "luogo": "non specificato",
+      "url": "https://www.sanmarinortv.sm/eventi"
+    }
+  ]
+}

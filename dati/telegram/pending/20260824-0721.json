@@ -1,0 +1,62 @@
+{
+  "giro_id": "20260824-0721",
+  "sent_at": "2026-08-24T07:21:11Z",
+  "eventi": [
+    {
+      "id": "80",
+      "titolo": "Serravalle in Wellness — Settembre 2026",
+      "tipo": "nuovo",
+      "data": "09/09",
+      "luogo": "Serravalle, La Ciarulla (parcheggio Globo)",
+      "url": "https://www.sanmarinortv.sm/eventi/appuntamenti/serravalle-in-wellness-settembre-2026-e5123"
+    },
+    {
+      "id": "81",
+      "titolo": "36° Palio Don Bosco",
+      "tipo": "nuovo",
+      "data": "13/09",
+      "luogo": "Piazza Grande, Borgo Maggiore",
+      "url": "https://news.tribunapoliticaweb.sm/attualita/2026/08/19/san-marino-borgo-maggiore-si-prepara-al-36-palio-don-bosco-con-la-sfida-tra-le-sei-frazioni/"
+    },
+    {
+      "id": "82",
+      "titolo": "San Marino Special Cup 2026",
+      "tipo": "nuovo",
+      "data": "19-20/09",
+      "luogo": "Campo Sportivo di Montecchio",
+      "url": "https://www.sanmarinortv.sm/eventi/sport/san-marino-special-cup-2026-e5131"
+    },
+    {
+      "id": "59",
+      "titolo": "Dal Turista al Contadino — I tappa (dubbio risolto)",
+      "tipo": "modificato",
+      "data": "05-06/09",
+      "luogo": "Via Eugippo, Città di San Marino",
+      "url": "https://www.usc.sm/evento/dal-turista-al-contadino-2/"
+    },
+    {
+      "id": "60",
+      "titolo": "Dal Turista al Contadino — II tappa (luogo corretto)",
+      "tipo": "modificato",
+      "data": "12-13/09",
+      "luogo": "Via Eugippo + Piazza Mercatale, Borgo Maggiore",
+      "url": "https://www.usc.sm/evento/dal-turista-al-contadino-2/"
+    },
+    {
+      "id": "torraccia",
+      "titolo": "Festa di Torraccia 2026",
+      "tipo": "dubbio",
+      "data": "28-30/08",
+      "luogo": "Parco di Montelupo, Domagnano (da confermare)",
+      "url": "https://www.sanmarinortv.sm/eventi/appuntamenti/festa-di-torraccia-e3317"
+    },
+    {
+      "id": "beerfest2",
+      "titolo": "San Marino Beer Fest — Seconda weekend",
+      "tipo": "dubbio",
+      "data": "18-19/09",
+      "luogo": "Campo Bruno Reffi, Borgo Maggiore (presumibile)",
+      "url": "https://www.visitsanmarino.com/pub1/VisitSM/it/eventi.html"
+    }
+  ]
+}
