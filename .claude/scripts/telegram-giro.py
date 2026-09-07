@@ -162,8 +162,45 @@ def prepara(args):
               f"   File: {BUSTA}", file=sys.stderr)
         return 6
 
-    eventi = json.loads(args.events)
+    if not args.events and not getattr(args, "solo_riepilogo", False):
+        print("🛑 Manca --events: senza la lista degli eventi non so cosa mettere in "
+              "busta. (Per un messaggio senza pulsanti usa --solo-riepilogo.)",
+              file=sys.stderr)
+        return 7
+    eventi = json.loads(args.events) if args.events else []
     giro_id = nuovo_giro_id(prova=args.prova)
+
+    # --- SOLO RIEPILOGO (ticket 08) -----------------------------------------
+    # Il giro in cloud gira come SECONDO PARERE: fa il lavoro ma non manda i
+    # pulsanti (quelli restano al Mac, che è il titolare — così Michele ha un
+    # solo mazzo di ✅/❌ e non deve chiedersi quale valga).
+    # Serve una busta con UN messaggio e il testo che gli si detta: il riepilogo
+    # normale qui direbbe «✅ Nessuna novità questa settimana», che sarebbe una
+    # BUGIA — il cloud gli eventi li ha trovati, semplicemente non li propone.
+    # Passa comunque dallo stesso `invia`, quindi il blocco a due passi del
+    # ticket 07 (l'agente non tocca il token) resta esercitato per davvero.
+    if getattr(args, "solo_riepilogo", False):
+        if not args.summary:
+            print("🛑 --solo-riepilogo senza --summary: non ho niente da dire.",
+                  file=sys.stderr)
+            return 7
+        if eventi:
+            print("🛑 --solo-riepilogo con degli eventi: sarebbero pulsanti mai "
+                  "spediti, e Michele non saprebbe che esistono. Delle due, una.",
+                  file=sys.stderr)
+            return 7
+        busta = {
+            "giro_id": giro_id,
+            "creata_il": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "prova": bool(args.prova),
+            "messaggi": [{"testo": args.summary, "tasti": None}],
+            "eventi": [],
+        }
+        BUSTA.parent.mkdir(parents=True, exist_ok=True)
+        BUSTA.write_text(json.dumps(busta, ensure_ascii=False, indent=2))
+        print(f"📨 Busta scritta (solo riepilogo, nessun pulsante): {BUSTA}")
+        print(f"   Giro {giro_id} · 1 messaggio da spedire.")
+        return 0
 
     conta = {"nuovo": 0, "modificato": 0, "cancellato": 0, "dubbio": 0}
     for e in eventi:
@@ -425,8 +462,13 @@ def main():
     sub = p.add_subparsers(dest="comando", required=True)
 
     pp = sub.add_parser("prepara", help="scrive la busta (NON serve il token)")
-    pp.add_argument("--events", required=True, help="JSON array degli eventi")
+    # Non `required=True`: con --solo-riepilogo non c'è nessun evento da passare.
+    # L'obbligo resta, ma lo fa rispettare `prepara` con un messaggio in italiano.
+    pp.add_argument("--events", default="", help="JSON array degli eventi")
     pp.add_argument("--summary", default="", help="riga di riepilogo opzionale")
+    pp.add_argument("--solo-riepilogo", dest="solo_riepilogo", action="store_true",
+                    help="un solo messaggio col testo di --summary, nessun pulsante "
+                         "(il giro in cloud come secondo parere, ticket 08)")
     pp.add_argument("--prova", action="store_true",
                     help="giro di collaudo: giro_id con prefisso PROVA-")
 

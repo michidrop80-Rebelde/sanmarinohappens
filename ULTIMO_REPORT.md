@@ -1,5 +1,60 @@
 # Ultimo stato — San Marino Happens
 
+Aggiornato: 2026-09-07 (notte) — 🗺️ **MAPPA CATENA IN CLOUD: ticket 08 costruito e provato — il giro del lunedì gira in cloud su un ramo suo. Manca solo il lunedì vero.**
+
+**Stato della mappa `.scratch/catena-in-cloud/` — 10 ticket su 13 chiusi, il 08 costruito ma ancora aperto.**
+
+| | ticket |
+|---|---|
+| ✅ chiusi | **01** cervello nel repo · **02** limiti in Actions · **03** file mancanti dal clone · **04** token abbonamento · **05** la sonda · **06** consumo + forma delle sveglie · **07** pulsanti senza token · **11** percorsi assoluti · **12** avviso scadenza token · **13** guardia di freschezza |
+| 🔨 costruito, aspetta il lunedì | **08** — il giro settimanale in cloud |
+| 🔴 bloccati | **09** cloud e Mac insieme (aspetta 08) → **10** catena quotidiana + spegnere i task locali (aspetta 08, 09) |
+
+**Il nodo del ticket 08 era: due catene che scrivono gli stessi file.** Mac e cloud lo stesso lunedì
+si sovrascriverebbero il file eventi di oggi e manderebbero due messaggi Telegram. Risolto **togliendo
+la sovrapposizione invece di gestirla**: il cloud lavora su un **ramo git separato** (`giro-cloud`),
+stessi percorsi e stesse skill, ma niente di quello che scrive tocca dove lavora il Mac. Il ramo è
+usa-e-getta: ogni lunedì riparte da `main`. Il confronto fra i due giri diventa un `git diff`.
+
+**Decisione di Michele (07/09):** un solo mazzo di pulsanti. Alle 03:00 il cloud manda **un messaggio
+senza pulsanti** (secondo parere: quanti eventi, quanti verificati, quante bozze); alle 08:05 il Mac
+manda i ✅/❌ come sempre. Il blocco a due passi del ticket 07 resta comunque esercitato davvero —
+`prepara --solo-riepilogo` (nessuna chiave) e `invia` (l'unico passo col token).
+
+**Cosa c'è adesso:**
+- `.github/workflows/giro-cloud.yml` — 6 job: `prepara` + le 4 tappe + `avviso`. **Ogni tappa è un job
+  a sé**: 6 ore di tempo ciascuna invece di 6 in tutto (il giro del 24/08 era morto a metà sul limite),
+  e il lavoro si salva sul ramo prima di passare il testimone. Si ferma con grazia se ricerca e postino
+  danno entrambi zero.
+- **La ripresa delle 09:00** salta le tappe già uscite bene e rifà solo quelle rimaste indietro: è anche
+  la riprova «a +6h» decisa per il serbatoio vuoto (429). Un solo meccanismo per tutti e due i casi.
+- `scripts/conta-giro.py` — i numeri di un giro **misurati dai file**, mai chiesti all'agente.
+- `scripts/confronta-giri.py` — il confronto Mac/cloud. I titoli si accostano per **contenimento di
+  parole**, non per somiglianza: la somiglianza fondeva «San Marino - Finlandia» con «San Marino -
+  Albania» (due partite diverse) e separava «Concerto a lume di candela» dal suo stesso concerto col
+  sottotitolo.
+- `smh-giro` ha un nuovo **Step 3c**: il giro del Mac fa il confronto da solo e ne mette la riga nel
+  messaggio Telegram. Michele lo vede dove già guarda, senza lanciare niente.
+
+🔒 **Buco chiuso di passaggio:** `controllo-token-agente.py` guardava solo `.github/workflows/*.yml` e
+solo i `${{ secrets.X }}` — bastava spostare un passo in un'azione composita o passare la chiave da
+`inputs.` per sfuggirle. Ora guarda anche `.github/actions/*/action.yml` e riconosce la chiave dal
+**nome della variabile**, da dovunque arrivi il valore.
+
+Prove: `chiudi_tappa_test.sh` **14/14** (repo e remoto finti — compreso il caso del 07/09: passo verde
+che non committava) · `referto_giro_cloud_test.py` **23/23** · `confronta_giri_test.py` **20/20** su
+titoli veri · `telegram_giro_test.py` **48/48** · `controllo_token_agente_test.py` **12/12** ·
+integrità ✅ 133 riferimenti. Confronto provato **end-to-end contro un ramo git vero**.
+
+⚠️ **Cosa serve a Michele per chiudere il ticket 08:** il primo giro vero — lunedì 14/09 alle 03:00, o
+subito a mano da *Actions → Giro settimanale in cloud → Run workflow*. Poi si guarda il confronto.
+
+🔴 **Trovato di passaggio (task a parte):** `scripts/segnala_doppioni_test.py` va in errore appena parte
+(cerca una funzione che nello script non esiste più). Lo **script funziona** — verificato con `--prova` —
+ma la sua prova non protegge niente da mesi.
+
+---
+
 Aggiornato: 2026-09-07 (sera) — 🗺️ **MAPPA CATENA IN CLOUD: chiuso il ticket 07 — i pulsanti Telegram partono senza che l'agente veda mai la chiave.**
 
 **Stato della mappa `.scratch/catena-in-cloud/` — 10 ticket su 13 chiusi.**

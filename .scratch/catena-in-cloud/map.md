@@ -179,6 +179,13 @@ ticket di discussione; le skill del progetto (`smh-*`) come fonte di verità sul
   deprecazione su `actions/checkout@v3` e `actions/setup-python@v4`: riguarda anche publish, metrics,
   guardia-imminenti. Manutenzione trasversale, non blocca la catena in cloud — da fare in un colpo.
 
+- **Dove rientrano i pezzi lasciati fuori dal giro in cloud.** Il workflow del ticket 08 fa i
+  quattro anelli e basta: restano fuori lo Step 5 (`/smh-sito`, il calendario pubblico), la guardia
+  export→coda e quella di copertura. Non è una dimenticanza — il rimedio di quelle due guardie è
+  **pubblicare**, e pubblicare è affare di `main`, non del ramo di prova su cui gira il secondo
+  parere. Quando il cloud diventa titolare (ticket 10) devono rientrare da qualche parte, e va
+  deciso dove: nel giro settimanale, nella catena quotidiana, o in un terzo posto.
+
 - **Il passaggio di consegne cloud → Mac per la grafica.** Il cloud arriva a «pronte 3 grafiche» e si
   ferma. In che forma arriva a Michele quella lista, e come fa lui a ripartire da lì senza rileggersi
   tutto. Si potrà specificare quando la catena quotidiana esiste davvero.

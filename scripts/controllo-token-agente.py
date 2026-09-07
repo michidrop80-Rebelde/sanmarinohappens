@@ -34,6 +34,11 @@ from pathlib import Path
 
 RADICE = Path(__file__).resolve().parents[1]
 CARTELLA = RADICE / ".github" / "workflows"
+# Un passo che lancia l'agente puo' vivere anche dentro un'azione composita
+# (.github/actions/<nome>/action.yml). Se la guardia guardasse solo i workflow,
+# basterebbe spostare li' il passo per sfuggirle: sarebbe un nascondiglio, non
+# una scorciatoia. Quindi si guardano tutti e due i posti.
+CARTELLA_AZIONI = RADICE / ".github" / "actions"
 
 # Chiavi che l'agente non deve mai vedere: aprono un canale verso il mondo
 # (mandare messaggi, pubblicare post, far partire altre corse).
@@ -42,6 +47,10 @@ PERICOLOSE = re.compile(r"TELEGRAM|INSTAGRAM|FACEBOOK|META_|PAGE_|CANVA|WEBHOOK|
 AMMESSE = {"CLAUDE_CODE_OAUTH_TOKEN", "ANTHROPIC_API_KEY", "GITHUB_TOKEN"}
 
 RIF_SEGRETO = re.compile(r"\$\{\{\s*secrets\.([A-Za-z0-9_]+)\s*\}\}")
+# Assegnazione di variabile d'ambiente: "  TELEGRAM_BOT_TOKEN: qualcosa".
+# Serve perche' il valore non arriva sempre da `secrets.`: dentro un'azione
+# composita arriva da `inputs.`, e il nome della chiave resta lo stesso.
+ASSEGNA_ENV = re.compile(r"^\s{2,}([A-Z][A-Z0-9_]{2,}):\s*\S")
 # "lancia l'agente" = una riga che esegue `claude` con delle opzioni, oppure
 # un'azione ufficiale di Claude. `npm install @anthropic-ai/claude-code` no:
 # installare non è lanciare.
@@ -51,7 +60,11 @@ LANCIA_AGENTE = re.compile(r"(^|[\s|&;(])claude\s+-|uses:\s*anthropics/claude")
 def segreti_pericolosi(righe):
     trovati = set()
     for r in righe:
-        for nome in RIF_SEGRETO.findall(r):
+        nomi = list(RIF_SEGRETO.findall(r))
+        m = ASSEGNA_ENV.match(r)
+        if m:
+            nomi.append(m.group(1))
+        for nome in nomi:
             if nome not in AMMESSE and PERICOLOSE.search(nome):
                 trovati.add(nome)
     return trovati
@@ -143,17 +156,27 @@ def controlla(percorso):
     return problemi
 
 
+def file_da_controllare():
+    trovati = []
+    if CARTELLA.exists():
+        trovati += sorted(list(CARTELLA.glob("*.yml")) + list(CARTELLA.glob("*.yaml")))
+    if CARTELLA_AZIONI.exists():
+        trovati += sorted(list(CARTELLA_AZIONI.glob("*/action.yml"))
+                          + list(CARTELLA_AZIONI.glob("*/action.yaml")))
+    return trovati
+
+
 def main():
-    if not CARTELLA.exists():
-        print(f"Nessuna cartella {CARTELLA}: niente da controllare.")
+    file_yml = file_da_controllare()
+    if not file_yml:
+        print(f"Nessun file in {CARTELLA} ne' in {CARTELLA_AZIONI}: niente da controllare.")
         return 0
 
-    file_yml = sorted(list(CARTELLA.glob("*.yml")) + list(CARTELLA.glob("*.yaml")))
     problemi = []
     for f in file_yml:
         problemi += controlla(f)
 
-    print(f"🔎 Controllati {len(file_yml)} workflow in .github/workflows/")
+    print(f"🔎 Controllati {len(file_yml)} file fra .github/workflows/ e .github/actions/")
     if not problemi:
         print("✅ Nessun passo che lancia l'agente ha in mano una chiave "
               "(Telegram, Instagram, Facebook, Canva, PAT).")

@@ -90,6 +90,41 @@ jobs:
 """
 
 
+# La chiave NON arriva da `secrets.` ma da un input di un'azione composita:
+# il valore cambia strada, il nome della variabile no. Prima passava liscia.
+CATTIVO_INPUT = """
+name: Finto
+on: workflow_dispatch
+jobs:
+  x:
+    runs-on: ubuntu-latest
+    steps:
+      - name: L'agente con la chiave passata di nascosto
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ inputs.claude }}
+          TELEGRAM_BOT_TOKEN: ${{ inputs.tg }}
+        run: claude -p "ciao"
+"""
+
+# Un'azione composita: stessa forma di un workflow, ma vive in
+# .github/actions/<nome>/action.yml. Deve essere controllata uguale.
+AZIONE_COMPOSITA = """
+name: Tappa
+inputs:
+  telegram-token:
+    description: nome minuscolo, e' solo una dichiarazione, non una env
+    required: false
+runs:
+  using: composite
+  steps:
+    - name: L'agente dentro l'azione composita
+      env:
+        TELEGRAM_BOT_TOKEN: ${{ inputs.telegram-token }}
+      shell: bash
+      run: claude -p "ciao"
+"""
+
+
 def problemi(contenuto):
     with tempfile.TemporaryDirectory() as tmp:
         f = Path(tmp) / "prova.yml"
@@ -115,11 +150,24 @@ def main():
     verifica("nessun falso allarme", problemi(SENZA_AGENTE) == [])
 
     print("\n[5] I workflow VERI del repo passano")
-    veri = g.CARTELLA
+    veri = g.file_da_controllare()
     tutti = []
-    for f in sorted(list(veri.glob("*.yml")) + list(veri.glob("*.yaml"))):
+    for f in veri:
         tutti += g.controlla(f)
-    verifica(f"{len(list(veri.glob('*.yml')))} workflow, 0 problemi", tutti == [])
+    verifica(f"{len(veri)} file (workflow + azioni), 0 problemi", tutti == [])
+
+    print("\n[6] La chiave passata da `inputs.` invece che da `secrets.`")
+    p = problemi(CATTIVO_INPUT)
+    verifica("beccata lo stesso (conta il NOME della variabile)", len(p) >= 1)
+    verifica("dice quale chiave", any("TELEGRAM_BOT_TOKEN" in x for x in p))
+
+    print("\n[7] Un'azione composita non è un nascondiglio")
+    p = problemi(AZIONE_COMPOSITA)
+    verifica("l'agente dentro l'azione composita viene beccato", len(p) >= 1)
+    verifica("la dichiarazione `inputs:` minuscola non fa falsi allarmi",
+             not any("fuori dai singoli passi" in x for x in p))
+    verifica("la cartella .github/actions/ è fra i posti guardati",
+             ".github/actions" in str(g.CARTELLA_AZIONI))
 
     print(f"\n{'='*60}\n✅ {OK} verifiche passate   ❌ {KO} fallite\n{'='*60}")
     return 1 if KO else 0

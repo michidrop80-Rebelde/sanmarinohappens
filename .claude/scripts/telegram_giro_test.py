@@ -65,6 +65,11 @@ def prepara(eventi, prova=False, summary=""):
     return tg.prepara(SimpleNamespace(events=json.dumps(eventi), summary=summary, prova=prova))
 
 
+def prepara_solo_riepilogo(summary, eventi=None):
+    return tg.prepara(SimpleNamespace(events=json.dumps(eventi) if eventi else "",
+                                      summary=summary, prova=False, solo_riepilogo=True))
+
+
 def main():
     print("\n[1] Il giro_id ha il formato giusto")
     giro = tg.nuovo_giro_id()
@@ -200,6 +205,32 @@ def main():
         verifica("la mappa è salvata comunque", (tg.CARTELLA_PENDING / f"{giro}.json").exists())
         verifica("Michele riceve l'avviso «lista INCOMPLETA»",
                  any("INCOMPLETA" in a for a in avvisi))
+
+    print("\n[11] Solo riepilogo (il giro in cloud, ticket 08): niente pulsanti, testo dettato")
+    with tempfile.TemporaryDirectory() as tmp:
+        ambiente(tmp)
+        testo = "🤖 Secondo parere del cloud — 22 eventi, 21 verificati, 24 bozze."
+        verifica("esce 0", prepara_solo_riepilogo(testo) == 0)
+        b = json.loads(tg.BUSTA.read_text())
+        verifica("un solo messaggio", len(b["messaggi"]) == 1)
+        verifica("nessun pulsante", b["messaggi"][0]["tasti"] is None)
+        verifica("il testo è quello dettato, non il modello del giro",
+                 b["messaggi"][0]["testo"] == testo)
+        verifica("NON dice «Nessuna novità» (sarebbe una bugia)",
+                 "Nessuna novità" not in b["messaggi"][0]["testo"])
+        verifica("`invia` la accetta (il muro non la scambia per malfatta)",
+                 tg.controlla_busta(b) == [])
+
+    print("\n[12] Solo riepilogo: i due modi di usarlo male vengono fermati")
+    with tempfile.TemporaryDirectory() as tmp:
+        ambiente(tmp)
+        verifica("senza testo esce 7", prepara_solo_riepilogo("") == 7)
+        verifica("e non scrive nessuna busta", not tg.BUSTA.exists())
+    with tempfile.TemporaryDirectory() as tmp:
+        ambiente(tmp)
+        verifica("con degli eventi esce 7 (sarebbero pulsanti mai spediti)",
+                 prepara_solo_riepilogo("ciao", EVENTI) == 7)
+        verifica("e non scrive nessuna busta", not tg.BUSTA.exists())
 
     print(f"\n{'='*60}\n✅ {OK} verifiche passate   ❌ {KO} fallite\n{'='*60}")
     return 1 if KO else 0

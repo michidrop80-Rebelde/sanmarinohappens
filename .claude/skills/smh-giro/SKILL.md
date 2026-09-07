@@ -137,6 +137,30 @@ Dal riassunto di smh-verifica estrai SOLO gli eventi non-invariati:
 
 Se non ci sono differenze → salta Step 4 e vai a Step 5 con messaggio "✅ Nessuna novità questa settimana."
 
+### Step 3c — Confronta col giro girato in cloud (obbligatorio, costa zero)
+
+Dal 07/09/2026 lo stesso giro gira anche su GitHub Actions alle 03:00, come
+**secondo parere**, sul ramo git `giro-cloud` (workflow `.github/workflows/giro-cloud.yml`,
+ticket 08 della mappa «La catena si stacca dal Mac»). Il cloud **non manda pulsanti**:
+i ✅/❌ restano tuoi, e questo è il punto in cui i due giri si guardano in faccia.
+
+```bash
+cd "$(git rev-parse --show-toplevel)"
+python3 scripts/confronta-giri.py --una-riga
+```
+
+Tieni la riga che stampa: va nel `--summary` dello Step 4 e nel riassunto finale.
+Se vuoi vedere **quali** eventi ballano, lancia lo stesso comando senza `--una-riga`
+e riporta a Michele solo i titoli visti da uno solo dei due.
+
+⚠️ **Una differenza non è automaticamente un errore del cloud**: fra le 03:00 e le
+08:05 passano cinque ore e una fonte può pubblicare qualcosa in mezzo. Quello che
+conta è che le differenze siano poche e spiegabili. Se il cloud ha visto un evento
+che tu non hai visto, **è un evento vero da guardare**, non rumore.
+
+Esce **3** (e non è un guasto) se il giro in cloud per oggi non esiste: il Mac è il
+titolare, va avanti da solo. In quel caso scrivi «cloud: non ha girato» e prosegui.
+
 ### Step 4 — Avvisa Michele su Telegram con pulsanti
 
 ⚠️ **NON costruire il JSON dei pulsanti a mano nel curl.** È fragile e in passato è
@@ -194,6 +218,7 @@ Michele se li spulcia da sé. Meglio la pagina-lista che nessun link.
 ```bash
 cd "$(git rev-parse --show-toplevel)"
 python3 .claude/scripts/telegram-giro.py prepara \
+  --summary "<la riga di confronto dello Step 3c>" \
   --events '[
     {"id":"09","titolo":"Sergio Caputo","tipo":"nuovo","data":"03/07","luogo":"Campo Bruno Reffi","url":"https://visitsanmarino.com/eventi/sergio-caputo-2026"},
     {"id":"08","titolo":"Borgo in Festa","tipo":"nuovo","data":"03-05/07","luogo":"Borgo Maggiore","url":"https://usc.sm/eventi/borgo-in-festa-2026"},
@@ -246,6 +271,7 @@ Copertura:  [✅ / ⚠️ N giorni scoperti CON materiale disponibile — elenco
 4 Testi:    ✍️ N bozze (GG/MM → GG/MM)
 5 Telegram: [OK — N messaggi con pulsanti / ERRORE — dettaglio]
 6 Sito:     [aggiornato / saltato — nessuna novità / errore — dettaglio]
+7 Cloud:    [riga di confronto dello Step 3c / «non ha girato»]
 
 🆕 Nuovi: N · ✏️ Modificati: N · 🗑 Cancellati?: N · ⚠️ Dubbi: N
 ✅ Invariati (silenzio): N
@@ -288,3 +314,6 @@ non è disponibile, segnala a Michele quali righe nuove aggiungere manualmente.
 - Skill dei tre anelli: `.claude/skills/smh-ricerca|smh-verifica|smh-testi/SKILL.md`.
 - Skill sito: `.claude/skills/smh-sito/SKILL.md` (Step 5).
 - `dati/config.json` — parametri condivisi.
+- `scripts/confronta-giri.py` — il confronto col giro in cloud (Step 3c);
+  `scripts/conta-giro.py` — i numeri di un giro, misurati dai file.
+- `.github/workflows/giro-cloud.yml` — il giro gemello che gira in cloud alle 03:00.
