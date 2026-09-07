@@ -65,7 +65,7 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [x] 2026-08-31T17:54:24.133Z — approvato — 20260831-1742-fineestate — Michele Morri @RebeldeRN — ⚠️ Festa di Fine Estate (Acquaviva) — ✅ elaborato 01/09/2026 (catena Step 1, giro 20260831-1742)
 - [x] 2026-08-31T17:54:25.456Z — approvato — 20260831-1742-micologica — Michele Morri @RebeldeRN — ⚠️ Festa di Fine Estate (Acquaviva) — ✅ elaborato 01/09/2026 (catena Step 1, giro 20260831-1742)
 - [x] 2026-08-31T17:54:26.783Z — approvato — 20260831-1742-festasocio — Michele Morri @RebeldeRN — ⚠️ Festa di Fine Estate (Acquaviva) — ✅ elaborato 01/09/2026 (catena Step 1, giro 20260831-1742)
-- [ ] 2026-09-07T07:34:29.788Z — approvato — 20260907-0654-01 — Michele Morri @RebeldeRN — 🆕 Giornata Mondiale Fair Play 2026
-- [ ] 2026-09-07T07:34:32.141Z — approvato — 20260907-0654-02 — Michele Morri @RebeldeRN — 🆕 Giornata Mondiale Fair Play 2026
-- [ ] 2026-09-07T07:34:33.280Z — approvato — 20260907-0654-03 — Michele Morri @RebeldeRN — 🆕 Giornata Mondiale Fair Play 2026
-- [ ] 2026-09-07T07:34:44.239Z — approvato — 20260907-0654-04 — Michele Morri @RebeldeRN — ⚠️ XXXII Mostra Micologica
+- [x] 2026-09-07T07:34:29.788Z — approvato — 20260907-0654-01 — Michele Morri @RebeldeRN — 🆕 Giornata Mondiale Fair Play 2026 (07/09) — ✅ elaborato 07/09/2026 (catena Step 1, giro 20260907-0654)
+- [x] 2026-09-07T07:34:32.141Z — approvato — 20260907-0654-02 — Michele Morri @RebeldeRN — [mappa pending] Cronotitano Hill Climb – The Trailer (08/09) — ✅ elaborato 07/09/2026 (catena Step 1, giro 20260907-0654)
+- [x] 2026-09-07T07:34:33.280Z — approvato — 20260907-0654-03 — Michele Morri @RebeldeRN — [mappa pending] Artisti in Casa — XVI edizione (26–27/09, dubbio→confermato da Michele) — ✅ elaborato 07/09/2026 (catena Step 1, giro 20260907-0654)
+- [x] 2026-09-07T07:34:44.239Z — approvato — 20260907-0654-04 — Michele Morri @RebeldeRN — ⚠️ XXXII Mostra Micologica (26/09, dubbio→confermato da Michele; già `approvato` a master riga 107 dal 31/08) — ✅ elaborato 07/09/2026: 🔴 resta bloccato, mancano SEDE e data esatta 2026 (nessun contenuto grafico) — chiesto a Michele su Telegram
