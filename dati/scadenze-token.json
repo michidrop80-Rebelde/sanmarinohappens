@@ -1,0 +1,13 @@
+{
+  "_commento": "Fonte-macchina per scripts/controllo-scadenze-token.py. Ogni token/segreto con una scadenza VERA va elencato qui. La guardia gira ogni lunedi' dentro il workflow 'Metriche settimanali' e, quando mancano 'anticipo_giorni' o meno alla scadenza, manda un avviso su Telegram. La tabella leggibile per gli umani e' dati/scadenze-token.md (va tenuta allineata a mano: i token si rigenerano una volta l'anno).",
+  "token": [
+    {
+      "nome": "CLAUDE_CODE_OAUTH_TOKEN",
+      "scade": "2027-09-06",
+      "dove": "Segreti Actions del repo sanmarinohappens",
+      "rigenera_con": "claude setup-token sul Mac di Michele, poi incolla il nuovo valore nel segreto su UNA RIGA SOLA (nessun a-capo)",
+      "se_scade": "i workflow in cloud non si autenticano piu' (Invalid auth token) e la catena smette di girare",
+      "anticipo_giorni": 21
+    }
+  ]
+}

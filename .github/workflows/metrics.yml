@@ -35,6 +35,15 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python scripts/metrics.py
 
+      # Avvisa PRIMA che un token scada e fermi la catena in cloud (dati/scadenze-token.json).
+      # continue-on-error: un problema qui non deve far fallire la raccolta metriche.
+      - name: Controllo scadenze token
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python scripts/controllo-scadenze-token.py
+
       - name: Salva i dati aggiornati nel repo
         run: |
           git config --local user.email "action@github.com"
