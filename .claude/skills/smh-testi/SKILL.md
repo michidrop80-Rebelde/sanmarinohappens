@@ -31,6 +31,17 @@ Prendi il file **più recente** in `percorsi.cartella_verificati`
 (`eventi-verificati-AAAA-MM-GG.md`). Se Michele indica un file specifico, usa quello.
 Nessun file → dillo e fermati.
 
+⚠️ **Guardia di freschezza — obbligatoria prima di procedere** (serve in cloud, di
+notte). Se **non** ti è stato indicato un file specifico, lancia:
+
+```bash
+python3 scripts/controllo-freschezza.py testi
+```
+
+- **exit 0** → il file verificato ha al massimo 2 giorni, prosegui.
+- **exit 1 o 2** → è più vecchio di 2 giorni (o manca): lo script ha già mandato il
+  Telegram. **Fermati qui, non scrivere nessuna bozza.**
+
 ### Step 2 — Prendi SOLO gli eventi "Verificati"
 Usa esclusivamente la sezione **✅ Verificati**. **Ignora** "Da confermare (Michele)"
 e "Scartati": su quelli NON si scrive niente finché Michele non li promuove.

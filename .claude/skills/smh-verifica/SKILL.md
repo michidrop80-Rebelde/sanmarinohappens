@@ -50,6 +50,19 @@ Prendi il file **più recente** in `percorsi.cartella_eventi` con nome
 specifico, usa quello. Se non c'è nessun file → dillo e fermati: senza input non
 c'è niente da verificare.
 
+⚠️ **Guardia di freschezza — obbligatoria prima di procedere** (serve in cloud, di
+notte: se una notte la ricerca non gira, qui si lavorerebbe sul file di ieri senza
+accorgersene). Se **non** ti è stato indicato un file specifico, lancia:
+
+```bash
+python3 scripts/controllo-freschezza.py verifica
+```
+
+- **exit 0** → il file è di oggi, prosegui normalmente.
+- **exit 1 o 2** → il file più recente è troppo vecchio (o manca): lo script ha già
+  mandato il Telegram. **Fermati qui, non verificare niente.** Meglio un giro
+  saltato che eventi già passati portati avanti.
+
 ### Step 2 — Leggi tutti gli eventi
 Carica ogni evento con i suoi campi (Titolo, Data, Luogo, Tipo, Descrizione, Fonte,
 Stato, ed eventuale `Avviso` se era `⚠️`). Tieni anche le sezioni di chiusura del
