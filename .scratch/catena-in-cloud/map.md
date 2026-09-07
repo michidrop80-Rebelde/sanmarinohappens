@@ -85,6 +85,17 @@ ticket di discussione; le skill del progetto (`smh-*`) come fonte di verità sul
   🔴 Il blocco vero sono **45 percorsi assoluti `/Users/michele/...`** (13 file di skill/agenti + 4
   negli script) → ticket 11. Documento: [`research/02-limiti-actions.md`](research/02-limiti-actions.md)
 
+- [03 — Portare nel repo pubblico i file che al clone mancano](issues/03-sei-file-mancanti.md) —
+  **Fatto** (commit `2b67c1c`). Entrati i 6 file citati e mai committati + tutta la memoria di
+  lavoro della catena (63 file: eventi, verificati, post, approvati, pending, config, metriche,
+  diario). Fuori le 2 guide con l'email personale di Michele; `fonti-sport.md` entra **ripulito**
+  dalla password `RBA25`. Segreti cercati sui 63 file: nessuno. `controllo-integrita.py` ora sa se
+  gira **fuori dal Mac** (in cloud non cerca `~/.claude/scheduled-tasks`, tollera i
+  `.claude/secrets/*`). Nuova guardia automatica: workflow `guardia-integrita.yml` a ogni push su
+  `main` (il checkout è un clone pulito) → rosso + Telegram se manca un file. Verificato: run
+  Actions [#34148842889](https://github.com/michidrop80-Rebelde/sanmarinohappens/actions/runs/34148842889)
+  verde sul clone vero.
+
 - [05 — La sonda: un giro finto che prova tutto](issues/05-la-sonda.md) —
   **La strada regge.** Workflow `sonda-catena.yml` (`workflow_dispatch`), run verde 06/09: Claude in
   cloud si autentica con l'abbonamento, legge `master.md` e **cita un evento vero**, fa una ricerca
