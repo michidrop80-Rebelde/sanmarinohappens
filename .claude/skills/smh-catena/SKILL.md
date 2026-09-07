@@ -256,12 +256,18 @@ pubblicato per sbaglio sono entrambi errori, e il secondo non si può ritirare.
 
 ```bash
 python3 scripts/controllo-integrita.py
+python3 scripts/controllo-busta-rimasta.py  # ⛔ exit 1 = i pulsanti dell'ultimo giro non sono MAI partiti
 python3 scripts/controllo-copertura.py
 python3 scripts/controllo-export-in-coda.py
 python3 scripts/controllo-caption-prezzi.py   # ⛔ exit 1 = una busta in coda ha prezzi/gratuità → NON pushare, correggi la caption
 python3 scripts/controllo-imminenti.py    # ricontrollo: i buchi dello Step 2-bis sono chiusi?
 python3 scripts/serie_ricorrenti.py 21    # le serie hanno un post a ogni appuntamento?
 ```
+⛔ **`controllo-busta-rimasta.py` che esce con 1** vuol dire che il riepilogo coi pulsanti
+non è mai arrivato a Michele: lui crede di non avere niente da approvare e la catena aspetta
+a vuoto. Si chiude rilanciando `python3 .claude/scripts/telegram-giro.py invia` — non si
+cancella la busta per far tornare il verde.
+
 ⛔ **`controllo-caption-prezzi.py` che esce con 1 è un blocco vero**, non un avviso: quella
 busta, se pushata, verrebbe scartata in silenzio da `publish.py` e non uscirebbe mai. Correggi
 la caption nella busta **e** nel dossier sorgente, poi rilancia. Non pushare finché non è a 0.

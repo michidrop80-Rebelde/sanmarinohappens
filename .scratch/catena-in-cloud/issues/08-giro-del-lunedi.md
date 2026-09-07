@@ -31,3 +31,17 @@ e Michele ha ricevuto un solo riepilogo sensato sul telefono.
 - **Sul 429 (serbatoio vuoto): una riprova dopo 6 ore, poi un Telegram di una riga** che dice che
   la catena è ferma. Il 21/08 una corsa è morta sul 429 e nessuno se n'è accorto.
 - **Peso atteso:** ~$40 di valore equivalente per un giro completo (misura del 24/08).
+
+## Capitolato dal ticket 07 (deciso e provato 07/09/2026 — non si riapre)
+
+- **Il riepilogo coi pulsanti si manda in DUE passi**, e il passo dell'agente non ha mai in
+  mano `TELEGRAM_BOT_TOKEN`: `telegram-giro.py prepara` (l'agente) scrive la busta,
+  `telegram-giro.py invia` (passo di shell separato, con la chiave) spedisce. Il blocco YAML
+  già collaudato si copia da `.github/workflows/prova-pulsanti.yml`: lì cambia solo **cosa**
+  l'agente mette in busta (eventi veri invece dei due finti).
+- **La mappa del giro va committata** (`dati/telegram/pending/<giro>.json` +
+  `ultimo-giro.txt`): senza, le risposte di Michele non sono riconducibili a nessun evento.
+  ⚠️ Due `git add` separati e passo **rosso** se l'invio è riuscito ma non c'è niente da
+  committare — la prima corsa del 07/09 era verde e non aveva committato niente.
+- **Se la busta resta dopo `invia`, l'invio è fallito**: la corsa deve essere rossa, e la
+  busta va lasciata dov'è (non si cancella per far tornare il verde).

@@ -154,6 +154,25 @@ ticket di discussione; le skill del progetto (`smh-*`) come fonte di verità sul
   esatta / scaduto). Commit `dd47ba5`. Resta da confermare l'invio Telegram dal vivo (10 s Michele) e,
   vedi sotto, il PAT di cron-job.org.
 
+- [07 — Mandare i pulsanti su Telegram senza dare il token all'agente](issues/07-telegram-senza-token.md) —
+  **Fatto e provato in cloud.** `telegram-giro.py` si spezza in `prepara` (nessuna chiave:
+  costruisce testo, blocchi da 3 e pulsanti, e scrive la busta `queue/telegram-da-inviare.json`)
+  e `invia` (l'unico passo col token). Quattro decisioni di Michele: i pulsanti li disegna lo
+  **script**, non l'agente · **una strada sola**, Mac e cloud · **la busta che resta è
+  l'allarme** (si cancella solo dopo la conferma di Telegram) · invio a metà = **mappa salvata
+  comunque** + avviso «lista incompleta». `invia` **rifiuta una busta malfatta** (callback del
+  giro giusto, solo approve/reject, ✅/❌, evento in busta): è il muro che regge la prima
+  decisione. Due punti del ticket erano **stantii**: il `giro_id` c'è dal 10/08 e il modello
+  «passo stupido col token» era già provato dalla sonda. Nuove guardie:
+  `controllo-token-agente.py` (rosso se un passo che lancia `claude` ha in mano una chiave,
+  **anche ereditata dall'env del job**) agganciata a `guardia-integrita.yml`, e
+  `controllo-busta-rimasta.py` (i pulsanti non sono mai partiti). Prova dal vivo: run
+  [#34155483208](https://github.com/michidrop80-Rebelde/sanmarinohappens/actions/runs/34155483208)
+  verde, messaggio 🧪 PROVA coi pulsanti veri sul telefono di Michele, suo ✅ tornato in
+  `queue/approvazioni.md` — **l'agente non ha mai visto il token**. 🔴 La corsa ha scoperto un
+  difetto vero (passo di commit verde che non committava la mappa del giro): corretto e provato.
+  Commit `978efbd` + `e53d7dd`.
+
 ## Non ancora specificato
 
 - **Aggiornare Node 20 → 24 in tutti i workflow del repo.** La sonda ha fatto emergere l'avviso di

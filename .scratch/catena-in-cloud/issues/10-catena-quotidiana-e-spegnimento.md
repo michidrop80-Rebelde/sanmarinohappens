@@ -39,3 +39,12 @@ specificato» e si vede cosa è maturato.
   Mac** — quindi non entrano in questo workflow.
 - ⚠️ **Rovescio accettato:** in cloud nessuno ferma a mano una corsa che va male. Il freno è il
   cancello degli script + le tappe con salvataggio, non la sorveglianza.
+
+## Capitolato dal ticket 07 (07/09/2026)
+
+Fra le guardie-script che girano PRIMA di svegliare qualsiasi agente vanno chiamate anche:
+- `scripts/controllo-busta-rimasta.py` — i pulsanti dell'ultimo giro sono partiti davvero?
+  Se la busta è ancora lì, Michele non ha mai ricevuto niente da approvare e la catena
+  aspetta a vuoto.
+- `scripts/controllo-token-agente.py` — nessun passo che lancia `claude` ha in mano una
+  chiave. Costa zero (legge solo i file dei workflow) e non ha bisogno di segreti.

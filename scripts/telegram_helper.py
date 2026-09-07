@@ -21,6 +21,29 @@ Legge il token e la chat da `TELEGRAM_BOT_TOKEN` / `TELEGRAM_CHAT_ID`
 import json
 import os
 import subprocess
+from pathlib import Path
+
+
+def _credenziali(token=None, chat_id=None):
+    """Dove sono token e chat: prima l'ambiente (è così in GitHub Actions), poi —
+    solo se l'ambiente non ce l'ha — il file dei segreti del Mac.
+
+    Senza questo ripiego le guardie che girano SUL MAC erano mute: stampavano
+    "Telegram non configurato" e nessun avviso partiva. Una guardia muta è
+    peggio di nessuna guardia.
+    """
+    token = token or os.getenv("TELEGRAM_BOT_TOKEN")
+    chat_id = chat_id or os.getenv("TELEGRAM_CHAT_ID")
+    if token and chat_id:
+        return token, str(chat_id)
+    f = Path(__file__).resolve().parents[1] / ".claude" / "secrets" / "telegram.json"
+    if f.exists():
+        try:
+            d = json.loads(f.read_text())
+            return token or d.get("bot_token"), str(chat_id or d.get("chat_id"))
+        except (json.JSONDecodeError, OSError):
+            pass
+    return token, chat_id
 
 
 def manda_telegram(testo: str) -> bool:
@@ -32,8 +55,7 @@ def manda_telegram(testo: str) -> bool:
     pulsanti» di luglio. Con il ripiego su curl lo script si può provare anche
     in locale invece che solo al buio in produzione.
     """
-    token = os.getenv("TELEGRAM_BOT_TOKEN")
-    chat_id = os.getenv("TELEGRAM_CHAT_ID")
+    token, chat_id = _credenziali()
     if not token or not chat_id:
         print("(Telegram non configurato: TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID mancanti)")
         return False
@@ -75,8 +97,7 @@ def manda_messaggio(testo: str, tasti=None, parse_mode: str = None,
     legge da `TELEGRAM_BOT_TOKEN` / `TELEGRAM_CHAT_ID`. È l'unico punto del
     progetto che tocca il token: chi chiama non deve mai vederlo.
     """
-    token = token or os.getenv("TELEGRAM_BOT_TOKEN")
-    chat_id = chat_id or os.getenv("TELEGRAM_CHAT_ID")
+    token, chat_id = _credenziali(token, chat_id)
     if not token or not chat_id:
         print("(Telegram non configurato: TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID mancanti)")
         return False
