@@ -1,5 +1,80 @@
 # Ultimo stato — San Marino Happens
 
+Aggiornato: 2026-09-08 (notte) — 🔍 **CORSA #2 IN CLOUD: la macchina funziona. Chiuse due cose che suonavano a vuoto — il metro che gonfiava i numeri e la busta anomala immortale.**
+
+## Cosa è successo stanotte e oggi, in ordine
+
+| ora | chi | esito |
+|---|---|---|
+| 07:00 | robot di pubblicazione | ✅ giornaliero Cronotitano + 2 storie, IG **e** FB, tutti e 6 i pezzi usciti e archiviati |
+| ~07:47 | **giro in cloud (corsa #2)** | ✅ 4 tappe, 4 commit sul ramo `giro-cloud`, 25 min, $4,90 — **ha lavorato davvero** |
+| 11:14 e 18:01 | robot di pubblicazione | nessun post previsto; solo l'avviso della busta ferma |
+| 18:30 | catena serale sul Mac | ✅ ha chiuso i 2 buchi delle 48h (weekend 11-13/09 + storia 09/09) |
+
+**La corsa #2 conferma anche la diagnosi della #1:** stessa macchina, stesso codice, serbatoio pieno → $4,90 invece di $0,87. Il 07/09 il serbatoio era davvero esaurito.
+
+## 1. Il metro gonfiava i numeri (corretto)
+
+Il Telegram delle 08:12 diceva «Ricerca **24** eventi · Verifica ✅ **25** · 🗑 **0**».
+I numeri veri: **22 eventi · ✅ 21 · 🗑 1**. `conta-giro.py` sbagliava in due modi:
+- contava per eventi le due intestazioni di servizio in fondo al file della ricerca («Fonti non raggiungibili», «Auto-miglioramento di oggi»);
+- non riconosceva le sezioni del file verificato quando l'agente le scrive «## ⚠️ **Sezione 2 —** Da confermare» invece di «## ⚠️ Da confermare» → l'evento **scartato** finiva contato fra i **verificati**.
+
+Ora un evento si riconosce dalla **forma** del blocco (ha il campo `- **Stato:**`), non dal nome dell'intestazione. Aggiunto il caso «fuori sezione»: un evento che il metro non sa dove mettere si **dichiara**, non sparisce. Nuovo `scripts/conta_giro_test.py` 13/13.
+⚠️ Conta perché il «fatto quando» del ticket 08 è un **confronto di numeri** lunedì 14/09: con il metro gonfio quel confronto poteva assolvere o accusare il cloud a sproposito.
+
+## 2. Le «buste anomale» che suonavano tre volte al giorno (chiuse)
+
+`20260825_Post giornaliero` (Rapunzel) era ferma dal 25/08: il guardiano dei prezzi l'aveva bloccata **giustamente** («ingresso gratuito» in caption, regola equità). Ma una busta anomala non arrivava **mai** allo smistamento per data: non scadeva, non si archiviava, e il suo avviso tornava identico a ogni giro — per due settimane, e per sempre.
+
+Ora un'anomalia **senza scampo** si chiude come uno scarto definitivo: una riga nel referto, poi silenzio. È «senza scampo» solo se tutte e quattro: si sa di che busta si tratta · non è un aggregato (quelli si ridatano a mano) · è oltre la finestra di recupero · non è **mai** uscita su nessun canale (se era uscita a metà, il segnale del canale fallito non si nasconde).
+Provato sulla coda vera: al giro delle 07:00 di domani escono i due post del 09/09 e la Rapunzel viene archiviata in `archivio/non-pubblicati/2026-08/`. **Un ultimo avviso, poi non la senti più.**
+
+## 3. La sveglia delle 03:00 è partita alle 07:47
+
+Il cron una-tantum dell'8 settembre ha fatto partire la run con **4h47 di ritardo**. Le 03:00 erano state scelte apposta (ticket 06) per non contendere il serbatoio a Michele — e a quell'ora il giro non ci arriva. Il progetto ha già la ricetta (cron-job.org chiama `workflow_dispatch`, come per la pubblicazione delle 7:00 e 18:00): → **ticket 14** nella mappa.
+✅ Tolte da `giro-cloud.yml` le due sveglie una-tantum dell'8 settembre (restano lunedì 03:00 + ripresa 09:00).
+
+Prove: conta_giro 13/13 · confronta_giri 25/25 · publish_blocco_ig 71/71 · publish_parziali 11/11 · publish_tags 26/26 · integrità 133 · token-agente 12/12. Commit `1a730a7` su `main`.
+
+🔴 **Resta aperto:** il ticket 08 chiude solo **lunedì 14/09**, quando cloud e Mac girano lo stesso giorno e si confrontano davvero. E `scripts/segnala_doppioni_test.py` va ancora in errore appena parte (segnalato ieri, task a parte).
+
+---
+
+Aggiornato: 2026-09-08 (sera) — 🔗 **CATENA GIORNALIERA (task pianificato): Step 2-bis ha chiuso 2 buchi delle 48h — il WEEKEND 11–13/09 e la storia di Serravalle in Wellness (09/09).**
+
+Giro serale automatico. Step 0-bis: 0 approvazioni · 0 segnalazioni · 0 annullamenti · ultimo approvato (07/09) già graficato (07/09) — ma **domanda 5 = sì** (`controllo-imminenti.py` uscita 2). Il `git pull` ha portato l'archiviazione del robot delle buste 08/09 (giornaliero Cronotitano + 2 storie) → `archivio/2026-09/` + 6 righe in `published.log`: **sono uscite davvero**.
+
+**Step 2-bis — buco 1: WEEKEND 11–13/09 (esce gio 10/09 18:00) CHIUSO.**
+- Copia **pag.2** del master weekend `DAHOp1t_N1A` (`DAHUou_Xlhg`, «DA ELIMINARE»), `ultima_pagina_usata` weekend 1→**2**.
+- **6 eventi → 6 righe** (template a 6 righe, tutte piene, nessuna cancellazione). È il sotto-insieme ven–dom del settimanale 07–13/09 già uscito. Righe master 48, 60, 72, 81, 84, 99. Giorni Python: 11/09 Ven · 12/09 Sab · 13/09 Dom.
+  1. BeerFest · Queen Tribute — Parco di Dogana (m84) · 2. GP MotoGP San Marino — Misano (m48) · 3. Musikfest Adriatica — Centro Storico (m99) · 4. BeerFest · Anni '90 — Parco di Dogana (m72) · 5. Dal Turista al Contadino II tappa — Città e Borgo (m60) · 6. Palio Don Bosco — Borgo Maggiore (m81).
+- Campi data+luogo ridotti **uniformemente a font 36** (regola uniformità Michele: «Ven-Dom 11-13/09» andava a capo a font 45). Titolo «Palio Don Bosco» senza «36°» (il font non rende il «°»). Dossier `dati/post/weekend-2026-09-11-13.md`. Busta `posts/20260910_Weekend.json` + PNG **in coda su origin/main** (commit `59bd9e0`). Riga AGG aggiunta al piano.
+- ⚠️ Nota cosmetica: nei titoli «BeerFest · …» il «·» non si disegna nel font (resta uno spazio doppio) — leggibile, nessun dato sbagliato.
+
+**Step 2-bis — buco 2: STORIA Serravalle in Wellness (09/09) CHIUSA.**
+- Il **feed** del 09/09 era in coda dal 24/08 (`posts/20260909_Post giornaliero`), mancava solo la **storia**. Regola 03/09: 1 evento/giorno = feed + storia.
+- Copia **pag.3** del mazzo storie singolo `DAHSASb8IAU` (`DAHUoo9crfs`, «DA ELIMINARE»), `ultima_pagina_usata` storia.singolo 2→**3**. Unica storia del giorno → CTA di chiusura (il template pag.3 ha già il footer giusto, nessuna freccia «scorri»).
+- Giorno Python 09/09 = Mercoledì. Ora 18:00 e luogo Serravalle da master r.80 + feed busta. Titolo va a capo naturale «SERRAVALLE IN / WELLNESS». Tag `@castelloserravalle.rsm` (organizzatore = Giunta di Castello di Serravalle, `attivo`). Busta `posts/20260909_Storia.json` + PNG **in coda su origin/main** (commit `1314031`).
+
+**Step 4 — guardie:** imminenti ✅ (entrambi i buchi chiusi, uscita 0) · integrità ✅ (133 rif.) · export→coda ✅ · caption-prezzi ✅ (exit 0) · busta-rimasta ✅ · copertura ⚠️ · serie ricorrenti ⚠️ (16/09 e 23/09 Serravalle in Wellness senza busta — **voluto**, decisione 24/08, coperte dal rimando in caption del 09/09).
+
+🔴 **Aggregati scoperti OLTRE le 48h — li chiude lo Step 2-bis quando entrano in finestra (serve il Mac acceso i 2 giorni prima):** settimanale del 13/09 (esce dom 13/09 18:00) · weekend del 17/09 (esce gio 17/09 18:00) · settimanale del 20/09 (esce dom 20/09 18:00).
+
+⚠️ **Restano da graficare** (entrano in finestra più avanti): SanMarinoBeerFest Love Generation 90 (feed 12/09), Musikfest Adriatica (storia 12/09), SM U21–Kosovo (feed 24/09), SM–Finlandia (feed 26/09), SM–Albania (feed 29/09), SM U21–Spagna (storia 01/10).
+
+ℹ️ In coda da tempo e scaduta mai archiviata: `posts/20260825_Post giornaliero` (Rapunzel) — caso «uscita a metà», già segnalato il 01/09.
+
+⚠️ 2 copie Canva «DA ELIMINARE» da cestinare a mano: weekend 11-13/09 (`DAHUou_Xlhg`), storia 09/09 (`DAHUoo9crfs`).
+
+⚠️ Non committati (come sempre): `dati/grafica-stato.json`, `dati/piano-editoriale.md`, `dati/post/*.md` (incl. il dossier), questo report — non sono nel repo pubblico.
+
+🟢 `PUBLISH_LIVE=true`: la storia esce **davvero** mer 09/09 07:00 e il weekend gio 10/09 18:00 su IG+FB.
+
+Telegram inviato (via curl). Lucchetto preso e rilasciato.
+
+---
+
 Aggiornato: 2026-09-08 (notte) — 🗺️ **TICKET 08: il giro in cloud è costruito e ha girato per la prima volta. È passato a vuoto — e la cosa grave è che diceva di essere andato bene.**
 
 **Stato della mappa `.scratch/catena-in-cloud/` — 10 su 13 chiusi; il 08 costruito, aperto, in attesa di una corsa vera.**
