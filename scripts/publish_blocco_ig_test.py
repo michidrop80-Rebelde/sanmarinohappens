@@ -150,9 +150,9 @@ def test_freno():
 # ---------------------------------------------------------------------------
 # 3) Le buste: gli aggregati non scadono mentre IG e' bloccato, i giornalieri si'
 # ---------------------------------------------------------------------------
-def scrivi_busta(cartella, nome, tipo, data_pub, immagini):
+def scrivi_busta(cartella, nome, tipo, data_pub, immagini, caption='Testo di prova.'):
     meta = {'titolo_evento': nome, 'tipo': tipo, 'data_pubblicazione': data_pub,
-            'ora_pubblicazione': '07:00', 'caption': 'Testo di prova.',
+            'ora_pubblicazione': '07:00', 'caption': caption,
             'immagini': immagini}
     (cartella / f'{nome}.json').write_text(json.dumps(meta), encoding='utf-8')
     for i in immagini:
@@ -499,6 +499,84 @@ def test_scarti_definitivi():
     shutil.rmtree(tmp, ignore_errors=True)
 
 
+# ---------------------------------------------------------------------------
+# 9) Un'anomalia che nessuno puo' piu' riparare si chiude, non suona per sempre
+# ---------------------------------------------------------------------------
+def test_anomalie_senza_scampo():
+    print("\n[9] Anomale E scadute: si chiudono una volta, poi silenzio")
+    tmp = Path(tempfile.mkdtemp())
+    posts = tmp / 'posts'
+    posts.mkdir()
+    publish.POSTS_DIR = posts
+    publish.ARCHIVIO_DIR = tmp / 'archivio'
+    publish.IG_BLOCCO_FILE = tmp / 'stato' / 'instagram.json'
+    publish.TEST_DATE = '2026-09-08'
+    publish.GRACE_DAYS = 2
+    publish.FB_ENABLED = True
+
+    # Il caso vero: fermata dal guardiano dei prezzi il 25/08, e da allora un avviso
+    # Telegram identico tre volte al giorno per due settimane.
+    scrivi_busta(posts, '20260825_Post giornaliero', 'giornaliero', '2026-08-25',
+                 ['20260825_Post giornaliero.png'],
+                 caption='Rapunzel al parco, ingresso gratuito.')
+    # Stessa anomalia, ma la busta e' di OGGI: si ripara ancora -> deve suonare.
+    scrivi_busta(posts, '20260908_Post giornaliero', 'giornaliero', '2026-09-08',
+                 ['20260908_Post giornaliero.png'],
+                 caption='Concerto stasera, ingresso gratuito.')
+    # Un AGGREGATO anomalo e scaduto: si ridata a mano -> deve suonare.
+    scrivi_busta(posts, '20260820_Weekend', 'weekend', '2026-08-20',
+                 ['20260820_Weekend.png'],
+                 caption='Il weekend a San Marino, ingresso gratuito ovunque.')
+    # Un JSON illeggibile: senza data non ha eta' -> resta un avviso, come prima.
+    (posts / 'rotto.json').write_text('{ questo non e\' json', encoding='utf-8')
+
+    _, _, anomali, _ = publish.classifica_buste()
+    verifica('di partenza sono 4 anomalie', len(anomali) == 4)
+    verifica('ogni anomalia e\' (nome, motivo, busta)',
+             all(len(a) == 3 for a in anomali))
+
+    pubblicati = set()   # nessuna e\' mai uscita
+    da_segnalare, chiuse = publish.separa_anomalie_senza_scampo(anomali, pubblicati)
+    nomi_chiuse = {n for n, _, _ in chiuse}
+    nomi_segnalare = {n for n, _, _ in da_segnalare}
+
+    verifica('il giornaliero anomalo e scaduto si chiude',
+             nomi_chiuse == {'20260825_Post giornaliero.json'})
+    verifica('quello di OGGI resta un avviso: si ripara ancora',
+             '20260908_Post giornaliero.json' in nomi_segnalare)
+    verifica('l\'aggregato scaduto resta un avviso: si ridata a mano',
+             '20260820_Weekend.json' in nomi_segnalare)
+    verifica('il JSON illeggibile resta un avviso: senza data non ha eta\'',
+             'rotto.json' in nomi_segnalare)
+
+    # Una busta gia\' uscita a META\' non si chiude MAI per anomalia: li\' il problema
+    # e\' il canale che ha fallito, e quel segnale non va nascosto.
+    _, chiuse_meta = publish.separa_anomalie_senza_scampo(
+        anomali, {'20260825_Post giornaliero.png|ig'})
+    verifica('uscita a META\': non si chiude, il segnale resta', not chiuse_meta)
+
+    for _n, _m, busta in chiuse:
+        publish.archivia_busta(busta['json_file'], busta['immagini'], busta['meta'],
+                               sottocartella=publish.SCARTI_SOTTOCARTELLA)
+
+    non_pub = publish.ARCHIVIO_DIR / 'non-pubblicati' / '2026-08'
+    verifica('archiviata in archivio/non-pubblicati/2026-08/, JSON e PNG',
+             (non_pub / '20260825_Post giornaliero.json').exists() and
+             (non_pub / '20260825_Post giornaliero.png').exists())
+    verifica('NON in archivio/2026-08/ (che significa "uscito")',
+             not (publish.ARCHIVIO_DIR / '2026-08' / '20260825_Post giornaliero.json').exists())
+
+    # Il punto: al giro dopo l'allarme e\' sceso da 4 a 3, e i 3 sono azionabili.
+    _, _, anomali2, _ = publish.classifica_buste()
+    _, chiuse2 = publish.separa_anomalie_senza_scampo(anomali2, pubblicati)
+    verifica('al giro dopo restano 3 anomalie, non 4', len(anomali2) == 3)
+    verifica('e non c\'e\' piu\' niente da chiudere: non si ripresenta', not chiuse2)
+
+    publish.ARCHIVIO_DIR = Path('archivio')
+    shutil.rmtree(tmp, ignore_errors=True)
+
+
+
 if __name__ == '__main__':
     print('TEST FRENO INSTAGRAM — offline, nessuna pubblicazione reale')
 
@@ -520,6 +598,7 @@ if __name__ == '__main__':
     test_riconciliazione()
     test_scadute_gia_pubblicate()
     test_scarti_definitivi()
+    test_anomalie_senza_scampo()
 
     falliti = [d for d, ok in ESITI if not ok]
     print(f'\n{len(ESITI) - len(falliti)}/{len(ESITI)} verifiche OK')

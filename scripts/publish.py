@@ -659,7 +659,14 @@ def classifica_buste():
     Ritorna (da_pubblicare, scaduti, anomali, in_attesa).
       da_pubblicare / scaduti / in_attesa = liste di dict
         {json_file, meta, tipo, immagini, giorni_ritardo}
-      anomali = lista di (nome_json, motivo)
+      anomali = lista di (nome_json, motivo, busta_o_None)
+
+    Il terzo elemento delle anomalie e' la busta com'e' fatta (stessa forma delle
+    altre liste) quando si e' capito abbastanza per costruirla — cioe' quando tipo,
+    immagini e data erano leggibili. Serve a main() per CHIUDERE un'anomalia che non
+    ha piu' via d'uscita invece di ri-segnalarla per sempre: vedi
+    separa_anomalie_senza_scampo(). Se il JSON e' illeggibile o la data non c'e',
+    la busta e' None e l'anomalia resta un avviso, come prima.
     """
     data_oggi = oggi()
     ora_adesso = ora_corrente()
@@ -678,64 +685,78 @@ def classifica_buste():
             with open(json_file, 'r', encoding='utf-8') as f:
                 meta = json.load(f)
         except (json.JSONDecodeError, OSError) as e:
-            anomali.append((json_file.name, f"JSON illeggibile: {e}"))
+            anomali.append((json_file.name, f"JSON illeggibile: {e}", None))
             continue
         # 2) tipo riconosciuto?
         tipo = normalizza_tipo(meta)
         if tipo not in TIPI_VALIDI:
             anomali.append((json_file.name,
-                            f"tipo sconosciuto: {tipo!r} (attesi: {', '.join(sorted(TIPI_VALIDI))})"))
+                            f"tipo sconosciuto: {tipo!r} (attesi: {', '.join(sorted(TIPI_VALIDI))})",
+                            None))
             continue
+        # 2-bis) data valida? Si legge QUI, prima di tutti gli altri controlli, non
+        # perche' importi l'ordine dei difetti, ma perche' senza data un'anomalia non
+        # ha eta': e un'anomalia senza eta' non si puo' mai chiudere, e suona per
+        # sempre. Era il caso di 20260825_Post giornaliero (prezzo in caption, evento
+        # del 25/08): tre avvisi Telegram al giorno, per due settimane.
+        data_pub = parse_data(meta.get('data_pubblicazione'))
+        if data_pub is None:
+            anomali.append((json_file.name,
+                            f"data_pubblicazione assente o non valida: {meta.get('data_pubblicazione')!r}",
+                            None))
+            continue
+
+        def _anomalia(motivo, immagini_note=None):
+            """Registra l'anomalia insieme alla busta, cosi' main() sa se e' ancora
+            recuperabile o se e' ora di chiuderla."""
+            anomali.append((json_file.name, motivo, {
+                'json_file': json_file, 'meta': meta, 'tipo': tipo,
+                'immagini': immagini_note if immagini_note is not None else [],
+                'giorni_ritardo': (data_oggi - data_pub).days,
+            }))
+
         # 3) immagini presenti (tutte)?
         immagini = get_immagini(json_file, meta)
         mancanti = [p.name for p in immagini if not p.exists()]
         if mancanti:
-            anomali.append((json_file.name, f"PNG mancante/i: {', '.join(mancanti)}"))
+            _anomalia(f"PNG mancante/i: {', '.join(mancanti)}", immagini)
             continue
         # 4) numero immagini coerente col tipo?
         n = len(immagini)
         if tipo in TIPI_FOTO_SINGOLA and n != 1:
-            anomali.append((json_file.name, f"tipo {tipo}: attesa 1 immagine, trovate {n}"))
+            _anomalia(f"tipo {tipo}: attesa 1 immagine, trovate {n}", immagini)
             continue
         if tipo == 'carosello' and not (2 <= n <= 10):
-            anomali.append((json_file.name, f"carosello: servono 2..10 immagini, trovate {n}"))
+            _anomalia(f"carosello: servono 2..10 immagini, trovate {n}", immagini)
             continue
         if tipo == 'storia' and n < 1:
-            anomali.append((json_file.name, "storia: serve almeno 1 immagine"))
-            continue
-        # 5) data valida?
-        data_pub = parse_data(meta.get('data_pubblicazione'))
-        if data_pub is None:
-            anomali.append((json_file.name,
-                            f"data_pubblicazione assente o non valida: {meta.get('data_pubblicazione')!r}"))
+            _anomalia("storia: serve almeno 1 immagine", immagini)
             continue
         # 6) caption presente? (le storie NON hanno caption: il testo e' dentro la grafica)
         if tipo != 'storia':
             caption_txt = (meta.get('caption') or '').strip()
             if not caption_txt:
-                anomali.append((json_file.name, "caption vuota"))
+                _anomalia("caption vuota", immagini)
                 continue
             # 6a-bis) caption troppo lunga per Instagram? -> blocca e segnala QUI,
             # invece di farla rifiutare da Meta a ogni giro senza che nessuno lo veda.
             n_car = lunghezza_caption(caption_txt)
             if n_car > IG_CAPTION_MAX:
-                anomali.append((json_file.name,
-                                f"caption troppo lunga per Instagram: {n_car} caratteri "
-                                f"(limite {IG_CAPTION_MAX}) — accorciala di almeno "
-                                f"{n_car - IG_CAPTION_MAX}"))
+                _anomalia(f"caption troppo lunga per Instagram: {n_car} caratteri "
+                          f"(limite {IG_CAPTION_MAX}) — accorciala di almeno "
+                          f"{n_car - IG_CAPTION_MAX}", immagini)
                 continue
             # 6b) PREZZI/GRATUITA' in caption? Regola equita' -> blocca e segnala.
             prezzi = caption_prezzi(caption_txt)
             if prezzi:
-                anomali.append((json_file.name,
-                                "prezzo/gratuità in caption (regola equità, i costi vanno solo "
-                                f"nel link in bio): «{'», «'.join(prezzi)}»"))
+                _anomalia("prezzo/gratuità in caption (regola equità, i costi vanno solo "
+                          f"nel link in bio): «{'», «'.join(prezzi)}»", immagini)
                 continue
         # 6c) TAG UTENTE malformati? -> blocca e segnala (vale anche per le storie,
         # che non passano dal controllo caption qui sopra).
         problemi_tag = tag_anomalie(meta, tipo, immagini)
         if problemi_tag:
-            anomali.append((json_file.name, "tag utente: " + " · ".join(problemi_tag)))
+            _anomalia("tag utente: " + " · ".join(problemi_tag), immagini)
             continue
         # 7) smistamento per data (+ ora, solo se e' proprio oggi)
         giorni_ritardo = (data_oggi - data_pub).days
@@ -844,6 +865,43 @@ def separa_scarti_definitivi(scaduti, pubblicati):
                     and busta_mai_uscita(busta, pubblicati))
         (scarti if e_scarto else da_segnalare).append(busta)
     return da_segnalare, scarti
+
+
+def separa_anomalie_senza_scampo(anomali, pubblicati):
+    """Divide le anomalie in (da_segnalare, senza_scampo).
+
+    IL PROBLEMA (08/09/2026). Una busta anomala non passa mai dallo smistamento per
+    data: appena si trova il difetto si salta al file dopo. Quindi non scade mai, non
+    si archivia mai, e l'avviso che la riguarda torna IDENTICO a ogni run — tre volte
+    al giorno, per sempre. È successo a `20260825_Post giornaliero` (Rapunzel): il
+    guardiano dei prezzi l'ha fermata giustamente il 25/08 («ingresso gratuito» in
+    caption), ma da lì in poi nessuno poteva più farci niente — l'evento era il 25/08,
+    e un giornaliero in ritardo non si pubblica (finestra di recupero 0 giorni).
+    Quell'avviso ha continuato a suonare per due settimane. Un allarme che suona
+    sempre copre quelli veri: è la stessa malattia di separa_scarti_definitivi().
+
+    LA REGOLA. Un'anomalia è «senza scampo» quando tutte e quattro:
+      1. si sa di che busta si tratta (tipo e data leggibili) — altrimenti non si può
+         nemmeno dire quanti anni ha, e resta un avviso;
+      2. NON è un aggregato: weekend, settimanale e carosello si possono ancora
+         correggere e ridatare a mano, il loro contenuto copre giorni futuri;
+      3. è oltre la finestra di recupero (GRACE_DAYS): riparare la caption non
+         servirebbe, il giorno è passato;
+      4. non è mai uscita su nessun canale: se era uscita a metà, il problema non è
+         la scadenza ma un canale che ha fallito, e quel segnale non si nasconde.
+
+    Le senza-scampo si archiviano fra i non-pubblicati con una riga sola nel referto
+    (Michele deve sapere che quel giorno è rimasto scoperto, e perché), poi tacciono.
+    """
+    da_segnalare, senza_scampo = [], []
+    for voce in anomali:
+        nome, motivo, busta = voce
+        chiudibile = (busta is not None
+                      and busta['tipo'] not in TIPI_AGGREGATI
+                      and busta['giorni_ritardo'] > GRACE_DAYS
+                      and busta_mai_uscita(busta, pubblicati))
+        (senza_scampo if chiudibile else da_segnalare).append(voce)
+    return da_segnalare, senza_scampo
 
 
 def separa_gia_pubblicate(scaduti, pubblicati):
@@ -1334,6 +1392,32 @@ def main():
         nomi = ', '.join(b['json_file'].name for b in scarti)
         print(f"🧪 {len(scarti)} buste scadute e mai uscite da scartare (in LIVE): {nomi}")
 
+    # ---------- ANOMALIE SENZA SCAMPO: rotte, scadute, mai uscite ----------
+    # Una busta anomala non arriva mai allo smistamento per data, quindi non scade e
+    # non si archivia: il suo avviso torna identico a ogni run, per sempre. Quando il
+    # difetto non è più riparabile (giornaliero o storia oltre la finestra, mai uscita
+    # da nessuna parte) si chiude qui, come si fa con gli scarti definitivi.
+    anomali, anomali_chiusi = separa_anomalie_senza_scampo(anomali, pubblicati)
+    righe_anomali_chiusi = []
+    if PUBLISH_LIVE:
+        for nome, motivo, busta in anomali_chiusi:
+            dest = archivia_busta(busta['json_file'], busta['immagini'], busta['meta'],
+                                  sottocartella=SCARTI_SOTTOCARTELLA)
+            if dest:
+                titolo = busta['meta'].get('titolo_evento', busta['json_file'].stem)
+                print(f"🗑 {nome} anomala e scaduta ({busta['giorni_ritardo']}g) "
+                      f"→ {dest.as_posix()}/ — {motivo}")
+                righe_anomali_chiusi.append(
+                    f"   • [{busta['tipo']}] {titolo} — prevista "
+                    f"{busta['meta'].get('data_pubblicazione')}, bloccata da: {motivo} "
+                    f"→ archiviata fra i non-pubblicati (quel giorno resta scoperto)")
+            else:
+                # Non si è riusciti a spostarla: torna fra gli avvisi, non sparisce.
+                anomali.append((nome, motivo, busta))
+    elif anomali_chiusi:
+        nomi = ', '.join(n for n, _, _ in anomali_chiusi)
+        print(f"🧪 {len(anomali_chiusi)} buste anomale e scadute da chiudere (in LIVE): {nomi}")
+
     # ---------- PASSO 0: la coda e' gia' sul profilo? ----------
     # Va PRIMA di qualunque tentativo: i doppioni del 03-06/08 hanno lasciato in coda
     # buste gia' pubblicate ma non registrate, e senza questo controllo il primo giro
@@ -1509,11 +1593,18 @@ def main():
                 f"ferma da {busta['giorni_ritardo']}g"
             )
 
+    if righe_anomali_chiusi:
+        if righe_report:
+            righe_report.append("")
+        righe_report.append("🗑 CHIUSE (anomale E scadute: nessun giro futuro potrebbe "
+                            "pubblicarle). Ultimo avviso, poi silenzio:")
+        righe_report.extend(righe_anomali_chiusi)
+
     if anomali:
         if righe_report:
             righe_report.append("")
-        righe_report.append("⚠️ BUSTE ANOMALE (saltate):")
-        for nome_json, motivo in anomali:
+        righe_report.append("⚠️ BUSTE ANOMALE (saltate, ancora recuperabili):")
+        for nome_json, motivo, _busta in anomali:
             righe_report.append(f"   • {nome_json} — {motivo}")
 
     if TAG_SALTATI:
@@ -1574,7 +1665,7 @@ def main():
     elif reparti_in_pausa:
         intestazione = (f"⏸ {intestazione} — INSTAGRAM IN PAUSA "
                         f"({', '.join(reparti_in_pausa)}, blocco Meta)")
-    elif scaduti or anomali or righe_scarti:
+    elif scaduti or anomali or righe_scarti or righe_anomali_chiusi:
         intestazione = "❗ " + intestazione + " — CI SONO BUSTE DA CONTROLLARE"
     if not FB_ENABLED and not PUBLISH_LIVE:
         intestazione += "\n(Facebook non ancora configurato: aggiungi i secret FACEBOOK_PAGE_TOKEN e FACEBOOK_PAGE_ID)"

@@ -120,8 +120,13 @@ def main():
     print("\n[5] Legge i file veri del progetto con lo stesso lettore del contatore")
     radice = c.Path(c.cg.radice_repo())
     g = c.leggi(radice, "2026-09-07")
-    verifica("22 eventi trovati", len(g["eventi"]) == 22)
+    # 20 e non 22: fino al 08/09/2026 il contatore prendeva per eventi anche le due
+    # intestazioni di servizio in fondo al file ("Fonti non raggiungibili",
+    # "Auto-miglioramento di oggi"). Ora un evento si riconosce dal campo Stato.
+    verifica("20 eventi trovati", len(g["eventi"]) == 20)
     verifica("21 verificati", len(g["verificati"]) == 21)
+    verifica("1 scartato (prima finiva fra i verificati o spariva)",
+             len(g["scartati"]) == 1)
     verifica("24 bozze", g["bozze"] == 24)
     verifica("i marcatori ⚠️/🗑 non finiscono dentro il titolo",
              all(not t.startswith(("⚠", "🗑", "✅"))
@@ -130,7 +135,7 @@ def main():
     print("\n[6] Confrontare un giro con sé stesso non trova differenze")
     comuni, solo_mac, solo_cloud = c.accosta(g["eventi"], list(g["eventi"]))
     verifica("tutti in comune, zero differenze",
-             len(comuni) == 22 and not solo_mac and not solo_cloud)
+             len(comuni) == 20 and not solo_mac and not solo_cloud)
 
     print("\n[7] Se il giro in cloud non c'è, lo dice invece di inventarselo")
     with tempfile.TemporaryDirectory() as tmp:

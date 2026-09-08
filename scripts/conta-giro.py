@@ -42,18 +42,68 @@ def radice_repo() -> Path:
         return Path(__file__).resolve().parent.parent
 
 
-# I titoli degli eventi sono "## Titolo". Le sezioni del file verificato sono
-# anch'esse "## " ma cominciano con un'emoji: vanno riconosciute e non contate
-# come eventi.
-SEZIONI_VERIFICATO = {
-    "verificati": re.compile(r"^##\s*✅"),
-    "da_confermare": re.compile(r"^##\s*⚠️\s*Da confermare"),
-    "scartati": re.compile(r"^##\s*🗑\s*Scartati"),
-}
+# I titoli degli eventi sono "## Titolo". Anche le INTESTAZIONI DI SEZIONE del file
+# verificato sono "## ", e vanno riconosciute per non contarle come eventi.
+#
+# ⚠️ COME SI RICONOSCE UN EVENTO (corretto il 08/09/2026 — vedi in fondo al file)
+# NON dal nome dell'intestazione: i nomi cambiano ogni giorno, e le sezioni pure
+# ("## ✅ Verificati" il 07/09, "## ✅ Sezione 1 — Verificati (pronti per i testi)"
+# il 08/09). Si riconosce dalla FORMA del blocco: un evento ha sempre sotto il
+# campo "- **Stato:**", una sezione no. Cosi' "## ⚠️ San Marino Special Cup" viene
+# contato (e' un evento con un marcatore davanti) e "## 🔧 Auto-miglioramento di
+# oggi" no (e' una sezione), senza dover indovinare dalle parole.
 RIGA_TITOLO = re.compile(r"^##\s+(.*\S)\s*$")
+# Un evento ha SEMPRE il campo Stato (da-verificare / verificato /
+# da-confermare-michele / scartato) — anche quando non ha la Data, come i blocchi
+# della sezione "Scartati", che hanno Motivo al posto di Data. La Data resta come
+# seconda prova, per un evento a cui lo Stato fosse sfuggito.
+CAMPO_EVENTO = re.compile(r"^\s*-\s+\*\*(Stato|Data):?\*\*")
 # Un titolo che comincia con una di queste emoji e' un marcatore di stato messo
-# davanti al nome dell'evento (es. "## ⚠️ Artisti in Casa"): l'evento va contato.
+# davanti al nome dell'evento (es. "## ⚠️ Artisti in Casa"): l'emoji non fa parte
+# del nome e si toglie, altrimenti il confronto fra i due giri non accosta nulla.
 EMOJI_STATO = "✅⚠️🗑🆕✏️🔁"
+
+
+def _blocchi(righe):
+    """Spezza il file in blocchi: ogni "## intestazione" con le righe che la seguono."""
+    blocchi, corrente = [], None
+    for r in righe:
+        m = RIGA_TITOLO.match(r)
+        if m:
+            grezzo = m.group(1)
+            corrente = {"titolo": grezzo.lstrip(EMOJI_STATO + " "),
+                        "grezzo": grezzo, "righe": []}
+            blocchi.append(corrente)
+        elif corrente is not None:
+            corrente["righe"].append(r)
+    return blocchi
+
+
+def _e_evento(blocco) -> bool:
+    """True se il blocco e' un evento (ha il campo Stato, o almeno la Data),
+    False se e' un'intestazione di sezione o un blocco di servizio."""
+    return any(CAMPO_EVENTO.match(r) for r in blocco["righe"])
+
+
+def _quale_sezione(grezzo):
+    """A quale sezione del file verificato corrisponde questa intestazione.
+    Prima le parole (reggono se cambia l'emoji), poi l'emoji (regge se cambiano le
+    parole). None = intestazione che non apre nessuna delle tre sezioni note
+    (es. "## 📌 Note di verifica"): da li' in poi non si conta piu' niente."""
+    t = grezzo.lower()
+    if "da confermare" in t:
+        return "da_confermare"
+    if "scartat" in t:
+        return "scartati"
+    if "verificat" in t:
+        return "verificati"
+    if grezzo.startswith("⚠"):
+        return "da_confermare"
+    if grezzo.startswith("🗑"):
+        return "scartati"
+    if grezzo.startswith("✅"):
+        return "verificati"
+    return None
 
 
 def _righe(p: Path):
@@ -65,39 +115,33 @@ def _righe(p: Path):
 # o poi conterebbero cose diverse e il confronto mentirebbe senza dirlo.
 
 def titoli_eventi(p: Path):
-    """File della ricerca: ogni '## Titolo' e' un evento. None se il file manca."""
+    """File della ricerca: i titoli degli eventi. None se il file manca.
+    Le intestazioni di servizio in fondo al file ("Fonti non raggiungibili",
+    "Auto-miglioramento di oggi") NON sono eventi e non si contano: si riconoscono
+    perche' sotto non hanno il campo Data."""
     righe = _righe(p)
     if righe is None:
         return None
-    fuori = []
-    for r in righe:
-        m = RIGA_TITOLO.match(r)
-        if m and not m.group(1).startswith(("Fonti", "Note", "Riepilogo")):
-            fuori.append(m.group(1))
-    return fuori
+    return [b["titolo"] for b in _blocchi(righe) if _e_evento(b)]
 
 
 def titoli_verificati(p: Path):
-    """File dei verificati: i titoli, divisi per sezione. None se il file manca."""
+    """File dei verificati: i titoli, divisi per sezione. None se il file manca.
+
+    `fuori_sezione` raccoglie gli eventi che stanno PRIMA di qualunque intestazione
+    di sezione, o dopo un'intestazione che non e' nessuna delle tre note. Non si
+    buttano via in silenzio: un evento che il metro non sa dove mettere e' un file
+    fatto in modo diverso dal previsto, e chi guarda i numeri deve vederlo."""
     righe = _righe(p)
     if righe is None:
         return None
-    esito = {"verificati": [], "da_confermare": [], "scartati": []}
+    esito = {"verificati": [], "da_confermare": [], "scartati": [], "fuori_sezione": []}
     sezione = None
-    for r in righe:
-        cambiata = False
-        for nome, rx in SEZIONI_VERIFICATO.items():
-            # Un'intestazione di sezione ha SOLO l'emoji + il nome della sezione.
-            if rx.match(r) and ("Verificati" in r or "Da confermare" in r or "Scartati" in r):
-                sezione, cambiata = nome, True
-                break
-        if cambiata:
-            continue
-        m = RIGA_TITOLO.match(r)
-        if sezione and m:
-            # Il marcatore di stato davanti al nome ("⚠️ Artisti in Casa") non
-            # fa parte del titolo: toglierlo permette di confrontare i due giri.
-            esito[sezione].append(m.group(1).lstrip(EMOJI_STATO + " "))
+    for b in _blocchi(righe):
+        if _e_evento(b):
+            esito[sezione or "fuori_sezione"].append(b["titolo"])
+        else:
+            sezione = _quale_sezione(b["grezzo"])
     return esito
 
 
@@ -140,7 +184,8 @@ def misura(radice: Path, data: str) -> dict:
         "verifica": {"file": str(f_verif.relative_to(radice)),
                      "presente": f_verif.exists(),
                      **(conta_verificati(f_verif) or
-                        {"verificati": None, "da_confermare": None, "scartati": None})},
+                        {"verificati": None, "da_confermare": None,
+                         "scartati": None, "fuori_sezione": None})},
         "testi": {"file": str(f_post.relative_to(radice)),
                   "presente": f_post.exists(),
                   **(conta_bozze(f_post) or {"totale": None, "per_stato": {}})},
@@ -157,9 +202,12 @@ def stampa_italiano(m: dict) -> None:
     print(f"  1 Ricerca : "
           + (f"{r['eventi']} eventi" if r["presente"]
              else "file non prodotto"))
-    print(f"  3 Verifica: "
-          + (f"✅ {v['verificati']} · ⚠️ {v['da_confermare']} · 🗑 {v['scartati']}"
-             if v["presente"] else "file non prodotto"))
+    riga_v = (f"✅ {v['verificati']} · ⚠️ {v['da_confermare']} · 🗑 {v['scartati']}"
+              if v["presente"] else "file non prodotto")
+    if v["presente"] and v.get("fuori_sezione"):
+        riga_v += (f"  ⚠️ {v['fuori_sezione']} evento/i FUORI SEZIONE "
+                   f"(il file non ha la forma attesa: vanno guardati a mano)")
+    print(f"  3 Verifica: " + riga_v)
     stati = ", ".join(f"{k} {n}" for k, n in sorted(t["per_stato"].items())) or "—"
     print(f"  4 Testi   : "
           + (f"{t['totale']} bozze ({stati})" if t["presente"]
