@@ -1,6 +1,6 @@
 # Ultimo stato — San Marino Happens
 
-Aggiornato: 2026-09-08 (notte) — 🔍 **CORSA #2 IN CLOUD: la macchina funziona. Chiuse due cose che suonavano a vuoto — il metro che gonfiava i numeri e la busta anomala immortale.**
+Aggiornato: 2026-09-08 (notte) — 🔍 **CORSA #2 IN CLOUD: la macchina funziona. Chiuse due cose che suonavano a vuoto — il metro che gonfiava i numeri e la busta anomala immortale. E il ticket 14: la sveglia del giro passa a cron-job.org (2 cronjob da creare a mano, guida pronta).**
 
 ## Cosa è successo stanotte e oggi, in ordine
 
@@ -30,14 +30,25 @@ Ora un evento si riconosce dalla **forma** del blocco (ha il campo `- **Stato:**
 Ora un'anomalia **senza scampo** si chiude come uno scarto definitivo: una riga nel referto, poi silenzio. È «senza scampo» solo se tutte e quattro: si sa di che busta si tratta · non è un aggregato (quelli si ridatano a mano) · è oltre la finestra di recupero · non è **mai** uscita su nessun canale (se era uscita a metà, il segnale del canale fallito non si nasconde).
 Provato sulla coda vera: al giro delle 07:00 di domani escono i due post del 09/09 e la Rapunzel viene archiviata in `archivio/non-pubblicati/2026-08/`. **Un ultimo avviso, poi non la senti più.**
 
-## 3. La sveglia delle 03:00 è partita alle 07:47
+## 3. La sveglia delle 03:00 è partita alle 07:47 → **ticket 14 deciso e costruito**
 
-Il cron una-tantum dell'8 settembre ha fatto partire la run con **4h47 di ritardo**. Le 03:00 erano state scelte apposta (ticket 06) per non contendere il serbatoio a Michele — e a quell'ora il giro non ci arriva. Il progetto ha già la ricetta (cron-job.org chiama `workflow_dispatch`, come per la pubblicazione delle 7:00 e 18:00): → **ticket 14** nella mappa.
+Il cron una-tantum dell'8 settembre ha fatto partire la run con **4h47 di ritardo**.
 ✅ Tolte da `giro-cloud.yml` le due sveglie una-tantum dell'8 settembre (restano lunedì 03:00 + ripresa 09:00).
 
-Prove: conta_giro 13/13 · confronta_giri 25/25 · publish_blocco_ig 71/71 · publish_parziali 11/11 · publish_tags 26/26 · integrità 133 · token-agente 12/12. Commit `1a730a7` su `main`.
+**Il danno vero non era l'orario scomodo.** L'abbonamento lavora a **finestre di 5 ore**: partendo alle 03:00 la finestra si chiude alle 08:00, prima che Michele apra il Mac; partita alle 07:47 si chiude alle **12:47** e gli mangia la mattinata — cioè la ragione stessa dell'orario notturno del ticket 06 viene annullata.
 
-🔴 **Resta aperto:** il ticket 08 chiude solo **lunedì 14/09**, quando cloud e Mac girano lo stesso giorno e si confrontano davvero. E `scripts/segnala_doppioni_test.py` va ancora in errore appena parte (segnalato ieri, task a parte).
+**Deciso (Michele, fra tre alternative): la sveglia la suona cron-job.org, su tutte e due le corse.** Anche la ripresa, che slittata aprirebbe una finestra 13:00–18:00, il cuore della sua giornata. I cron interni di GitHub **restano** come rete di sicurezza. Numeri che reggono la scelta: cron-job.org parte alle 07:01/18:01, i cron interni alle 08:03/12:26/21:56.
+
+- `giro-cloud.yml`: il `workflow_dispatch` accetta l'etichetta **`ripresa` (si/no)**.
+- 🔴 **Difetto scoperto strada facendo:** il giro riconosceva «sono la ripresa» dal *testo del cron*, che una chiamata di cron-job.org non ha → una ripresa caduta avrebbe scritto «riprovo alle 09:00» **alle 09:00**. Corretto.
+- **Guardia nuova contro il guasto muto:** se la corsa parte da `schedule`, cron-job.org non ha chiamato — il referto Telegram lo dice e dice cosa controllare. Senza, il giro girerebbe per sempre all'ora sbagliata in silenzio.
+- Fuori ticket: sistemata la scenetta stantia di `chiudi_tappa_test.sh` (falliva per il metro corretto oggi, non per un guasto).
+
+Prove: referto **37/37** (3 nuove) · chiudi-tappa 14/14 · conta_giro 13/13 · confronta_giri 25/25 · lucchetto 20/20 · publish 71/11/26 · token-agente 12/12 · integrità 133/133. Commit `386667d` su `main`.
+
+👉 **Tocca a Michele (5 min):** creare i due cronjob su cron-job.org e leggere la scadenza del PAT — guida passo-passo in [`dati/guida-sveglia-giro-cloud.md`](dati/guida-sveglia-giro-cloud.md).
+
+🔴 **Resta aperto:** il ticket 08 **e** il 14 chiudono solo **lunedì 14/09** (il primo col confronto cloud/Mac, il secondo con la corsa partita alle 03:0x e la run che dice `workflow_dispatch`). E `scripts/segnala_doppioni_test.py` va ancora in errore appena parte (segnalato ieri, task a parte).
 
 ---
 
