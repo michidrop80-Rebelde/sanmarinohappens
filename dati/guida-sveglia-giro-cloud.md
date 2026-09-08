@@ -46,16 +46,33 @@ Poi apri la linguetta **Advanced**:
 | Request method | `POST` |
 | Request body | `{"ref":"main","inputs":{"ripresa":"no"}}` |
 
-E aggiungi tre **Headers** (gli stessi che hai già sui due cronjob della pubblicazione —
-copia l'`Authorization` da lì, è lo stesso PAT):
+E aggiungi **cinque Headers**. ⚠️ Il modo sicuro di farlo è aprire in un'altra scheda
+uno dei due cronjob della pubblicazione che già funzionano e **copiare da lì**, riga per
+riga: quelli sono provati dall'11/07/2026.
 
 ```
-Authorization: Bearer IL_TUO_PAT_FINE_GRAINED
+Authorization: Bearer <il PAT vero, copiato dal cronjob della pubblicazione>
 Accept: application/vnd.github+json
 Content-Type: application/json
+X-GitHub-Api-Version: 2022-11-28
+User-Agent: smh-cron
 ```
 
-Salva. Se GitHub risponde **204** è andata: la risposta vuota è quella giusta.
+🔴 `<il PAT vero...>` va **sostituito col token**: se resta scritto un segnaposto, GitHub
+risponde 401 e la sveglia non suona mai.
+⚠️ Nella colonna «Chiave» scrivi `Authorization`, **senza i due punti** — quelli li mette
+il sito da solo.
+
+Nel riquadro **«Inviami una notifica quando...»** accendi anche
+**«l'esecuzione del cronjob fallisce»** (*Notify after 1 failure*): l'altra notifica, quella
+già accesa («il cronjob sarà disabilitato a causa di troppi fallimenti»), arriva solo alla
+fine — questa te lo dice al primo colpo andato storto.
+
+Salva con **CREA**. Se GitHub risponde **204** è andata: la risposta vuota è quella giusta.
+
+🚫 **Non premere «TEST DI ESECUZIONE»** per curiosità: non è una prova a vuoto: fa partire
+**davvero** il giro completo in cloud, adesso, con i suoi 25 minuti e i suoi ~5 dollari di
+abbonamento. Se vuoi provarlo lo fai apposta, sapendo che parte per davvero.
 
 ### Passo 2 — il cronjob della ripresa (lunedì 09:00)
 
