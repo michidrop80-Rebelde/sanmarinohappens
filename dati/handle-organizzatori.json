@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-08-24",
+  "aggiornato": "2026-09-08",
   "_nota": "Registro degli handle social verificati. Solo le voci con stato 'attivo' E instagram non nullo producono un tag. Un handle entra come 'attivo' solo con DUE indizi indipendenti di ufficialita' (di norma: il sito ufficiale linka quel profilo E il profilo esiste col nome corrispondente); la conferma diretta di Michele vale come secondo indizio. Mai un handle dedotto dal nome del soggetto.",
   "_regole_25_07_2026": [
     "OGNI evento nuovo che entra in verifica porta con se' il controllo di chi lo organizza: se il soggetto e' nuovo va aggiunto qui (almeno come 'da-cercare'). Vedi Step 4-bis di /smh-verifica.",
@@ -81,7 +81,8 @@
       "categoria": "organizzatore",
       "alias": [
         "FSGC",
-        "Federazione Sammarinese Giuoco Calcio"
+        "Federazione Sammarinese Giuoco Calcio",
+        "Coppa Titano"
       ],
       "instagram": "fsgc_official",
       "facebook_page_id": null,
@@ -713,6 +714,58 @@
       "stato": "attivo",
       "verificato_il": "2026-08-25",
       "prova": "Nuovo in verifica 25/08/2026: e' l'autore diretto del post Instagram che pubblicizza il proprio evento 'Summer Night - 1 Anniversario Cuore Giovane' (25/08, Piazza Bertoldi Serravalle) - bio/caption si firma come Associazione Sammarinese Cuore Giovane. Segnalato da Michele via bot (link Instagram, urgente per stasera)."
+    },
+    {
+      "nome": "Registro Italiano Porsche 924-944-928-968",
+      "categoria": "organizzatore",
+      "alias": [
+        "Registro Italiano Porsche 924-944-928-968",
+        "Nove2quattro",
+        "Nove2quattro - Transaxle 50",
+        "Porsche 924 Forever Young"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-09-08",
+      "prova": "Nuovo in verifica 08/09/2026: organizza il raduno 'Porsche 924 Forever Young - 50° Anniversario' (13/09, Parcheggio P7) — confermato su 2 fonti (visitsanmarino.com + calendario ufficiale 2026 del club su cms.porsche-clubs.com, evento 'Nove2quattro - Transaxle 50: The Perfect 50/50'). Nessun profilo social cercato ancora."
+    },
+    {
+      "nome": "Segreteria di Stato per lo Sport",
+      "categoria": "organizzatore",
+      "alias": [
+        "Segreteria di Stato per lo Sport",
+        "Segreteria Sport"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-09-08",
+      "prova": "Organizza (con Regione Emilia-Romagna, Misano World Circuit e MotoGP) il Cronotitano Hill Climb - The Trailer (08/09, Centro Storico) — fonti libertas.sm + tribunapoliticaweb. L'evento era già stato aggiunto al master il 07/09/2026 ma lo Step 4-bis del registro handle era stato saltato in quel giro: recuperato oggi. Nessun profilo social cercato ancora."
+    },
+    {
+      "nome": "Musikfest Adriatica",
+      "categoria": "organizzatore",
+      "alias": [
+        "Musikfest Adriatica"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-09-08",
+      "prova": "Festival internazionale di bande musicali (24ª ed.), sfilata a San Marino il 12/09 — fonte visitsanmarino.com + riminitoday.it (evento gemello a Riccione). Organizzatore esplicito non trovato dalla fonte sammarinese; l'evento era già stato aggiunto al master il 01/09/2026 ma lo Step 4-bis era stato saltato in quel giro: recuperato oggi. Nessun profilo social cercato ancora."
+    },
+    {
+      "nome": "Fabrizio Moro",
+      "categoria": "artista",
+      "alias": [
+        "Fabrizio Moro"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-09-08",
+      "prova": "Ospite principale (concerto ore 21:00) de 'Il senso di ogni cosa — IV edizione' (11/09, Parco Ausa, Dogana) — fonte sanmarinortv.sm a294700 + giornalesm.com + tribunapoliticaweb. Nessun profilo cercato ancora."
     },
     {
       "nome": "Rejected Band",
