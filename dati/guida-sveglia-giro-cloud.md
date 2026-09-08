@@ -74,15 +74,22 @@ alle 09:00, cioè una bugia.
 La ripresa parte ogni lunedì anche quando alle 03:00 è andato tutto bene: in quel caso
 trova il lavoro già fatto, non tocca niente e **non ti manda nessun messaggio**.
 
-### Passo 3 — la data di scadenza del PAT (20 secondi)
+### Passo 3 — un'occhiata al PAT (20 secondi, quasi certamente niente da fare)
 
 Vai su **github.com → Settings → Developer settings → Personal access tokens →
-Fine-grained tokens**, trova quello che usa cron-job.org e **leggi la data di scadenza**.
+Fine-grained tokens**, trova `cron-job-org-publish` e guarda la riga *Expiration*.
 
-Dimmela e la metto nella guardia delle scadenze (`dati/scadenze-token.json`), quella che
-ti avvisa su Telegram 21 giorni prima. **Non me la invento**: se quel PAT scade in
-silenzio, muoiono insieme i trigger delle 7:00/18:00 della pubblicazione **e** questa
-sveglia nuova, e restano solo i cron interni in ritardo di ore.
+Quando è stato creato (11/07/2026) era stato messo **senza scadenza**, apposta: quel token
+sa fare una cosa sola su un repo solo, quindi il danno se trapelasse è minimo, e un token
+che non scade non può fermare la pubblicazione di soppiatto. **Se dice ancora
+«No expiration», non c'è niente da aggiungere alla guardia delle scadenze** — e va bene
+così. Se invece una data c'è, dimmela e la metto in `dati/scadenze-token.json`.
+
+**Quello che davvero può spegnere cron-job.org non è la scadenza, è un'altra cosa:** il
+sito ha un interruttore che **disattiva un cronjob dopo troppi fallimenti di fila**, ed è
+acceso di default. Per questo su ogni cronjob conviene lasciare accesa anche la notifica
+di fallimento (*Notify after 1 failure*). E per questo il giro, da oggi, ti avvisa da solo
+se parte dalla rete di sicurezza invece che dalla sveglia (vedi qui sotto).
 
 ---
 

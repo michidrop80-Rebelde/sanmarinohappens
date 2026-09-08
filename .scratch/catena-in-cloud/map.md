@@ -183,7 +183,9 @@ ticket di discussione; le skill del progetto (`smh-*`) come fonte di verità sul
   `workflow_dispatch`; corretto un difetto scoperto strada facendo (il giro riconosceva la ripresa
   dal *testo del cron*, quindi via dispatch avrebbe scritto «riprovo alle 09:00» **alle 09:00**);
   **nuova guardia** contro il guasto muto — se la corsa parte da `schedule` il referto dice che
-  cron-job.org non ha chiamato. 👉 I due cronjob li crea Michele:
+  cron-job.org non ha chiamato. Cade una voce della fog: il PAT di cron-job.org **non scade** (scelta
+  dell'11/07), quindi non entra nella guardia delle scadenze; il suo rischio è lo spegnimento per
+  fallimenti ripetuti, che è proprio quello che la guardia nuova vede. 👉 I due cronjob li crea Michele:
   [`dati/guida-sveglia-giro-cloud.md`](../../dati/guida-sveglia-giro-cloud.md). Prova vera lunedì
   14/09 (stessa data del ticket 08).
 
@@ -218,12 +220,13 @@ ticket di discussione; le skill del progetto (`smh-*`) come fonte di verità sul
 
 - **Le altre scadenze da mettere nella guardia del ticket 12.** Il meccanismo
   (`dati/scadenze-token.json` + `controllo-scadenze-token.py`) è generico: manca solo aggiungere le
-  righe. Due candidati noti: (a) il **PAT fine-grained di cron-job.org** — ⬆️ **il ticket 14 ha
-  alzato la posta**: adesso quel PAT non regge più solo i trigger 7:00/18:00 della pubblicazione,
-  regge **anche la sveglia del giro in cloud**, e se scade in silenzio cadono tutte e due insieme
-  (restano i cron interni, in ritardo di ore). La riga è pronta da scrivere: manca **solo la data**,
-  che Michele legge su GitHub (passo 3 di `dati/guida-sveglia-giro-cloud.md`) — non si inventa;
-  (b) l'`INSTAGRAM_TOKEN`, oggi seguito solo da `metrics.py`. Da fare appena Michele riporta le date.
+  righe. 🚫 Il candidato (a) — il **PAT fine-grained di cron-job.org** — è **caduto**: il ticket 14
+  ha ripescato come fu creato (11/07/2026) e quel token è **senza scadenza di proposito**, perché sa
+  fare una cosa sola su un repo solo. Un token che non scade non sta in una guardia delle scadenze.
+  Il suo rischio vero è un altro e non ha date: cron-job.org **spegne un cronjob dopo troppi
+  fallimenti**, e lì la difesa è la guardia del ticket 14 (se il giro parte da `schedule`, la sveglia
+  non ha chiamato). Resta quindi solo (b) l'`INSTAGRAM_TOKEN`, oggi seguito da `metrics.py` con un
+  promemoria suo: la domanda si riduce a se accorparlo. Serve la data vera da Meta — non si inventa.
   Quando esiste la catena quotidiana in cloud, chiamare la guardia anche lì, non solo il lunedì.
 
 - **L'accumulo dei file di catena.** Il giro quotidiano aggiungerà ~1.000 file l'anno (6 MB circa).

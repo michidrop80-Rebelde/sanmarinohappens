@@ -148,3 +148,57 @@ Il referto corretto è stato fatto girare **sulla corsa vera** e ora dice la ver
 Cron una-tantum `0 1 8 9 *` (03:00) + `0 7 8 9 *` (la ripresa, 09:00). 🔴 **Da togliere dopo.**
 Martedì il giro del Mac non gira: questa corsa prova la **macchina**, non l'accordo fra i due giri.
 L'accordo si misura lunedì 14/09.
+
+---
+
+## Corsa #2 (08/09/2026) — la macchina funziona. Ha mentito il metro, non il giro.
+
+Run [#34191957597](https://github.com/michidrop80-Rebelde/sanmarinohappens/actions/runs/34191957597).
+Questa volta il cloud **ha lavorato davvero**: 4 tappe, 4 commit sul ramo `giro-cloud`, 25 minuti,
+$4,90. I file ci sono e sono suoi — `eventi-2026-09-08.md` (22 eventi), `eventi-verificati-2026-09-08.md`
+(21 verificati + 1 scartato), `post-2026-09-08.md` (21 bozze), più `fonti.md` e
+`handle-organizzatori.json` aggiornati. Le tre bugie corrette dopo la corsa #1 hanno tenuto: il
+referto ha detto «fatta» quando era fatta, e non ha spacciato per suo il lavoro del Mac.
+
+**Conferma di passaggio:** la causa della corsa #1 era davvero il **serbatoio esaurito**. Stessa
+macchina, stesso codice, serbatoio pieno → $4,90 invece di $0,87 e 25 minuti invece di 4.
+
+### Difetto trovato: il metro gonfiava i numeri
+Il Telegram diceva «1 Ricerca: **24** eventi · 3 Verifica: ✅ **25** · 🗑 **0**». I numeri veri sono
+**22 · ✅ 21 · 🗑 1**. Due difetti in `conta-giro.py`, tutti e due nel modo di riconoscere un evento:
+
+1. contava per eventi anche le intestazioni di servizio in fondo al file della ricerca
+   («⚠️ Fonti non raggiungibili», «🔧 Auto-miglioramento di oggi») — filtrava per nome, e quelle
+   cominciano con un'emoji;
+2. non riconosceva le intestazioni di sezione del file verificato quando l'agente le scrive
+   «## ⚠️ **Sezione 2 —** Da confermare» invece di «## ⚠️ Da confermare». Risultato: le intestazioni
+   stesse **e l'evento scartato** finivano contati fra i **verificati**.
+
+Corretto: un evento non si riconosce più dal **nome** dell'intestazione (cambia ogni giorno, e le
+sezioni pure) ma dalla **forma del blocco** — un evento ha sempre sotto il campo `- **Stato:**`, una
+sezione no. Aggiunto anche il caso «fuori sezione»: un evento che il metro non sa dove mettere viene
+**dichiarato**, non buttato via in silenzio. Nuovo `scripts/conta_giro_test.py` **13/13**, che prova
+le due forme di intestazione (07/09 e 08/09) sullo stesso contenuto e pretende gli stessi numeri;
+`confronta_giri_test.py` sale a **25/25** (i suoi «22 eventi» del 07/09 erano il difetto n.1: sono 20).
+
+**Perché conta:** il «fatto quando» di questo ticket è un **confronto di numeri** lunedì 14/09. Con
+il metro gonfio, quel confronto avrebbe potuto dire «i due giri concordano» su numeri sbagliati, o
+accusare il cloud di una differenza che non c'era.
+
+### Limite noto, lasciato aperto di proposito
+Il conteggio «fuori sezione» si vede nel log della run e lanciando `conta-giro.py` a mano, **non**
+nel Telegram: portarlo fin lì vuol dire aggiungere un campo a `chiudi-tappa.sh`, al workflow e a
+`referto-giro-cloud.py`. Non è mai scattato; se scatta, il posto dove guardarlo è il log della run.
+
+### Difetto trovato: la sveglia delle 03:00 è partita alle 07:47
+Il cron `0 1 8 9 *` (03:00 locali) ha fatto partire la run **alle 07:47** — quasi 5 ore di ritardo.
+Le 03:00 erano state scelte dal ticket 06 **apposta** per non contendere il serbatoio a Michele, e a
+quell'ora il giro non ci arriva. → **ticket 14**.
+
+### Fatto in questa sessione
+- Tolte da `giro-cloud.yml` le due sveglie una-tantum (`0 1 8 9 *`, `0 7 8 9 *`) e il loro
+  riferimento in `E_RIPRESA`. Restano solo lunedì 03:00 + ripresa 09:00.
+
+### Cosa manca ancora per chiudere (invariato)
+Lunedì **14/09**: il cloud e il Mac girano lo stesso giorno e si confrontano. È l'unica prova che
+questo ticket aspetta.

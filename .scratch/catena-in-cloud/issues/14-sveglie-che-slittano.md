@@ -66,10 +66,18 @@ ripresa slitta a mezzogiorno apre una finestra 13:00–18:00: il cuore della gio
 proprio la corsa che parte quando il serbatoio era già vuoto. Costo di farla puntuale: zero — stesso
 PAT, stesso modulo, un cronjob in più.
 
-**3. Il PAT nella guardia delle scadenze?** Sì, nello stesso giro — ma la data **non si inventa**:
-è al passo 3 della guida, Michele la legge su GitHub e la riporta. Adesso quel PAT non regge più
-solo i trigger 7:00/18:00 della pubblicazione: regge **anche** la sveglia del giro in cloud. Se
-scade in silenzio cadono tutte e due insieme.
+**3. Il PAT nella guardia delle scadenze? No — la domanda era mal posta.** Quel PAT
+(`cron-job-org-publish`) è stato creato l'11/07/2026 **senza scadenza**, e di proposito: sa fare una
+cosa sola su un repo solo, quindi il danno se trapelasse è minimo, e un token che non scade non può
+fermare la pubblicazione di soppiatto. Un token senza scadenza in una guardia delle scadenze non ci
+sta. Resta a Michele una conferma da 20 secondi (passo 3 della guida): se un giorno quella riga
+dicesse una data, allora sì.
+
+⚠️ **Il rischio vero è un altro, ed è più insidioso:** cron-job.org **disattiva un cronjob dopo
+troppi fallimenti di fila**, e l'interruttore è acceso di default. Quello non ha nessuna data da
+sorvegliare — semplicemente un giorno la sveglia smette di suonare. È esattamente il caso che la
+guardia nuova di questo ticket intercetta: se la corsa parte da `schedule`, cron-job.org non ha
+chiamato e il referto lo dice.
 
 ### Cosa è stato costruito
 
