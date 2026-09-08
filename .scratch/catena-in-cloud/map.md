@@ -194,7 +194,7 @@ ticket di discussione; le skill del progetto (`smh-*`) come fonte di verità sul
 | | ticket |
 |---|---|
 | 🟢 frontiera | **08** il giro del lunedì gira in cloud — *la macchina funziona (corsa #2, 08/09), aspetta il confronto vero di lunedì 14/09* · **14** sveglie: *deciso e costruito 08/09, aspetta i 2 cronjob di Michele e la prova di lunedì 14/09* |
-| 🔴 bloccati | **09** cloud e Mac insieme (aspetta 08) → **10** catena quotidiana + spegnere i task locali (aspetta 08, 09) |
+| 🔴 bloccati | **09** cloud e Mac insieme, il lucchetto (aspetta 08) → **15** catena serale in cloud come *secondo parere*, senza grafica (aspetta 09 per scelta di Michele, non per vincolo tecnico) → **10** catena quotidiana titolare + spegnere i task locali (aspetta 08, 09, 15) |
 
 ## Non ancora specificato
 
@@ -212,6 +212,11 @@ ticket di discussione; le skill del progetto (`smh-*`) come fonte di verità sul
 - **Il passaggio di consegne cloud → Mac per la grafica.** Il cloud arriva a «pronte 3 grafiche» e si
   ferma. In che forma arriva a Michele quella lista, e come fa lui a ripartire da lì senza rileggersi
   tutto. Si potrà specificare quando la catena quotidiana esiste davvero.
+  ✅ **Una metà è già chiara (08/09/2026):** il ritorno **non esiste**. Michele non deve «restituire»
+  le grafiche a nessuno — la pubblicazione è già automatica e già in cloud (il robot delle 7:00/18:00),
+  e la skill della grafica mette già lei la busta in coda al suo Step 8-bis. Quindi la sequenza è:
+  il cloud dice «servi tu» → Michele apre il Mac e fa le grafiche → **finito**. Resta da specificare
+  solo l'andata: in che forma arriva la lista e come fa a ripartire senza rileggersi tutto.
 - **Se il backup del cervello va automatizzato.** Oggi è un comando a mano e si era fermato 24 giorni.
   Il ticket 01 ha confermato che il cervello **resta un backup** (non diventa il canale di lavoro),
   quindi la domanda sopravvive tale e quale: un backup a mano si dimentica. Da riguardare quando la

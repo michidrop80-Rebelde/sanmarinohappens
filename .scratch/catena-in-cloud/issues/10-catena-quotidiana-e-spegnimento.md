@@ -2,11 +2,17 @@
 
 Type: task
 Status: aperto
-Blocked by: 06, 08, 09
+Blocked by: 06, 08, 09, 15
 Modello: Sonnet per costruire · Opus per la decisione di spegnere i task
 Sforzo: lunga — costruzione + una settimana di osservazione prima di dire fatto
 
 ## Domanda
+
+⚠️ **Aggiunto il ticket 15 fra i bloccanti (08/09/2026).** Michele ha chiesto un passo intermedio:
+prima di rendere il cloud titolare, farlo girare per qualche settimana **accanto** al Mac come
+secondo parere, senza grafica e senza mettere in coda. Questo ticket quindi non costruisce più da
+zero — **promuove** quello che il 15 ha già fatto girare, e lo fa con delle prove in mano invece che
+con la fiducia. Lo spegnimento dei task sul Mac resta il suo cuore.
 
 L'ultimo passo: il workflow quotidiano che sostituisce `smh-catena` delle 18:30 — legge le
 approvazioni arrivate, aggiorna i file, lancia le 6 guardie, manda il referto.
