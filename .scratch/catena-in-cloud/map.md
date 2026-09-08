@@ -193,8 +193,8 @@ ticket di discussione; le skill del progetto (`smh-*`) come fonte di verità sul
 
 | | ticket |
 |---|---|
-| 🟢 frontiera | **08** il giro del lunedì gira in cloud — *la macchina funziona (corsa #2, 08/09), aspetta il confronto vero di lunedì 14/09* · **14** sveglie: *deciso e costruito 08/09, aspetta i 2 cronjob di Michele e la prova di lunedì 14/09* |
-| 🔴 bloccati | **09** cloud e Mac insieme, il lucchetto (aspetta 08) → **15** catena serale in cloud come *secondo parere*, senza grafica (aspetta 09 per scelta di Michele, non per vincolo tecnico) → **10** catena quotidiana titolare + spegnere i task locali (aspetta 08, 09, 15) |
+| 🟢 frontiera | **09** cloud e Mac insieme, il lucchetto — *sbloccato l'08/09: non dipendeva davvero dal 08* · **08** il giro del lunedì gira in cloud — *la macchina funziona (corsa #2, 08/09), aspetta il confronto vero di lunedì 14/09* · **14** sveglie: *costruite, i 2 cronjob ci sono, aspetta la prova di lunedì 14/09* |
+| 🔴 bloccati | **15** catena serale in cloud come *secondo parere*, senza grafica (aspetta 09 per scelta di Michele, non per vincolo tecnico) → **10** catena quotidiana titolare + spegnere i task locali (aspetta 08, 09, 15) |
 
 ## Non ancora specificato
 
