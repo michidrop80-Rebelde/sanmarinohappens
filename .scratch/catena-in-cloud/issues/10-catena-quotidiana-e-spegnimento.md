@@ -2,7 +2,7 @@
 
 Type: task
 Status: aperto
-Blocked by: 06, 08, 09, 15
+Blocked by: 08, 15   (06 e 09 chiusi; dal 09 eredita: il push su main dal cloud va rebasato)
 Modello: Sonnet per costruire · Opus per la decisione di spegnere i task
 Sforzo: lunga — costruzione + una settimana di osservazione prima di dire fatto
 

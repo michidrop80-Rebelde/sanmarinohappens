@@ -189,12 +189,30 @@ ticket di discussione; le skill del progetto (`smh-*`) come fonte di verità sul
   [`dati/guida-sveglia-giro-cloud.md`](../../dati/guida-sveglia-giro-cloud.md). Prova vera lunedì
   14/09 (stessa data del ticket 08).
 
+- [09 — Cosa succede se Michele lavora sul Mac mentre gira il cloud](issues/09-cloud-e-mac-insieme.md) —
+  **Niente lucchetto condiviso: non c'è nessuna gara.** L'obiezione di Michele («se il cloud
+  diventa titolare, l'altro sarà spento, no?») era mezzo giusta e ha ribaltato il ticket: si
+  spegne la **sveglia** del Mac, non il Mac — `/smh-grafica` continua a scrivere e a spingere.
+  Ma le due macchine fanno lavori diversi a ore diverse: su decine di file, quelli che possono
+  cambiare **entrambe** sono **due** (`piano-editoriale.md`, `handle-organizzatori.json`).
+  🔴 Il pericolo vero era invisibile: **il Mac che lavora su dati vecchi in silenzio**.
+  `/smh-grafica` e `/smh-giro` non si allineavano **affatto**; le altre tre facevano un
+  `git pull --rebase` secco, che sul Mac **si rifiuta di partire** (l'albero è sempre sporco).
+  Costruito `scripts/allineati.py` (mette da parte, prende, rimette; usa `stash apply` e non
+  `pop`, così nel caso brutto la copia resta nella cassaforte e **non si perde niente**) come
+  primo comando delle **6 skill d'ingresso**, più `controllo-allineamento.py` che diventa rossa
+  se una skill perde il passo **o se un altro comando lo precede** — agganciata alla guardia
+  di integrità, a ogni push. 18 prove su un finto GitHub; la guardia morde davvero (provato
+  togliendo il passo). Il primo metro della guardia contava le righe ed era sbagliato: conta
+  l'**ordine dei comandi**. 👉 Al ticket 10 resta l'altra metà: quando il cloud scriverà su
+  `main`, deve fare `git pull --rebase` prima del push. Commit `243772e`.
+
 ## Ticket aperti
 
 | | ticket |
 |---|---|
-| 🟢 frontiera | **09** cloud e Mac insieme, il lucchetto — *sbloccato l'08/09: non dipendeva davvero dal 08* · **08** il giro del lunedì gira in cloud — *la macchina funziona (corsa #2, 08/09), aspetta il confronto vero di lunedì 14/09* · **14** sveglie: *costruite, i 2 cronjob ci sono, aspetta la prova di lunedì 14/09* |
-| 🔴 bloccati | **15** catena serale in cloud come *secondo parere*, senza grafica (aspetta 09 per scelta di Michele, non per vincolo tecnico) → **10** catena quotidiana titolare + spegnere i task locali (aspetta 08, 09, 15) |
+| 🟢 frontiera | **15** catena serale in cloud come *secondo parere*, senza grafica — *sbloccata il 09/09 dalla chiusura del 09* · **08** il giro del lunedì gira in cloud — *la macchina funziona (corsa #2, 08/09), aspetta il confronto vero di lunedì 14/09* · **14** sveglie: *costruite, i 2 cronjob ci sono, aspetta la prova di lunedì 14/09* |
+| 🔴 bloccati | **10** catena quotidiana titolare + spegnere i task locali (aspetta 08, 15) — porta con sé l'altra metà del 09: il push su `main` dal cloud va rebasato |
 
 ## Non ancora specificato
 

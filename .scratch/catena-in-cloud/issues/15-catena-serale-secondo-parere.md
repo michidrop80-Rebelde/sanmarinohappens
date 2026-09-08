@@ -2,7 +2,7 @@
 
 Type: task
 Status: aperto — bloccato
-Blocked by: 09
+Blocked by: — (sbloccato il 09/09/2026: il ticket 09 è chiuso)
 Modello: Sonnet per costruire (è il modello del giro settimanale applicato a un'altra skill) ·
          Opus solo per decidere cosa vuol dire «hanno lavorato uguale»
 Sforzo: medio — una sessione per costruirlo, poi settimane di sola osservazione
