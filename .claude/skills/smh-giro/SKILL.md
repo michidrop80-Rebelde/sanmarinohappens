@@ -23,7 +23,22 @@ Meglio poche bozze solide che tante gonfiate.
 
 ## Flusso
 
-### Step 0 — Contesto e controlli di guardia
+### Step 0 — ALLINEATI CON IL CLOUD (prima di ogni altra cosa)
+
+```bash
+cd "$(git rev-parse --show-toplevel)"
+python3 scripts/allineati.py smh-giro
+```
+
+Il giro parte da quello che c'è sul disco: eventi, verificati, code. Se il
+cloud ha già girato stanotte e il Mac non lo sa, il giro rifà da capo un lavoro
+già fatto e ci scrive sopra.
+
+⚠️ Non è un `git pull` secco: sul Mac ci sono sempre modifiche non salvate e un pull
+secco si rifiuterebbe di partire. Se esce **1: fermati**, riporta il messaggio così
+com'è e non toccare altro. In GitHub Actions non fa nulla (il checkout è già fresco).
+
+### Step 0-bis — Contesto e controlli di guardia
 Leggi `dati/config.json` (brand, percorsi). Se manca, segnalalo ma continua coi default.
 
 Poi lancia le **guardie**. Sono controlli di sola lettura: non fermano il giro, ma

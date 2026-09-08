@@ -134,7 +134,22 @@ sempre chiaro a Michele nel riepilogo, e non mettere in coda post con
 
 ## Flusso
 
-### Step 0 — Riconcilia la coda col piano editoriale (SEMPRE, all'inizio)
+### Step 0 — ALLINEATI CON IL CLOUD (prima di ogni altra cosa)
+
+```bash
+cd "$(git rev-parse --show-toplevel)"
+python3 scripts/allineati.py smh-pubblica
+```
+
+La coda `posts/` e il piano editoriale vivono **nel repo**, e il robot delle
+7:00/18:00 ci scrive dentro da solo (`published.log`, buste archiviate). Riconciliare
+una coda vecchia significa «riparare» buste che qualcun altro ha già sistemato.
+
+⚠️ Non è un `git pull` secco: sul Mac ci sono sempre modifiche non salvate e un pull
+secco si rifiuterebbe di partire. Se esce **1: fermati**, riporta il messaggio così
+com'è e non toccare altro. In GitHub Actions non fa nulla (il checkout è già fresco).
+
+### Step 0-bis — Riconcilia la coda col piano editoriale (SEMPRE, all'inizio)
 Prima di mettere in coda roba nuova, controlla che le buste GIÀ in coda siano ancora
 allineate al piano. Il piano può cambiare (è successo con Sarah Toscano: spostata
 09→10/07, ma la busta era rimasta al 09 → il robot non l'avrebbe mai trovata).
@@ -336,7 +351,7 @@ anche la sua finestra di veto naturale: la pubblicazione vera scatta solo al
 prossimo cron (7:00/18:00), quindi c'è tempo per intervenire a mano su GitHub se
 qualcosa non convince. Manda con `sendMessage` (credenziali `.claude/secrets/telegram.json`):
 ```
-🔁 Riconciliazione coda ↔ piano (Step 0):
+🔁 Riconciliazione coda ↔ piano (Step 0-bis):
 - <titolo> → data corretta X → Y (piano cambiato) [se ce ne sono]
 - ⚠️ <titolo> non più nel piano / busta scaduta → serve decisione di Michele
 - (oppure: "tutte le buste in coda sono allineate al piano")

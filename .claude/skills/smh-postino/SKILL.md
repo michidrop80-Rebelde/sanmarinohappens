@@ -54,8 +54,13 @@ Config condivisa: `dati/config.json` (percorsi `cartella_eventi`).
 ### Step 1 — Sincronizza il repo e leggi la coda
 ```bash
 cd "$(git rev-parse --show-toplevel)"
-git pull --rebase origin main
+python3 scripts/allineati.py smh-postino
 ```
+
+⚠️ **Non è un `git pull` secco.** Sul Mac ci sono sempre modifiche non salvate e un
+pull secco si rifiuterebbe di partire. `allineati.py` le mette da parte, prende il
+lavoro del cloud, le rimette a posto — e se il cloud e il Mac hanno cambiato lo
+stesso file si **ferma** dicendo quale, senza perdere niente. **Se esce 1: fermati.**
 Leggi **entrambe** le code: `queue/inbox.md` (testo) e `queue/foto-inbox.md` (foto).
 
 Se **tutte e due** non esistono o sono vuote (nessuna riga che comincia con

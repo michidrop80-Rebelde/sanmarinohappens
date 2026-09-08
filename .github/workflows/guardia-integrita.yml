@@ -66,3 +66,11 @@ jobs:
       # Non ha bisogno di segreti: legge solo i file dei workflow.
       - name: L'agente ha in mano qualche chiave?
         run: python scripts/controllo-token-agente.py
+
+      # Terza guardia (ticket 09). Da quando la catena dei testi gira in cloud
+      # di notte, ogni skill che Michele lancia sul Mac deve prima mettersi in
+      # pari col repo. Se il passo sparisce, non si rompe niente: si lavora
+      # semplicemente sulla lista di ieri, in silenzio. Rosso = una skill
+      # d'ingresso ha perso l'allineamento. Nessun segreto: legge solo file.
+      - name: Le skill del Mac si allineano col cloud?
+        run: python scripts/controllo-allineamento.py

@@ -41,7 +41,7 @@ Le risposte arrivano invece nel repo, scritte dal Worker Cloudflare a ogni click
 
 ```bash
 cd "$(git rev-parse --show-toplevel)"
-git pull --rebase origin main          # il Worker scrive sul REMOTO: senza pull non le vedi
+python3 scripts/allineati.py smh-approvazione   # il Worker scrive sul REMOTO: senza questo non le vedi
 cat queue/approvazioni.md
 ```
 

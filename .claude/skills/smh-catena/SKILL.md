@@ -64,8 +64,13 @@ Se esce **0**, prosegui — e da qui in poi il lucchetto va **rilasciato comunqu
 anche se un passo fallisce.
 
 ```bash
-git pull --rebase origin main
+python3 scripts/allineati.py smh-catena
 ```
+
+⚠️ **Non è un `git pull` secco.** Sul Mac ci sono sempre modifiche non salvate e un
+pull secco si rifiuterebbe di partire. `allineati.py` le mette da parte, prende il
+lavoro del cloud, le rimette a posto — e se il cloud e il Mac hanno cambiato lo
+stesso file si **ferma** dicendo quale, senza perdere niente. **Se esce 1: fermati.**
 
 ⚠️ Il `git pull` non è facoltativo, e viene **prima** del controllo secco: il Worker
 Cloudflare scrive `queue/approvazioni.md` sul **remoto**, e il bot delle segnalazioni scrive

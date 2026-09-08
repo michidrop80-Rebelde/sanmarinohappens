@@ -322,6 +322,21 @@ Se `dati/grafica-stato.json` ha `in_attesa_conferma` valorizzato da un giro
 precedente rimasto a metà (es. crash Canva): riprendi da lì invece di ripartire
 da zero — vedi "Errori gestiti con grazia" in fondo.
 
+### Step 0 — ALLINEATI CON IL CLOUD (prima di ogni altra cosa)
+
+```bash
+cd "$(git rev-parse --show-toplevel)"
+python3 scripts/allineati.py smh-grafica
+```
+
+La catena dei testi gira **su GitHub, di notte**: i post approvati che devi graficare
+sono nati là, non su questo Mac. Senza questo passo compileresti la lista di ieri o di
+tre giorni fa senza accorgertene — e non c'è nessun segnale che te lo direbbe.
+
+Se esce **1**: **fermati e non aprire Canva.** Il messaggio dice già cosa non torna e
+cosa fare; riportalo a Michele così com'è. Non provare a sbrogliare git da solo, e non
+lavorare «tanto per»: una grafica fatta su dati vecchi costa più di una non fatta.
+
 ### Step 1 — Trova i post approvati
 Prendi il file **più recente** in `dati/post/approvati/`
 (`post-approvati-AAAA-MM-GG.md`). Se Michele indica un file specifico, usa quello.
