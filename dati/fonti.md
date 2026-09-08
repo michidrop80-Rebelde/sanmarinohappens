@@ -22,7 +22,7 @@ Questi raccolgono già eventi da più organizzatori, sono la fonte più ricca.
 Questi coprono eventi che i portali ufficiali non listano — feste di paese, sagre, concerti organizzati da associazioni locali. Leggibili dai bot.
 
 - ⚠️ https://www.giornalesm.com — principale quotidiano di San Marino, sezione eventi/cultura/sport. Socket error confermato di nuovo il 03/08/2026 (già il 27/07) — persiste, continuare a saltarla e ritentare più avanti. [AGGIORNATO 03/08]
-- ⚠️ https://www.libertas.sm — altro quotidiano locale, buona copertura eventi locali. 403 Forbidden confermato il 10/08/2026 (in precedenza ✅, leggibile) — ricontrollare al prossimo giro.
+- ✅ https://www.libertas.sm — altro quotidiano locale, buona copertura eventi locali. Tornato leggibile l'08/09/2026 (in precedenza ⚠️ 403 Forbidden confermato il 10/08/2026) — il blocco sembra intermittente, ricontrollare ai prossimi giri.
 - ✅ https://sanmarino.iltabloid.it — testata locale (già in lista, spostata qui come priorità alta)
 - ✅ https://news.tribunapoliticaweb.sm — **Tribuna Politica Web**, giornale online locale affidabile quanto libertas.sm. Buona copertura di eventi locali, concerti, cronaca istituzionale. [CONFERMATO 08/08/2026]
 
@@ -101,6 +101,8 @@ Elenco ufficiale di tutte le giunte: https://www.interni.sm/pub2/InterniSM/Giunt
 - [ricerca 10/08/2026] **Balamondo World Music Festival** — https://www.balamondo.it — festival itinerante di musica (liscio + world music) con tappe in Romagna, Pesaro e San Marino. La tappa sammarinese (Campo Bruno Reffi, 19-20/08/2026) risulta essere lo stesso evento indicato su visitsanmarino.com col vecchio nome "San Marino Goodbye Festival" — probabile rebranding, da chiarire con Michele quale nome usare in comunicazione.
 - [ricerca 10/08/2026] **Sagra dell'Uva Ventoso** — https://www.facebook.com/sagrauvaventoso/ — sagra paesana a Ventoso (Parco del Sorbo), data 2026 riportata solo da sanmarinortv.sm (21-23/08), non confermata da questa pagina FB (non leggibile dai bot, solo per Michele).
 - [ricerca 10/08/2026] **San Marino Amicizia Live Festival** — https://www.facebook.com/sanmarinolivefestival/ — 24ª edizione, evento collegato/omonimo a "Festa dell'Amicizia" (21-22/08 secondo sanmarinortv.sm). Non leggibile dai bot.
+- [ricerca 08/09/2026] **Tribuna Politica Web — sezione sport** (https://news.tribunapoliticaweb.sm/sport/) — buona fonte per i calendari calcio sammarinese (es. articolo con date complete del 1° turno Coppa Titano 2026-27). Da confermare come fonte ricorrente per lo sport.
+- [ricerca 08/09/2026] **Insuperabili** — https://insuperabili.eu — organizzazione di calcio paralimpico/inclusivo, organizza il "San Marino Special Cup" (torneo annuale, data 2026 non pubblicata sul sito). Da tenere d'occhio per aggiornamenti sulla data.
 
 ## Da completare (prossima mappatura)
 - [ ] Pagine FB/Instagram delle 3 giunte mancanti (Fiorentino, Faetano, Montegiardino)
