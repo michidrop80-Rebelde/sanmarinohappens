@@ -114,3 +114,33 @@ I due cronjob su cron-job.org li crea **Michele** (5 minuti, guida sopra): non e
 farli da qui. La prova vera è **lunedì 14/09**: la corsa deve risultare partita alle 03:0x e la
 pagina della run deve dire `workflow_dispatch`, non `schedule`. Stessa data in cui chiude il
 ticket 08.
+
+
+---
+
+## Prova in più trovata dopo (08/09/2026 sera)
+
+Guardando lo storico delle run di `giro-cloud.yml` è saltata fuori una conferma che il ticket non
+aveva: le sveglie una-tantum di martedì 08/09 erano **due**, e **hanno slittato tutte e due**.
+
+| nominale | partita davvero (ora italiana) | ritardo |
+|---|---|---|
+| 03:00 | **07:47** | 4h47 |
+| (la seconda) | **13:59** | — |
+
+La seconda è la prova che il ticket dava per ipotesi quando ha deciso di mettere **anche la ripresa**
+su cron-job.org: una corsa fatta partire da GitHub è atterrata alle **13:59**, che apre una finestra
+di abbonamento 14:00–19:00 — il cuore della giornata di Michele. Non era un rischio da immaginare:
+era già successo, lo stesso giorno, e nessuno se n'era accorto perché si guardava solo la prima.
+
+Il ritardo quindi **non è un caso isolato** (1 volta su 1) ma il comportamento normale (2 su 2).
+
+## Stato al 08/09/2026 sera
+
+- ✅ Codice fatto e online su `main` (`386667d`, `032d481`, `4260881`), guardia di integrità verde
+  su clone pulito.
+- ✅ I **due cronjob creati da Michele** su cron-job.org (03:00 sveglia · 09:00 ripresa).
+- ✅ Nessuna corsa accidentale: le run di `giro-cloud.yml` sono ancora 3, nessuna nuova → il tasto
+  «Test di esecuzione» non è stato premuto.
+- ⏳ **Manca solo la prova sul campo: lunedì 14/09.** La corsa deve risultare partita alle **03:0x** e
+  la pagina della run deve dire **workflow_dispatch**, non *schedule*. Stessa data del ticket 08.
