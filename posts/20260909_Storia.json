@@ -1,0 +1,18 @@
+{
+  "tipo": "storia",
+  "data_pubblicazione": "2026-09-09",
+  "ora_pubblicazione": "07:00",
+  "titolo_evento": "Storia del 9 settembre (Serravalle in Wellness)",
+  "immagini": [
+    "20260909_Storia_1.png"
+  ],
+  "user_tags": {
+    "20260909_Storia_1.png": [
+      {
+        "username": "castelloserravalle.rsm",
+        "x": 0.5,
+        "y": 0.78
+      }
+    ]
+  }
+}
