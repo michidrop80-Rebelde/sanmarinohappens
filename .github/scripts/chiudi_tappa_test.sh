@@ -57,7 +57,10 @@ echo ""
 echo "[2] Tappa riuscita: marcatore scritto, lavoro salvato SUL RAMO"
 prepara_scena
 export DATA=2026-09-14 SALTATA=no ESITO_AGENTE=success
-printf '# Ricerca eventi\n\n## Evento Uno\ntesto\n\n## Evento Due\ntesto\n' \
+# ⚠️ Il metro `conta-giro.py` riconosce un evento dal campo "- **Stato:**" sotto
+# il titolo, non dal titolo (corretto l'08/09/2026). Senza quel campo qui sotto
+# conterebbe 0 e questa prova fallirebbe pur essendo `chiudi-tappa.sh` sano.
+printf '# Ricerca eventi\n\n## Evento Uno\n- **Stato:** da-verificare\n\n## Evento Due\n- **Stato:** da-verificare\n' \
   > dati/eventi/eventi-2026-09-14.md
 bash .github/scripts/chiudi-tappa.sh 1 ricerca > /dev/null 2>&1
 [ "$(uscita ok)" = "true" ] && verifica "dice che è a posto" si || verifica "dice che è a posto" no
@@ -71,7 +74,7 @@ echo ""
 echo "[3] Tappa CADUTA: nessun marcatore (così la ripresa la rifà), lavoro salvo lo stesso"
 prepara_scena
 export DATA=2026-09-14 SALTATA=no ESITO_AGENTE=failure
-printf '# Ricerca eventi\n\n## Mezzo Evento\ntesto\n' > dati/eventi/eventi-2026-09-14.md
+printf '# Ricerca eventi\n\n## Mezzo Evento\n- **Stato:** da-verificare\n' > dati/eventi/eventi-2026-09-14.md
 bash .github/scripts/chiudi-tappa.sh 1 ricerca > /dev/null 2>&1
 ESITO=$?
 [ "$ESITO" != "0" ] && verifica "il passo diventa rosso" si || verifica "il passo diventa rosso" no

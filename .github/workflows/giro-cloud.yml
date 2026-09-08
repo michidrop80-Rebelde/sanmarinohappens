@@ -37,21 +37,35 @@
 
 name: Giro settimanale in cloud
 
+# CHI SUONA LA SVEGLIA (ticket 14, deciso 08/09/2026)
+# La sveglia VERA la suona cron-job.org, non GitHub. I `schedule:` qui sotto
+# non sono sveglie: sono richieste messe in coda, e l'8 settembre quella delle
+# 03:00 e' partita alle 07:47. Non conta l'ora in cui Michele si sveglia:
+# conta la FINESTRA delle 5 ore dell'abbonamento. Partendo alle 03:00 si chiude
+# alle 08:00, prima che lui apra il Mac; partita alle 07:47 si chiude alle
+# 12:47 e gli mangia la mattinata — cioe' esattamente lo scontro che il ticket
+# 06 voleva evitare. cron-job.org chiama `workflow_dispatch` all'ora esatta
+# (nel progetto: 07:01 e 18:01, contro 08:03/12:26/21:56 dei cron interni) ed
+# e' regolato su fuso italiano, quindi non slitta di un'ora d'inverno.
+# I cron interni RESTANO come rete di sicurezza: se cron-job.org muore, il giro
+# parte comunque, tardi ma parte.
+
 on:
   schedule:
-    # GitHub conta in UTC. San Marino e' UTC+2 d'estate, UTC+1 d'inverno.
-    - cron: '0 1 * * 1'   # lunedi' 03:00 (d'inverno 02:00) — la sveglia vera
-    - cron: '0 7 * * 1'   # lunedi' 09:00 (d'inverno 08:00) — la RIPRESA a +6h
+    # RETE DI SICUREZZA, non la sveglia. GitHub conta in UTC e non conosce
+    # l'ora legale: San Marino e' UTC+2 d'estate, UTC+1 d'inverno.
+    - cron: '0 1 * * 1'   # lunedi' 03:00 (d'inverno 02:00) — ripiego della sveglia
+    - cron: '0 7 * * 1'   # lunedi' 09:00 (d'inverno 08:00) — ripiego della RIPRESA
     # (Tolte l'08/09/2026 le due sveglie una-tantum del collaudo notturno: la corsa
     # e' stata fatta e non devono ripartire l'8 settembre dell'anno prossimo.)
-    # ⚠️ ATTENZIONE ALL'ORA VERA: la sveglia delle 03:00 dell'8 settembre e' partita
-    # alle 07:47 — GitHub mette in coda i cron e li fa slittare anche di ore. Le
-    # 03:00 erano state scelte apposta per non contendere il serbatoio a Michele,
-    # e a quell'ora il giro non ci arriva. Per la puntualita' il progetto usa gia'
-    # cron-job.org che chiama workflow_dispatch (lo fa per la pubblicazione delle
-    # 7:00 e 18:00): va fatto anche qui. Nel frattempo questi cron restano come
-    # rete di sicurezza.
   workflow_dispatch:
+    inputs:
+      ripresa:
+        description: "E' la ripresa delle 09:00? (la manda cron-job.org, non toccare a mano)"
+        required: false
+        default: 'no'
+        type: choice
+        options: ['no', 'si']
 
 permissions:
   contents: write
@@ -637,7 +651,12 @@ jobs:
           T3_RES: ${{ needs.tappa3-verifica.result }}
           T4_RES: ${{ needs.tappa4-testi.result }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          E_RIPRESA: ${{ github.event.schedule == '0 7 * * 1' }}
+          # "Sono la ripresa" arriva da due strade: il cron interno di ripiego
+          # (che porta il suo testo) e cron-job.org (che non ha nessun cron e lo
+          # dice con l'etichetta). Senza questa seconda strada una ripresa fallita
+          # scriverebbe a Michele "riprovo alle 09:00" — che alle 09:00 e' una bugia.
+          E_RIPRESA: ${{ github.event.schedule == '0 7 * * 1' || inputs.ripresa == 'si' }}
+          CHI_SVEGLIA: ${{ github.event_name }}
         run: python3 .github/scripts/referto-giro-cloud.py
 
       - name: Prepara la busta (NESSUNA chiave in questo passo)

@@ -12,7 +12,7 @@ senza far girare niente in cloud (vedi referto_giro_cloud_test.py).
 A spedirlo ci pensa il passo dopo (regola del ticket 07).
 
 LEGGE dall'ambiente: DATA, AVVIO, RIPRESA, INTEGRITA, T1..T4_STATO/_COSTO/
-_EVENTI/_VERIFICATI/_BOZZE, T1..T4_RES, RUN_URL, E_RIPRESA
+_EVENTI/_VERIFICATI/_BOZZE, T1..T4_RES, RUN_URL, E_RIPRESA, CHI_SVEGLIA
 SCRIVE: /tmp/referto.txt (per Telegram) · /tmp/riepilogo.md (pagina della run)
         e `manda=si|no` su GITHUB_OUTPUT
 """
@@ -207,6 +207,18 @@ def costruisci() -> tuple[str, bool]:
     righe.append(f"Peso: ${costo()} · durata {durata()}")
     if env("RIPRESA") == "si":
         righe.append("(questa corsa era una ripresa)")
+    # La sveglia buona la suona cron-job.org (ticket 14): arriva come
+    # `workflow_dispatch`. Se invece la corsa è partita da `schedule`, vuol dire
+    # che cron-job.org NON ha chiamato e ha coperto la rete di sicurezza di
+    # GitHub — che parte con ore di ritardo. Senza questa riga il guasto sarebbe
+    # muto: il giro gira lo stesso, solo all'ora sbagliata, per sempre.
+    if env("CHI_SVEGLIA") == "schedule":
+        righe.append("")
+        righe.append("⚠️ Questa corsa è partita dalla rete di sicurezza di GitHub, "
+                     "non dalla sveglia puntuale di cron-job.org — che quindi non "
+                     "ha chiamato (PAT scaduto? cronjob spento?). Il giro gira lo "
+                     "stesso, ma all'ora che decide GitHub: anche 5 ore dopo. "
+                     "Controlla i cronjob su cron-job.org.")
     righe.append("")
     righe.append("I pulsanti ✅/❌ te li manda il Mac alle 08:05, come sempre: "
                  "da qui non arriva niente da approvare.")

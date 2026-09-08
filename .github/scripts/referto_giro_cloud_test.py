@@ -200,6 +200,25 @@ def main():
     verifica("i testi sono segnalati come vuoti", "nessun lavoro prodotto" in t)
     verifica("NON dichiara tutto il giro a vuoto", "passato a vuoto" not in t)
 
+    print("\n[9] La sveglia puntuale è saltata: la rete di sicurezza lo dice (ticket 14)")
+    # La sveglia buona la suona cron-job.org e arriva come `workflow_dispatch`.
+    # Se la corsa parte da `schedule`, cron-job.org non ha chiamato: il giro gira
+    # lo stesso ma con ore di ritardo — e senza questa riga sarebbe un guasto muto.
+    t, _ = corri({**COMPLETO, "CHI_SVEGLIA": "schedule"})
+    verifica("avvisa che è partito dalla rete di sicurezza",
+             "rete di sicurezza" in t and "cron-job.org" in t)
+    verifica("dice cosa controllare", "Controlla i cronjob" in t)
+
+    print("\n[10] Sveglia puntuale arrivata: nessun avviso di ritardo")
+    t, _ = corri({**COMPLETO, "CHI_SVEGLIA": "workflow_dispatch"})
+    verifica("non parla di rete di sicurezza", "rete di sicurezza" not in t)
+
+    print("\n[11] La ripresa via cron-job.org si riconosce e non promette bugie")
+    # Una ripresa CADUTA non deve scrivere «riprovo alle 09:00»: alle 09:00 e' lei.
+    t, _ = corri({**CADUTO, "E_RIPRESA": "true", "CHI_SVEGLIA": "workflow_dispatch"})
+    verifica("dice che era già la ripresa", "ERA già la ripresa" in t)
+    verifica("NON promette un altro tentativo", "Riprovo da solo alle 09:00" not in t)
+
     print(f"\n{'='*60}\n✅ {OK} verifiche passate   ❌ {KO} fallite\n{'='*60}")
     return 1 if KO else 0
 

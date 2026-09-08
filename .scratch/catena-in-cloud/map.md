@@ -173,6 +173,27 @@ ticket di discussione; le skill del progetto (`smh-*`) come fonte di verità sul
   difetto vero (passo di commit verde che non committava la mappa del giro): corretto e provato.
   Commit `978efbd` + `e53d7dd`.
 
+- [14 — Le sveglie di GitHub slittano di ore](issues/14-sveglie-che-slittano.md) —
+  **La sveglia la suona cron-job.org, su tutte e due le corse.** Il danno non era «alle 07:47
+  Michele è sveglio»: l'abbonamento lavora a **finestre di 5 ore**, e partendo alle 07:47 la
+  finestra si chiude alle **12:47** — cioè l'orario notturno del ticket 06 viene annullato in pieno.
+  Numeri del progetto: cron-job.org parte alle 07:01/18:01, i cron interni alle 08:03/12:26/21:56.
+  Anche la **ripresa** va puntuale, ed è quella che rischia di più (slittata apre una finestra
+  13:00–18:00). I cron interni **restano** come rete di sicurezza. Costruito: input `ripresa` nel
+  `workflow_dispatch`; corretto un difetto scoperto strada facendo (il giro riconosceva la ripresa
+  dal *testo del cron*, quindi via dispatch avrebbe scritto «riprovo alle 09:00» **alle 09:00**);
+  **nuova guardia** contro il guasto muto — se la corsa parte da `schedule` il referto dice che
+  cron-job.org non ha chiamato. 👉 I due cronjob li crea Michele:
+  [`dati/guida-sveglia-giro-cloud.md`](../../dati/guida-sveglia-giro-cloud.md). Prova vera lunedì
+  14/09 (stessa data del ticket 08).
+
+## Ticket aperti
+
+| | ticket |
+|---|---|
+| 🟢 frontiera | **08** il giro del lunedì gira in cloud — *la macchina funziona (corsa #2, 08/09), aspetta il confronto vero di lunedì 14/09* · **14** sveglie: *deciso e costruito 08/09, aspetta i 2 cronjob di Michele e la prova di lunedì 14/09* |
+| 🔴 bloccati | **09** cloud e Mac insieme (aspetta 08) → **10** catena quotidiana + spegnere i task locali (aspetta 08, 09) |
+
 ## Non ancora specificato
 
 - **Aggiornare Node 20 → 24 in tutti i workflow del repo.** La sonda ha fatto emergere l'avviso di
@@ -197,10 +218,12 @@ ticket di discussione; le skill del progetto (`smh-*`) come fonte di verità sul
 
 - **Le altre scadenze da mettere nella guardia del ticket 12.** Il meccanismo
   (`dati/scadenze-token.json` + `controllo-scadenze-token.py`) è generico: manca solo aggiungere le
-  righe. Due candidati noti: (a) il **PAT fine-grained di cron-job.org** che fa i `workflow_dispatch`
-  puntuali — se scade, i trigger delle 7:00/18:00 muoiono e restano solo i cron interni di GitHub
-  (in ritardo di ore); (b) l'`INSTAGRAM_TOKEN`, oggi seguito solo da `metrics.py`. Serve prima
-  recuperare le date vere da GitHub — non si inventano. Da fare quando Michele le ha sottomano.
+  righe. Due candidati noti: (a) il **PAT fine-grained di cron-job.org** — ⬆️ **il ticket 14 ha
+  alzato la posta**: adesso quel PAT non regge più solo i trigger 7:00/18:00 della pubblicazione,
+  regge **anche la sveglia del giro in cloud**, e se scade in silenzio cadono tutte e due insieme
+  (restano i cron interni, in ritardo di ore). La riga è pronta da scrivere: manca **solo la data**,
+  che Michele legge su GitHub (passo 3 di `dati/guida-sveglia-giro-cloud.md`) — non si inventa;
+  (b) l'`INSTAGRAM_TOKEN`, oggi seguito solo da `metrics.py`. Da fare appena Michele riporta le date.
   Quando esiste la catena quotidiana in cloud, chiamare la guardia anche lì, non solo il lunedì.
 
 - **L'accumulo dei file di catena.** Il giro quotidiano aggiungerà ~1.000 file l'anno (6 MB circa).
