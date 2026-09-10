@@ -1,0 +1,18 @@
+{
+  "tipo": "storia",
+  "data_pubblicazione": "2026-09-11",
+  "ora_pubblicazione": "07:00",
+  "titolo_evento": "Storia dell'11 settembre (GP MotoGP di San Marino + SanMarinoBeerFest: Vipers)",
+  "immagini": [
+    "20260911_Storia_1.png"
+  ],
+  "user_tags": {
+    "20260911_Storia_1.png": [
+      {
+        "username": "sanmarinobeerfest",
+        "x": 0.5,
+        "y": 0.78
+      }
+    ]
+  }
+}

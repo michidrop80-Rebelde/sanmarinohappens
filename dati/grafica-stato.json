@@ -30,7 +30,7 @@
    "nome_canva": "SMH - Weekend Master",
    "formato": "1080x1350 (4:5 verticale)",
    "totale_pagine": 4,
-   "ultima_pagina_usata": 1,
+   "ultima_pagina_usata": 2,
    "struttura_riga": "REGISTRATO 07/07/2026. 4 pagine-variante colore (rotazione indipendente). Layout LISTA PULITA (deciso da Michele 07/07): tutte le righe evento uguali, come il settimanale. Titolo fisso 'Questo weekend in Repubblica' + casella DATA variabile (range weekend, es. '3-5 luglio 2026'). 6 RIGHE evento per pagina: ogni riga = casella 'data . luogo BREVE' (piccola sopra) + TITOLO grande sotto + linea divisoria. Sul grafico solo data+luogo+titolo, niente ora/prezzi (quelli in caption). Freccia 'scorri' = elemento separato in basso (cancellabile). Settimana con <6 eventi: cancella righe vuote + position_element blocco compatto centrato (come settimanale/carosello). Titoli MASSIMIZZATI (casella larga). Lavorare SEMPRE su COPIA. Nota: creato da Michele copiando il settimanale e ristilizzando i colori. Element_id da rileggere con read-design sulla copia."
   },
   "bisettimanale": {
@@ -58,14 +58,14 @@
     "design_id": "DAHSASb8IAU",
     "nome_canva": "SMH - Storie Singolo Master",
     "totale_pagine": 14,
-    "ultima_pagina_usata": 2,
+    "ultima_pagina_usata": 3,
     "_verificato": "11/08/2026 — lette tutte e 14 le pagine: un solo blocco evento su ognuna."
    },
    "doppio": {
     "design_id": "DAHSAXl7RMo",
     "nome_canva": "SMH - Storie Doppio Master",
     "totale_pagine": 14,
-    "ultima_pagina_usata": 7,
+    "ultima_pagina_usata": 8,
     "_verificato": "11/08/2026 — lette tutte e 14 le pagine: due blocchi evento su ognuna.",
     "_perche_parte_da_7": "I due mazzi nascono dallo stesso mazzo da 28 e hanno gli stessi 14 sfondi nello stesso ordine (verificato: la vecchia pagina 15 e la 16 condividevano lo stesso gradiente). Partendo entrambi da 1, un giorno singolo e un giorno doppio vicini avrebbero mostrato lo STESSO sfondo. I due puntatori partono percio' sfalsati di mezzo mazzo: il doppio comincia dalla pagina 8."
    },
@@ -1526,6 +1526,30 @@
    "copia_design_id": "DAHUiluCUWk",
    "file": "20260908_Storia_2.png",
    "evento": "Concerto a Lume di Candela — Tributo a Ennio Morricone (08/09, Orti Borghesi) - mazzo singolo, pag.2. Titolo storia accorciato a 'Concerto a Lume di Candela' (52 char non ci stavano a font 68; Morricone resta in descrizione). CTA di chiusura (ultima storia). Validazione al contrario: ok."
+  },
+  {
+   "data_giro": "2026-09-08",
+   "tipo": "weekend",
+   "pagina": 2,
+   "copia_design_id": "DAHUou_Xlhg",
+   "file": "20260910_Weekend.png",
+   "evento": "Weekend 11-13/09/2026 (esce gio 10/09 18:00) - catena Step 2-bis (controllo-imminenti.py uscita 2: buco weekend del 10/09 in finestra 48h). Copia pag.2 master DAHOp1t_N1A, DA ELIMINARE. Sotto-insieme ven-dom del settimanale 07-13/09 gia uscito. 6 eventi -> 6 righe piene (nessuna cancellazione). Giorni Python: 11/09=Ven, 12/09=Sab, 13/09=Dom. Righe: 1 BeerFest Queen Tribute/Vipers (m84), 2 GP MotoGP San Marino (m48), 3 Musikfest Adriatica (m99), 4 BeerFest Anni 90/Love Gen 90 (m72), 5 Dal Turista al Contadino II tappa (m60), 6 Palio Don Bosco (m81). Luogo BeerFest = Parco di Dogana (master 24/08). Titolo Palio senza numero edizione (font non rende il grado). Campi data+luogo ridotti uniformemente a font 36 (regola uniformita Michele: Ven-Dom 11-13/09 andava a capo a font 45). Validazione al contrario: nessuna discrepanza."
+  },
+  {
+   "data_giro": "2026-09-08",
+   "tipo": "storia",
+   "pagina": 3,
+   "copia_design_id": "DAHUoo9crfs",
+   "file": "20260909_Storia_1.png",
+   "evento": "Serravalle in Wellness (09/09, La Ciarulla/parcheggio Globo, Serravalle) - catena Step 2-bis (controllo-imminenti.py uscita 2: 09/09 mancava la storia; il feed 20260909 era gia in coda dal 24/08). Mazzo singolo DAHSASb8IAU pag.3, DA ELIMINARE. Unica storia del giorno -> CTA di chiusura (template ha gia il footer giusto, nessuna freccia scorri). Giorno Python 09/09=Mercoledi. Ora 18:00 (da feed busta + master r.80). Titolo va a capo naturale SERRAVALLE IN / WELLNESS. Validazione al contrario: nessuna discrepanza col feed/master. Regola 03/09: 1 evento/giorno = feed + storia."
+  },
+  {
+   "data_giro": "2026-09-10",
+   "tipo": "storia",
+   "design": "DAHU1ExRTOo",
+   "pagina": 8,
+   "file": "20260911_Storia_1.png",
+   "evento": "Storia 11/09 DOPPIA (Step 2-bis catena): blocco 1 GP MotoGP San Marino — Misano, gara dom 13/09 ore 14:00 (motogpmisano.com), campo ora eliminato (venerdì = prove, nessun orario pubblicato per il giorno) + luogo allineato a sinistra. Blocco 2 SanMarinoBeerFest — Vipers (Queen Tribute), Parco di Dogana ore 22:00 (verificato tribunapoliticaweb.sm + sanmarinortv 11-13/09). CTA di chiusura. Copia usa-e-getta DAHU1ExRTOo da cestinare a mano. Mazzo doppio pag.8, puntatore -> 8."
   }
  ],
  "_nota_26-07-2026": "Settimanale 27/07-02/08 rifatto da zero: la bozza in dati/post/aggregati-luglio-agosto-2026.md era del 30/06 e aveva solo 3 dei 10 eventi (non conosceva il recupero del 25/07). Fonte usata: le buste gia' in coda in posts/, che avevano gia' passato /smh-check. Titolo tennis accorciato da 'San Marino Open - tennis ATP' (andava a capo e sbatteva sulla riga sotto) a 'San Marino Open - tennis': su questo design il titolo sta su una riga fino a ~25 caratteri. COPIA usa-e-getta da cestinare a mano: DAHQbtk6OaI.",
