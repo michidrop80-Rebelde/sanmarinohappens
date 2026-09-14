@@ -9,7 +9,7 @@ Aggiornato con la prima mappatura completa. Le voci con [ ] non hanno ancora un 
 Questi raccolgono già eventi da più organizzatori, sono la fonte più ricca.
 
 - ⭐ https://www.visitsanmarino.com/pub1/VisitSM/it/eventi.html — **FONTE #1 — portale ufficiale del turismo sammarinese. Visitare SEMPRE per prima e per ultima.** Contiene il calendario più completo e aggiornato di tutta la Repubblica. Gli URL delle pagine evento seguono il pattern: `/pub1/VisitSM/evento/AAAAMMGG-Titolo-Evento.html` (usare trattini, non underscore).
-- https://www.sanmarinortv.sm/eventi — TV di Stato, sezione eventi
+- ⚠️ https://www.sanmarinortv.sm/eventi — TV di Stato, sezione eventi. 403 Forbidden confermato il 14/09/2026 (in precedenza leggibile, nessun marcatore) — ricontrollare al prossimo giro.
 - ✅ https://www.sanmarinosite.com/en/events/ — calendario eventi, **tornato online il 10/08/2026** (in precedenza ❌, dava 404 su /it/eventi/ dal 27/06 al 06/07/2026 — il nuovo URL funzionante è la versione /en/events/). Utile anche per i dettagli di luogo che integrano visitsanmarino.com.
 - https://www.usc.sm/eventi/ — calendario eventi USC
 - ⚠️ https://b2b.sanmarinowelcome.com/it/eventi — San Marino Welcome (calendario fermo al 2025 — confermato 06/07/2026, nessun aggiornamento per 2026)

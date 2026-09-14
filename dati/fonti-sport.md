@@ -11,7 +11,7 @@ Stato fonte: ✅ leggibile · ⚠️ blocca i bot (evitare) · ❌ morta · 🆕
 
 ## ⭐ FONTI SPORT AGGREGATE (controllare sempre per prime)
 Coprono quasi tutto lo sport sammarinese in un posto solo, e sono leggibili:
-- ✅ https://www.sanmarinortv.sm/sport — TV di Stato, tutto lo sport locale, diviso per disciplina:
+- ⚠️ https://www.sanmarinortv.sm/sport — TV di Stato, tutto lo sport locale, diviso per disciplina. 403 Forbidden confermato il 14/09/2026 (in precedenza ✅) — ricontrollare al prossimo giro.
   - calcio sammarinese: /sport/calcio-sammarinese-c15
   - basket: /sport/basket-c18
   - sport sammarinese (volley, ecc.): /sport/sport-sammarinese-c16
@@ -134,3 +134,5 @@ Le 35 federazioni CONS hanno spesso club che giocano in campionati italiani. Da 
 - [ricerca 27/06/2026] Possibili aggregatori extra: eventbrite.com/d/san-marino · sagritaly.com (sagre)
 - [ricerca 06/07/2026] **Coppe europee stagione 2026-27**: confermati avversari e date preliminari Champions/Conference League per Tre Fiori, La Fiorita, Virtus (luglio 2026). Tutte le partite di ritorno in casa al San Marino Stadium.
 - [ricerca 06/07/2026] **Internazionali Tennis San Marino Open** — ATP Challenger 125 (upgrade di categoria 2026), 27/07-02/08, Montecchio. Sito ufficiale: sanmarinotennisopen.com
+- [ricerca 14/09/2026] **sanmarinofixing.com** — sito/blog di news calcistiche sammarinesi, usato per confermare i gruppi e le date di UEFA Nations League 2026-27 (San Marino nel girone C3 con Albania, Finlandia, Bielorussia). Da confermare come fonte regolare.
+- [ricerca 14/09/2026] **San Marino Baseball — stagione 2026 conclusa**: finale scudetto Serie A Gold persa contro Parmaclima (gara 5 al Serravalle, 4-1 la serie). Nessuna partita in casa residua nella finestra di ricerca corrente; sezione da riaprire alla prossima stagione (primavera 2027).
