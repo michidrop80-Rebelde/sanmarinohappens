@@ -194,6 +194,13 @@ jobs:
           pip install requests
           npm install -g @anthropic-ai/claude-code
 
+      # Termometro di San Marino RTV (403 del 14/09): vedi .github/scripts/sonda-rtv.sh
+      - name: Sonda RTV prima della ricerca
+        if: steps.serve.outputs.salta == 'no'
+        env:
+          DATA: ${{ needs.prepara.outputs.data }}
+        run: bash .github/scripts/sonda-rtv.sh prima
+
       # --- L'AGENTE: SOLO il token dell'abbonamento, nessuna chiave ----------
       - name: L'agente fa la ricerca sulle fonti
         id: agente
@@ -238,6 +245,12 @@ jobs:
           echo "exit_claude=$?" >> "$GITHUB_OUTPUT"
           set -e
           tail -c 3000 /tmp/claude-tappa.json || true
+
+      - name: Sonda RTV dopo la ricerca
+        if: always() && steps.serve.outputs.salta == 'no'
+        env:
+          DATA: ${{ needs.prepara.outputs.data }}
+        run: bash .github/scripts/sonda-rtv.sh dopo
 
       - name: Salva sul ramo e conta cosa è uscito
         id: esito
