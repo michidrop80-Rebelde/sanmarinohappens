@@ -1,0 +1,64 @@
+# Sonda RTV — San Marino RTV si lascia leggere da un computer di GitHub?
+#
+# PERCHE' ESISTE (16/09/2026)
+# Il giro in cloud del 14/09 ha perso 4 eventi perche' www.sanmarinortv.sm gli
+# rispondeva 403 (bloccato), mentre dal Mac la stessa pagina si apre.
+# Prima di cambiare la ricerca, questa sonda risponde a DUE domande, in 1 minuto
+# e senza consumare abbonamento (niente Claude, solo curl):
+#   1. il feed RSS pubblico (rss.xml) passa dal cloud?
+#   2. il blocco dipende dal computer (indirizzo di GitHub) o dal "nome" con
+#      cui ci si presenta (user-agent)? Per questo ogni indirizzo si prova due
+#      volte: da programma (curl nudo) e presentandosi come un browser.
+# In piu' un controllo: visitsanmarino.com deve rispondere, altrimenti il
+# problema e' la rete del computer di GitHub e non RTV.
+#
+# COME SI LANCIA: sito GitHub -> Actions -> Sonda RTV -> Run workflow.
+# COME SI LEGGE: ogni prova e' un passo con il suo nome; verde = passa,
+# rosso = bloccato. Tutti i passi girano anche se uno fallisce. Il riepilogo
+# arriva anche su Telegram. NON scrive niente nel repo.
+
+name: Sonda RTV
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sonda:
+    runs-on: ubuntu-latest
+    env:
+      BROWSER_UA: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36"
+    steps:
+      - name: Controllo rete — visitsanmarino.com
+        if: always()
+        run: bash -c 'c=$(curl -s -o /dev/null -m 30 -w "%{http_code}" https://www.visitsanmarino.com/); echo "visitsanmarino $c" | tee -a esiti.txt; [ "$c" = 200 ]'
+
+      - name: RTV feed RSS — da programma
+        if: always()
+        run: bash -c 'c=$(curl -s -o rss.xml -m 30 -w "%{http_code}" https://www.sanmarinortv.sm/rss.xml); n=$(grep -c "<item>" rss.xml || true); echo "rss-programma $c ($n notizie)" | tee -a esiti.txt; [ "$c" = 200 ] && [ "$n" -gt 0 ]'
+
+      - name: RTV feed RSS — come browser
+        if: always()
+        run: bash -c 'c=$(curl -s -o rss2.xml -m 30 -A "$BROWSER_UA" -w "%{http_code}" https://www.sanmarinortv.sm/rss.xml); n=$(grep -c "<item>" rss2.xml || true); echo "rss-browser $c ($n notizie)" | tee -a esiti.txt; [ "$c" = 200 ] && [ "$n" -gt 0 ]'
+
+      - name: RTV pagina eventi — da programma
+        if: always()
+        run: bash -c 'c=$(curl -s -o /dev/null -m 30 -w "%{http_code}" https://www.sanmarinortv.sm/eventi); echo "eventi-programma $c" | tee -a esiti.txt; [ "$c" = 200 ]'
+
+      - name: RTV pagina eventi — come browser
+        if: always()
+        run: bash -c 'c=$(curl -s -o /dev/null -m 30 -A "$BROWSER_UA" -w "%{http_code}" https://www.sanmarinortv.sm/eventi); echo "eventi-browser $c" | tee -a esiti.txt; [ "$c" = 200 ]'
+
+      - name: Riepilogo su Telegram
+        if: always()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          testo=$(printf "🔎 Sonda RTV dal cloud (200 = passa, 403 = bloccato)\n%s" "$(cat esiti.txt)")
+          echo "$testo"
+          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
+            --data-urlencode "text=${testo}" > /dev/null || true
