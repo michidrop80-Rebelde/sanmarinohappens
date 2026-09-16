@@ -14,7 +14,7 @@
       "design_id": "DAHOLS6Zdpw",
       "nome_canva": "SMH - Giornaliero Master",
       "totale_pagine": 10,
-      "ultima_pagina_usata": 3
+      "ultima_pagina_usata": 4
     },
     "_nota_21-07-2026": "Giro 21/07/2026 (prima meta'): rotazione giornaliero completata per intero (pag.4->10 poi wrap 1->3, 10 eventi). 16 eventi con box grafica erano in coda (17 meno Festa di San Marino gia' esportata prima): compilati i primi 10 in ordine di data, i restanti 6 (Benji&Fede 07/08, Molella 14/08, Comics 28-30/08, Dal Turista al Contadino 05-06+12-13/09, MotoGP 11-13/09, Sport in Fiera 18-20/09) restati in coda per esaurimento pagine disponibili nella rotazione.",
     "_nota_21-07-2026-seconda-meta": "Giro 21/07/2026 (seconda meta'): ciclo ripartito, pagine 4-9 di nuovo libere -> compilati ed esportati i 6 eventi rimasti in coda (vedi log). Pagina 10 lasciata intatta (SMIAF, gia' esportato in precedenza). Convenzione multi-giorno confermata da Michele: evento con range lungo -> post singolo con prima data come riferimento sul grafico (range in caption), applicata a Comics, MotoGP, Sport in Fiera (range compatto 3gg 'Ven-Dom') e Dal Turista al Contadino (due weekend separati -> usato il primo, 'Sab-Dom 5-6 Settembre', il secondo weekend 12-13/09 resta solo in caption). Fix in corsa: titolo Comics ripartito da font ereditato troppo grande (5 righe, sovrapposto a luogo/ora) a font_size 90 (3 righe, pulito); campo data con 'Settembre' andava a capo sovrapponendo il sottotitolo su pag 7/8/9 -> allargata la casella (950px) e su pag 7+9 ridotto font_size a 52 (uniformato anche il campo giorno per armonia visiva) per farlo stare su una riga senza toccare il logo SMH in alto a destra. Dal Turista al Contadino: luogo e ora NON specificati ne' dalla fonte ne' da ricerca web mirata (stessa verifica gia' fatta per le storie, riconfermata con una nuova ricerca vuota) -> elemento luogo cancellato (nessun placeholder), ora gia' assente sulla pagina riciclata. MotoGP: ora 'Gara Dom 14:00' riusata dalla verifica gia' fatta per la storia (motogpmisano.com/it/orario-13, gara domenica 13/09 ore 14:00) essendo lo stesso giorno di verifica.",
@@ -30,7 +30,7 @@
       "nome_canva": "SMH - Weekend Master",
       "formato": "1080x1350 (4:5 verticale)",
       "totale_pagine": 4,
-      "ultima_pagina_usata": 2,
+      "ultima_pagina_usata": 3,
       "struttura_riga": "REGISTRATO 07/07/2026. 4 pagine-variante colore (rotazione indipendente). Layout LISTA PULITA (deciso da Michele 07/07): tutte le righe evento uguali, come il settimanale. Titolo fisso 'Questo weekend in Repubblica' + casella DATA variabile (range weekend, es. '3-5 luglio 2026'). 6 RIGHE evento per pagina: ogni riga = casella 'data . luogo BREVE' (piccola sopra) + TITOLO grande sotto + linea divisoria. Sul grafico solo data+luogo+titolo, niente ora/prezzi (quelli in caption). Freccia 'scorri' = elemento separato in basso (cancellabile). Settimana con <6 eventi: cancella righe vuote + position_element blocco compatto centrato (come settimanale/carosello). Titoli MASSIMIZZATI (casella larga). Lavorare SEMPRE su COPIA. Nota: creato da Michele copiando il settimanale e ristilizzando i colori. Element_id da rileggere con read-design sulla copia."
     },
     "bisettimanale": {
@@ -58,7 +58,7 @@
         "design_id": "DAHSASb8IAU",
         "nome_canva": "SMH - Storie Singolo Master",
         "totale_pagine": 14,
-        "ultima_pagina_usata": 3,
+        "ultima_pagina_usata": 4,
         "_verificato": "11/08/2026 — lette tutte e 14 le pagine: un solo blocco evento su ognuna."
       },
       "doppio": {
@@ -1572,6 +1572,27 @@
       "pagina": 9,
       "file": "20260913_Storia_1.png",
       "evento": "Storia 13/09 DOPPIA (Step 2-bis catena, guardia controllo-imminenti.py uscita 2 la sera del 12/09 — il Mac era spento e il giro serale non era partito): blocco 1 GP MotoGP San Marino — Misano World Circuit, gara di oggi ore 14:00 (verificato motogpmisano.com, stesso orario gia' usato nella storia dell'11/09); blocco 2 'Dal Turista al Contadino' — II tappa, ultimo giorno, Via Eugippo (Citta') e Piazza Mercatale (Borgo Maggiore), nessun orario a fonte. NOTA: il feed di oggi (post giornaliero 07:00, gia' pubblicato) copriva il 36° Palio Don Bosco — questa storia copre gli 'altri eventi di oggi' promessi in quella caption, non lo ripete. Correzioni in compilazione: data '13 Settembre' andava a capo (font 115->78), luogo MotoGP abbreviato senza '(RN)' (andava a capo sul titolo), luogo Turista al Contadino rimpicciolito 46.6->40 (andava a capo di una parola sul titolo sotto). CTA di chiusura (unica storia del giorno). Mazzo doppio pag.9, puntatore -> 9. Copia usa-e-getta DAHVEIzNYCg da cestinare a mano."
+    },
+    {
+      "data_giro": "2026-09-16",
+      "tipo": "giornaliero",
+      "pagina": 4,
+      "file": "20260917_Post giornaliero.png",
+      "evento": "Concorso Renata Tebaldi — Prove con Orchestra (17/09)"
+    },
+    {
+      "data_giro": "2026-09-16",
+      "tipo": "storia",
+      "pagina": 4,
+      "file": "20260917_Storia_1.png",
+      "evento": "Concorso Renata Tebaldi — Prove con Orchestra (17/09)"
+    },
+    {
+      "data_giro": "2026-09-16",
+      "tipo": "weekend",
+      "pagina": 3,
+      "file": "20260917_Weekend.png",
+      "evento": "Weekend 18-20/09: Concorso Tebaldi finale, Sport in Fiera, BeerFest Radiokom+Afro Tour, Gran Premio Nuvolari, Special Cup"
     }
   ],
   "_nota_26-07-2026": "Settimanale 27/07-02/08 rifatto da zero: la bozza in dati/post/aggregati-luglio-agosto-2026.md era del 30/06 e aveva solo 3 dei 10 eventi (non conosceva il recupero del 25/07). Fonte usata: le buste gia' in coda in posts/, che avevano gia' passato /smh-check. Titolo tennis accorciato da 'San Marino Open - tennis ATP' (andava a capo e sbatteva sulla riga sotto) a 'San Marino Open - tennis': su questo design il titolo sta su una riga fino a ~25 caratteri. COPIA usa-e-getta da cestinare a mano: DAHQbtk6OaI.",
