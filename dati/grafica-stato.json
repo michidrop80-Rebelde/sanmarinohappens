@@ -22,7 +22,7 @@
       "design_id": "DAHORdC0zdY",
       "nome_canva": "SMH - Settimanale Master",
       "totale_pagine": 4,
-      "ultima_pagina_usata": 1,
+      "ultima_pagina_usata": 2,
       "struttura_riga": "8 righe evento. Ogni riga = casella giorno/data (es. 'Martedì 21/07') + casella titolo evento + casella LUOGO BREVE (solo Castello/venue, es. 'Valdragone' — semplificato dall'agente dal luogo completo della fonte) + linea divisoria (SHAPE). SUL GRAFICO niente ora e niente prezzi. Ora/indirizzo completo/prezzi/prenotazione vanno in CAPTION. Vedi memoria project_architettura_info_aggregati."
     },
     "weekend": {
@@ -1593,6 +1593,13 @@
       "pagina": 3,
       "file": "20260917_Weekend.png",
       "evento": "Weekend 18-20/09: Concorso Tebaldi finale, Sport in Fiera, BeerFest Radiokom+Afro Tour, Gran Premio Nuvolari, Special Cup"
+    },
+    {
+      "data_giro": "2026-09-18",
+      "tipo": "settimanale",
+      "pagina": 2,
+      "file": "20260920_Settimanale.png",
+      "evento": "Settimanale 21-27/09: 8 eventi (Wellness, Linkin Revolution, U21-Kosovo, SM-Finlandia, Cesare, Artisti in Casa, Micologica, Turismo)"
     }
   ],
   "_nota_26-07-2026": "Settimanale 27/07-02/08 rifatto da zero: la bozza in dati/post/aggregati-luglio-agosto-2026.md era del 30/06 e aveva solo 3 dei 10 eventi (non conosceva il recupero del 25/07). Fonte usata: le buste gia' in coda in posts/, che avevano gia' passato /smh-check. Titolo tennis accorciato da 'San Marino Open - tennis ATP' (andava a capo e sbatteva sulla riga sotto) a 'San Marino Open - tennis': su questo design il titolo sta su una riga fino a ~25 caratteri. COPIA usa-e-getta da cestinare a mano: DAHQbtk6OaI.",
