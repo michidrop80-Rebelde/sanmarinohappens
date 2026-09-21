@@ -72,3 +72,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [x] 2026-09-07T19:26:26.719Z — approvato — PROVA-20260907-1925-01 — Michele Morri @RebeldeRN — 🆕 PROVA A - non e un evento vero — 🧪 riga di collaudo (ticket 07), ignorata: non è un evento vero
 - [ ] 2026-09-21T06:02:48.386Z — approvato — 20260921-0315-01 — Michele Morri @RebeldeRN — 🆕 Presentazione libro Rondoni «La ferita, la letizia»
 - [ ] 2026-09-21T06:02:49.844Z — approvato — 20260921-0315-03 — Michele Morri @RebeldeRN — 🆕 Presentazione libro Rondoni «La ferita, la letizia»
+- [ ] 2026-09-21T06:02:50.943Z — approvato — 20260921-0315-04 — Michele Morri @RebeldeRN — 🆕 Presentazione libro Rondoni «La ferita, la letizia»
