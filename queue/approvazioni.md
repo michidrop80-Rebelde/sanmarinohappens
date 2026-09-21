@@ -71,3 +71,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [x] 2026-09-07T07:34:44.239Z — approvato — 20260907-0654-04 — Michele Morri @RebeldeRN — ⚠️ XXXII Mostra Micologica (26/09, dubbio→confermato da Michele; già `approvato` a master riga 107 dal 31/08) — ✅ elaborato 07/09/2026: 🔴 resta bloccato, mancano SEDE e data esatta 2026 (nessun contenuto grafico) — chiesto a Michele su Telegram
 - [x] 2026-09-07T19:26:26.719Z — approvato — PROVA-20260907-1925-01 — Michele Morri @RebeldeRN — 🆕 PROVA A - non e un evento vero — 🧪 riga di collaudo (ticket 07), ignorata: non è un evento vero
 - [ ] 2026-09-21T06:02:48.386Z — approvato — 20260921-0315-01 — Michele Morri @RebeldeRN — 🆕 Presentazione libro Rondoni «La ferita, la letizia»
+- [ ] 2026-09-21T06:02:49.844Z — approvato — 20260921-0315-03 — Michele Morri @RebeldeRN — 🆕 Presentazione libro Rondoni «La ferita, la letizia»
