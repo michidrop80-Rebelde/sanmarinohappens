@@ -78,3 +78,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-09-21T06:02:58.024Z — approvato — 20260921-0315-M04 — Michele Morri @RebeldeRN — ✏️ Trenino Bianco Azzurro (aggiunte corse 25-26/09)
 - [ ] 2026-09-21T06:03:06.102Z — approvato — 20260921-0315-D1 — Michele Morri @RebeldeRN — ⚠️ San Marino U21 vs Kosovo U21
 - [ ] 2026-09-21T06:03:09.604Z — approvato — 20260921-0315-D3 — Michele Morri @RebeldeRN — ⚠️ San Marino U21 vs Kosovo U21
+- [ ] 2026-09-21T06:03:25.598Z — approvato — 20260921-0315-D4 — Michele Morri @RebeldeRN — ⚠️ Porsche Parade Italia
