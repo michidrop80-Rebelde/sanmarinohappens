@@ -70,13 +70,13 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [x] 2026-09-07T07:34:33.280Z — approvato — 20260907-0654-03 — Michele Morri @RebeldeRN — [mappa pending] Artisti in Casa — XVI edizione (26–27/09, dubbio→confermato da Michele) — ✅ elaborato 07/09/2026 (catena Step 1, giro 20260907-0654)
 - [x] 2026-09-07T07:34:44.239Z — approvato — 20260907-0654-04 — Michele Morri @RebeldeRN — ⚠️ XXXII Mostra Micologica (26/09, dubbio→confermato da Michele; già `approvato` a master riga 107 dal 31/08) — ✅ elaborato 07/09/2026: 🔴 resta bloccato, mancano SEDE e data esatta 2026 (nessun contenuto grafico) — chiesto a Michele su Telegram
 - [x] 2026-09-07T19:26:26.719Z — approvato — PROVA-20260907-1925-01 — Michele Morri @RebeldeRN — 🆕 PROVA A - non e un evento vero — 🧪 riga di collaudo (ticket 07), ignorata: non è un evento vero
-- [ ] 2026-09-21T06:02:48.386Z — approvato — 20260921-0315-01 — Michele Morri @RebeldeRN — 🆕 Presentazione libro Rondoni «La ferita, la letizia»
-- [ ] 2026-09-21T06:02:49.844Z — approvato — 20260921-0315-03 — Michele Morri @RebeldeRN — 🆕 Presentazione libro Rondoni «La ferita, la letizia»
-- [ ] 2026-09-21T06:02:50.943Z — approvato — 20260921-0315-04 — Michele Morri @RebeldeRN — 🆕 Presentazione libro Rondoni «La ferita, la letizia»
-- [ ] 2026-09-21T06:02:55.513Z — approvato — 20260921-0315-02 — Michele Morri @RebeldeRN — ✏️ Trenino Bianco Azzurro (aggiunte corse 25-26/09)
-- [ ] 2026-09-21T06:02:56.777Z — approvato — 20260921-0315-M03 — Michele Morri @RebeldeRN — ✏️ Trenino Bianco Azzurro (aggiunte corse 25-26/09)
-- [ ] 2026-09-21T06:02:58.024Z — approvato — 20260921-0315-M04 — Michele Morri @RebeldeRN — ✏️ Trenino Bianco Azzurro (aggiunte corse 25-26/09)
-- [ ] 2026-09-21T06:03:06.102Z — approvato — 20260921-0315-D1 — Michele Morri @RebeldeRN — ⚠️ San Marino U21 vs Kosovo U21
-- [ ] 2026-09-21T06:03:09.604Z — approvato — 20260921-0315-D3 — Michele Morri @RebeldeRN — ⚠️ San Marino U21 vs Kosovo U21
-- [ ] 2026-09-21T06:03:25.598Z — approvato — 20260921-0315-D4 — Michele Morri @RebeldeRN — ⚠️ Porsche Parade Italia
-- [ ] 2026-09-21T06:03:26.823Z — approvato — 20260921-0315-D5 — Michele Morri @RebeldeRN — ⚠️ Porsche Parade Italia
+- [x] 2026-09-21T06:02:48.386Z — approvato — 20260921-0315-01 — Michele Morri @RebeldeRN — 🆕 Presentazione libro Rondoni «La ferita, la letizia» — ✅ elaborato 21/09 catena
+- [x] 2026-09-21T06:02:49.844Z — approvato — 20260921-0315-03 — Michele Morri @RebeldeRN — 🆕 Presentazione libro Rondoni «La ferita, la letizia» — ✅ elaborato 21/09 catena
+- [x] 2026-09-21T06:02:50.943Z — approvato — 20260921-0315-04 — Michele Morri @RebeldeRN — 🆕 Presentazione libro Rondoni «La ferita, la letizia» — ✅ elaborato 21/09 catena
+- [x] 2026-09-21T06:02:55.513Z — approvato — 20260921-0315-02 — Michele Morri @RebeldeRN — ✏️ Trenino Bianco Azzurro (aggiunte corse 25-26/09) — ✅ elaborato 21/09 catena
+- [x] 2026-09-21T06:02:56.777Z — approvato — 20260921-0315-M03 — Michele Morri @RebeldeRN — ✏️ Trenino Bianco Azzurro (aggiunte corse 25-26/09) — ✅ elaborato 21/09 catena
+- [x] 2026-09-21T06:02:58.024Z — approvato — 20260921-0315-M04 — Michele Morri @RebeldeRN — ✏️ Trenino Bianco Azzurro (aggiunte corse 25-26/09) — ✅ elaborato 21/09 catena
+- [x] 2026-09-21T06:03:06.102Z — approvato — 20260921-0315-D1 — Michele Morri @RebeldeRN — ⚠️ San Marino U21 vs Kosovo U21 — ✅ elaborato 21/09 catena
+- [x] 2026-09-21T06:03:09.604Z — approvato — 20260921-0315-D3 — Michele Morri @RebeldeRN — ⚠️ San Marino U21 vs Kosovo U21 — ✅ elaborato 21/09 catena
+- [x] 2026-09-21T06:03:25.598Z — approvato — 20260921-0315-D4 — Michele Morri @RebeldeRN — ⚠️ Porsche Parade Italia — ✅ elaborato 21/09 catena
+- [x] 2026-09-21T06:03:26.823Z — approvato — 20260921-0315-D5 — Michele Morri @RebeldeRN — ⚠️ Porsche Parade Italia — ✅ elaborato 21/09 catena
