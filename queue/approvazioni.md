@@ -74,3 +74,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-09-21T06:02:49.844Z — approvato — 20260921-0315-03 — Michele Morri @RebeldeRN — 🆕 Presentazione libro Rondoni «La ferita, la letizia»
 - [ ] 2026-09-21T06:02:50.943Z — approvato — 20260921-0315-04 — Michele Morri @RebeldeRN — 🆕 Presentazione libro Rondoni «La ferita, la letizia»
 - [ ] 2026-09-21T06:02:55.513Z — approvato — 20260921-0315-02 — Michele Morri @RebeldeRN — ✏️ Trenino Bianco Azzurro (aggiunte corse 25-26/09)
+- [ ] 2026-09-21T06:02:56.777Z — approvato — 20260921-0315-M03 — Michele Morri @RebeldeRN — ✏️ Trenino Bianco Azzurro (aggiunte corse 25-26/09)
