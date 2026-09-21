@@ -43,6 +43,7 @@ Le vincenti del campionato/coppa vanno in Champions/Conference League. Partite i
   - [ricerca 03/08/2026] **Percorso europeo 2026 concluso**: La Fiorita eliminata dall'UNA Strassen (ritorno perso 0-2 al San Marino Stadium). Tre Fiori e Virtus risultano eliminate nel turno preliminare (sconfitte di misura, fonte: zonacalciofaidate.it/giornalesm). Nessuna partita europea in casa resta da giocare nella finestra 60 giorni corrente — sezione da riaprire alla prossima stagione.
 
 - [ricerca 03/08/2026] **Campionato Sammarinese 2026-27 — 1ª giornata**: weekend 28-30/08/2026 (orari non ancora pubblicati). Fonte: sanmarinortv.sm (articolo calendario). Tutte le partite si giocano su campi della Repubblica (è un campionato interamente sammarinese): Virtus-La Fiorita, Tre Fiori-Pennarossa, Tre Penne-San Giovanni, Folgore-Murata, Cailungo-Domagnano, San Marino Academy U22-Fiorentino, Juvenes Dogana-Faetano, Cosmos-Libertas.
+- [ricerca 21/09/2026] **Possibile sosta di un mese del Campionato Sammarinese**: ultimo turno utile prima della sosta 19-20/09/2026 (già disputato, fuori dalla finestra di oggi). La Nazionale sarà impegnata in trasferta in Slovenia nella Coppa delle Regioni UEFA (15-21 ottobre, vs Serbia, Moldova, Slovenia — tutte partite fuori San Marino, quindi non rilevanti come "in casa"). Il campionato potrebbe riprendere solo il weekend 24-25/10/2026, ma non è confermato — fonte: sanmarinortv.sm (articolo a291660). Nessuna giornata di campionato con data certa trovata dentro la finestra 21/09-20/11/2026: da ricontrollare al prossimo giro.
 
 ### c) San Marino Calcio (club che gioca in Italia)
 - Squadra di Acquaviva in **Serie D italiana (Girone F)**
@@ -70,10 +71,11 @@ Le vincenti del campionato/coppa vanno in Champions/Conference League. Partite i
 - Calendario: ✅ basketmarche.it · sanmarinortv.sm/sport/basket-c18
 
 ## 🏐 PALLAVOLO
-- Federazione: ✅ https://federvolleysm.org/
+- Federazione: ✅ https://fspav.sm/ — [ricerca 21/09/2026] l'URL precedente federvolleysm.org fa ora redirect 301 permanente a fspav.sm, aggiornato qui. Nessun calendario partite in casa trovato sulla home (serve controllare le sezioni campionato).
 - Club: **Titan Services** (femminile, **Serie D italiana**)
 - Competizione interna: Coppa Titano (finale al San Marino Stadium)
 - Calendario: ✅ sanmarinortv.sm · emiliaromagnasport.com
+- [ricerca 21/09/2026] **CEV U20 Volleyball European Championship 2027 (W) — 1st Round Zone SCA**: torneo internazionale femminile ospitato a San Marino 2-4 ottobre 2026, Palestra Casadei (Via Rancaglia 22, Serravalle). Squadre: San Marino, Monaco, Irlanda, Irlanda del Nord, Islanda, Isole Faroe, Scozia. Organizzatore: Federazione Sammarinese Pallavolo. Fonte: pagina evento su visitsanmarino.com.
 
 ## 🏃 ATLETICA / PODISMO / RUNNING
 - **Track & Field San Marino** (Associazione) — organizza le corse podistiche/trail sul Titano: San Marino Heritage Run (luglio, centro storico UNESCO), Titano Trail Run (aprile), Giro del Monte (maggio).
