@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-08-24",
+  "aggiornato": "2026-09-21",
   "_nota": "Registro degli handle social verificati. Solo le voci con stato 'attivo' E instagram non nullo producono un tag. Un handle entra come 'attivo' solo con DUE indizi indipendenti di ufficialita' (di norma: il sito ufficiale linka quel profilo E il profilo esiste col nome corrispondente); la conferma diretta di Michele vale come secondo indizio. Mai un handle dedotto dal nome del soggetto.",
   "_regole_25_07_2026": [
     "OGNI evento nuovo che entra in verifica porta con se' il controllo di chi lo organizza: se il soggetto e' nuovo va aggiunto qui (almeno come 'da-cercare'). Vedi Step 4-bis di /smh-verifica.",
@@ -178,10 +178,10 @@
         "Castello di Serravalle"
       ],
       "instagram": "castelloserravalle.rsm",
-      "facebook_page_id": null,
+      "facebook_page_id": "giuntacastelloserravalle",
       "stato": "attivo",
       "verificato_il": "2026-07-25",
-      "prova": "1) il profilo si presenta come «Giunta di Castello di Serravalle 🇸🇲 Rep. di San Marino»; 2) confermato da Michele il 25/07/2026. Esiste anche la pagina Facebook /giuntacastelloserravalle/."
+      "prova": "1) il profilo si presenta come «Giunta di Castello di Serravalle 🇸🇲 Rep. di San Marino»; 2) confermato da Michele il 25/07/2026. Esiste anche la pagina Facebook /giuntacastelloserravalle/ (usata il 21/09/2026 per annunciare ufficialmente 'Castello in Festa' 26-28/09)."
     },
     {
       "nome": "Giunta di Castello di Domagnano",
@@ -713,6 +713,100 @@
       "stato": "attivo",
       "verificato_il": "2026-08-25",
       "prova": "Nuovo in verifica 25/08/2026: e' l'autore diretto del post Instagram che pubblicizza il proprio evento 'Summer Night - 1 Anniversario Cuore Giovane' (25/08, Piazza Bertoldi Serravalle) - bio/caption si firma come Associazione Sammarinese Cuore Giovane. Segnalato da Michele via bot (link Instagram, urgente per stasera)."
+    },
+    {
+      "nome": "Federazione Italiana Porsche Club",
+      "categoria": "organizzatore",
+      "alias": [
+        "Federazione Italiana Porsche Club",
+        "Porsche Club",
+        "Porsche Parade Italia"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-09-21",
+      "prova": "Nuovo in verifica 21/09/2026: organizza 'Porsche Parade Italia', passaggio nel Centro Storico il 26/09 — fonte visitsanmarino.com (contatti www.federazioneporscheclub.it). Nessun profilo social cercato ancora."
+    },
+    {
+      "nome": "Pallacanestro Titano",
+      "categoria": "organizzatore",
+      "alias": [
+        "Pallacanestro Titano",
+        "Pallacanestro Titano San Marino"
+      ],
+      "instagram": null,
+      "facebook_page_id": "pallacanestro.titano",
+      "stato": "da-cercare",
+      "verificato_il": "2026-09-21",
+      "prova": "Nuovo in verifica 21/09/2026: squadra di basket Serie C, esordio stagione 03/10 vs Piacenza (Multieventi Sport Domus) — fonte sanmarinortv.sm (a296051) + 4torri.it. Pagina Facebook /pallacanestro.titano/ presente nel file di ricerca ma NON ancora confermata con due indizi indipendenti (manca riscontro da sito ufficiale o conferma diretta) — non taggare finché non risulta 'attivo'."
+    },
+    {
+      "nome": "Federazione Sammarinese Pallavolo (FSPAV)",
+      "categoria": "organizzatore",
+      "alias": [
+        "FSPAV",
+        "Federazione Sammarinese Pallavolo",
+        "federvolleysm"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-09-21",
+      "prova": "Nuovo in verifica 21/09/2026: organizza il CEV U20 Volleyball European Championship 2027 (W), 1° turno Zona SCA, 02-04/10 alla Palestra Casadei, Serravalle — fonte visitsanmarino.com. Sito fspav.sm (ex federvolleysm.org), profilo social non ancora cercato."
+    },
+    {
+      "nome": "Segreteria di Stato per il Territorio e l'Ambiente / USOT",
+      "categoria": "organizzatore",
+      "alias": [
+        "Segreteria di Stato Territorio e Ambiente",
+        "USOT",
+        "Dalla Terra alla Tavola"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-09-21",
+      "prova": "Nuovo in verifica 21/09/2026: organizza (con AzzuChef) il nuovo appuntamento 'Dalla Terra alla Tavola' del 06/10 (CookingLab + cena SEM) — fonte giornalesm.com. Nessun profilo social cercato ancora."
+    },
+    {
+      "nome": "Canossa Events (Modena Cento Ore)",
+      "categoria": "organizzatore",
+      "alias": [
+        "Canossa Events",
+        "Modena Cento Ore"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-09-21",
+      "prova": "Nuovo in verifica 21/09/2026: organizza il passaggio della 'Modena Cento Ore' (auto storiche) nel Centro Storico il 07/10 — fonte visitsanmarino.com (sito modenacentoore.canossa.com). Nessun profilo social cercato ancora."
+    },
+    {
+      "nome": "Reggenza della Repubblica di San Marino",
+      "categoria": "organizzatore",
+      "alias": [
+        "Reggenza della Repubblica",
+        "Capitani Reggenti"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-09-21",
+      "prova": "Nuovo in verifica 21/09/2026: soggetto istituzionale distinto dal Congresso di Stato (già registrato), link pubblico reggenzadellarepubblica.sm per la Cerimonia di investitura del 01/10 (nuovi Capitani Reggenti eletti 15/09: Gerardo Giovagnoli e William Casali, fonte sanmarinortv.sm a295919 + tribunapoliticaweb.sm). Nessun profilo social cercato ancora."
+    },
+    {
+      "nome": "Cooperativa Il Sentiero",
+      "categoria": "organizzatore",
+      "alias": [
+        "Il Sentiero",
+        "coop.ilsentierorsm"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-09-21",
+      "prova": "Nuovo in verifica 21/09/2026: contatto (coop.ilsentierorsm@gmail.com) sulla fonte diretta visitsanmarino.com per la presentazione del libro di Davide Rondoni (23/09, Sala Montelupo, Domagnano) — ruolo esatto (organizzatore vs. solo contatto) non chiarito dalla fonte. Nessun profilo social cercato ancora."
     },
     {
       "nome": "Rejected Band",
