@@ -1,0 +1,12 @@
+{
+  "tipo": "carosello",
+  "data_pubblicazione": "2026-09-24",
+  "ora_pubblicazione": "18:00",
+  "titolo_evento": "Weekend 25-27 settembre (weekend a 2 pagine, 8 eventi)",
+  "caption": "🎉 Questo weekend a San Marino, dal 25 al 27 settembre — 8 appuntamenti 👇\n\nVENERDÌ 25\n🎶 SanMarinoBeerFest: Linkin Revolution, tributo ai Linkin Park · Parco di Dogana, San Marino\n\nSABATO 26\n⚽ 18:00 · San Marino vs Finlandia, prima giornata di UEFA Nations League (Lega C) · San Marino Stadium, Serravalle\n🎶 SanMarinoBeerFest: Dicono di Cesare, tributo a Cesare Cremonini, cucina dalle 20:00 · Parco di Dogana, San Marino\n🎭 17:00-23:00 · Artisti in Casa, XVI edizione del festival di microspettacoli tra case e cortili · Piazza della Pace e Centro Storico, Montegiardino (anche domenica 27, dalle 14:30 alle 21:00)\n🍄 XXXII Mostra Micologica del Titano, con esperti a disposizione e stand gastronomici · Logge del Mercato, Borgo Maggiore (26-27/09)\n🎪 dalle 19:00 · Festa del Castello di Serravalle 2026, musica e stand food & beverage · Piazza Giovanni Bertoldi, Serravalle (anche domenica 27)\n🏛 Giornate Europee del Patrimonio 2026, musei di Stato e siti culturali aperti (26-27/09) — programma sul sito dell'organizzatore\n\nDOMENICA 27\n🏛 09:00-17:00 · Giornata Mondiale del Turismo, tema «Digital Agenda and AI» · Centro Storico, Piazza della Libertà, Città di San Marino\n\nSalva il post 📌 e seguici per gli eventi di ogni giorno\nℹ️ Date e orari possono cambiare: verifica sempre sulla fonte ufficiale dell'organizzatore (link in bio).\n\n#SanMarinoHappens #SanMarino #RepubblicaDiSanMarino #MonteTitano #cosafareaSanMarino #eventiSanMarino #SanMarinoBeerFest #UEFANationsLeague #ArtistiInCasa #MostraMicologica #FestaDiSerravalle #GiornateDelPatrimonio #GiornataMondialeDelTurismo",
+  "immagini": [
+    "20260924_Weekend_1.png",
+    "20260924_Weekend_2.png"
+  ],
+  "nota": "Weekend a 2 slide (8 eventi, 6 righe max per pagina del template weekend). tipo=carosello usato solo per il multi-immagine, il post resta concettualmente un weekend. Dossier dati/post/weekend-2026-09-25-27.md. 6 di 8 eventi gia' nel settimanale 21-27/09 (archivio/2026-09/20260920_Settimanale.json); 2 nuovi (Festa di Serravalle, Giornate del Patrimonio) approvati il 21/09 dopo l'uscita del settimanale."
+}
