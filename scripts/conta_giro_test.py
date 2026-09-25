@@ -146,6 +146,20 @@ def main():
         verifica("1 verificato", c["verificati"] == 1)
         verifica("1 fuori sezione, dichiarato", c["fuori_sezione"] == 1)
 
+        print("\n[6-bis] Sezioni con UN cancelletto (forma del Mac del 21/09)")
+        f = scrivi(d, "v5.md", "# Eventi verificati — 2026-09-21\n\n"
+                   + "# ✅ Verificati\n\n"
+                   + EVENTO.format(titolo="Musikfest Adriatica  (NUOVO)", stato="verificato")
+                   + EVENTO.format(titolo="36° Palio Don Bosco", stato="verificato")
+                   + "\n# ⚠️ Da confermare (Michele)\n\n"
+                   + EVENTO.format(titolo="⚠️ Artisti in Casa", stato="da-confermare-michele")
+                   + "\n## ⚠️ Potenzialmente cancellati (nel master, non trovati oggi)\n"
+                   + "- nessuno\n\n# 🗑 Scartati\n\n"
+                   + SCARTATO.format(titolo="🗑 San Marino Beer Fest 2026"))
+        verifica("✅ 2 · ⚠️ 1 · 🗑 1 (era ✅ 0 · ⚠️ 1 · fuori sezione 3)",
+                 cg.conta_verificati(f) == {"verificati": 2, "da_confermare": 1,
+                                            "scartati": 1, "fuori_sezione": 0})
+
         print("\n[7] Un file che manca resta 'assente', non zero")
         verifica("ricerca assente", cg.conta_eventi(d / "non-esiste.md") is None)
         verifica("verificati assenti", cg.conta_verificati(d / "non-esiste.md") is None)

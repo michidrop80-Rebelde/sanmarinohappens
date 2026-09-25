@@ -209,6 +209,7 @@ def leggi(radice: Path, data: str) -> dict:
         "verificati": ver.get("verificati", []),
         "da_confermare": ver.get("da_confermare", []),
         "scartati": ver.get("scartati", []),
+        "fuori_sezione": ver.get("fuori_sezione", []),
         "bozze": (cg.conta_bozze(p) or {}).get("totale", 0),
     }
 
@@ -261,6 +262,18 @@ def main() -> int:
 
         mac = leggi(radice_mac, a.data)
         cloud = leggi(radice_cloud, a.data)
+
+        # Un evento che il metro non sa in che sezione mettere NON sparisce in
+        # silenzio: il 21/09 ne sparivano 17 e il confronto diceva «Mac 0 verificati».
+        muti = [(chi, g["fuori_sezione"]) for chi, g in (("Mac", mac), ("cloud", cloud))
+                if g["fuori_sezione"]]
+        if muti:
+            for chi, elenco in muti:
+                print(f"🛑 Nel file verificato del {chi} {len(elenco)} eventi stanno "
+                      "fuori da ogni sezione: il metro non riconosce le intestazioni. "
+                      "I numeri dei verificati qui sotto NON sono affidabili.")
+            if a.una_riga:
+                return 5
 
         if a.una_riga:
             if fantasmi:

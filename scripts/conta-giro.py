@@ -53,6 +53,13 @@ def radice_repo() -> Path:
 # contato (e' un evento con un marcatore davanti) e "## 🔧 Auto-miglioramento di
 # oggi" no (e' una sezione), senza dover indovinare dalle parole.
 RIGA_TITOLO = re.compile(r"^##\s+(.*\S)\s*$")
+# ⚠️ Il 21/09 il giro del Mac ha scritto le SEZIONI con un cancelletto solo
+# ("# ✅ Verificati", "# ⚠️ Da confermare", "# 🗑 Scartati") e gli eventi con due.
+# Il metro vedeva solo "##": 12 verificati del Mac finivano "fuori sezione" e il
+# confronto col cloud diceva «Mac 0 verificati». Un "# " vale come sezione SOLO
+# se comincia con l'emoji di una delle tre: il titolo del file ("# Eventi
+# verificati — 2026-09-21") non apre niente. Un "# " non e' mai un evento.
+RIGA_SEZIONE_H1 = re.compile(r"^#\s+([✅⚠🗑].*\S)\s*$")
 # Un evento ha SEMPRE il campo Stato (da-verificare / verificato /
 # da-confermare-michele / scartato) — anche quando non ha la Data, come i blocchi
 # della sezione "Scartati", che hanno Motivo al posto di Data. La Data resta come
@@ -68,6 +75,12 @@ def _blocchi(righe):
     """Spezza il file in blocchi: ogni "## intestazione" con le righe che la seguono."""
     blocchi, corrente = [], None
     for r in righe:
+        h1 = RIGA_SEZIONE_H1.match(r)
+        if h1:
+            corrente = {"titolo": h1.group(1), "grezzo": h1.group(1),
+                        "righe": [], "solo_sezione": True}
+            blocchi.append(corrente)
+            continue
         m = RIGA_TITOLO.match(r)
         if m:
             grezzo = m.group(1)
@@ -82,6 +95,8 @@ def _blocchi(righe):
 def _e_evento(blocco) -> bool:
     """True se il blocco e' un evento (ha il campo Stato, o almeno la Data),
     False se e' un'intestazione di sezione o un blocco di servizio."""
+    if blocco.get("solo_sezione"):
+        return False
     return any(CAMPO_EVENTO.match(r) for r in blocco["righe"])
 
 
