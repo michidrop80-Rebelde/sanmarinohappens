@@ -1,0 +1,40 @@
+{
+  "tipo": "storia",
+  "data_pubblicazione": "2026-09-26",
+  "ora_pubblicazione": "07:00",
+  "titolo_evento": "Storie del 26 settembre (Trenino+Giornate del Patrimonio · Artisti in Casa+SM-Finlandia · Festa di Serravalle+BeerFest Dicono di Cesare · Mostra Micologica)",
+  "immagini": [
+    "20260926_Storia_1.png",
+    "20260926_Storia_2.png",
+    "20260926_Storia_3.png",
+    "20260926_Storia_4.png"
+  ],
+  "user_tags": {
+    "20260926_Storia_1.png": [
+      {
+        "username": "istituticulturali",
+        "x": 0.5,
+        "y": 0.78
+      }
+    ],
+    "20260926_Storia_2.png": [
+      {
+        "username": "fsgc_official",
+        "x": 0.5,
+        "y": 0.78
+      }
+    ],
+    "20260926_Storia_3.png": [
+      {
+        "username": "castelloserravalle.rsm",
+        "x": 0.35,
+        "y": 0.78
+      },
+      {
+        "username": "sanmarinobeerfest",
+        "x": 0.65,
+        "y": 0.78
+      }
+    ]
+  }
+}
