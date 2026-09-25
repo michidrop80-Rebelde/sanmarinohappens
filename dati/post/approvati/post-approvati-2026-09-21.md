@@ -69,13 +69,13 @@ Salva il post 📌 e seguici per non perdere gli eventi di San Marino
 
 **📷 Testo per la grafica**
 - Titolo breve: Festa del Castello di Serravalle
-- Sottotitolo: 26-27/09/2026 · dalle 19:00 · Serravalle, Piazza Giovanni Bertoldi
+- Sottotitolo: 26-27/09/2026 · dalle 15:00 · Serravalle, Piazza Giovanni Bertoldi
 - Dettagli: Animazioni, musica e stand food & beverage.
 
 **📝 Caption (Instagram + Facebook)**
 🎉 Serravalle in festa: animazioni, musica e stand food & beverage in piazza.
 
-🗓 26-27/09/2026 · 🕗 dalle 19:00 · 📍 Serravalle, Piazza Giovanni Bertoldi
+🗓 26-27/09/2026 · 🕒 dalle 15:00 · 📍 Serravalle, Piazza Giovanni Bertoldi
 👉 Tutti gli altri eventi di oggi nelle nostre storie.
 Salva il post 📌 e seguici per non perdere gli eventi di San Marino
 ℹ️ Date e orari possono cambiare: verifica sempre sulla fonte ufficiale dell'organizzatore (link in bio).
@@ -86,7 +86,7 @@ Salva il post 📌 e seguici per non perdere gli eventi di San Marino
 **📱 Testo storia** (per la grafica storie — 1 storia per evento)
 - Titolo storia: Festa del Castello di Serravalle
 - Data: 26/09/2026
-- Ora: 19:00
+- Ora: 15:00
 - Luogo: Serravalle — Piazza Giovanni Bertoldi
 - Descrizione breve: Animazioni, musica e stand food & beverage per due serate in piazza.
 
