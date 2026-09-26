@@ -1,0 +1,32 @@
+{
+  "tipo": "storia",
+  "data_pubblicazione": "2026-09-27",
+  "ora_pubblicazione": "07:00",
+  "titolo_evento": "Storie del 27 settembre (Giornata del Turismo+Giornate del Patrimonio · Artisti in Casa+Festa di Serravalle · Mostra Micologica)",
+  "immagini": [
+    "20260927_Storia_1.png",
+    "20260927_Storia_2.png",
+    "20260927_Storia_3.png"
+  ],
+  "user_tags": {
+    "20260927_Storia_1.png": [
+      {
+        "username": "sanmarino_turismo",
+        "x": 0.35,
+        "y": 0.78
+      },
+      {
+        "username": "istituticulturali",
+        "x": 0.65,
+        "y": 0.78
+      }
+    ],
+    "20260927_Storia_2.png": [
+      {
+        "username": "castelloserravalle.rsm",
+        "x": 0.5,
+        "y": 0.78
+      }
+    ]
+  }
+}
