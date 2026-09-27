@@ -94,3 +94,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-09-27T18:12:50.446Z — approvato — 20260927-1706-12 — Michele Morri @RebeldeRN — 🆕 Diaghilev — La morte ovvero il pranzo della domenica
 - [ ] 2026-09-27T18:12:51.876Z — approvato — 20260927-1706-13 — Michele Morri @RebeldeRN — 🆕 Matthias Martelli — Lu Santo Jullare Francesco
 - [ ] 2026-09-27T18:12:53.345Z — approvato — 20260927-1706-14 — Michele Morri @RebeldeRN — 🆕 Matthias Martelli — Lu Santo Jullare Francesco
+- [ ] 2026-09-27T18:12:55.092Z — approvato — 20260927-1706-16 — Michele Morri @RebeldeRN — 🆕 A doppio filo — Vladimir Luxuria
