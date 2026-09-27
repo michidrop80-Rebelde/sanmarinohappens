@@ -16,3 +16,4 @@ Formato: `- [ ] <ISO> — <mittente> — <percorso .jpg> — didascalia: <testo 
 - [x] 2026-08-25T10:39:23.011Z — Michele Morri @RebeldeRN — queue/foto/2026-08-25T10-39-21-308Z_AQADoA9rG-dwcFB-.jpg — didascalia: (nessuna) — locandina "SMOE Run 10K/5K" datata 19 ottobre **2025** (edizione passata, non 2026): nessun evento importato, non pertinente all'urgenza segnalata nel messaggio di testo dello stesso minuto (che riguardava invece il link Instagram di Cuore Giovane)
 - [ ] 2026-09-27T13:48:12.933Z — Michele Morri @RebeldeRN — queue/foto/2026-09-27T13-48-10-944Z_AQAD5A9rG4tZyVF-.jpg — didascalia: (nessuna)
 - [ ] 2026-09-27T13:48:29.321Z — Michele Morri @RebeldeRN — queue/foto/2026-09-27T13-48-27-805Z_AQAD5Q9rG4tZyVF-.jpg — didascalia: (nessuna)
+- [ ] 2026-09-27T13:48:52.152Z — Michele Morri @RebeldeRN — queue/foto/2026-09-27T13-48-50-429Z_AQAD5g9rG4tZyVF-.jpg — didascalia: (nessuna)
