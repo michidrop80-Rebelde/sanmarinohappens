@@ -82,3 +82,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [x] 2026-09-21T06:03:26.823Z — approvato — 20260921-0315-D5 — Michele Morri @RebeldeRN — ⚠️ Porsche Parade Italia — ✅ elaborato 21/09 catena
 - [ ] 2026-09-27T18:12:25.911Z — approvato — 20260927-1706-01 — Michele Morri @RebeldeRN — 🆕 Tony - Diario di un giovane cuoco
 - [ ] 2026-09-27T18:12:27.307Z — approvato — 20260927-1706-02 — Michele Morri @RebeldeRN — 🆕 Tony - Diario di un giovane cuoco
+- [ ] 2026-09-27T18:12:28.406Z — approvato — 20260927-1706-03 — Michele Morri @RebeldeRN — 🆕 Tony - Diario di un giovane cuoco
