@@ -86,3 +86,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-09-27T18:12:30.666Z — approvato — 20260927-1706-04 — Michele Morri @RebeldeRN — 🆕 Sara Jane Ghiotti — Morning Evening
 - [ ] 2026-09-27T18:12:32.150Z — approvato — 20260927-1706-05 — Michele Morri @RebeldeRN — 🆕 Sara Jane Ghiotti — Morning Evening
 - [ ] 2026-09-27T18:12:33.302Z — approvato — 20260927-1706-06 — Michele Morri @RebeldeRN — 🆕 Sara Jane Ghiotti — Morning Evening
+- [ ] 2026-09-27T18:12:34.719Z — approvato — 20260927-1706-07 — Michele Morri @RebeldeRN — 🆕 A Ghost Story
