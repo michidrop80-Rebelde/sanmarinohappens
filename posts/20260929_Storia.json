@@ -1,0 +1,23 @@
+{
+  "tipo": "storia",
+  "data_pubblicazione": "2026-09-29",
+  "ora_pubblicazione": "07:00",
+  "titolo_evento": "Storie del 29 settembre (SM-Albania + Tony al Cinema Concordia)",
+  "immagini": [
+    "20260929_Storia_1.png"
+  ],
+  "user_tags": {
+    "20260929_Storia_1.png": [
+      {
+        "username": "fsgc_official",
+        "x": 0.35,
+        "y": 0.78
+      },
+      {
+        "username": "istituticulturali",
+        "x": 0.65,
+        "y": 0.78
+      }
+    ]
+  }
+}
