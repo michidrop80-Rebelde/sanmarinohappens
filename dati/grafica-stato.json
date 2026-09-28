@@ -58,7 +58,7 @@
         "design_id": "DAHSASb8IAU",
         "nome_canva": "SMH - Storie Singolo Master",
         "totale_pagine": 14,
-        "ultima_pagina_usata": 8,
+        "ultima_pagina_usata": 9,
         "_verificato": "11/08/2026 — lette tutte e 14 le pagine: un solo blocco evento su ognuna."
       },
       "doppio": {
@@ -1754,7 +1754,7 @@
       ],
       "copia_design_id": "DAHWhFBI3A0",
       "file": [
-        "20260929_Storia_1.png"
+        "20260929_Storia_2.png"
       ],
       "evento": "Storia 29/09 doppia: SM vs Albania 20:45 + Tony - Diario di un giovane cuoco 21:00 (Cinema Concordia, approvato 27/09 master 115). Casella data 655->736, descrizioni avvicinate ai titoli, CTA di chiusura. Validazione al contrario ok."
     },
@@ -1778,6 +1778,19 @@
         "20260930_Storia_1.png"
       ],
       "evento": "Storia 30/09 doppia: Serravalle in Wellness 18:00 Parco Ausa (serie ricorrente riga 80, ricontrollata alla fonte sanmarinortv e5123 il 28/09: nessun annullamento) + Tony 21:00 Cinema Concordia (ultima sera). Chiesta da serie_ricorrenti.py (Step 4 catena 28/09). Casella giorno+data 736, CTA di chiusura, descrizioni avvicinate. Validazione al contrario ok."
+    },
+    {
+      "data_giro": "2026-09-29",
+      "tipo": "storia",
+      "mazzo": "singolo",
+      "pagine": [
+        9
+      ],
+      "copia_design_id": "DAHWhgOi0TE",
+      "file": [
+        "20260929_Storia_1.png"
+      ],
+      "evento": "Storia 29/09 Rio Abierto Open Day (approvato Michele 29/09 00:15, pulsante 20260928-2143-01), messa PRIMA della doppia Albania+Tony (10:00 viene prima); la doppia rinominata Storia_2. Ora '10:00 · 18:30', luogo spostato a left 345. CTA Scorri. Nessun tag: organizzatore ancora da-cercare nel registro."
     }
   ],
   "_nota_26-07-2026": "Settimanale 27/07-02/08 rifatto da zero: la bozza in dati/post/aggregati-luglio-agosto-2026.md era del 30/06 e aveva solo 3 dei 10 eventi (non conosceva il recupero del 25/07). Fonte usata: le buste gia' in coda in posts/, che avevano gia' passato /smh-check. Titolo tennis accorciato da 'San Marino Open - tennis ATP' (andava a capo e sbatteva sulla riga sotto) a 'San Marino Open - tennis': su questo design il titolo sta su una riga fino a ~25 caratteri. COPIA usa-e-getta da cestinare a mano: DAHQbtk6OaI.",
