@@ -115,3 +115,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-09-28T22:15:31.242Z — approvato — 20260928-2143-08 — Michele Morri @RebeldeRN — 🆕 50ª Sagra d Autunno di Casole
 - [ ] 2026-09-28T22:15:32.783Z — approvato — 20260928-2143-09 — Michele Morri @RebeldeRN — 🆕 50ª Sagra d Autunno di Casole
 - [ ] 2026-09-28T22:15:37.400Z — approvato — 20260928-2143-10 — Michele Morri @RebeldeRN — 🆕 La Locandiera (SOLO STORIA)
+- [ ] 2026-09-28T22:15:38.780Z — approvato — 20260928-2143-11 — Michele Morri @RebeldeRN — 🆕 La Locandiera (SOLO STORIA)
