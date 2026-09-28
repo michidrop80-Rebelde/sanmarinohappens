@@ -815,3 +815,36 @@ Skin 22/10 e A Ghost Story 05/11). Nessun campo è stato inventato: dove il dato
 (orari di apertura giornalieri della mostra "Sono 'solo' 50 anni") ho scritto "non
 specificato" invece di indovinare. Nessun post riepilogo settimana aggiunto: il lotto è
 composto da grandi eventi distribuiti su mesi, non da un cluster di piccoli eventi vicini.
+
+---
+## [08/10] — The Elephant Man — rassegna "Fuori Posto" (Mediateca San Marino)   ·   tipo: cultura
+
+**📷 Testo per la grafica**
+- Titolo breve: The Elephant Man
+- Sottotitolo: 8 ottobre · Centro Sociale di Fiorentino
+- Dettagli: rassegna "Fuori Posto" della Mediateca di San Marino · versione originale con sottotitoli in italiano · introduzione dell'Università di San Marino
+
+**📝 Caption (Instagram + Facebook)**
+🎬 La rassegna "Fuori Posto" della Mediateca continua con "The Elephant Man".
+
+Il classico di David Lynch (1980), in lingua originale sottotitolato, introdotto dall'Università di San Marino.
+
+🗓 08/10/2026 · 🕗 21:00 · 📍 Centro Sociale di Fiorentino
+Salva il post 📌 e seguici per non perdere gli eventi di San Marino.
+ℹ️ Date e orari possono cambiare: verifica sempre sulla fonte ufficiale dell'organizzatore (link in bio).
+
+**#️⃣ Hashtag**
+#SanMarinoHappens #SanMarino #RepubblicaDiSanMarino #MonteTitano #cosafareaSanMarino #eventiSanMarino #FuoriPosto #Fiorentino #MediatecaSanMarino
+
+**📱 Testo storia** (per la grafica storie — 1 storia per evento)
+- Titolo storia: The Elephant Man
+- Data: 08/10/2026
+- Ora: 21:00
+- Luogo: Centro Sociale di Fiorentino
+- Descrizione breve: Il classico di David Lynch, in lingua originale sottotitolato, nella rassegna "Fuori Posto".
+
+**🔗 Fonte:** locandina ufficiale fotografata (queue/foto/2026-09-27T13-48-27-805Z_AQAD5Q9rG4tZyVF-.jpg)
+**Stato bozza:** approvato — SOLO STORIA 08/10 (Michele in chat 28/09/2026: «elephant in storie»; il feed dell'08/10 resta a Rallylegend)
+**Nota automatica:** questo giorno ha gia' un post giornaliero in coda o pubblicato — bozza NON proposta per l'approvazione (scripts/segnala-doppioni.py).
+
+---

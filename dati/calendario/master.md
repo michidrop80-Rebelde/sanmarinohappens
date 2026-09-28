@@ -265,6 +265,7 @@ Questo file è il **registro unico** di tutti gli eventi nel sistema.
 | 137 | 14/03/2027 | A doppio filo — Greg | cultura | Teatro Titano | futuro | approvato | 137 | unica | ore 17:00; fonte https://www.sanmarinoteatro.sm; 🆕 AGGIUNTO 28/09/2026 (catena, Step 1 — nuovo, approvato Michele pulsante 20260927-1706-24); bozza in dati/post/post-2026-09-27.md |
 | 138 | 24/03/2027 | Federico Mecozzi — Traiettorie impercettibili | musica | Teatro Titano | futuro | approvato | 138 | unica | ore 21:00; fonte https://www.sanmarinoteatro.sm; 🆕 AGGIUNTO 28/09/2026 (catena, Step 1 — nuovo, approvato Michele pulsante 20260927-1706-25); bozza in dati/post/post-2026-09-27.md |
 | 139 | 04/04/2027 | A doppio filo — Michela Andreozzi | cultura | Teatro Titano | futuro | approvato | 139 | unica | ore 17:00; fonte https://www.sanmarinoteatro.sm; 🆕 AGGIUNTO 28/09/2026 (catena, Step 1 — nuovo, approvato Michele pulsante 20260927-1706-26); bozza in dati/post/post-2026-09-27.md |
+| 140 | 08/10 | The Elephant Man — rassegna "Fuori Posto" | cultura | Centro Sociale di Fiorentino | futuro | approvato | 140 | unica | ore 21:00; versione originale sottotitolata, introduzione Università di San Marino; fonte locandina ufficiale fotografata (queue/foto/2026-09-27T13-48-27-805Z_AQAD5Q9rG4tZyVF-.jpg); 🆕 AGGIUNTO 28/09/2026 — approvato da Michele in chat SOLO COME STORIA dell'08/10 (il feed del giorno è Rallylegend); era rimasto fuori perché segnala-doppioni l'aveva marcato gia-in-coda |
 
 ---
 
