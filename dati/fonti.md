@@ -100,6 +100,7 @@ Elenco ufficiale di tutte le giunte: https://www.interni.sm/pub2/InterniSM/Giunt
 - [ricerca 08/08/2026] **San Marino Goodbye Festival** — Rassegna di musica estiva (fine agosto), edizione 2026 confermata 19-20 agosto. Potenziale evento ricorrente annuale. Sede non specificata (da ricercare).
 - [ricerca 10/08/2026] **Balamondo World Music Festival** — https://www.balamondo.it — festival itinerante di musica (liscio + world music) con tappe in Romagna, Pesaro e San Marino. La tappa sammarinese (Campo Bruno Reffi, 19-20/08/2026) risulta essere lo stesso evento indicato su visitsanmarino.com col vecchio nome "San Marino Goodbye Festival" — probabile rebranding, da chiarire con Michele quale nome usare in comunicazione.
 - [ricerca 10/08/2026] **Sagra dell'Uva Ventoso** — https://www.facebook.com/sagrauvaventoso/ — sagra paesana a Ventoso (Parco del Sorbo), data 2026 riportata solo da sanmarinortv.sm (21-23/08), non confermata da questa pagina FB (non leggibile dai bot, solo per Michele).
+- [ricerca 28/09/2026] **Legio XIII Gemina - Rubico APS** — https://www.legioxiiigemina.it — gruppo di rievocazione storica romana, organizza l'evento "Sulle orme di Roma" (Campo Bruno Reffi) — evento gratuito, contatti legioxiiirubico@gmail.com.
 - [ricerca 10/08/2026] **San Marino Amicizia Live Festival** — https://www.facebook.com/sanmarinolivefestival/ — 24ª edizione, evento collegato/omonimo a "Festa dell'Amicizia" (21-22/08 secondo sanmarinortv.sm). Non leggibile dai bot.
 
 ## Da completare (prossima mappatura)

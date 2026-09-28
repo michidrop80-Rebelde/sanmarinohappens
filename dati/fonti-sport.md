@@ -11,7 +11,7 @@ Stato fonte: ✅ leggibile · ⚠️ blocca i bot (evitare) · ❌ morta · 🆕
 
 ## ⭐ FONTI SPORT AGGREGATE (controllare sempre per prime)
 Coprono quasi tutto lo sport sammarinese in un posto solo, e sono leggibili:
-- ✅ https://www.sanmarinortv.sm/sport — TV di Stato, tutto lo sport locale, diviso per disciplina:
+- ⚠️ https://www.sanmarinortv.sm/sport — TV di Stato, tutto lo sport locale, diviso per disciplina. **403 Forbidden confermato 28/09/2026 (WebFetch e sonda IP datacenter)** — dominio sembra bloccare le richieste da IP cloud/bot; ritentare con Chrome MCP se disponibile, altrimenti saltare. Struttura pagine (per quando torna leggibile):
   - calcio sammarinese: /sport/calcio-sammarinese-c15
   - basket: /sport/basket-c18
   - sport sammarinese (volley, ecc.): /sport/sport-sammarinese-c16
@@ -65,7 +65,7 @@ Le vincenti del campionato/coppa vanno in Champions/Conference League. Partite i
 
 ## 🏀 BASKET
 - Club: **Pallacanestro Titano San Marino** — **Serie C italiana**, gioca al Multieventi Sport Domus (Serravalle)
-- Sito ufficiale: ⚠️ http://www.pallacanestrotitano.com/ — errore certificato SSL scaduto ("certificate has expired") confermato 10/08/2026, WebFetch non riesce a leggerlo.
+- Sito ufficiale: ✅ https://www.pallacanestrotitano.com/ — tornato leggibile (confermato 28/09/2026, pagina calendario `/2026/09/17/il-nostro-calendario/` letta con successo); in precedenza ⚠️ per certificato SSL scaduto (10/08/2026), problema risolto.
 - Facebook: ✅ https://www.facebook.com/pallacanestro.titano/
 - Calendario: ✅ basketmarche.it · sanmarinortv.sm/sport/basket-c18
 
@@ -134,3 +134,6 @@ Le 35 federazioni CONS hanno spesso club che giocano in campionati italiani. Da 
 - [ricerca 27/06/2026] Possibili aggregatori extra: eventbrite.com/d/san-marino · sagritaly.com (sagre)
 - [ricerca 06/07/2026] **Coppe europee stagione 2026-27**: confermati avversari e date preliminari Champions/Conference League per Tre Fiori, La Fiorita, Virtus (luglio 2026). Tutte le partite di ritorno in casa al San Marino Stadium.
 - [ricerca 06/07/2026] **Internazionali Tennis San Marino Open** — ATP Challenger 125 (upgrade di categoria 2026), 27/07-02/08, Montecchio. Sito ufficiale: sanmarinotennisopen.com
+- [ricerca 28/09/2026] **Pallacanestro Titano — calendario 2026-27** confermato su pallacanestrotitano.com/2026/09/17/il-nostro-calendario/: partite in casa (Multieventi Sport Domus, Serravalle) 03/10 vs Piacenza, 31/10 vs Scandiano, 14/11 vs Fortitudo Bologna, 28/11 vs Lugo Aviators (quest'ultima fuori dalla finestra dei 60 giorni).
+- [ricerca 28/09/2026] **CEV U20 Volleyball European Championship 2027 (femminile) — 1st Round Zone SCA**, 2-4/10/2026, Palestra Casadei (Via Rancaglia 22, Serravalle). San Marino ospita Monaco, Irlanda, Irlanda del Nord, Islanda, Isole Faroe, Scozia. Fonte: pagina evento visitsanmarino.com. Nessun sito ufficiale del torneo trovato (CEV.eu da controllare).
+- [ricerca 28/09/2026] **"Coppa Titano"** risulta essere una competizione di **calcio** (non pallavolo come indicato erroneamente in questo file finora) — vedi fsgc.sm/giornalesm.com. Da correggere la voce nella sezione PALLAVOLO qui sopra: verificare con Michele se esiste anche una Coppa Titano di volley distinta o è un refuso.
