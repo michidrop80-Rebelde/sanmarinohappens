@@ -80,28 +80,28 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [x] 2026-09-21T06:03:09.604Z — approvato — 20260921-0315-D3 — Michele Morri @RebeldeRN — ⚠️ San Marino U21 vs Kosovo U21 — ✅ elaborato 21/09 catena
 - [x] 2026-09-21T06:03:25.598Z — approvato — 20260921-0315-D4 — Michele Morri @RebeldeRN — ⚠️ Porsche Parade Italia — ✅ elaborato 21/09 catena
 - [x] 2026-09-21T06:03:26.823Z — approvato — 20260921-0315-D5 — Michele Morri @RebeldeRN — ⚠️ Porsche Parade Italia — ✅ elaborato 21/09 catena
-- [ ] 2026-09-27T18:12:25.911Z — approvato — 20260927-1706-01 — Michele Morri @RebeldeRN — 🆕 Tony - Diario di un giovane cuoco
-- [ ] 2026-09-27T18:12:27.307Z — approvato — 20260927-1706-02 — Michele Morri @RebeldeRN — 🆕 Tony - Diario di un giovane cuoco
-- [ ] 2026-09-27T18:12:28.406Z — approvato — 20260927-1706-03 — Michele Morri @RebeldeRN — 🆕 Tony - Diario di un giovane cuoco
-- [ ] 2026-09-27T18:12:30.666Z — approvato — 20260927-1706-04 — Michele Morri @RebeldeRN — 🆕 Sara Jane Ghiotti — Morning Evening
-- [ ] 2026-09-27T18:12:32.150Z — approvato — 20260927-1706-05 — Michele Morri @RebeldeRN — 🆕 Sara Jane Ghiotti — Morning Evening
-- [ ] 2026-09-27T18:12:33.302Z — approvato — 20260927-1706-06 — Michele Morri @RebeldeRN — 🆕 Sara Jane Ghiotti — Morning Evening
-- [ ] 2026-09-27T18:12:34.719Z — approvato — 20260927-1706-07 — Michele Morri @RebeldeRN — 🆕 A Ghost Story
-- [ ] 2026-09-27T18:12:36.046Z — approvato — 20260927-1706-08 — Michele Morri @RebeldeRN — 🆕 A Ghost Story
-- [ ] 2026-09-27T18:12:37.357Z — approvato — 20260927-1706-09 — Michele Morri @RebeldeRN — 🆕 A Ghost Story
-- [ ] 2026-09-27T18:12:47.988Z — approvato — 20260927-1706-10 — Michele Morri @RebeldeRN — 🆕 Diaghilev — La morte ovvero il pranzo della domenica
-- [ ] 2026-09-27T18:12:49.179Z — approvato — 20260927-1706-11 — Michele Morri @RebeldeRN — 🆕 Diaghilev — La morte ovvero il pranzo della domenica
-- [ ] 2026-09-27T18:12:50.446Z — approvato — 20260927-1706-12 — Michele Morri @RebeldeRN — 🆕 Diaghilev — La morte ovvero il pranzo della domenica
-- [ ] 2026-09-27T18:12:51.876Z — approvato — 20260927-1706-13 — Michele Morri @RebeldeRN — 🆕 Matthias Martelli — Lu Santo Jullare Francesco
-- [ ] 2026-09-27T18:12:53.345Z — approvato — 20260927-1706-14 — Michele Morri @RebeldeRN — 🆕 Matthias Martelli — Lu Santo Jullare Francesco
-- [ ] 2026-09-27T18:12:55.092Z — approvato — 20260927-1706-16 — Michele Morri @RebeldeRN — 🆕 A doppio filo — Vladimir Luxuria
-- [ ] 2026-09-27T18:12:56.256Z — approvato — 20260927-1706-17 — Michele Morri @RebeldeRN — 🆕 A doppio filo — Vladimir Luxuria
-- [ ] 2026-09-27T18:12:57.494Z — approvato — 20260927-1706-18 — Michele Morri @RebeldeRN — 🆕 A doppio filo — Vladimir Luxuria
-- [ ] 2026-09-27T18:13:04.388Z — approvato — 20260927-1706-19 — Michele Morri @RebeldeRN — 🆕 La ricerca della felicità
-- [ ] 2026-09-27T18:13:05.741Z — approvato — 20260927-1706-20 — Michele Morri @RebeldeRN — 🆕 La ricerca della felicità
-- [ ] 2026-09-27T18:13:06.978Z — approvato — 20260927-1706-21 — Michele Morri @RebeldeRN — 🆕 La ricerca della felicità
-- [ ] 2026-09-27T18:13:14.179Z — approvato — 20260927-1706-22 — Michele Morri @RebeldeRN — 🆕 A doppio filo — Marina Massironi
-- [ ] 2026-09-27T18:13:17.090Z — approvato — 20260927-1706-23 — Michele Morri @RebeldeRN — 🆕 A doppio filo — Marina Massironi
-- [ ] 2026-09-27T18:13:18.941Z — approvato — 20260927-1706-24 — Michele Morri @RebeldeRN — 🆕 A doppio filo — Marina Massironi
-- [ ] 2026-09-27T18:13:24.363Z — approvato — 20260927-1706-25 — Michele Morri @RebeldeRN — 🆕 Federico Mecozzi — Traiettorie impercettibili
-- [ ] 2026-09-27T18:13:25.534Z — approvato — 20260927-1706-26 — Michele Morri @RebeldeRN — 🆕 Federico Mecozzi — Traiettorie impercettibili
+- [x] 2026-09-27T18:12:25.911Z — approvato — 20260927-1706-01 — Michele Morri @RebeldeRN — 🆕 Tony - Diario di un giovane cuoco
+- [x] 2026-09-27T18:12:27.307Z — approvato — 20260927-1706-02 — Michele Morri @RebeldeRN — 🆕 Tony - Diario di un giovane cuoco
+- [x] 2026-09-27T18:12:28.406Z — approvato — 20260927-1706-03 — Michele Morri @RebeldeRN — 🆕 Tony - Diario di un giovane cuoco
+- [x] 2026-09-27T18:12:30.666Z — approvato — 20260927-1706-04 — Michele Morri @RebeldeRN — 🆕 Sara Jane Ghiotti — Morning Evening
+- [x] 2026-09-27T18:12:32.150Z — approvato — 20260927-1706-05 — Michele Morri @RebeldeRN — 🆕 Sara Jane Ghiotti — Morning Evening
+- [x] 2026-09-27T18:12:33.302Z — approvato — 20260927-1706-06 — Michele Morri @RebeldeRN — 🆕 Sara Jane Ghiotti — Morning Evening
+- [x] 2026-09-27T18:12:34.719Z — approvato — 20260927-1706-07 — Michele Morri @RebeldeRN — 🆕 A Ghost Story
+- [x] 2026-09-27T18:12:36.046Z — approvato — 20260927-1706-08 — Michele Morri @RebeldeRN — 🆕 A Ghost Story
+- [x] 2026-09-27T18:12:37.357Z — approvato — 20260927-1706-09 — Michele Morri @RebeldeRN — 🆕 A Ghost Story
+- [x] 2026-09-27T18:12:47.988Z — approvato — 20260927-1706-10 — Michele Morri @RebeldeRN — 🆕 Diaghilev — La morte ovvero il pranzo della domenica
+- [x] 2026-09-27T18:12:49.179Z — approvato — 20260927-1706-11 — Michele Morri @RebeldeRN — 🆕 Diaghilev — La morte ovvero il pranzo della domenica
+- [x] 2026-09-27T18:12:50.446Z — approvato — 20260927-1706-12 — Michele Morri @RebeldeRN — 🆕 Diaghilev — La morte ovvero il pranzo della domenica
+- [x] 2026-09-27T18:12:51.876Z — approvato — 20260927-1706-13 — Michele Morri @RebeldeRN — 🆕 Matthias Martelli — Lu Santo Jullare Francesco
+- [x] 2026-09-27T18:12:53.345Z — approvato — 20260927-1706-14 — Michele Morri @RebeldeRN — 🆕 Matthias Martelli — Lu Santo Jullare Francesco
+- [x] 2026-09-27T18:12:55.092Z — approvato — 20260927-1706-16 — Michele Morri @RebeldeRN — 🆕 A doppio filo — Vladimir Luxuria
+- [x] 2026-09-27T18:12:56.256Z — approvato — 20260927-1706-17 — Michele Morri @RebeldeRN — 🆕 A doppio filo — Vladimir Luxuria
+- [x] 2026-09-27T18:12:57.494Z — approvato — 20260927-1706-18 — Michele Morri @RebeldeRN — 🆕 A doppio filo — Vladimir Luxuria
+- [x] 2026-09-27T18:13:04.388Z — approvato — 20260927-1706-19 — Michele Morri @RebeldeRN — 🆕 La ricerca della felicità
+- [x] 2026-09-27T18:13:05.741Z — approvato — 20260927-1706-20 — Michele Morri @RebeldeRN — 🆕 La ricerca della felicità
+- [x] 2026-09-27T18:13:06.978Z — approvato — 20260927-1706-21 — Michele Morri @RebeldeRN — 🆕 La ricerca della felicità
+- [x] 2026-09-27T18:13:14.179Z — approvato — 20260927-1706-22 — Michele Morri @RebeldeRN — 🆕 A doppio filo — Marina Massironi
+- [x] 2026-09-27T18:13:17.090Z — approvato — 20260927-1706-23 — Michele Morri @RebeldeRN — 🆕 A doppio filo — Marina Massironi
+- [x] 2026-09-27T18:13:18.941Z — approvato — 20260927-1706-24 — Michele Morri @RebeldeRN — 🆕 A doppio filo — Marina Massironi
+- [x] 2026-09-27T18:13:24.363Z — approvato — 20260927-1706-25 — Michele Morri @RebeldeRN — 🆕 Federico Mecozzi — Traiettorie impercettibili
+- [x] 2026-09-27T18:13:25.534Z — approvato — 20260927-1706-26 — Michele Morri @RebeldeRN — 🆕 Federico Mecozzi — Traiettorie impercettibili
