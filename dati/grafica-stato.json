@@ -65,7 +65,7 @@
         "design_id": "DAHSAXl7RMo",
         "nome_canva": "SMH - Storie Doppio Master",
         "totale_pagine": 14,
-        "ultima_pagina_usata": 2,
+        "ultima_pagina_usata": 3,
         "_verificato": "11/08/2026 — lette tutte e 14 le pagine: due blocchi evento su ognuna.",
         "_perche_parte_da_7": "I due mazzi nascono dallo stesso mazzo da 28 e hanno gli stessi 14 sfondi nello stesso ordine (verificato: la vecchia pagina 15 e la 16 condividevano lo stesso gradiente). Partendo entrambi da 1, un giorno singolo e un giorno doppio vicini avrebbero mostrato lo STESSO sfondo. I due puntatori partono percio' sfalsati di mezzo mazzo: il doppio comincia dalla pagina 8."
       },
@@ -1765,6 +1765,19 @@
       "copia_design_id": "DAHWhX3o3n8",
       "file": "20260930_Carosello_1..6.png",
       "evento": "Carosello mensile OTTOBRE 2026 — 6 slide (cover + 5 settimane, 16 eventi), Step 2-bis catena 28/09. Dossier dati/post/carosello-ottobre-2026.md. OTTOBRE a font 123 (137 andava a capo). Titoli massimizzati uno a uno (Folk Irlandese e Diapasonband 35, Ubermensch 38, Love Generation 90 a 30). Righe vuote cancellate e blocchi centrati. Freccia scorri cancellata sull'ultima. Escluso The Elephant Man 08/10 (mai approvato) e CEV U20 (da-approvare). Validazione al contrario ok su tutte le 6 slide."
+    },
+    {
+      "data_giro": "2026-09-28",
+      "tipo": "storia",
+      "mazzo": "doppio",
+      "pagine": [
+        3
+      ],
+      "copia_design_id": "DAHWhZTM12E",
+      "file": [
+        "20260930_Storia_1.png"
+      ],
+      "evento": "Storia 30/09 doppia: Serravalle in Wellness 18:00 Parco Ausa (serie ricorrente riga 80, ricontrollata alla fonte sanmarinortv e5123 il 28/09: nessun annullamento) + Tony 21:00 Cinema Concordia (ultima sera). Chiesta da serie_ricorrenti.py (Step 4 catena 28/09). Casella giorno+data 736, CTA di chiusura, descrizioni avvicinate. Validazione al contrario ok."
     }
   ],
   "_nota_26-07-2026": "Settimanale 27/07-02/08 rifatto da zero: la bozza in dati/post/aggregati-luglio-agosto-2026.md era del 30/06 e aveva solo 3 dei 10 eventi (non conosceva il recupero del 25/07). Fonte usata: le buste gia' in coda in posts/, che avevano gia' passato /smh-check. Titolo tennis accorciato da 'San Marino Open - tennis ATP' (andava a capo e sbatteva sulla riga sotto) a 'San Marino Open - tennis': su questo design il titolo sta su una riga fino a ~25 caratteri. COPIA usa-e-getta da cestinare a mano: DAHQbtk6OaI.",
