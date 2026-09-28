@@ -108,3 +108,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-09-28T22:14:47.643Z — approvato — 20260928-2143-01 — Michele Morri @RebeldeRN — 🆕 Rio Abierto — Open Day (SOLO STORIA, è domani: se lo vuoi va aggiunto a mano stasera)
 - [ ] 2026-09-28T22:14:55.345Z — approvato — 20260928-2143-02 — Michele Morri @RebeldeRN — 🆕 Rio Abierto — Open Day (SOLO STORIA, è domani: se lo vuoi va aggiunto a mano stasera)
 - [ ] 2026-09-28T22:14:59.333Z — approvato — 20260928-2143-03 — Michele Morri @RebeldeRN — 🆕 Rio Abierto — Open Day (SOLO STORIA, è domani: se lo vuoi va aggiunto a mano stasera)
+- [ ] 2026-09-28T22:15:04.230Z — approvato — 20260928-2143-04 — Michele Morri @RebeldeRN — 🆕 AzzuChef — Dalla Terra alla Tavola
