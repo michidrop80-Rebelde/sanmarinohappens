@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-08-24",
+  "aggiornato": "2026-09-28",
   "_nota": "Registro degli handle social verificati. Solo le voci con stato 'attivo' E instagram non nullo producono un tag. Un handle entra come 'attivo' solo con DUE indizi indipendenti di ufficialita' (di norma: il sito ufficiale linka quel profilo E il profilo esiste col nome corrispondente); la conferma diretta di Michele vale come secondo indizio. Mai un handle dedotto dal nome del soggetto.",
   "_regole_25_07_2026": [
     "OGNI evento nuovo che entra in verifica porta con se' il controllo di chi lo organizza: se il soggetto e' nuovo va aggiunto qui (almeno come 'da-cercare'). Vedi Step 4-bis di /smh-verifica.",
@@ -726,6 +726,109 @@
       "stato": "da-cercare",
       "verificato_il": "2026-08-25",
       "prova": "Visto taggato (account rejectedband_official) nel post Instagram di @_cuore_giovane per 'Summer Night' (25/08): live 19:15-20:15. Handle osservato ma non confermato dal profilo diretto, nessun tag finche' non verificato."
+    },
+    {
+      "nome": "Legio XIII Gemina - Rubico APS",
+      "categoria": "organizzatore",
+      "alias": [
+        "Legio XIII Gemina",
+        "Rubico APS"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-09-28",
+      "prova": "Nuovo in verifica 28/09/2026: organizza 'Sulle orme di Roma' (03-04/10, Campo Bruno Reffi), rievocazione storica romana — fonte visitsanmarino.com. Sito legioxiiigemina.it non riporta social nella home. Nessun profilo cercato ancora."
+    },
+    {
+      "nome": "Monache dell'Adorazione Perpetua",
+      "categoria": "organizzatore",
+      "alias": [
+        "Monache dell'Adorazione Perpetua"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-09-28",
+      "prova": "Nuovo in verifica 28/09/2026: organizza la Festa solenne di San Francesco d'Assisi (04/10, Chiesa San Francesco) — fonte visitsanmarino.com. Comunita' religiosa, profilo social probabilmente inesistente; nessuna ricerca fatta."
+    },
+    {
+      "nome": "Canossa Events (Modena Cento Ore)",
+      "categoria": "organizzatore",
+      "alias": [
+        "Modena Cento Ore",
+        "Canossa Events"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-09-28",
+      "prova": "Nuovo in verifica 28/09/2026: organizza il passaggio a San Marino (07/10) della gara di regolarita' auto storiche 'Modena Cento Ore' — fonte modenacentoore.canossa.com + sanmarinortv.sm. Organizzatore fuori San Marino (Modena); tag probabilmente non pertinente, nessuna ricerca profilo fatta."
+    },
+    {
+      "nome": "Pallacanestro Titano",
+      "categoria": "organizzatore",
+      "alias": [
+        "Pallacanestro Titano",
+        "Titano Basket"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-09-28",
+      "prova": "Nuovo in verifica 28/09/2026: squadra di Serie C 2026-27, partite casalinghe a Multieventi Sport Domus (vs Piacenza 03/10, Scandiano 31/10, Fortitudo Bologna 14/11) — fonte pallacanestrotitano.com. Nessun profilo social cercato ancora."
+    },
+    {
+      "nome": "Federazione Sammarinese Pallavolo (FSPAV)",
+      "categoria": "organizzatore",
+      "alias": [
+        "FSPAV",
+        "Federazione Sammarinese Pallavolo"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-09-28",
+      "prova": "Nuovo in verifica 28/09/2026: organizza il CEV U20 Volleyball European Championship 2027, 1° turno femminile (02-04/10, Pala Casadei, Serravalle) — fonte fspav.sm. Nessun profilo social cercato ancora."
+    },
+    {
+      "nome": "San Marino Cinema",
+      "categoria": "organizzatore",
+      "alias": [
+        "San Marino Cinema",
+        "Cinema Concordia",
+        "Mediateca di San Marino"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-09-28",
+      "prova": "Nuovo in verifica 28/09/2026: gestisce la programmazione del Cinema Concordia e la rassegna 'Fuori Posto' della Mediateca — fonte sanmarinocinema.sm + sanmarinortv.sm. Nota: la Mediateca fa parte degli Istituti Culturali (@istituticulturali, gia' attivo in registro) ma non e' chiaro se pubblichi sotto quell'account o uno proprio. Nessun profilo cercato ancora."
+    },
+    {
+      "nome": "Laboratorio d'Arte di Domagnano",
+      "categoria": "organizzatore",
+      "alias": [
+        "Laboratorio d'Arte di Domagnano"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-09-28",
+      "prova": "Nuovo in verifica 28/09/2026: organizza la mostra 'Sono \"solo\" 50 anni' (10-23/10, Centro Sociale di Dogana) per i 50 anni del laboratorio (fondato 1976) — segnalazione foto Michele, ente esistenza confermata da fonte indipendente (Libertas). Nessun profilo cercato ancora."
+    },
+    {
+      "nome": "Centro Sociale di Dogana",
+      "categoria": "organizzatore",
+      "alias": [
+        "Centro Sociale di Dogana",
+        "Centro Sociale Dogana"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-09-28",
+      "prova": "Nuovo in verifica 28/09/2026: promuove propri eventi (conferenza 'L'Io e le sue maschere' 16/10, mostra Laboratorio d'Arte Domagnano 10-23/10) — segnalazione foto Michele, esistenza dell'ente confermata (telefono 0549 885518 corrisponde, citato anche da Libertas). Nessun profilo social cercato ancora."
     }
   ]
 }
