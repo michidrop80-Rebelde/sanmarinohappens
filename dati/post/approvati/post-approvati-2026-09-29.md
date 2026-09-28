@@ -1,6 +1,8 @@
-# Bozze post — 2026-09-28
-Input: dati/eventi/verificati/eventi-verificati-2026-09-28.md
-Solo eventi NUOVI di oggi (28/09 sera) — esclusi gli invarianti già `approvato` nel master: Tony, San Marino-Albania, Investitura, U21-Spagna, Sal Da Vinci, Rallylegend.
+# Post approvati — 2026-09-29
+
+Approvati da Michele via pulsanti Telegram — giro `20260928-2143` (28/09 22:14–22:15 UTC), 15/15 ✅. 12 pronti per la grafica; 3 dubbi approvati ma BLOCCATI (master 113, 153, 154: manca la sede).
+
+Fonte bozze: `dati/post/post-2026-09-28.md`. Master: righe 141–154.
 
 ---
 ## [29/09] — Rio Abierto — Open Day   ·   tipo: sociale
@@ -16,6 +18,8 @@ Solo eventi NUOVI di oggi (28/09 sera) — esclusi gli invarianti già `approvat
 
 **🔗 Fonte:** https://www.sanmarinortv.sm/news/attualita-c4/arriva-a-san-marino-il-rio-abierto-musica-e-movimento-corporeo-per-il-benessere-a296477
 **Stato bozza:** approvato (pulsante Telegram 20260928-2143-01, 29/09/2026 00:15; elaborato 29/09)
+
+---
 
 ---
 ## [01/10] — Oceania   ·   tipo: cultura
@@ -46,6 +50,8 @@ Salva il post 📌 e seguici per non perdere gli eventi di San Marino.
 
 **🔗 Fonte:** https://www.usc.sm/eventi/
 **Stato bozza:** approvato (pulsante Telegram 20260928-2143-02, 29/09/2026 00:15; elaborato 29/09)
+
+---
 
 ---
 ## [03/10] — Sulle orme di Roma   ·   tipo: cultura
@@ -80,6 +86,8 @@ Salva il post 📌 e seguici per non perdere gli eventi di San Marino.
 **Stato bozza:** approvato (pulsante Telegram 20260928-2143-03, 29/09/2026 00:15; elaborato 29/09)
 
 ---
+
+---
 ## [06/10] — AzzuChef — "Dalla Terra alla Tavola"   ·   tipo: cultura
 
 **📷 Testo per la grafica**
@@ -110,6 +118,8 @@ Salva il post 📌 e seguici per non perdere gli eventi di San Marino.
 **Stato bozza:** approvato (pulsante Telegram 20260928-2143-04, 29/09/2026 00:15; elaborato 29/09)
 
 ---
+
+---
 ## [07/10] — Modena Cento Ore — Passaggio a San Marino   ·   tipo: sport
 
 **Nota:** il 07/10 il feed è già occupato da Sal Da Vinci (già approvato). È un passaggio breve (2 ore, transito), resta solo in storia — nessun post feed dedicato.
@@ -123,6 +133,8 @@ Salva il post 📌 e seguici per non perdere gli eventi di San Marino.
 
 **🔗 Fonte:** https://www.visitsanmarino.com/pub1/VisitSM/it/eventi.html
 **Stato bozza:** approvato (pulsante Telegram 20260928-2143-05, 29/09/2026 00:15; elaborato 29/09)
+
+---
 
 ---
 ## [07/10] — Centenario Elena Teodorini 1926-2026   ·   tipo: cultura
@@ -157,6 +169,8 @@ Salva il post 📌 e seguici per non perdere gli eventi di San Marino.
 **Stato bozza:** approvato (pulsante Telegram 20260928-2143-06, 29/09/2026 00:15; elaborato 29/09)
 
 ---
+
+---
 ## [10/10] — 50ª Sagra d'Autunno di Casole   ·   tipo: sociale
 
 **📷 Testo per la grafica**
@@ -187,6 +201,8 @@ Salva il post 📌 e seguici per non perdere gli eventi di San Marino.
 **Stato bozza:** approvato (pulsante Telegram 20260928-2143-07, 29/09/2026 00:15; elaborato 29/09)
 
 ---
+
+---
 ## [11/10] — Rassegna Musicale d'Autunno — Concerto "Antichi Riti"   ·   tipo: musica
 
 **📷 Testo per la grafica**
@@ -215,6 +231,8 @@ Salva il post 📌 e seguici per non perdere gli eventi di San Marino.
 
 **🔗 Fonte:** https://www.visitsanmarino.com/pub1/VisitSM/it/eventi.html
 **Stato bozza:** approvato (pulsante Telegram 20260928-2143-08, 29/09/2026 00:15; elaborato 29/09)
+
+---
 
 ---
 ## [18/10] — SMOE Run 10K e 5K   ·   tipo: sport
@@ -248,6 +266,8 @@ Salva il post 📌 e seguici per non perdere gli eventi di San Marino.
 **Stato bozza:** approvato (pulsante Telegram 20260928-2143-09, 29/09/2026 00:15; elaborato 29/09)
 
 ---
+
+---
 ## [18/10] — La Locandiera (Teatro Titano)   ·   tipo: cultura
 
 **Nota:** il 18/10 il feed è occupato da SMOE Run (post singolo scelto tra i due nuovi eventi del giorno, sport nazionale FIDAL); La Locandiera è citata in cross-mention nella caption di SMOE Run e resta comunque in storia.
@@ -261,6 +281,8 @@ Salva il post 📌 e seguici per non perdere gli eventi di San Marino.
 
 **🔗 Fonte:** https://www.sanmarinortv.sm/eventi/teatro/la-locandiera-al-teatro-titano-e5166
 **Stato bozza:** approvato (pulsante Telegram 20260928-2143-10, 29/09/2026 00:15; elaborato 29/09)
+
+---
 
 ---
 ## [20/11] — Katia Follesa — "No vabbè Mi adoro"   ·   tipo: cultura
@@ -290,6 +312,8 @@ Salva il post 📌 e seguici per non perdere gli eventi di San Marino.
 
 **🔗 Fonte:** https://www.sanmarinortv.sm/eventi/teatro/katia-follesa-no-vabbe-mi-adoro-teatro-nuovo-e5085
 **Stato bozza:** approvato (pulsante Telegram 20260928-2143-11, 29/09/2026 00:15; elaborato 29/09)
+
+---
 
 ---
 ## [22/11] — Mario Calabresi — "Anni 70 — Terrore e diritti"   ·   tipo: cultura

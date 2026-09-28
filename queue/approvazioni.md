@@ -105,18 +105,18 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [x] 2026-09-27T18:13:18.941Z — approvato — 20260927-1706-24 — Michele Morri @RebeldeRN — 🆕 A doppio filo — Marina Massironi
 - [x] 2026-09-27T18:13:24.363Z — approvato — 20260927-1706-25 — Michele Morri @RebeldeRN — 🆕 Federico Mecozzi — Traiettorie impercettibili
 - [x] 2026-09-27T18:13:25.534Z — approvato — 20260927-1706-26 — Michele Morri @RebeldeRN — 🆕 Federico Mecozzi — Traiettorie impercettibili
-- [ ] 2026-09-28T22:14:47.643Z — approvato — 20260928-2143-01 — Michele Morri @RebeldeRN — 🆕 Rio Abierto — Open Day (SOLO STORIA, è domani: se lo vuoi va aggiunto a mano stasera)
-- [ ] 2026-09-28T22:14:55.345Z — approvato — 20260928-2143-02 — Michele Morri @RebeldeRN — 🆕 Rio Abierto — Open Day (SOLO STORIA, è domani: se lo vuoi va aggiunto a mano stasera)
-- [ ] 2026-09-28T22:14:59.333Z — approvato — 20260928-2143-03 — Michele Morri @RebeldeRN — 🆕 Rio Abierto — Open Day (SOLO STORIA, è domani: se lo vuoi va aggiunto a mano stasera)
-- [ ] 2026-09-28T22:15:04.230Z — approvato — 20260928-2143-04 — Michele Morri @RebeldeRN — 🆕 AzzuChef — Dalla Terra alla Tavola
-- [ ] 2026-09-28T22:15:18.084Z — approvato — 20260928-2143-05 — Michele Morri @RebeldeRN — 🆕 AzzuChef — Dalla Terra alla Tavola
-- [ ] 2026-09-28T22:15:19.688Z — approvato — 20260928-2143-06 — Michele Morri @RebeldeRN — 🆕 AzzuChef — Dalla Terra alla Tavola
-- [ ] 2026-09-28T22:15:29.847Z — approvato — 20260928-2143-07 — Michele Morri @RebeldeRN — 🆕 50ª Sagra d Autunno di Casole
-- [ ] 2026-09-28T22:15:31.242Z — approvato — 20260928-2143-08 — Michele Morri @RebeldeRN — 🆕 50ª Sagra d Autunno di Casole
-- [ ] 2026-09-28T22:15:32.783Z — approvato — 20260928-2143-09 — Michele Morri @RebeldeRN — 🆕 50ª Sagra d Autunno di Casole
-- [ ] 2026-09-28T22:15:37.400Z — approvato — 20260928-2143-10 — Michele Morri @RebeldeRN — 🆕 La Locandiera (SOLO STORIA)
-- [ ] 2026-09-28T22:15:38.780Z — approvato — 20260928-2143-11 — Michele Morri @RebeldeRN — 🆕 La Locandiera (SOLO STORIA)
-- [ ] 2026-09-28T22:15:40.218Z — approvato — 20260928-2143-12 — Michele Morri @RebeldeRN — 🆕 La Locandiera (SOLO STORIA)
-- [ ] 2026-09-28T22:15:43.037Z — approvato — 20260928-2143-D1 — Michele Morri @RebeldeRN — ⚠️ CEV U20 Volleyball — 1° turno femminile
-- [ ] 2026-09-28T22:15:44.771Z — approvato — 20260928-2143-D2 — Michele Morri @RebeldeRN — ⚠️ CEV U20 Volleyball — 1° turno femminile
-- [ ] 2026-09-28T22:15:46.148Z — approvato — 20260928-2143-D3 — Michele Morri @RebeldeRN — ⚠️ CEV U20 Volleyball — 1° turno femminile
+- [x] 2026-09-28T22:14:47.643Z — approvato — 20260928-2143-01 — Michele Morri @RebeldeRN — 🆕 Rio Abierto — Open Day (SOLO STORIA, è domani: se lo vuoi va aggiunto a mano stasera)
+- [x] 2026-09-28T22:14:55.345Z — approvato — 20260928-2143-02 — Michele Morri @RebeldeRN — 🆕 Rio Abierto — Open Day (SOLO STORIA, è domani: se lo vuoi va aggiunto a mano stasera)
+- [x] 2026-09-28T22:14:59.333Z — approvato — 20260928-2143-03 — Michele Morri @RebeldeRN — 🆕 Rio Abierto — Open Day (SOLO STORIA, è domani: se lo vuoi va aggiunto a mano stasera)
+- [x] 2026-09-28T22:15:04.230Z — approvato — 20260928-2143-04 — Michele Morri @RebeldeRN — 🆕 AzzuChef — Dalla Terra alla Tavola
+- [x] 2026-09-28T22:15:18.084Z — approvato — 20260928-2143-05 — Michele Morri @RebeldeRN — 🆕 AzzuChef — Dalla Terra alla Tavola
+- [x] 2026-09-28T22:15:19.688Z — approvato — 20260928-2143-06 — Michele Morri @RebeldeRN — 🆕 AzzuChef — Dalla Terra alla Tavola
+- [x] 2026-09-28T22:15:29.847Z — approvato — 20260928-2143-07 — Michele Morri @RebeldeRN — 🆕 50ª Sagra d Autunno di Casole
+- [x] 2026-09-28T22:15:31.242Z — approvato — 20260928-2143-08 — Michele Morri @RebeldeRN — 🆕 50ª Sagra d Autunno di Casole
+- [x] 2026-09-28T22:15:32.783Z — approvato — 20260928-2143-09 — Michele Morri @RebeldeRN — 🆕 50ª Sagra d Autunno di Casole
+- [x] 2026-09-28T22:15:37.400Z — approvato — 20260928-2143-10 — Michele Morri @RebeldeRN — 🆕 La Locandiera (SOLO STORIA)
+- [x] 2026-09-28T22:15:38.780Z — approvato — 20260928-2143-11 — Michele Morri @RebeldeRN — 🆕 La Locandiera (SOLO STORIA)
+- [x] 2026-09-28T22:15:40.218Z — approvato — 20260928-2143-12 — Michele Morri @RebeldeRN — 🆕 La Locandiera (SOLO STORIA)
+- [x] 2026-09-28T22:15:43.037Z — approvato — 20260928-2143-D1 — Michele Morri @RebeldeRN — ⚠️ CEV U20 Volleyball — 1° turno femminile
+- [x] 2026-09-28T22:15:44.771Z — approvato — 20260928-2143-D2 — Michele Morri @RebeldeRN — ⚠️ CEV U20 Volleyball — 1° turno femminile
+- [x] 2026-09-28T22:15:46.148Z — approvato — 20260928-2143-D3 — Michele Morri @RebeldeRN — ⚠️ CEV U20 Volleyball — 1° turno femminile
