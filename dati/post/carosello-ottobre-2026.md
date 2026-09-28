@@ -1,5 +1,8 @@
 # Carosello mensile — OTTOBRE 2026 — dossier per la grafica
 
+> 🔁 **RIFATTO il 29/09/2026 notte** dopo le approvazioni di Michele (giro 20260928-2143) + The Elephant Man approvato in chat: **25 eventi, 7 slide** (copertina · 1–4 · 6–8 · 8–11 · 12–18 · 19–25 · 26–31). Le slide 1–4, 6–8, 8–11 e 12–18 vengono dalla copia Canva `DAHWhtBkcDw`; copertina, 19–25 e 26–31 restano quelle del 28/09 (`DAHWhX3o3n8`). La caption valida è quella nella busta `posts/20260930_Carosello.json`; le tabelle sotto sono la versione del 28/09 (16 eventi), superata.
+
+
 **Motivo:** guardia `scripts/controllo-imminenti.py` (Step 2-bis della catena, 28/09/2026
 sera, giro partito alle 22:53) — nessun anello aveva ancora prodotto il carosello di ottobre.
 **Slot di pubblicazione:** **mercoledì 30/09 ore 18:00** (regolare — il carosello esce
