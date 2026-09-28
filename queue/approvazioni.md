@@ -113,3 +113,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-09-28T22:15:19.688Z — approvato — 20260928-2143-06 — Michele Morri @RebeldeRN — 🆕 AzzuChef — Dalla Terra alla Tavola
 - [ ] 2026-09-28T22:15:29.847Z — approvato — 20260928-2143-07 — Michele Morri @RebeldeRN — 🆕 50ª Sagra d Autunno di Casole
 - [ ] 2026-09-28T22:15:31.242Z — approvato — 20260928-2143-08 — Michele Morri @RebeldeRN — 🆕 50ª Sagra d Autunno di Casole
+- [ ] 2026-09-28T22:15:32.783Z — approvato — 20260928-2143-09 — Michele Morri @RebeldeRN — 🆕 50ª Sagra d Autunno di Casole
