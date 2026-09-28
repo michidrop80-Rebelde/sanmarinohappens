@@ -117,3 +117,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-09-28T22:15:37.400Z — approvato — 20260928-2143-10 — Michele Morri @RebeldeRN — 🆕 La Locandiera (SOLO STORIA)
 - [ ] 2026-09-28T22:15:38.780Z — approvato — 20260928-2143-11 — Michele Morri @RebeldeRN — 🆕 La Locandiera (SOLO STORIA)
 - [ ] 2026-09-28T22:15:40.218Z — approvato — 20260928-2143-12 — Michele Morri @RebeldeRN — 🆕 La Locandiera (SOLO STORIA)
+- [ ] 2026-09-28T22:15:43.037Z — approvato — 20260928-2143-D1 — Michele Morri @RebeldeRN — ⚠️ CEV U20 Volleyball — 1° turno femminile
