@@ -46,7 +46,7 @@
       "totale_pagine": 20,
       "ultima_pagina_usata": 0,
       "copertine_totali": 10,
-      "ultima_copertina_usata": 3,
+      "ultima_copertina_usata": 4,
       "copia_luglio_v2": "DAHPEeibRG0 (compilato+esportato 11/07/2026, copertina 1 = Luglio) — CORRETTO 11/07 sera: slide Settimana 3, 'Armonie! Pianoforte' → 'Armonie! Musica sacra del ’600' (rimassimizzato); il PNG Carosello-Luglio-2026_4-sett3.png sul Mac è VECCHIO finché non si riesporta",
       "struttura": "CONFERMATO 06/07/2026 leggendo il template. 20 pagine ALTERNATE: DISPARI (1,3,...,19) = COPERTINE (10 sfumature diverse), PARI (2,4,...,20) = PAGINE INTERNE (10 sfumature diverse). Standard 1+2, UN mese per carosello. COPERTINA: logo SMH + 'Tutti gli eventi del mese di <MESE> sul territorio della Repubblica di San Marino' -> l'unica parte variabile e' il NOME DEL MESE (font a larghezza adattabile per farci stare mesi lunghi). Se ne usa UNA per mese in SEQUENZA di rotazione tra le 10 copertine (ultima_copertina_usata -> pagina dispari 2*n-1; poi riparte). PAGINA INTERNA: 8 RIGHE evento, ogni riga = 'data + luogo' (riga piccola in alto) + TITOLO grande sotto + linea divisoria. Sul grafico solo data+luogo+titolo, niente ora/prezzi. Si usa una interna per SETTIMANA, a colorazione RANDOM tra le 10 pari. Settimana <8 eventi: cancella righe vuote + compatta-centra. FRECCIA 'scorri' presente su OGNI pagina: sull'ULTIMA slide del carosello va CANCELLATA (delete_element). NIENTE slide CTA dedicata (il messaggio di chiusura sta in caption). Lavorare SEMPRE su una COPIA (copy-design con page_numbers per tenere solo 1 copertina + N interne). Reference compilata: dati/post/aggregati-luglio-agosto-2026.md (carosello Luglio). Export in cartella 'mensile'. Vedi SKILL sez. Carosello + memoria project_carosello_mensile.",
       "copia_agosto": "DAHQkUMxaD4 (compilato+esportato 27/07/2026, copertina 2 = Agosto, 5 slide settimanali, 29 eventi). Copia usa-e-getta da cestinare a mano. Trappole di questo design trovate il 27/07: la casella DATA regge ~10 caratteri ('01 - 02/08' ok, 'Fino al 02/08' va a capo e sbatte sul titolo); il TITOLO regge ~18 caratteri a font 46,27 (per 20 caratteri servono 40, per 22 servono 36) e la larghezza dipende dai glifi ('Cocktails Ronzanti' 18 sta, 'Stefano Malferrari' 18 no); su ogni pagina interna c'e' una SHAPE spuria fuori griglia (top ~1057) da cancellare; su questo design position_element(top,left) si comporta normalmente, NON vanno scambiati i valori."
@@ -1757,6 +1757,14 @@
         "20260929_Storia_1.png"
       ],
       "evento": "Storia 29/09 doppia: SM vs Albania 20:45 + Tony - Diario di un giovane cuoco 21:00 (Cinema Concordia, approvato 27/09 master 115). Casella data 655->736, descrizioni avvicinate ai titoli, CTA di chiusura. Validazione al contrario ok."
+    },
+    {
+      "data_giro": "2026-09-28",
+      "tipo": "carosello",
+      "pagina": "copertina 4 (pag.7 master) + interne 10/12/14/16/18",
+      "copia_design_id": "DAHWhX3o3n8",
+      "file": "20260930_Carosello_1..6.png",
+      "evento": "Carosello mensile OTTOBRE 2026 — 6 slide (cover + 5 settimane, 16 eventi), Step 2-bis catena 28/09. Dossier dati/post/carosello-ottobre-2026.md. OTTOBRE a font 123 (137 andava a capo). Titoli massimizzati uno a uno (Folk Irlandese e Diapasonband 35, Ubermensch 38, Love Generation 90 a 30). Righe vuote cancellate e blocchi centrati. Freccia scorri cancellata sull'ultima. Escluso The Elephant Man 08/10 (mai approvato) e CEV U20 (da-approvare). Validazione al contrario ok su tutte le 6 slide."
     }
   ],
   "_nota_26-07-2026": "Settimanale 27/07-02/08 rifatto da zero: la bozza in dati/post/aggregati-luglio-agosto-2026.md era del 30/06 e aveva solo 3 dei 10 eventi (non conosceva il recupero del 25/07). Fonte usata: le buste gia' in coda in posts/, che avevano gia' passato /smh-check. Titolo tennis accorciato da 'San Marino Open - tennis ATP' (andava a capo e sbatteva sulla riga sotto) a 'San Marino Open - tennis': su questo design il titolo sta su una riga fino a ~25 caratteri. COPIA usa-e-getta da cestinare a mano: DAHQbtk6OaI.",
