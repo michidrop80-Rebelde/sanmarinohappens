@@ -58,7 +58,7 @@
         "design_id": "DAHSASb8IAU",
         "nome_canva": "SMH - Storie Singolo Master",
         "totale_pagine": 14,
-        "ultima_pagina_usata": 2,
+        "ultima_pagina_usata": 4,
         "_verificato": "11/08/2026 — lette tutte e 14 le pagine: un solo blocco evento su ognuna."
       },
       "doppio": {
@@ -1888,9 +1888,9 @@
       "copia_design_id": "DAHW7k1xSu0",
       "file": [
         "20261004_Storia_1.png",
-        "20261004_Storia_2.png"
+        "20261004_Storia_3.png"
       ],
-      "evento": "Storie 04/10: 1) Sulle orme di Roma dalle 9:30 Campo Bruno Reffi (titolo font 95 su 2 righe, luogo spostato a left 320, CTA 'Scorri' messo al posto del 'Seguici' ereditato), tag @sanmarino_turismo; 2) Oceania 17:30 Cinema Concordia, ultimo giorno (titolo 128, descrizione a top 1050, CTA di chiusura), tag @istituticulturali. Validazione al contrario ok."
+      "evento": "Storie 04/10: 1) Sulle orme di Roma dalle 9:30 Campo Bruno Reffi (titolo font 95 su 2 righe, luogo spostato a left 320, CTA 'Scorri' messo al posto del 'Seguici' ereditato), tag @sanmarino_turismo; 2) Oceania 17:30 Cinema Concordia, ultimo giorno (titolo 128, descrizione a top 1050, CTA di chiusura), tag @istituticulturali. Validazione al contrario ok. AGGIORNATO 03/10: Oceania diventa la storia 3 (CTA cambiato in 'Scorri', riesportata)."
     },
     {
       "data_giro": "2026-10-03",
@@ -1899,6 +1899,21 @@
       "pagina": "4-1",
       "file": "20261004_Settimanale_1.png / 20261004_Settimanale_2.png",
       "evento": "Settimanale 05-11/10 (esce dom 04/10 18:00), 9 eventi su 2 slide (5+4). pag1 righe 1-5 + ricentrato +189px; pag2 righe 3-6. Teodorini font 37; AzzuChef ridotto al titolo evento; '50ª' tolto dal grafico. Dossier dati/post/settimanale-2026-10-05-11.md. Validazione al contrario ok."
+    },
+    {
+      "data_giro": "2026-10-03",
+      "tipo": "storia",
+      "mazzo": "singolo",
+      "pagine": [
+        3,
+        4
+      ],
+      "copia_design_id": "DAHW7iAx0vs",
+      "file": [
+        "20261004_Storia_2.png",
+        "20261004_Storia_4.png"
+      ],
+      "evento": "Storie aggiuntive 04/10 (dopo che Michele ha indicato la ricerca web per i dati mancanti): 2) Festa di San Francesco 17:00 Chiesa di San Francesco (pag. a sfondo blu scuro: descrizione, luogo, ora e CTA ricolorati in bianco sulla copia per leggibilita'); 4) Finale volley U20 femminile 19:30 Pala Casadei, finaliste non note al momento (decise la sera del 03/10) quindi nessun 'vs' inventato, CTA di chiusura. Nessun tag: organizzatori non nel registro. Validazione al contrario ok."
     }
   ],
   "_nota_26-07-2026": "Settimanale 27/07-02/08 rifatto da zero: la bozza in dati/post/aggregati-luglio-agosto-2026.md era del 30/06 e aveva solo 3 dei 10 eventi (non conosceva il recupero del 25/07). Fonte usata: le buste gia' in coda in posts/, che avevano gia' passato /smh-check. Titolo tennis accorciato da 'San Marino Open - tennis ATP' (andava a capo e sbatteva sulla riga sotto) a 'San Marino Open - tennis': su questo design il titolo sta su una riga fino a ~25 caratteri. COPIA usa-e-getta da cestinare a mano: DAHQbtk6OaI.",

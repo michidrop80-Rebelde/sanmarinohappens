@@ -2,10 +2,12 @@
   "tipo": "storia",
   "data_pubblicazione": "2026-10-04",
   "ora_pubblicazione": "07:00",
-  "titolo_evento": "Storie del 4 ottobre (Sulle orme di Roma · Oceania)",
+  "titolo_evento": "Storie del 4 ottobre (Sulle orme di Roma · Festa di San Francesco · Oceania · Finale volley U20)",
   "immagini": [
     "20261004_Storia_1.png",
-    "20261004_Storia_2.png"
+    "20261004_Storia_2.png",
+    "20261004_Storia_3.png",
+    "20261004_Storia_4.png"
   ],
   "user_tags": {
     "20261004_Storia_1.png": [
@@ -15,7 +17,7 @@
         "y": 0.78
       }
     ],
-    "20261004_Storia_2.png": [
+    "20261004_Storia_3.png": [
       {
         "username": "istituticulturali",
         "x": 0.5,
