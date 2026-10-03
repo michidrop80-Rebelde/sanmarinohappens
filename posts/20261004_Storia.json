@@ -1,0 +1,26 @@
+{
+  "tipo": "storia",
+  "data_pubblicazione": "2026-10-04",
+  "ora_pubblicazione": "07:00",
+  "titolo_evento": "Storie del 4 ottobre (Sulle orme di Roma · Oceania)",
+  "immagini": [
+    "20261004_Storia_1.png",
+    "20261004_Storia_2.png"
+  ],
+  "user_tags": {
+    "20261004_Storia_1.png": [
+      {
+        "username": "sanmarino_turismo",
+        "x": 0.5,
+        "y": 0.78
+      }
+    ],
+    "20261004_Storia_2.png": [
+      {
+        "username": "istituticulturali",
+        "x": 0.5,
+        "y": 0.78
+      }
+    ]
+  }
+}
