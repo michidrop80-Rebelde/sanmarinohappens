@@ -1011,6 +1011,81 @@
       "stato": "da-cercare",
       "verificato_il": "2026-10-03",
       "prova": "Nuovo in verifica 03/10/2026: organizzano la Festa solenne di San Francesco (visitsanmarino). Handle non cercato: non si inventa."
+    },
+    {
+      "nome": "San Marino Welcome / Podere Lesignano",
+      "categoria": "organizzatore",
+      "alias": [
+        "San Marino Welcome",
+        "Podere Lesignano",
+        "Titanico Jazz Festival"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-10-05",
+      "prova": "Nuovo in verifica 05/10/2026: organizzano il Titanico Jazz Festival (2ª ed., direzione Emanuele Rastelli). Handle non cercato: non si inventa."
+    },
+    {
+      "nome": "Vitesse Oblige Drivers&Riders Club",
+      "categoria": "organizzatore",
+      "alias": [
+        "Vitesse Oblige Drivers&Riders Club"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-10-05",
+      "prova": "Nuovo in verifica 05/10/2026: organizza il Tour Petite Vitesse (14/10). Handle non cercato: non si inventa."
+    },
+    {
+      "nome": "Associazione Santa Mustiola",
+      "categoria": "organizzatore",
+      "alias": [
+        "Associazione Santa Mustiola"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-10-05",
+      "prova": "Nuovo in verifica 05/10/2026: organizza la Festa della Castagna a Santa Mustiola (24-25/10). Handle non cercato: non si inventa."
+    },
+    {
+      "nome": "Pallacanestro Titano",
+      "categoria": "organizzatore",
+      "alias": [
+        "Pallacanestro Titano"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-10-05",
+      "prova": "Nuovo in verifica 05/10/2026: squadra di Serie C, partite casalinghe al Multieventi Sport Domus. Handle non cercato: non si inventa."
+    },
+    {
+      "nome": "Auditorium Little Tony (Teatro Vivo)",
+      "categoria": "luogo",
+      "alias": [
+        "Auditorium Little Tony",
+        "Teatro Vivo 26/27"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-10-05",
+      "prova": "Nuovo in verifica 05/10/2026: stagione Teatro Vivo 26/27 a Serravalle. Handle non cercato: non si inventa."
+    },
+    {
+      "nome": "Amicale Sammarinese des Alpes",
+      "categoria": "organizzatore",
+      "alias": [
+        "Amicale Sammarinese des Alpes"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-10-05",
+      "prova": "Nuovo in verifica 05/10/2026: promuove La Locandiera al Teatro Titano (18/10). Handle non cercato: non si inventa."
     }
   ]
 }
