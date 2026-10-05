@@ -126,3 +126,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-10-05T09:20:21.681Z — approvato — 20261005-0634-04 — Michele Morri @RebeldeRN — 🆕 La cultura della prevenzione e della riduzione del rischio
 - [ ] 2026-10-05T09:20:24.359Z — approvato — 20261005-0634-05 — Michele Morri @RebeldeRN — 🆕 La cultura della prevenzione e della riduzione del rischio
 - [ ] 2026-10-05T09:20:26.274Z — approvato — 20261005-0634-06 — Michele Morri @RebeldeRN — 🆕 La cultura della prevenzione e della riduzione del rischio
+- [ ] 2026-10-05T09:20:35.417Z — approvato — 20261005-0634-07 — Michele Morri @RebeldeRN — 🆕 Festa della Castagna — Santa Mustiola
