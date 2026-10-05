@@ -120,20 +120,20 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [x] 2026-09-28T22:15:43.037Z — approvato — 20260928-2143-D1 — Michele Morri @RebeldeRN — ⚠️ CEV U20 Volleyball — 1° turno femminile
 - [x] 2026-09-28T22:15:44.771Z — approvato — 20260928-2143-D2 — Michele Morri @RebeldeRN — ⚠️ CEV U20 Volleyball — 1° turno femminile
 - [x] 2026-09-28T22:15:46.148Z — approvato — 20260928-2143-D3 — Michele Morri @RebeldeRN — ⚠️ CEV U20 Volleyball — 1° turno femminile
-- [ ] 2026-10-05T09:20:10.633Z — approvato — 20261005-0634-01 — Michele Morri @RebeldeRN — 🆕 Naza (documentario)
-- [ ] 2026-10-05T09:20:12.488Z — approvato — 20261005-0634-02 — Michele Morri @RebeldeRN — 🆕 Naza (documentario)
-- [ ] 2026-10-05T09:20:15.534Z — approvato — 20261005-0634-03 — Michele Morri @RebeldeRN — 🆕 Naza (documentario)
-- [ ] 2026-10-05T09:20:21.681Z — approvato — 20261005-0634-04 — Michele Morri @RebeldeRN — 🆕 La cultura della prevenzione e della riduzione del rischio
-- [ ] 2026-10-05T09:20:24.359Z — approvato — 20261005-0634-05 — Michele Morri @RebeldeRN — 🆕 La cultura della prevenzione e della riduzione del rischio
-- [ ] 2026-10-05T09:20:26.274Z — approvato — 20261005-0634-06 — Michele Morri @RebeldeRN — 🆕 La cultura della prevenzione e della riduzione del rischio
-- [ ] 2026-10-05T09:20:35.417Z — approvato — 20261005-0634-07 — Michele Morri @RebeldeRN — 🆕 Festa della Castagna — Santa Mustiola
-- [ ] 2026-10-05T09:20:36.899Z — approvato — 20261005-0634-08 — Michele Morri @RebeldeRN — 🆕 Festa della Castagna — Santa Mustiola
-- [ ] 2026-10-05T09:20:38.546Z — approvato — 20261005-0634-09 — Michele Morri @RebeldeRN — 🆕 Festa della Castagna — Santa Mustiola
-- [ ] 2026-10-05T09:20:49.046Z — approvato — 20261005-0634-10 — Michele Morri @RebeldeRN — 🆕 Titanico Jazz — Emanuele Rastelli
-- [ ] 2026-10-05T09:20:50.408Z — approvato — 20261005-0634-11 — Michele Morri @RebeldeRN — 🆕 Titanico Jazz — Emanuele Rastelli
-- [ ] 2026-10-05T09:20:52.680Z — approvato — 20261005-0634-12 — Michele Morri @RebeldeRN — 🆕 Titanico Jazz — Emanuele Rastelli
-- [ ] 2026-10-05T09:31:23.341Z — approvato — 20261005-0634-13 — Michele Morri @RebeldeRN — 🆕 Mostra Sea of Sound (Mark Francis)
-- [ ] 2026-10-05T09:31:25.075Z — approvato — 20261005-0634-D1 — Michele Morri @RebeldeRN — 🆕 Mostra Sea of Sound (Mark Francis)
-- [ ] 2026-10-05T09:31:26.672Z — approvato — 20261005-0634-D2 — Michele Morri @RebeldeRN — 🆕 Mostra Sea of Sound (Mark Francis)
-- [ ] 2026-10-05T09:31:30.770Z — approvato — 20261005-0634-D3 — Michele Morri @RebeldeRN — ⚠️ Primo Soccorso Pediatrico
-- [ ] 2026-10-05T09:31:32.302Z — approvato — 20261005-0634-D4 — Michele Morri @RebeldeRN — ⚠️ Primo Soccorso Pediatrico
+- [x] 2026-10-05T09:20:10.633Z — approvato — 20261005-0634-01 — Michele Morri @RebeldeRN — 🆕 Naza (documentario)
+- [x] 2026-10-05T09:20:12.488Z — approvato — 20261005-0634-02 — Michele Morri @RebeldeRN — 🆕 Naza (documentario)
+- [x] 2026-10-05T09:20:15.534Z — approvato — 20261005-0634-03 — Michele Morri @RebeldeRN — 🆕 Naza (documentario)
+- [x] 2026-10-05T09:20:21.681Z — approvato — 20261005-0634-04 — Michele Morri @RebeldeRN — 🆕 La cultura della prevenzione e della riduzione del rischio
+- [x] 2026-10-05T09:20:24.359Z — approvato — 20261005-0634-05 — Michele Morri @RebeldeRN — 🆕 La cultura della prevenzione e della riduzione del rischio
+- [x] 2026-10-05T09:20:26.274Z — approvato — 20261005-0634-06 — Michele Morri @RebeldeRN — 🆕 La cultura della prevenzione e della riduzione del rischio
+- [x] 2026-10-05T09:20:35.417Z — approvato — 20261005-0634-07 — Michele Morri @RebeldeRN — 🆕 Festa della Castagna — Santa Mustiola
+- [x] 2026-10-05T09:20:36.899Z — approvato — 20261005-0634-08 — Michele Morri @RebeldeRN — 🆕 Festa della Castagna — Santa Mustiola
+- [x] 2026-10-05T09:20:38.546Z — approvato — 20261005-0634-09 — Michele Morri @RebeldeRN — 🆕 Festa della Castagna — Santa Mustiola
+- [x] 2026-10-05T09:20:49.046Z — approvato — 20261005-0634-10 — Michele Morri @RebeldeRN — 🆕 Titanico Jazz — Emanuele Rastelli
+- [x] 2026-10-05T09:20:50.408Z — approvato — 20261005-0634-11 — Michele Morri @RebeldeRN — 🆕 Titanico Jazz — Emanuele Rastelli
+- [x] 2026-10-05T09:20:52.680Z — approvato — 20261005-0634-12 — Michele Morri @RebeldeRN — 🆕 Titanico Jazz — Emanuele Rastelli
+- [x] 2026-10-05T09:31:23.341Z — approvato — 20261005-0634-13 — Michele Morri @RebeldeRN — 🆕 Mostra Sea of Sound (Mark Francis)
+- [x] 2026-10-05T09:31:25.075Z — approvato — 20261005-0634-D1 — Michele Morri @RebeldeRN — 🆕 Mostra Sea of Sound (Mark Francis)
+- [x] 2026-10-05T09:31:26.672Z — approvato — 20261005-0634-D2 — Michele Morri @RebeldeRN — 🆕 Mostra Sea of Sound (Mark Francis)
+- [x] 2026-10-05T09:31:30.770Z — approvato — 20261005-0634-D3 — Michele Morri @RebeldeRN — ⚠️ Primo Soccorso Pediatrico
+- [x] 2026-10-05T09:31:32.302Z — approvato — 20261005-0634-D4 — Michele Morri @RebeldeRN — ⚠️ Primo Soccorso Pediatrico
