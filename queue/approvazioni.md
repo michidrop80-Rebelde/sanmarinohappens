@@ -121,3 +121,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [x] 2026-09-28T22:15:44.771Z — approvato — 20260928-2143-D2 — Michele Morri @RebeldeRN — ⚠️ CEV U20 Volleyball — 1° turno femminile
 - [x] 2026-09-28T22:15:46.148Z — approvato — 20260928-2143-D3 — Michele Morri @RebeldeRN — ⚠️ CEV U20 Volleyball — 1° turno femminile
 - [ ] 2026-10-05T09:20:10.633Z — approvato — 20261005-0634-01 — Michele Morri @RebeldeRN — 🆕 Naza (documentario)
+- [ ] 2026-10-05T09:20:12.488Z — approvato — 20261005-0634-02 — Michele Morri @RebeldeRN — 🆕 Naza (documentario)
