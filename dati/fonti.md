@@ -107,3 +107,6 @@ Elenco ufficiale di tutte le giunte: https://www.interni.sm/pub2/InterniSM/Giunt
 - [ ] Pagine social delle singole federazioni sportive più attive
 - [ ] Associazioni culturali singole (dalla Consulta)
 - [ ] Locali/eventi serali, cinema
+- [ricerca 05/10/2026] **Titanico Jazz Festival** — https://www.titanicojazz.com — festival jazz (2ª ed., ottobre-novembre 2026, org. San Marino Welcome), fonte diretta per biglietti.
+- [ricerca 05/10/2026] **Rallylegend** — https://www.rallylegend.com/ — sito ufficiale del rally storico (8-11/10/2026, Serravalle).
+- [ricerca 05/10/2026] **Track & Field San Marino (SMOE Run)** — https://www.tfsanmarino.com — iscrizioni e info SMOE Run 18/10/2026.

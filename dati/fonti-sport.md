@@ -134,3 +134,4 @@ Le 35 federazioni CONS hanno spesso club che giocano in campionati italiani. Da 
 - [ricerca 27/06/2026] Possibili aggregatori extra: eventbrite.com/d/san-marino · sagritaly.com (sagre)
 - [ricerca 06/07/2026] **Coppe europee stagione 2026-27**: confermati avversari e date preliminari Champions/Conference League per Tre Fiori, La Fiorita, Virtus (luglio 2026). Tutte le partite di ritorno in casa al San Marino Stadium.
 - [ricerca 06/07/2026] **Internazionali Tennis San Marino Open** — ATP Challenger 125 (upgrade di categoria 2026), 27/07-02/08, Montecchio. Sito ufficiale: sanmarinotennisopen.com
+- [ricerca 05/10/2026] **Pallacanestro Titano** — https://www.pallacanestrotitano.com/2026/09/17/il-nostro-calendario/ — ora raggiungibile (prima SSL scaduto), calendario Serie C 2026-27 con casa/trasferta (date, orari non indicati).
