@@ -135,3 +135,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-10-05T09:31:23.341Z — approvato — 20261005-0634-13 — Michele Morri @RebeldeRN — 🆕 Mostra Sea of Sound (Mark Francis)
 - [ ] 2026-10-05T09:31:25.075Z — approvato — 20261005-0634-D1 — Michele Morri @RebeldeRN — 🆕 Mostra Sea of Sound (Mark Francis)
 - [ ] 2026-10-05T09:31:26.672Z — approvato — 20261005-0634-D2 — Michele Morri @RebeldeRN — 🆕 Mostra Sea of Sound (Mark Francis)
+- [ ] 2026-10-05T09:31:30.770Z — approvato — 20261005-0634-D3 — Michele Morri @RebeldeRN — ⚠️ Primo Soccorso Pediatrico
