@@ -123,3 +123,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-10-05T09:20:10.633Z — approvato — 20261005-0634-01 — Michele Morri @RebeldeRN — 🆕 Naza (documentario)
 - [ ] 2026-10-05T09:20:12.488Z — approvato — 20261005-0634-02 — Michele Morri @RebeldeRN — 🆕 Naza (documentario)
 - [ ] 2026-10-05T09:20:15.534Z — approvato — 20261005-0634-03 — Michele Morri @RebeldeRN — 🆕 Naza (documentario)
+- [ ] 2026-10-05T09:20:21.681Z — approvato — 20261005-0634-04 — Michele Morri @RebeldeRN — 🆕 La cultura della prevenzione e della riduzione del rischio
