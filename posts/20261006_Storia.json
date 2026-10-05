@@ -1,0 +1,19 @@
+{
+  "tipo": "storia",
+  "data_pubblicazione": "2026-10-06",
+  "ora_pubblicazione": "07:00",
+  "titolo_evento": "Storie del 6 ottobre (AzzuChef · Naza)",
+  "immagini": [
+    "20261006_Storia_1.png",
+    "20261006_Storia_2.png"
+  ],
+  "user_tags": {
+    "20261006_Storia_2.png": [
+      {
+        "username": "istituticulturali",
+        "x": 0.5,
+        "y": 0.78
+      }
+    ]
+  }
+}
