@@ -131,3 +131,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-10-05T09:20:38.546Z — approvato — 20261005-0634-09 — Michele Morri @RebeldeRN — 🆕 Festa della Castagna — Santa Mustiola
 - [ ] 2026-10-05T09:20:49.046Z — approvato — 20261005-0634-10 — Michele Morri @RebeldeRN — 🆕 Titanico Jazz — Emanuele Rastelli
 - [ ] 2026-10-05T09:20:50.408Z — approvato — 20261005-0634-11 — Michele Morri @RebeldeRN — 🆕 Titanico Jazz — Emanuele Rastelli
+- [ ] 2026-10-05T09:20:52.680Z — approvato — 20261005-0634-12 — Michele Morri @RebeldeRN — 🆕 Titanico Jazz — Emanuele Rastelli
