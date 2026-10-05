@@ -132,3 +132,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-10-05T09:20:49.046Z — approvato — 20261005-0634-10 — Michele Morri @RebeldeRN — 🆕 Titanico Jazz — Emanuele Rastelli
 - [ ] 2026-10-05T09:20:50.408Z — approvato — 20261005-0634-11 — Michele Morri @RebeldeRN — 🆕 Titanico Jazz — Emanuele Rastelli
 - [ ] 2026-10-05T09:20:52.680Z — approvato — 20261005-0634-12 — Michele Morri @RebeldeRN — 🆕 Titanico Jazz — Emanuele Rastelli
+- [ ] 2026-10-05T09:31:23.341Z — approvato — 20261005-0634-13 — Michele Morri @RebeldeRN — 🆕 Mostra Sea of Sound (Mark Francis)
