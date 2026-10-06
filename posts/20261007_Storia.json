@@ -1,0 +1,35 @@
+{
+  "tipo": "storia",
+  "data_pubblicazione": "2026-10-07",
+  "ora_pubblicazione": "07:00",
+  "titolo_evento": "Storie del 7 ottobre (Modena Cento Ore · Sal Da Vinci · Naza · Teodorini)",
+  "immagini": [
+    "20261007_Storia_1.png",
+    "20261007_Storia_2.png",
+    "20261007_Storia_3.png",
+    "20261007_Storia_4.png"
+  ],
+  "user_tags": {
+    "20261007_Storia_2.png": [
+      {
+        "username": "sanmarinoteatro",
+        "x": 0.5,
+        "y": 0.78
+      }
+    ],
+    "20261007_Storia_3.png": [
+      {
+        "username": "istituticulturali",
+        "x": 0.5,
+        "y": 0.78
+      }
+    ],
+    "20261007_Storia_4.png": [
+      {
+        "username": "sanmarinoteatro",
+        "x": 0.5,
+        "y": 0.78
+      }
+    ]
+  }
+}
