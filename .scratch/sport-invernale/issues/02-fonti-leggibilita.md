@@ -1,7 +1,7 @@
 # Fonti: le sei competizioni sono davvero leggibili?
 
 Type: research
-Status: in corso (Jhonny · sessione jhonny-sport-invernale-02 · 07/10 07:28)
+Status: resolved (07/10/2026)
 Modello: Sonnet · medium (dato da Jhonny il 07/10 07:28, regola di lavorare-leggeri)
 Blocked by: —
 
@@ -34,3 +34,15 @@ e per mesi il dato l'ha portato Michele a mano. Se una delle sei ha lo stesso pr
 saputo **adesso**, non a dicembre.
 
 L'esito va scritto come aggiornamento a `dati/fonti-sport.md`.
+
+## Risposta (07/10/2026)
+
+Tabella completa in `dati/fonti-sport.md`, sezione «Leggibilità delle fonti per il format sportivo invernale».
+
+- **Reggono**: campionato sammarinese e **futsal FSGC** (trovato: stessa piattaforma `fsgc.sm`, pagina partita con data, ora, stadio, giornata, stato). Casa/trasferta non serve (tutto in Repubblica). Sono il grosso del volume.
+- **Non reggono ancora**: **basket** (basketmarche.it non mostra il calendario del club dalla home; sito club con SSL scaduto), **volley** (`federvolleysm.org` ora porta a `fspav.sm`; nessun calendario del campionato trovato; «femminile Serie D» non confermato), **San Marino Calcio** (tuttocampo.it dà 403 ai bot). Per queste tre manca una fonte leggibile verificata: rischio «baseball bis», casa/trasferta potrebbe doverla portare Michele.
+- **Motori FAMS**: nessun evento da novembre 2026 a marzo 2027 (solo Rallylegend 8-11/10 e Halloween Ronde 30-31/10). Non è contenuto settimanale: fuori dal post del lunedì, al più eventi singoli.
+- **Non verificato** (detto onestamente): link a un elenco completo di stagione FSGC, come appare un rinvio, orari delle tre fonti non reggenti.
+- Correzioni: campionato = 14 squadre (non 16).
+
+Conseguenza per la spec: i ticket successivi possono contare su 2 fonti solide; per basket/volley/Serie D la spec deve prevedere un ripiego («non specificato» / dato di Michele) e un lavoro di ricerca in implementazione.

@@ -134,3 +134,26 @@ Le 35 federazioni CONS hanno spesso club che giocano in campionati italiani. Da 
 - [ricerca 27/06/2026] Possibili aggregatori extra: eventbrite.com/d/san-marino · sagritaly.com (sagre)
 - [ricerca 06/07/2026] **Coppe europee stagione 2026-27**: confermati avversari e date preliminari Champions/Conference League per Tre Fiori, La Fiorita, Virtus (luglio 2026). Tutte le partite di ritorno in casa al San Marino Stadium.
 - [ricerca 06/07/2026] **Internazionali Tennis San Marino Open** — ATP Challenger 125 (upgrade di categoria 2026), 27/07-02/08, Montecchio. Sito ufficiale: sanmarinotennisopen.com
+
+---
+
+## 🆕 Leggibilità delle fonti per il format sportivo invernale (ticket 02 · 07/10/2026)
+
+Verifica fatta con WebFetch/WebSearch il 07/10/2026. Dove non ho potuto confermare, c'è scritto «non verificato»: niente è stato dedotto.
+
+| # | Competizione | Fonte che regge | Calendario di stagione in un posto solo? | Orario + campo | Casa/trasferta | Rinvii/recuperi |
+|---|---|---|---|---|---|---|
+| 1 | Campionato sammarinese (+ Coppa Titano) | ✅ `fsgc.sm` (HTML leggibile; pagine partita `/it/game/<slug>/<id>`) | **Non verificato** il link a un calendario completo: la home mostra le partite della settimana (6–11/10, con data, ora, luogo); `/it/campionati/attivita-nazionale/1` è solo l'indice (Campionato · Coppa Titano · Supercoppa). Sorteggio calendario fatto il 19/08 (news FSGC 2283). 14 squadre (non 16 come scritto sopra) | ✅ ora e stadio sulla pagina partita (es. «20:15 · Stadio di Dogana»). Fasce tipiche giornata 1: gio/ven 21:15, sab/dom 15:00. ⚠️ ad agosto gli orari mancavano finché non venivano pubblicati | ✅ **non serve**: campionato interamente in Repubblica (Montecchio, Acquaviva, Fiorentino, Dogana…) | **Non verificato** come appare un rinvio: ricontrollo settimanale alla fonte, cercare stato sulla pagina partita |
+| 2 | Pallacanestro Titano (Serie C, girone emiliano-romagnolo, nuovo allenatore Amadori) | ⚠️ `basketmarche.it`: la home non mostra il calendario del club; serve la pagina del girone «Serie C Unica» (non raggiunta). Sito club con SSL scaduto (10/08) | **Non verificato** | **Non verificato** | **Non verificato** (si capisce dall'ordine squadre sulla pagina del girone, da provare) | Non verificato |
+| 3 | Titan Services (volley) | ⚠️ `federvolleysm.org` ora **reindirizza a `fspav.sm`** (HTML leggibile, no JS). Il link «calendario» trovato è il torneo *Small Countries 2024*, **non** il campionato del club | **No, non trovato** | Non trovato | Non trovato | Non trovato. Il dato «femminile, Serie D italiana» è **non confermato**: una notizia di fspav.sm cita Titan Services in «Serie D» ma non ho il calendario. Fonte più probabile: portale FIPAV Emilia-Romagna (`emiliaromagnasport.com`), da provare |
+| 4 | San Marino Calcio (Serie D girone F) | ⚠️ `tuttocampo.it` risponde **403** ai bot. Serie D 2026-27 parte il 06/09; calendario LND uscito ad agosto, ma non l'ho letto | Esiste (LND), ma non su una fonte leggibile verificata | Non verificato | Non verificato (ma per la squadra: casa = stadio di Serravalle, da confermare) | Non verificato |
+| 5 | Futsal FSGC | ✅ **trovata**: stessa piattaforma di `fsgc.sm` (pagine `/en/game/<slug>/<id>`, es. Murata Futsal–Tre Penne Futsal, giornata 14) | Calendario sorteggiato il 19/08/2026 (news FSGC 2295); partenza a metà settembre; **non verificato** il link all'elenco completo | ✅ data, ora e stadio sulla pagina partita (es. «12/02/2026 · 20:15 · Stadio di Dogana»), stato «Concluded», giornata («14° Day») | ✅ non serve: campionato interno, casa indicata per prima | Non verificato; la pagina ha un campo stato |
+| 6 | Motori FAMS | ✅ `fams.sm/calendario/` (leggibile) | ✅ sì, un elenco solo | Date sì; orari non nel calendario (si prendono dall'organizzatore) | Non rilevante | Non verificato |
+
+**Verdetto motori:** nel calendario FAMS non c'è **niente da novembre 2026 a marzo 2027**. Restano 24° Rallylegend (8–11/10, organizzatore Zeromille) e 6ª Halloween Ronde (30–31/10, Scuderia San Marino). D'inverno i motori **non sono un contenuto settimanale**: sono al più eventi singoli, da trattare come eventi normali, non come riga del post del lunedì.
+
+**Cosa tiene e cosa no (per i ticket successivi):**
+- **Reggono** (stessa piattaforma, leggibile, ora+campo+casa implicita): campionato sammarinese e futsal FSGC. Sono il grosso del volume.
+- **Non reggono ancora**: basket, volley e San Marino Calcio. Per tutte e tre manca una fonte *leggibile e verificata* con calendario, orario e casa/trasferta. Rischio concreto «baseball bis»: se non si trova, casa/trasferta lo porta Michele a mano.
+- **Lacune da chiudere prima del debutto** (candidate a ticket di implementazione, non di decisione): (a) provare la pagina «Serie C Unica» su basketmarche.it e il portale FIPAV regionale per volley; (b) provare una fonte alternativa a tuttocampo per la Serie D (LND, romagnasport.com); (c) vedere sulla pagina partita FSGC come compare un rinvio.
+- Correzioni al registro: campionato sammarinese = **14 squadre**, non 16; `federvolleysm.org` → `fspav.sm`.
