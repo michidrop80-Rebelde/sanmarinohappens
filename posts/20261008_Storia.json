@@ -1,0 +1,27 @@
+{
+  "tipo": "storia",
+  "data_pubblicazione": "2026-10-08",
+  "ora_pubblicazione": "07:00",
+  "titolo_evento": "Storie dell'8 ottobre (Rallylegend · The Elephant Man · Teodorini)",
+  "immagini": [
+    "20261008_Storia_1.png",
+    "20261008_Storia_2.png",
+    "20261008_Storia_3.png"
+  ],
+  "user_tags": {
+    "20261008_Storia_2.png": [
+      {
+        "username": "istituticulturali",
+        "x": 0.5,
+        "y": 0.78
+      }
+    ],
+    "20261008_Storia_3.png": [
+      {
+        "username": "sanmarinoteatro",
+        "x": 0.5,
+        "y": 0.78
+      }
+    ]
+  }
+}
