@@ -270,6 +270,7 @@ Legenda: **F** = feed singolo (mattina 7:00) · **S** = storie (7:00) · **AGG**
 | 09/10 | Ven | 18:00 | **S** | 68, 156, 146 | Storie: Rallylegend (19:00, partenza giorno 1) + Titanico Jazz (21:00) + Teodorini (senza ora) | 09/10 | 🆕 AGGIUNTO 09/10 (vedi riga sopra). In coda: posts/20261009_Storia (3 storie), tag @sanmarinoteatro su Teodorini |
 | 10/10 | Sab | 7:00 | **F** | 147 | Sagra d'Autunno di Casole | 10–11/10 | 🆕 AGGIUNTO 09/10 (catena, Step 2-bis). Sab 20:00 cena + 21:30 I Poveri di Sodio. Cross-mention Sono "solo" 50 anni (inaugurazione 17:00) e Rallylegend. In coda: posts/20261010_Post giornaliero |
 | 10/10 | Sab | 7:00 | **S** | 68, 116, 147, 146 | Storie: Rallylegend (12:00, partenza giorno 2) + Sono "solo" 50 anni (17:00) + Sagra di Casole (20:00) + Teodorini (senza ora) | 10/10 | 🆕 AGGIUNTO 09/10 (catena, Step 2-bis). In coda: posts/20261010_Storia (4 storie), tag @sanmarinoteatro su Teodorini |
+| 11/10 | Dom | 18:00 | **AGG** | — | SETTIMANALE 12–18/10 | — | 🆕 AGGIUNTO 09/10 (catena 08/10 ripresa, Step 2-bis). 11 eventi su 2 pagine (righe master 116, 158, 157, 168, 73, 117, 159, 160, 87, 149, 150), busta carosello posts/20261011_Settimanale, dossier `dati/post/settimanale-2026-10-12-18.md` |
 
 ---
 
