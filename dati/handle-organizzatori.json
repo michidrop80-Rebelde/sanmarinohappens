@@ -1011,6 +1011,18 @@
       "stato": "da-cercare",
       "verificato_il": "2026-10-03",
       "prova": "Nuovo in verifica 03/10/2026: organizzano la Festa solenne di San Francesco (visitsanmarino). Handle non cercato: non si inventa."
+    },
+    {
+      "nome": "San Marino Welcome",
+      "categoria": null,
+      "alias": [
+        "San Marino Welcome"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": null,
+      "prova": null
     }
   ]
 }

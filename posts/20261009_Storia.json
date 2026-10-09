@@ -1,0 +1,20 @@
+{
+  "tipo": "storia",
+  "data_pubblicazione": "2026-10-09",
+  "ora_pubblicazione": "18:00",
+  "titolo_evento": "Storie del 9 ottobre (Rallylegend · Titanico Jazz · Teodorini)",
+  "immagini": [
+    "20261009_Storia_1.png",
+    "20261009_Storia_2.png",
+    "20261009_Storia_3.png"
+  ],
+  "user_tags": {
+    "20261009_Storia_3.png": [
+      {
+        "username": "sanmarinoteatro",
+        "x": 0.5,
+        "y": 0.78
+      }
+    ]
+  }
+}

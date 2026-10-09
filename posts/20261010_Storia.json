@@ -1,0 +1,21 @@
+{
+  "tipo": "storia",
+  "data_pubblicazione": "2026-10-10",
+  "ora_pubblicazione": "07:00",
+  "titolo_evento": "Storie del 10 ottobre (Rallylegend · Sono \"solo\" 50 anni · Sagra di Casole · Teodorini)",
+  "immagini": [
+    "20261010_Storia_1.png",
+    "20261010_Storia_2.png",
+    "20261010_Storia_3.png",
+    "20261010_Storia_4.png"
+  ],
+  "user_tags": {
+    "20261010_Storia_4.png": [
+      {
+        "username": "sanmarinoteatro",
+        "x": 0.5,
+        "y": 0.78
+      }
+    ]
+  }
+}
