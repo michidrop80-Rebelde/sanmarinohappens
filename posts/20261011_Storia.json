@@ -1,0 +1,21 @@
+{
+  "tipo": "storia",
+  "data_pubblicazione": "2026-10-11",
+  "ora_pubblicazione": "07:00",
+  "titolo_evento": "Storie dell'11 ottobre (Rallylegend · Sagra di Casole · Antichi Riti · Teodorini)",
+  "immagini": [
+    "20261011_Storia_1.png",
+    "20261011_Storia_2.png",
+    "20261011_Storia_3.png",
+    "20261011_Storia_4.png"
+  ],
+  "user_tags": {
+    "20261011_Storia_4.png": [
+      {
+        "username": "sanmarinoteatro",
+        "x": 0.5,
+        "y": 0.78
+      }
+    ]
+  }
+}
