@@ -124,13 +124,23 @@ def _date_del_campo(campo, anno):
     """
     campo = campo.replace("–", "-").replace("—", "-")
     trovate = []
-    for g1, m1, g2, m2 in re.findall(r"(\d{1,2})(?:/(\d{1,2}))?\s*-\s*(\d{1,2})/(\d{1,2})", campo):
+    intervallo = r"(\d{1,2})(?:/(\d{1,2}))?\s*-\s*(\d{1,2})/(\d{1,2})"
+    for g1, m1, g2, m2 in re.findall(intervallo, campo):
         mm1 = int(m1) if m1 else int(m2)
-        for g, mm in ((int(g1), mm1), (int(g2), int(m2))):
-            try:
-                trovate.append(datetime.date(anno, mm, g))
-            except ValueError:
-                pass
+        try:
+            dal = datetime.date(anno, mm1, int(g1))
+            al = datetime.date(anno, int(m2), int(g2))
+        except ValueError:
+            continue
+        # Un intervallo che scavalca l'anno ('28/11-06/01') finisce l'anno dopo.
+        # Letto tutto nello stesso anno diventava 06/01-28/11: la riga toccava
+        # ogni giorno dell'anno e la guardia la proponeva a ottobre (11/10/2026).
+        if al < dal:
+            al = datetime.date(anno + 1, int(m2), int(g2))
+        trovate += [dal, al]
+    # Le date sciolte si cercano fuori dagli intervalli già letti, altrimenti
+    # il '06/01' di '28/11-06/01' rientrerebbe qui con l'anno sbagliato.
+    campo = re.sub(intervallo, " ", campo)
     for g, mm in re.findall(r"(\d{1,2})/(\d{1,2})(?!/)", campo):
         try:
             trovate.append(datetime.date(anno, int(mm), int(g)))
