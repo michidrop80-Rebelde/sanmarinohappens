@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-28",
+  "aggiornato": "2026-10-12",
   "_nota": "Registro degli handle social verificati. Solo le voci con stato 'attivo' E instagram non nullo producono un tag. Un handle entra come 'attivo' solo con DUE indizi indipendenti di ufficialita' (di norma: il sito ufficiale linka quel profilo E il profilo esiste col nome corrispondente); la conferma diretta di Michele vale come secondo indizio. Mai un handle dedotto dal nome del soggetto.",
   "_regole_25_07_2026": [
     "OGNI evento nuovo che entra in verifica porta con se' il controllo di chi lo organizza: se il soggetto e' nuovo va aggiunto qui (almeno come 'da-cercare'). Vedi Step 4-bis di /smh-verifica.",
@@ -412,7 +412,8 @@
       "alias": [
         "Istituto Musicale Sammarinese",
         "ISM",
-        "Summer Notes"
+        "Summer Notes",
+        "IMS"
       ],
       "instagram": null,
       "facebook_page_id": null,
@@ -1023,6 +1024,129 @@
       "stato": "da-cercare",
       "verificato_il": null,
       "prova": null
+    },
+    {
+      "nome": "Istituto per la Sicurezza Sociale (ISS)",
+      "categoria": "organizzatore",
+      "alias": [
+        "Istituto per la Sicurezza Sociale",
+        "ISS"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-10-12",
+      "prova": "Nuovo in verifica 12/10/2026: organizzatore di Mostra Anima e Corpo (Ottobre Rosa) (scheda evento). Nessun profilo cercato ancora — da cercare al prossimo giro."
+    },
+    {
+      "nome": "Associazione Santa Mustiola",
+      "categoria": "organizzatore",
+      "alias": [
+        "Associazione Santa Mustiola"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-10-12",
+      "prova": "Nuovo in verifica 12/10/2026: organizzatore di Festa della Castagna 24-25/10 (scheda evento). Nessun profilo cercato ancora — da cercare al prossimo giro."
+    },
+    {
+      "nome": "Associazione Martin Mancini",
+      "categoria": "organizzatore",
+      "alias": [
+        "Associazione Martin Mancini"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-10-12",
+      "prova": "Nuovo in verifica 12/10/2026: organizzatore di Supercoppa pallacanestro in carrozzina 15/11 (scheda evento). Nessun profilo cercato ancora — da cercare al prossimo giro."
+    },
+    {
+      "nome": "Federazione Sammarinese Roller Sports",
+      "categoria": "organizzatore",
+      "alias": [
+        "Federazione Sammarinese Roller Sports"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-10-12",
+      "prova": "Nuovo in verifica 12/10/2026: organizzatore di IX Titano Battle Cup 23-25/10 (scheda evento). Nessun profilo cercato ancora — da cercare al prossimo giro."
+    },
+    {
+      "nome": "Vitesse Oblige Drivers&Riders Club",
+      "categoria": "organizzatore",
+      "alias": [
+        "Vitesse Oblige Drivers&Riders Club"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-10-12",
+      "prova": "Nuovo in verifica 12/10/2026: organizzatore di Tour Petite Vitesse 14/10 (scheda evento). Nessun profilo cercato ancora — da cercare al prossimo giro."
+    },
+    {
+      "nome": "Qaos Gruppo Teatrale",
+      "categoria": "organizzatore",
+      "alias": [
+        "Qaos Gruppo Teatrale"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-10-12",
+      "prova": "Nuovo in verifica 12/10/2026: organizzatore di Teatro Vivo 16/10 (scheda evento). Nessun profilo cercato ancora — da cercare al prossimo giro."
+    },
+    {
+      "nome": "Vo.Ci. – Volontari Civici nei Castelli",
+      "categoria": "organizzatore",
+      "alias": [
+        "Vo.Ci.",
+        "Volontari Civici nei Castelli"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-10-12",
+      "prova": "Nuovo in verifica 12/10/2026: organizzatore di direzione artistica Teatro Vivo 26/27 (scheda evento). Nessun profilo cercato ancora — da cercare al prossimo giro."
+    },
+    {
+      "nome": "Amicale Sammarinese des Alpes",
+      "categoria": "organizzatore",
+      "alias": [
+        "Amicale Sammarinese des Alpes"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-10-12",
+      "prova": "Nuovo in verifica 12/10/2026: organizzatore di La Locandiera 18/10 (scheda evento). Nessun profilo cercato ancora — da cercare al prossimo giro."
+    },
+    {
+      "nome": "Compagnia La Carovana di Ospedaletto",
+      "categoria": "organizzatore",
+      "alias": [
+        "La Carovana di Ospedaletto"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-10-12",
+      "prova": "Nuovo in verifica 12/10/2026: organizzatore di commedia dialettale 24/10 (scheda evento). Nessun profilo cercato ancora — da cercare al prossimo giro."
+    },
+    {
+      "nome": "TMF HUB Srl (Tour Music Fest)",
+      "categoria": "organizzatore",
+      "alias": [
+        "TMF HUB",
+        "Tour Music Fest"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-10-12",
+      "prova": "Nuovo in verifica 12/10/2026: organizzatore di Tour Music Fest 21-29/11 (scheda evento). Nessun profilo cercato ancora — da cercare al prossimo giro."
     }
   ]
 }
