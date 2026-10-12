@@ -137,3 +137,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [x] 2026-10-05T09:31:26.672Z — approvato — 20261005-0634-D2 — Michele Morri @RebeldeRN — 🆕 Mostra Sea of Sound (Mark Francis)
 - [x] 2026-10-05T09:31:30.770Z — approvato — 20261005-0634-D3 — Michele Morri @RebeldeRN — ⚠️ Primo Soccorso Pediatrico
 - [x] 2026-10-05T09:31:32.302Z — approvato — 20261005-0634-D4 — Michele Morri @RebeldeRN — ⚠️ Primo Soccorso Pediatrico
+- [ ] 2026-10-12T08:50:43.875Z — approvato — 20261012-0321-02 — Michele Morri @RebeldeRN — 🆕 Mementi – Mercoledì d'autore (anche 21 e 28/10)
