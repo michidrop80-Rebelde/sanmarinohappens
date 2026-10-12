@@ -151,3 +151,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-10-12T08:51:13.620Z — approvato — 20261012-0321-13 — Michele Morri @RebeldeRN — 🆕 Corsi serali di lingua per tutti 2026-27
 - [ ] 2026-10-12T08:51:28.353Z — approvato — 20261012-0321-14 — Michele Morri @RebeldeRN — ✏️ Rassegna d'Autunno: Cor Barocco (sede trovata)
 - [ ] 2026-10-12T08:51:29.691Z — approvato — 20261012-0321-15 — Michele Morri @RebeldeRN — ✏️ Rassegna d'Autunno: Cor Barocco (sede trovata)
+- [ ] 2026-10-12T08:51:31.091Z — approvato — 20261012-0321-16 — Michele Morri @RebeldeRN — ✏️ Rassegna d'Autunno: Cor Barocco (sede trovata)
