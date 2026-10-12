@@ -137,19 +137,19 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [x] 2026-10-05T09:31:26.672Z — approvato — 20261005-0634-D2 — Michele Morri @RebeldeRN — 🆕 Mostra Sea of Sound (Mark Francis)
 - [x] 2026-10-05T09:31:30.770Z — approvato — 20261005-0634-D3 — Michele Morri @RebeldeRN — ⚠️ Primo Soccorso Pediatrico
 - [x] 2026-10-05T09:31:32.302Z — approvato — 20261005-0634-D4 — Michele Morri @RebeldeRN — ⚠️ Primo Soccorso Pediatrico
-- [ ] 2026-10-12T08:50:43.875Z — approvato — 20261012-0321-02 — Michele Morri @RebeldeRN — 🆕 Mementi – Mercoledì d'autore (anche 21 e 28/10)
-- [ ] 2026-10-12T08:50:45.277Z — approvato — 20261012-0321-03 — Michele Morri @RebeldeRN — 🆕 Mementi – Mercoledì d'autore (anche 21 e 28/10)
-- [ ] 2026-10-12T08:50:46.695Z — approvato — 20261012-0321-04 — Michele Morri @RebeldeRN — 🆕 Mementi – Mercoledì d'autore (anche 21 e 28/10)
-- [ ] 2026-10-12T08:50:54.635Z — approvato — 20261012-0321-05 — Michele Morri @RebeldeRN — 🆕 IX Titano Battle Cup (pattinaggio)
-- [ ] 2026-10-12T08:50:56.090Z — approvato — 20261012-0321-06 — Michele Morri @RebeldeRN — 🆕 IX Titano Battle Cup (pattinaggio)
-- [ ] 2026-10-12T08:50:57.279Z — approvato — 20261012-0321-07 — Michele Morri @RebeldeRN — 🆕 IX Titano Battle Cup (pattinaggio)
-- [ ] 2026-10-12T08:51:04.293Z — approvato — 20261012-0321-08 — Michele Morri @RebeldeRN — 🆕 Coppa Titano: ottavi di ritorno
-- [ ] 2026-10-12T08:51:05.858Z — approvato — 20261012-0321-09 — Michele Morri @RebeldeRN — 🆕 Coppa Titano: ottavi di ritorno
-- [ ] 2026-10-12T08:51:07.128Z — approvato — 20261012-0321-10 — Michele Morri @RebeldeRN — 🆕 Coppa Titano: ottavi di ritorno
-- [ ] 2026-10-12T08:51:11.235Z — approvato — 20261012-0321-11 — Michele Morri @RebeldeRN — 🆕 Corsi serali di lingua per tutti 2026-27
-- [ ] 2026-10-12T08:51:12.323Z — approvato — 20261012-0321-12 — Michele Morri @RebeldeRN — 🆕 Corsi serali di lingua per tutti 2026-27
-- [ ] 2026-10-12T08:51:13.620Z — approvato — 20261012-0321-13 — Michele Morri @RebeldeRN — 🆕 Corsi serali di lingua per tutti 2026-27
-- [ ] 2026-10-12T08:51:28.353Z — approvato — 20261012-0321-14 — Michele Morri @RebeldeRN — ✏️ Rassegna d'Autunno: Cor Barocco (sede trovata)
-- [ ] 2026-10-12T08:51:29.691Z — approvato — 20261012-0321-15 — Michele Morri @RebeldeRN — ✏️ Rassegna d'Autunno: Cor Barocco (sede trovata)
-- [ ] 2026-10-12T08:51:31.091Z — approvato — 20261012-0321-16 — Michele Morri @RebeldeRN — ✏️ Rassegna d'Autunno: Cor Barocco (sede trovata)
-- [ ] 2026-10-12T08:51:36.843Z — approvato — 20261012-0321-17 — Michele Morri @RebeldeRN — 🆕 Nuzzo e Di Biase: Totalmente Incompatibili
+- [x] 2026-10-12T08:50:43.875Z — approvato — 20261012-0321-02 — Michele Morri @RebeldeRN — 🆕 Mementi – Mercoledì d'autore (anche 21 e 28/10)
+- [x] 2026-10-12T08:50:45.277Z — approvato — 20261012-0321-03 — Michele Morri @RebeldeRN — 🆕 Mementi – Mercoledì d'autore (anche 21 e 28/10)
+- [x] 2026-10-12T08:50:46.695Z — approvato — 20261012-0321-04 — Michele Morri @RebeldeRN — 🆕 Mementi – Mercoledì d'autore (anche 21 e 28/10)
+- [x] 2026-10-12T08:50:54.635Z — approvato — 20261012-0321-05 — Michele Morri @RebeldeRN — 🆕 IX Titano Battle Cup (pattinaggio)
+- [x] 2026-10-12T08:50:56.090Z — approvato — 20261012-0321-06 — Michele Morri @RebeldeRN — 🆕 IX Titano Battle Cup (pattinaggio)
+- [x] 2026-10-12T08:50:57.279Z — approvato — 20261012-0321-07 — Michele Morri @RebeldeRN — 🆕 IX Titano Battle Cup (pattinaggio)
+- [x] 2026-10-12T08:51:04.293Z — approvato — 20261012-0321-08 — Michele Morri @RebeldeRN — 🆕 Coppa Titano: ottavi di ritorno
+- [x] 2026-10-12T08:51:05.858Z — approvato — 20261012-0321-09 — Michele Morri @RebeldeRN — 🆕 Coppa Titano: ottavi di ritorno
+- [x] 2026-10-12T08:51:07.128Z — approvato — 20261012-0321-10 — Michele Morri @RebeldeRN — 🆕 Coppa Titano: ottavi di ritorno
+- [x] 2026-10-12T08:51:11.235Z — approvato — 20261012-0321-11 — Michele Morri @RebeldeRN — 🆕 Corsi serali di lingua per tutti 2026-27
+- [x] 2026-10-12T08:51:12.323Z — approvato — 20261012-0321-12 — Michele Morri @RebeldeRN — 🆕 Corsi serali di lingua per tutti 2026-27
+- [x] 2026-10-12T08:51:13.620Z — approvato — 20261012-0321-13 — Michele Morri @RebeldeRN — 🆕 Corsi serali di lingua per tutti 2026-27
+- [x] 2026-10-12T08:51:28.353Z — approvato — 20261012-0321-14 — Michele Morri @RebeldeRN — ✏️ Rassegna d'Autunno: Cor Barocco (sede trovata)
+- [x] 2026-10-12T08:51:29.691Z — approvato — 20261012-0321-15 — Michele Morri @RebeldeRN — ✏️ Rassegna d'Autunno: Cor Barocco (sede trovata)
+- [x] 2026-10-12T08:51:31.091Z — approvato — 20261012-0321-16 — Michele Morri @RebeldeRN — ✏️ Rassegna d'Autunno: Cor Barocco (sede trovata)
+- [x] 2026-10-12T08:51:36.843Z — approvato — 20261012-0321-17 — Michele Morri @RebeldeRN — 🆕 Nuzzo e Di Biase: Totalmente Incompatibili
