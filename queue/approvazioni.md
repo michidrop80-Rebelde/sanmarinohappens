@@ -146,3 +146,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-10-12T08:51:04.293Z — approvato — 20261012-0321-08 — Michele Morri @RebeldeRN — 🆕 Coppa Titano: ottavi di ritorno
 - [ ] 2026-10-12T08:51:05.858Z — approvato — 20261012-0321-09 — Michele Morri @RebeldeRN — 🆕 Coppa Titano: ottavi di ritorno
 - [ ] 2026-10-12T08:51:07.128Z — approvato — 20261012-0321-10 — Michele Morri @RebeldeRN — 🆕 Coppa Titano: ottavi di ritorno
+- [ ] 2026-10-12T08:51:11.235Z — approvato — 20261012-0321-11 — Michele Morri @RebeldeRN — 🆕 Corsi serali di lingua per tutti 2026-27
