@@ -145,3 +145,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-10-12T08:50:57.279Z — approvato — 20261012-0321-07 — Michele Morri @RebeldeRN — 🆕 IX Titano Battle Cup (pattinaggio)
 - [ ] 2026-10-12T08:51:04.293Z — approvato — 20261012-0321-08 — Michele Morri @RebeldeRN — 🆕 Coppa Titano: ottavi di ritorno
 - [ ] 2026-10-12T08:51:05.858Z — approvato — 20261012-0321-09 — Michele Morri @RebeldeRN — 🆕 Coppa Titano: ottavi di ritorno
+- [ ] 2026-10-12T08:51:07.128Z — approvato — 20261012-0321-10 — Michele Morri @RebeldeRN — 🆕 Coppa Titano: ottavi di ritorno
