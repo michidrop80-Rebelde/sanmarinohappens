@@ -1,0 +1,12 @@
+{
+  "tipo": "carosello",
+  "data_pubblicazione": "2026-10-15",
+  "ora_pubblicazione": "18:00",
+  "titolo_evento": "Weekend 16–18 ottobre (weekend a 2 pagine, 8 eventi)",
+  "caption": "🎉 Questo weekend a San Marino, dal 16 al 18 ottobre — 8 appuntamenti 👇\n\nVENERDÌ 16\n🍺 dalle 20:00 · San Marino Beer Fest con Nirvana.it (Nirvana Tribute) · Parco di Dogana\n🎭 21:00 · «L'Io e le sue maschere» · Centro Sociale di Dogana\n🎷 21:00 · Titanico Jazz Festival con il Give'n Take Trio di Simone La Maida · Podere Lesignano, Serravalle\n🎭 21:00 · Teatro Vivo apre la stagione con «Amori da marciapiede» (Qaos Gruppo Teatrale) · Auditorium Little Tony, Serravalle\n🎶 21:00 · Concerto di Gala dell'Istituto Musicale Sammarinese con l'Abu Dhabi Youth Orchestra and Choir · Teatro Concordia, Via della Concordia, Borgo Maggiore\n\nSABATO 17\n🍺 dalle 20:00 · San Marino Beer Fest, serata folk irlandese con i Drunken Lullabies · Parco di Dogana\n\nDOMENICA 18\n🏃 09:30 · SMOE Run 10K e 5K · San Marino Outlet, Falciano\n🎭 «La Locandiera» · Teatro Titano, Città di San Marino\n\n🎨 Fino al 23 ottobre, mostra «Sono \"solo\" 50 anni» del Laboratorio d'arte di Domagnano · Centro Sociale di Dogana\n\nSalva il post 📌 e seguici per gli eventi di ogni giorno\nℹ️ Date e orari possono cambiare: verifica sempre sulla fonte ufficiale dell'organizzatore (link in bio).\n\n#SanMarinoHappens #SanMarino #RepubblicaDiSanMarino #MonteTitano #cosafareaSanMarino #eventiSanMarino #SanMarinoBeerFest #TitanicoJazzFestival #TeatroVivo #TeatroTitano",
+  "immagini": [
+    "20261015_Weekend_1.png",
+    "20261015_Weekend_2.png"
+  ],
+  "nota": "Step 2-bis catena giornaliera (13/10/2026 sera): buco weekend 15/10 (copre 16-18/10) rilevato da scripts/controllo-imminenti.py (uscita 2). Dossier dati/post/weekend-2026-10-16-18.md, fonte dati/calendario/master.md righe 73, 117, 159, 160, 172, 87, 149, 150 (tutti gia' approvato). 8 eventi su 2 slide (4+4). tipo=carosello per preservare entrambe le slide. Giorni in Python: 16=Ven 17=Sab 18=Dom."
+}
