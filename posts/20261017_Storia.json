@@ -1,0 +1,18 @@
+{
+  "tipo": "storia",
+  "data_pubblicazione": "2026-10-17",
+  "ora_pubblicazione": "07:00",
+  "titolo_evento": "Storia del 17 ottobre (Beer Fest — Drunken Lullabies)",
+  "immagini": [
+    "20261017_Storia_1.png"
+  ],
+  "user_tags": {
+    "20261017_Storia_1.png": [
+      {
+        "username": "sanmarinobeerfest",
+        "x": 0.5,
+        "y": 0.78
+      }
+    ]
+  }
+}
