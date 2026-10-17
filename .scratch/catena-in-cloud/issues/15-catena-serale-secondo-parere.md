@@ -1,7 +1,7 @@
 # 15 — La catena serale in cloud come SECONDO PARERE, senza grafica
 
 Type: task
-Status: aperto — bloccato
+Status: in corso (sessione wayfinder-15 · 17/10 09:51)
 Blocked by: — (sbloccato il 09/09/2026: il ticket 09 è chiuso)
 Modello: Sonnet per costruire (è il modello del giro settimanale applicato a un'altra skill) ·
          Opus solo per decidere cosa vuol dire «hanno lavorato uguale»
