@@ -7,3 +7,5 @@ mai corrette né cancellate (regole nel ticket 05 della mappa di Jhonny).
   sessione jhonny-sport-invernale-02 · nessun ramo · tocco: dati/fonti-sport.md
 07/10 07:30 · San Marino Happens/sport-invernale #02 · FINITO
   chiuso · nessun ramo · toccati dati/fonti-sport.md, map.md
+17/10 09:52 · San Marino Happens/catena-in-cloud #15 · INIZIA
+  sessione wayfinder-15 · main · tocco: scripts/controllo-secco.py, scripts/confronta-serate.py (+test), .github/workflows/catena-cloud.yml, .github/scripts/referto-catena-cloud.py, dati/guida-sveglia-catena-cloud.md
