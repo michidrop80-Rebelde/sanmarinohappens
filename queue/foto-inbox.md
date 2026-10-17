@@ -22,3 +22,4 @@ Formato: `- [ ] <ISO> — <mittente> — <percorso .jpg> — didascalia: <testo 
 > Riga elaborata dal postino il 27/09/2026 (giro 18:39): 5 foto senza didascalia, tutte con evento leggibile. Totale 27 eventi importati in `dati/eventi/eventi-2026-09-27.md` come `da-verificare`. Nessun doppione: nessuno di questi titoli era già a registro (il cartellone teatrale in particolare non era mai stato raccolto, perché sanmarinoteatro.sm blocca l'agente di ricerca con 403).
 - [ ] 2026-10-17T08:15:37.725Z — Michele Morri @RebeldeRN — queue/foto/2026-10-17T08-15-36-086Z_AQADQhBrG3GMmFJ-.jpg — didascalia: (nessuna)
 - [ ] 2026-10-17T08:15:46.583Z — Michele Morri @RebeldeRN — queue/foto/2026-10-17T08-15-44-951Z_AQADQhBrG3GMmFJ-.jpg — didascalia: (nessuna)
+- [ ] 2026-10-17T09:38:45.439Z — Michele Morri @RebeldeRN — queue/foto/2026-10-17T09-38-43-745Z_AQADXhBrG3GMmFJ-.jpg — didascalia: (nessuna)
