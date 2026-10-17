@@ -23,3 +23,4 @@ Formato: `- [ ] <ISO> — <mittente> — <percorso .jpg> — didascalia: <testo 
 - [ ] 2026-10-17T08:15:37.725Z — Michele Morri @RebeldeRN — queue/foto/2026-10-17T08-15-36-086Z_AQADQhBrG3GMmFJ-.jpg — didascalia: (nessuna)
 - [ ] 2026-10-17T08:15:46.583Z — Michele Morri @RebeldeRN — queue/foto/2026-10-17T08-15-44-951Z_AQADQhBrG3GMmFJ-.jpg — didascalia: (nessuna)
 - [ ] 2026-10-17T09:38:45.439Z — Michele Morri @RebeldeRN — queue/foto/2026-10-17T09-38-43-745Z_AQADXhBrG3GMmFJ-.jpg — didascalia: (nessuna)
+- [ ] 2026-10-17T09:38:56.668Z — Michele Morri @RebeldeRN — queue/foto/2026-10-17T09-38-55-138Z_AQADXxBrG3GMmFJ-.jpg — didascalia: (nessuna)
