@@ -5,6 +5,8 @@
 **8 eventi → 8 righe piene**, nessuna cancellazione. Giorni calcolati in Python: 23/09 Mer · 25/09 Ven · 26/09 Sab · 27/09 Dom.
 Fonte: master righe 80, 88, 100, 101, 74, 61, 107, 62 (note lette una per una).
 
+> 🔴 **ERRORE SCOPERTO 21/09 (post già uscito il 20/09):** riga 3 «Venerdì 25/09 San Marino U21 vs Kosovo» è SBAGLIATA: la partita è **giovedì 24/09 ore 20:30** (comunicato FSGC). Rettifica nella caption/storia del post del 24/09.
+
 ## Righe per il GRAFICO
 | # | Giorno/data | Titolo | Luogo breve |
 |---|---|---|---|

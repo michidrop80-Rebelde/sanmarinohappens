@@ -1,0 +1,119 @@
+{
+  "giro_id": "20260914-0633",
+  "sent_at": "2026-09-14T06:33:08Z",
+  "prova": false,
+  "eventi": [
+    {
+      "id": "01",
+      "titolo": "San Marino U21 – Kosovo U21 (⚠️ data corretta: 25/09, non 24/09 — busta GIÀ APPROVATA da correggere)",
+      "tipo": "modificato",
+      "data": "25/09",
+      "luogo": "San Marino Stadium, Serravalle",
+      "url": "https://www.uefa.com/under21/match/2044532--san-marino-vs-kosovo/"
+    },
+    {
+      "id": "02",
+      "titolo": "Marco Ercolani — The First Night",
+      "tipo": "nuovo",
+      "data": "25/09",
+      "luogo": "Teatro Titano, San Marino",
+      "url": "https://www.sanmarinortv.sm/eventi/musica/marco-ercolani-the-first-night-e5146"
+    },
+    {
+      "id": "03",
+      "titolo": "San Marino — Finlandia",
+      "tipo": "nuovo",
+      "data": "26/09",
+      "luogo": "Stadio San Marino (Olimpico), Serravalle",
+      "url": "https://www.sanmarinortv.sm/sport/calcio-sammarinese-c15/nations-league-san-marino-finlandia-apre-la-lega-c-a287038"
+    },
+    {
+      "id": "04",
+      "titolo": "Artisti in Casa — XVI edizione",
+      "tipo": "nuovo",
+      "data": "26/09",
+      "luogo": "Piazza della Pace, Montegiardino",
+      "url": "https://www.usc.sm/eventi/"
+    },
+    {
+      "id": "05",
+      "titolo": "Festa del Castello di Serravalle 2026",
+      "tipo": "nuovo",
+      "data": "26-28/09",
+      "luogo": "Piazza Giovanni Bertoldi, Serravalle",
+      "url": "https://www.castello.serravalle.sm/attività/eventi/castello-in-festa"
+    },
+    {
+      "id": "06",
+      "titolo": "XXXII Mostra Micologica del Titano",
+      "tipo": "nuovo",
+      "data": "26/09",
+      "luogo": "Logge del Mercato, Borgo Maggiore",
+      "url": "https://www.usc.sm/eventi/"
+    },
+    {
+      "id": "07",
+      "titolo": "Giornata Mondiale del Turismo 2026",
+      "tipo": "nuovo",
+      "data": "27/09",
+      "luogo": "Centro Storico, Piazza della Libertà",
+      "url": "https://www.visitsanmarino.com/pub1/VisitSM/evento/20260927_Giornata_Mondiale_Turismo.html"
+    },
+    {
+      "id": "08",
+      "titolo": "San Marino — Albania",
+      "tipo": "nuovo",
+      "data": "29/09",
+      "luogo": "Stadio Olimpico San Marino, Serravalle",
+      "url": "https://www.visitsanmarino.com/pub1/VisitSM/evento/20260929_San_Marino_Albania.html"
+    },
+    {
+      "id": "09",
+      "titolo": "San Marino U21 – Spagna U21 (⚠️ data corretta: 30/09, non 01/10 — busta GIÀ APPROVATA da correggere)",
+      "tipo": "modificato",
+      "data": "30/09",
+      "luogo": "San Marino Stadium, Serravalle",
+      "url": "https://it.uefa.com/under21/match/2044508--spain-vs-san-marino/"
+    },
+    {
+      "id": "10",
+      "titolo": "Cerimonia di investitura dei Capitani Reggenti",
+      "tipo": "nuovo",
+      "data": "01/10",
+      "luogo": "Centro Storico di San Marino",
+      "url": "https://www.visitsanmarino.com/pub1/VisitSM/evento/20261001_1°ottobre-cerimonia-di-investitura-dei-capitani-reggenti.html"
+    },
+    {
+      "id": "11",
+      "titolo": "SMOE RUN San Marino 2026",
+      "tipo": "nuovo",
+      "data": "18/10",
+      "luogo": "Falciano",
+      "url": "https://www.tfsanmarino.com/"
+    },
+    {
+      "id": "12",
+      "titolo": "Il Natale delle Meraviglie 2026-2027",
+      "tipo": "nuovo",
+      "data": "28/11",
+      "luogo": "Centro Storico di San Marino",
+      "url": "https://www.visitsanmarino.com/pub1/VisitSM/evento/20261128_Il_Natale_delle_Meraviglie_26_27.html"
+    },
+    {
+      "id": "13",
+      "titolo": "Mostra \"Sea of Sound\" — Mark Francis",
+      "tipo": "nuovo",
+      "data": "04/12",
+      "luogo": "Palazzo SUMS e Galleria Nazionale",
+      "url": "https://www.visitsanmarino.com/pub1/VisitSM/evento/20261204_Mostra_Mark_Francis.html"
+    },
+    {
+      "id": "14",
+      "titolo": "Katia Follesa — No vabbè Mi adoro",
+      "tipo": "dubbio",
+      "data": "20/11",
+      "luogo": "Teatro Nuovo, San Marino",
+      "url": "https://www.teatro.it/spettacoli/katia-follesa-nuovo-spettacolo"
+    }
+  ]
+}

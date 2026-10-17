@@ -1,0 +1,10 @@
+{
+ "stesso": {
+  "type": "noul",
+  "instructions": "Both events take place on the same day in San Marino. Do `evento_a` and `evento_b` describe the same real-world event, even if the title and description are worded differently?",
+  "criteria": {
+   "true": "Same event: same performer, show, ceremony or initiative, described twice",
+   "false": "Two different events that merely happen on the same day, even if in the same place or from the same series"
+  }
+ }
+}

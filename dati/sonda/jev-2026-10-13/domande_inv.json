@@ -1,0 +1,14 @@
+{
+ "categoria": {
+  "type": "choice",
+  "instructions": "Which single category best describes the event in `titolo`, `luogo` and `descrizione`? The event is in the Republic of San Marino and the text is in Italian.",
+  "criteria": {
+   "altro": "None of the other categories fits",
+   "istituzionale": "Official State ceremonies, national holidays, Captains Regent, government or public institution events",
+   "sociale": "Charity and solidarity, health awareness campaigns, community and parish festivals, food fairs, markets, family or volunteering gatherings",
+   "musica": "Concerts, live music nights, DJ sets, music festivals: music is the main attraction",
+   "cultura": "Exhibitions, theatre, cinema, books and literature, talks and conferences, guided tours, museums, history and heritage",
+   "sport": "Sports matches, races, tournaments, championships, sporting competitions or sports activities"
+  }
+ }
+}

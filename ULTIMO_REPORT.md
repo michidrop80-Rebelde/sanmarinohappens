@@ -1,5 +1,121 @@
 # Ultimo stato — San Marino Happens
 
+Aggiornato: 2026-10-17 (sera, 18:55) — 🔗 **CATENA GIORNALIERA (task pianificato): Step 2-bis ha chiuso il buco di domenica 18/10 — giornaliero + storia in coda su origin/main. Importata la foto del Car Boot.**
+
+- Step 0-bis: 0 approvazioni · 4 foto in coda · 0 annullamenti · domanda 5 = sì (18/10 senza feed né storie).
+- **Postino**: 4 foto → 1 evento nuovo, **Car Boot Borgo Maggiore** (18/10, Piazza Grande, Giunta di Castello, ora non specificata): verificato (locandina + pattern «terza domenica» di cosedicasa.com), bozza in `dati/post/post-2026-10-17.md`, Telegram coi pulsanti inviato (giro `20261017-1643`). Le altre 3 foto: doppione + 2 locandine San Marino Teatro già nel master (r.118, 122/128/133). Non è master né piano: ✅ lo mette a registro.
+- **Feed 18/10 07:00**: SMOE Run 10K e 5K, 09:30, San Marino Outlet (r.149). Copia pag.1 `DAHYSMr8EzQ`, puntatore 10→**1**, titolo font 115. Tag @sanmarinooutlet.
+- **Storie 18/10 07:00**: 1 storia doppia (SMOE Run 09:30 + La Locandiera senza orario, CTA di chiusura), copia pag.6 `DAHYSLHUSBU`, puntatore doppio 5→**6**. Tag @sanmarinoteatro. Escluso: Sono «solo» 50 anni (r.116, nessun orario di apertura alle fonti).
+- Commit `906869d` su origin/main. Guardie: imminenti ✅ · busta-rimasta ✅ · export→coda ✅ · caption-prezzi ✅ · integrità ❌ falso allarme noto · serie: Mementi 21/10 e 28/10 senza busta (oltre le 48h).
+- ⚠️ `segnala-doppioni.py` ha messo il Car Boot `gia-in-coda` perché il 18/10 è già coperto: l'ho rimesso `da-approvare` a mano (è un evento vero, non un doppione: la guardia confronta il giorno, non l'evento).
+- 🗑 Copie Canva da cestinare: `DAHYSMr8EzQ`, `DAHYSLHUSBU` (+ `DAHX6Oe_NxY`, `DAHX0JbfTgo`, `DAHX0G1pBrI`, `DAHX0Fe1iaU`).
+- Aggregati: settimanale 19–25/10 già in coda (esce dom 18/10 18:00). Weekend 22/10 e settimanale 25/10 oltre le 48h.
+- Lucchetto preso e rilasciato.
+
+---
+
+(precedente) Aggiornato: 2026-10-13 (sera, 18:50) — 🔗 **CATENA GIORNALIERA (task pianificato): Step 2-bis ha chiuso il buco del WEEKEND 16–18/10 — in coda per giovedì 15/10 ore 18:00 (2 slide, 8 eventi).**
+
+- Step 0-bis: 0 approvazioni · 0 segnalazioni · 0 annullamenti · ultimo approvato (12/10) già graficato (12/10) — **domanda 5 = sì** (mancava il weekend del 15/10).
+- **Weekend 16–18/10**: 8 eventi già `approvato` (master r.73, 117, 159, 160, 172, 87, 149, 150) > 6 righe → **2 slide 4+4**, busta `tipo: carosello` `posts/20261015_Weekend.json`. Copia pag.4+1 del master Weekend → `DAHX6Oe_NxY` («🗑 DA ELIMINARE — SMH · Weekend — 16-18/10»), puntatore 3→**1**. Righe 2-5 compilate, 1 e 6 cancellate (nessun riposizionamento). «Titanico Jazz: Give'n Take Trio» a font 35 e «Beer Fest: Drunken Lullabies» a 36 (a 40 andavano a capo). Dossier `dati/post/weekend-2026-10-16-18.md`. Commit `199408f` su origin/main.
+- La Locandiera 18/10: ora ricontrollata (RTV e5166 + ricerca web) → ancora non pubblicata, in caption senza orario.
+- Sono "solo" 50 anni (r.116): nessuna riga sul grafico (nessun giorno/orario di apertura alle fonti), solo riga di coda in caption «Fino al 23 ottobre».
+- Guardie: imminenti ✅ · busta-rimasta ✅ · export→coda ✅ · caption-prezzi ✅ · integrità ❌ falso allarme noto (`jhonny/SKILL.md` sta in `~/.claude`) · serie: Mementi 21/10 e 28/10 senza busta (oltre le 48h).
+- 🔴 Aggregati scoperti oltre le 48h: **settimanale del 18/10** (entra in finestra venerdì 16/10 sera: serve il Mac acceso) · weekend del 22/10 · settimanale del 25/10. Giorni 16–18/10 hanno eventi approvati senza post/storie giornalieri: li prende lo Step 2-bis quando entrano nelle 48h.
+- ⚠️ `smh_check.py` segnala sul giornaliero del 14/10 (Tour Petite Vitesse) «tag perso @istituticulturali»: nasce dalla cross-mention in caption de La Voce dei Giovani (Cinema Concordia), non dall'evento del post → non aggiunto (un tag non pertinente non si mette). La guardia non distingue evento principale e cross-mention.
+- 🗑 Copie Canva da cestinare: `DAHX6Oe_NxY` (+ le 3 del 12/10: `DAHX0JbfTgo`, `DAHX0G1pBrI`, `DAHX0Fe1iaU`).
+- File del giro (dossier, piano, stato grafica) non committati, come i precedenti. Telegram inviato (curl). Lucchetto preso e rilasciato.
+
+---
+
+(precedente) Aggiornato: 2026-10-12 (sera, 23:00) — 🔑 **TOKEN INSTAGRAM RIGENERATO (scadeva il 16/10). Nuova scadenza: venerdì 11/12/2026.**
+
+- Guidato Michele un passo alla volta: developers.facebook.com → app → Dashboard, prima riga «Personalizza il caso d'uso… Instagram» → «Configurazione dell'API con Ins…» → sezione **«2. Genera i token d'accesso»** (era chiusa: va aperta) → login `sanmarinohappens` → «Genera token» → secret GitHub `INSTAGRAM_TOKEN`.
+- Verificato sul **referto Telegram** della run diagnostica-ig `38307389309`, non sul colore: `graph.instagram.com … il token e' valido`, quota 0/100, 98 media letti, zero doppioni. ⚠️ `diagnostica_ig.py` **non fallisce mai**: finisce verde anche con un token sbagliato, il verdetto sta solo nel testo.
+- `metriche/storico.json` → `token.rilasciato_il` = **2026-10-12** (commit `d3eee1b`, già su GitHub). L'avviso automatico scatta 10 giorni prima, cioè dal **01/12**.
+- 🔴 Il **rinnovo automatico** (`refresh_access_token`) resta da costruire: senza, si rifà a mano entro l'11/12.
+
+(precedente) Aggiornato: 2026-10-12 (sera, 18:50) — 🔗 **CATENA GIORNALIERA (task pianificato): lette le 16 approvazioni di stamattina; in coda post + 3 storie di mercoledì 14/10. Martedì 13/10 legittimamente vuoto.**
+
+- Step 0-bis: **16 approvazioni** · 0 segnalazioni · 0 annullamenti · domanda 5 = sì (13/10 senza feed né storie).
+- **Step 1**: giro `20261012-0321`, bozze 02–17 tutte ✅. Master: **13 righe nuove (170–182)**, 154 → approvato (sedi 08/11 e 21/11), 162 bozza senza civico approvata. File grafica: `dati/post/approvati/post-approvati-2026-10-12.md`. Coda archiviata, commit `1d411fb`. **I 5 dubbi D1–D5 non hanno avuto risposta** (D1 Beer Fest 16/10: band non sciolta → in grafica solo «San Marino Beer Fest»).
+- **Step 2 (grafica+coda), solo il 14/10** — gli altri approvati sono lontani e li prende lo Step 2-bis quando entrano nelle 48h. Feed 14/10 07:00: Tour Petite Vitesse 17:30 (r.157, ricontrollato su visitsanmarino), copia pag.9 giornaliero `DAHX0JbfTgo`, puntatore 8→**9**. Storie (5 eventi → 2 doppie + 1 singola): Prevenzione 10:00 + Tour 17:30 · Mementi 18:30 + Primo Soccorso Pediatrico 20:30 (descrizione assente alla fonte → casella tolta) · La Voce dei Giovani 21:00 con CTA di chiusura e tag @istituticulturali (Cinema Concordia). Copie `DAHX0G1pBrI` (doppio pag.4-5, puntatore 3→**5**) e `DAHX0Fe1iaU` (singolo pag.11, puntatore 10→**11**). Commit `49d3f9c` su origin/main.
+- **Step 2-bis, buco 13/10: NON chiuso, legittimo.** Unico candidato la mostra Sono "solo" 50 anni (r.116): nessun orario di apertura alle fonti (come l'11/10). La guardia continuerà a proporla fino al 23/10.
+- Guardie: busta-rimasta ✅ · export→coda ✅ · caption-prezzi ✅ · copertura 14/10 ✅ · integrità ❌ falso allarme noto (`jhonny/SKILL.md` sta in `~/.claude`) · serie: **Mementi 21/10 e 28/10** senza busta (oltre le 48h, li prende lo Step 2-bis).
+- 🔴 Aggregati scoperti oltre le 48h: **weekend del 15/10** (entra in finestra domani 13/10 sera: serve il Mac acceso) · settimanale del 18/10 · weekend del 22/10 · settimanale del 25/10.
+- Non fatto: righe nel piano editoriale per gli eventi approvati lontani (si aggiungono quando si mette in coda, come sempre); Coppa Titano 28/10 ancora da ricontrollare su fsgc.sm prima della grafica. File del giro (master, bozze, approvati, stato grafica, piano) non committati, come i precedenti.
+- ✅ **D1 sciolto dopo il giro** (Michele, calendario Beer Fest incollato in chat): il 16/10 suona **Nirvana.it**; master r.73 aggiornata, il settimanale già uscito era giusto. **D2 sciolto** (articolo Scuderia San Marino mandato da Michele): Halloween Ronde ha base al Multieventi e arrivo in Piazza Bertoldi, Serravalle; solo la power stage è a San Leo → resta approvato, master r.163 aggiornata col luogo vero, orari ancora da pubblicare. Restano aperti D3–D5.
+- 🗑 3 copie Canva da cestinare: `DAHX0JbfTgo`, `DAHX0G1pBrI`, `DAHX0Fe1iaU`.
+- Telegram inviato (curl). Lucchetto preso e rilasciato.
+
+---
+
+Aggiornato: 2026-10-12 (mattina) — 🔁 **GIRO SETTIMANALE (task pianificato): 49 eventi, 16 bozze da approvare + 5 dubbi mandati su Telegram (giro `20261012-0321`, 8 messaggi con pulsanti).**
+
+- Guardie: integrità ❌ falso allarme noto (`jhonny/SKILL.md` sta in `~/.claude`) · export→coda ✅ · copertura: 14/10 e 16–18/10 hanno materiale approvato senza busta (li prende lo Step 2-bis della catena serale entro le 48h).
+- Ricerca 49 schede (finestra 12/10–11/12) · postino coda vuota (testo e foto) · verifica 49 verificati (32 invariati, 14 nuovi, 3 modificati), 5 da confermare, 0 scartati · testi 17 bozze in `dati/post/post-2026-10-12.md`, 1 tolta come doppione (Anima e Corpo 07/10).
+- 🔴 **Beer Fest 16/10**: visitsanmarino e usc.sm dicono Linkin Revolution; master r.73 (locandina di Michele del 24/09) dice Nirvana.it. Il **settimanale 12–18/10 è già uscito l'11/10** con «Beer Fest: Nirvana.it». Dubbio D1 su Telegram: serve la locandina/Facebook di San Marino Food Events. Finché non si scioglie, il giornaliero/storia del 16/10 va scritto senza band.
+- Dubbi D2–D5: Halloween Ronde (tratti a San Leo secondo visitsanmarino, bozza già approvata) · CEMEC Winter School · CEMEC convegno 31/10 · Tour Music Fest (nessun programma).
+- Master: corrette solo r.162 (tolto il civico di Via Basilicius: fonti discordi 33/22) e r.154 (sedi 08/11 Teatro Titano, 21/11 Chiesa di San Francesco). I 14 nuovi entrano dopo i ✅. Sito rigenerato (38 eventi) e anteprima privata ripubblicata.
+- Coppa Titano 28/10 (bozza 08): abbinamenti letti una volta sola su fsgc.sm → ricontrollare prima della grafica.
+- Cloud: ha girato (22 eventi contro 49); le differenze sono titoli scritti diversi, tutti gli eventi del cloud controllati a campione ci sono anche nei file del Mac. Fonti giù: castellidisanmarino (403), giornalesm (connessione rifiutata), titani.tv (vuota), tuttocampo (403).
+- Non fatto: Google Sheet su Drive (i nuovi non sono ancora nel registro: ha senso dopo le approvazioni). Nessun commit: i file del giro restano non salvati sul Mac. Lucchetto preso e rilasciato.
+
+---
+
+Aggiornato: 2026-10-11 (sera, 18:40) — 🔗 **CATENA GIORNALIERA (task pianificato): niente da mettere in coda per lunedì 12/10 (giorno legittimamente vuoto). Corretta la guardia degli imminenti sugli intervalli a cavallo d'anno.**
+
+- Step 0-bis: 0 approvazioni · 0 segnalazioni · 0 annullamenti · ultimo approvato (05/10) già graficato (10/10) — **domanda 5 = sì** (12/10 senza feed né storie).
+- ✅ Oggi usciti davvero (published.log + archivio): giornaliero + 4 storie delle 07:00 e **settimanale 12–18/10** delle 18:00, IG e FB.
+- **Step 2-bis, buco 12/10: NON chiuso, legittimo.** L'unico candidato vero è la mostra Sono "solo" 50 anni (r.116, 10–23/10). Ricontrollata alla fonte (sanmarinortv.sm e5194, giornalesm.com): «visitabile negli orari di apertura del Centro», senza giorni né orari → per il lunedì 12 non c'è un dato confermato, quindi non entra. Nota del master aggiornata. ⚠️ La guardia la riproporrà ogni sera fino al 23/10: si scioglie solo sapendo gli orari del Centro Sociale di Dogana (tel. 0549 885518).
+- 🔧 `scripts/controllo-imminenti.py`: «28/11–06/01» e «04/12–28/02» venivano letti tutti nel 2026 e toccavano ogni giorno dell'anno → Natale delle Meraviglie (r.166) e Sea of Sound (r.167) proposti a ottobre. Ora un intervallo che finisce «prima» di iniziare chiude l'anno dopo. Commit `d571c0d` su origin/main.
+- Guardie: busta-rimasta ✅ · export→coda ✅ · serie ✅ (nessun appuntamento in finestra) · copertura ⚠️ · integrità ❌ falso allarme noto (`jhonny/SKILL.md` sta in `~/.claude`) · caption-prezzi **non eseguibile**: esce con 2 perché `posts/` non esiste — la coda è **vuota** (ultima busta archiviata alle 18:00) e git non tiene le cartelle vuote. Non è un blocco prezzi, ma la guardia non distingue «coda vuota» da «repo rotto»: da insegnarle.
+- 🔴 Aggregati scoperti oltre le 48h: **weekend del 15/10** (entra in finestra martedì 13/10 sera) · settimanale del 18/10 · weekend del 22/10. Giorni 14/10 e 16–18/10 hanno eventi approvati a registro ancora senza busta: li prende lo Step 2-bis quando entrano nelle 48h (serve il Mac acceso).
+- Telegram: non inviato (nessun esito che chieda qualcosa a Michele). Lucchetto preso e rilasciato.
+
+---
+
+Aggiornato: 2026-10-10 (mattina, 11:15) — 🔗 **CATENA GIORNALIERA (task pianificato): Step 2-bis ha chiuso il buco di domenica 11/10 — giornaliero + 4 storie in coda su origin/main.**
+
+- Step 0-bis: 0 approvazioni · 0 segnalazioni · 0 annullamenti · ultimo approvato (05/10) già graficato — **domanda 5 = sì** (mancavano feed e storie dell'11/10).
+- **Feed 11/10 07:00**: Concerto "Antichi Riti", 17:00, Chiesa di San Francesco (master r.148, bozza approvata 29/09). Copia pag.8 del giornaliero (`DAHXmawhti0`, «DA ELIMINARE»), puntatore 7→**8**. Caption con cross-mention ultima giornata Rallylegend / Sagra di Casole / Teodorini.
+- **Storie 11/10 07:00** (copia pag.7-10 del mazzo singolo, `DAHXmUcyArY`, «DA ELIMINARE», puntatore 6→**10**): 1) Rallylegend 08:45 (Partenza Giorno 3, Memorial Bettega dalle 12:00 — programma ufficiale rallylegend.com `Programma-RL-2026-orari-B.pdf`, provvisorio) · 2) Sagra di Casole 10:00 (master r.147) · 3) Antichi Riti 17:00 · 4) Teodorini senza ora, CTA di chiusura, tag @sanmarinoteatro.
+- Escluso: Sono "solo" 50 anni (r.116, intervallo 10–23/10) — la nota dà solo l'inaugurazione del 10/10, nessun orario di apertura per l'11. Natale delle Meraviglie (r.166) e Sea of Sound (r.167) comparivano nell'elenco della guardia ma iniziano a fine novembre/dicembre: ⚠️ `controllo-imminenti.py` li elenca per l'11/10 a torto (intervallo che scavalca l'anno?) — da guardare.
+- Commit `3573059` su origin/main. Guardie: imminenti ✅ · caption-prezzi ✅ · export→coda ✅ · busta-rimasta ✅ · serie ✅ (nessun appuntamento in finestra) · copertura ⚠️ · integrità ❌ **falso allarme**: cerca `.claude/skills/jhonny/SKILL.md` nel progetto, ma il file sta in `~/.claude/skills/jhonny/` (citato dal task `jhonny--giro-delle-2`). Va insegnato alla guardia, non recuperato.
+- 🔴 Aggregati scoperti oltre le 48h (li chiude lo Step 2-bis quando entrano in finestra): weekend del 15/10 · settimanale del 18/10 · weekend del 22/10.
+- 🗑 2 copie Canva da cestinare: Giornaliero 11/10 (`DAHXmawhti0`), Storie 11/10 (`DAHXmUcyArY`).
+- Telegram inviato (curl). Lucchetto preso e rilasciato.
+
+---
+
+Aggiornato: 2026-09-25 (sera) — 🔎 **CONFRONTO CLOUD/MAC DEL 21/09: il cloud ha visto TUTTI gli eventi validi del Mac, più 11. RTV passa (sonda 200 prima e dopo). Il metro contava «Mac 0 verificati»: sistemato.**
+- Sonda RTV 21/09: 200 su tutte e 5 le prove, prima e dopo la ricerca → il 403 del 14/09 era un episodio.
+- Mac 20 eventi · cloud 29. I 2 «solo Mac» sono scarti giusti (Cipro–SM in trasferta, Natale delle Meraviglie oltre i 60gg). Il cloud ha anche le date giuste di Kosovo (24/09) e Spagna (01/10). In più: Ercolani, «Battiti», Move Games, Rio Abierto, Titano–Piacenza basket, AzzuChef, Modena Cento Ore, M&A PMI (scartato), 2× CEMEC, Follesa.
+- 🔧 `scripts/conta-giro.py`: il Mac il 21/09 ha scritto le sezioni con `# ` (un cancelletto) → 17 eventi «fuori sezione» e confronto «Mac 0 verificati». Ora le `# ✅/⚠️/🗑` valgono come sezione; `confronta-giri.py` grida (🛑, exit 5 in `--una-riga`) se restano eventi fuori sezione. Test 14/14 + 25/25.
+- ⚠️ Limite noto, non toccato: l'accoppiamento titoli per contenimento non accosta «San Marino vs Finlandia — … Lega C» con «San Marino – Finlandia (… 2026-27)»: sulle partite il conto «in comune» è basso per finta. Il confronto vero del 21/09 è quello fatto a mano qui sopra.
+- ✅ Giornaliero 24/09 con la rettifica Kosovo uscito su IG+FB (published.log + archivio).
+
+---
+
+Aggiornato: 2026-09-21 (sera) — 🔴 **U21–KOSOVO È GIOVEDÌ 24/09 ore 20:30 (non 25); U21–SPAGNA è 01/10 ore 20:15 (non 30/09).** Fonte: comunicato FSGC su GiornaleSM 25/08 + USC + sanmarinortv. La «correzione» del 14/09 (verifica, basata su Wikipedia ferma a marzo) era sbagliata.
+- Il **settimanale 21-27/09 già uscito il 20/09** dice «Venerdì 25/09»: errore pubblicato. Rettifica scritta dentro la caption e la storia del post del 24/09 (`dati/post/approvati/post-approvati-2026-09-01.md`, blocco 24/09) — esce col giornaliero del 24/09 7:00, che la catena grafica/mette in coda stasera del 22/09 (guardia 48h).
+- Corretti: master righe 100 e 103, dossier settimanale (nota d'errore), bozze 14/09 marcate `scartato`. Nessuna busta in `posts/` aveva le date sbagliate.
+- ⚠️ Nei pulsanti Telegram del giro 20260921-0315 i dubbi D1/D2 (Kosovo/Spagna) sono ormai risolti: ✅/❌ su di essi non serve.
+- 🔴 Aperto: verificare che giovedì 24/09 alle 7:00 il giornaliero con rettifica sia davvero uscito; la lezione (mai fidarsi di Wikipedia per date future) è nelle memorie.
+
+---
+
+Aggiornato: 2026-09-16 (sera) — 🔎 **CONFRONTO CLOUD/MAC DEL 14/09 FATTO: il cloud vede 14 eventi contro 21, ma i persi veri sono 5 (4 per San Marino RTV). Messa una sonda RTV nel giro di lunedì 21/09.**
+
+- ✅ Ticket 14: la corsa del 14/09 è partita alle **03:00** da cron-job.org (`workflow_dispatch`), ripresa 09:00 corretta. Il confronto (`scripts/confronta-giri.py --data 2026-09-14`) dà Mac 21 · cloud 14 · comuni 12.
+- I 9 «solo Mac»: **4 RTV** (403 al cloud alle 03:00: Ercolani, Micologica, Modena Cento Ore + Festa Serravalle finita in da-confermare) · **3 errori del MAC** oltre la finestra di 60gg (Follesa 20/11, Natale Meraviglie 28/11, Sea of Sound 04/12 — il cloud ha fatto giusto) · 1 TicketOne in timeout (Sal Da Vinci) · 1 senza spiegazione (SMOE Run 18/10).
+- ⚠️ Sul ramo `giro-cloud` la ricerca ha marcato ⚠️ `sanmarinortv.sm/eventi` e `/sport` in `dati/fonti*.md`: se il cloud diventa il giro principale, quella marcatura farebbe saltare RTV in silenzio.
+- Sonda a mano `sonda-rtv.yml` (16/09 22:49): dal cloud RTV **passa tutto** (rss, eventi, programma e browser). Quindi il blocco non è fisso.
+- 🔧 `giro-cloud.yml` tappa 1: `.github/scripts/sonda-rtv.sh` prima e dopo la ricerca → `dati/cloud-giro/<data>/sonda-rtv.txt` sul ramo. Lettura lunedì 21/09: 403 già PRIMA = computer bloccato · 403 solo DOPO = blocco a tempo · 200 ma RTV fra le «Fonti non raggiungibili» = blocca lo strumento di Claude (rimedio: fallback curl nella ricerca, oggi ha solo `Bash(python3:*)`).
+- 🔴 Aperti: leggere la sonda il 21/09 · il Mac non rispetta `finestra_giorni` 60.
+
+---
+
 Aggiornato: 2026-09-08 (notte) — 🔍 **CORSA #2 IN CLOUD: la macchina funziona. Chiuse due cose che suonavano a vuoto — il metro che gonfiava i numeri e la busta anomala immortale. E il ticket 14 CHIUSO come costruzione: la sveglia del giro passa a cron-job.org, i 2 cronjob sono creati — resta la prova di lunedì 14/09.**
 
 ## Cosa è successo stanotte e oggi, in ordine

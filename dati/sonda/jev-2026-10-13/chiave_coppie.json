@@ -1,0 +1,182 @@
+[
+ {
+  "id": 1,
+  "stesso": false,
+  "a": "San Francesco: Passi sul Monte Titano",
+  "b": "Yoga agli Orti"
+ },
+ {
+  "id": 2,
+  "stesso": false,
+  "a": "Alba sul Monte…in Concerto",
+  "b": "Yoga agli Orti"
+ },
+ {
+  "id": 3,
+  "stesso": true,
+  "a": "Molella & Rosa Chemical",
+  "b": "Summer Vibes 2026 — Molella e Rosa Chemical in concerto"
+ },
+ {
+  "id": 4,
+  "stesso": false,
+  "a": "Alba sul Monte…in Concerto",
+  "b": "Yoga agli Orti"
+ },
+ {
+  "id": 5,
+  "stesso": true,
+  "a": "Trio Mi Alma",
+  "b": "Trio Mi Alma — Summer Notes"
+ },
+ {
+  "id": 6,
+  "stesso": false,
+  "a": "Alba sul Monte…in Concerto",
+  "b": "Quel Gran Genio — Le canzoni di Battisti come non le hai mai sentite"
+ },
+ {
+  "id": 7,
+  "stesso": true,
+  "a": "Cena Tramonto & Live",
+  "b": "Cena Tramonto & Live — Cena-Concerto di Beneficenza"
+ },
+ {
+  "id": 8,
+  "stesso": true,
+  "a": "E...state col Consorzio — Noche Argentina",
+  "b": "E...state col Consorzio — Noche Argentina"
+ },
+ {
+  "id": 9,
+  "stesso": true,
+  "a": "21° Giro dei Castelli di San Marino",
+  "b": "21° Giro dei Castelli di San Marino"
+ },
+ {
+  "id": 10,
+  "stesso": true,
+  "a": "Festa di San Marino",
+  "b": "Festa di San Marino e di Fondazione della Repubblica"
+ },
+ {
+  "id": 11,
+  "stesso": false,
+  "a": "⚠️ Gran Premio Red Bull MotoGP San Marino",
+  "b": "Il senso di ogni cosa"
+ },
+ {
+  "id": 12,
+  "stesso": false,
+  "a": "Dal Turista al Contadino — Il Festival dei Profumi e dei Sapori Sammarinesi (2º weekend)",
+  "b": "Musikfest Adriatica"
+ },
+ {
+  "id": 13,
+  "stesso": true,
+  "a": "11º Concorso Internazionale di Canto Renata Tebaldi",
+  "b": "11° Concorso Internazionale Voci \"Renata Tebaldi\""
+ },
+ {
+  "id": 14,
+  "stesso": false,
+  "a": "Sport in Fiera",
+  "b": "11 Renata Tebaldi International Voice Competition"
+ },
+ {
+  "id": 15,
+  "stesso": false,
+  "a": "36° Gran Premio Nuvolari",
+  "b": "San Marino Beer Fest 2026 — II edizione"
+ },
+ {
+  "id": 16,
+  "stesso": true,
+  "a": "Giornata Mondiale del Turismo — \"Digital Agenda and AI\"",
+  "b": "Giornata Mondiale del Turismo 2026"
+ },
+ {
+  "id": 17,
+  "stesso": true,
+  "a": "Cerimonia di investitura dei Capitani Reggenti",
+  "b": "Cerimonia di investitura degli Eccellentissimi Capitani Reggenti"
+ },
+ {
+  "id": 18,
+  "stesso": false,
+  "a": "Artisti in Casa — Festival di Microspettacoli",
+  "b": "Giornata Mondiale del Turismo"
+ },
+ {
+  "id": 19,
+  "stesso": false,
+  "a": "1° Ottobre — Cerimonia di Investitura dei Capitani Reggenti",
+  "b": "San Marino - Spagna U21 (Qualificazioni Europei 2027)"
+ },
+ {
+  "id": 20,
+  "stesso": true,
+  "a": "⚠️ Calcio al Parco",
+  "b": "Calcio al Parco"
+ },
+ {
+  "id": 21,
+  "stesso": false,
+  "a": "Dal Turista al Contadino 2026 — Prima tappa",
+  "b": "Festa del Socio — Associazione Micologica Sammarinese"
+ },
+ {
+  "id": 22,
+  "stesso": false,
+  "a": "San Marino Beer Fest 2026 — Terza weekend",
+  "b": "Porsche Parade Italia — Passaggio a San Marino"
+ },
+ {
+  "id": 23,
+  "stesso": true,
+  "a": "E...state col Consorzio — \"Noche Argentina\"",
+  "b": "E...state col Consorzio - Noche Argentina"
+ },
+ {
+  "id": 24,
+  "stesso": false,
+  "a": "San Marino Beer Fest 2026 — VI edizione",
+  "b": "⚠️ La rassegna di commedie dialettali 2026-2027 — \"HO AVÙ UN ICS\""
+ },
+ {
+  "id": 25,
+  "stesso": false,
+  "a": "Festa di San Rocco — Sagra della Tagliatella (prosegue)",
+  "b": "Fluxo Summer 2026"
+ },
+ {
+  "id": 26,
+  "stesso": false,
+  "a": "Piano — Stefano Malferrari — Castellaccio Vibra Musica",
+  "b": "33° San Marino Revival"
+ },
+ {
+  "id": 27,
+  "stesso": false,
+  "a": "San Marino Beer Fest 2026 — III edizione",
+  "b": "Artisti in Casa — XVI edizione"
+ },
+ {
+  "id": 28,
+  "stesso": false,
+  "a": "Greg in Concert",
+  "b": "Benji e Fede in concerto — Summer Vibes 2026"
+ },
+ {
+  "id": 29,
+  "stesso": false,
+  "a": "Paolo Jannacci in Concert",
+  "b": "San Francesco: i passi sul Monte Titano"
+ },
+ {
+  "id": 30,
+  "stesso": true,
+  "a": "Cerimonia di Investitura degli Ecc.mi Capitani Reggenti",
+  "b": "Cerimonia di investitura dei Capitani Reggenti"
+ }
+]

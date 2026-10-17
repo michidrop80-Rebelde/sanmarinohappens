@@ -1,0 +1,215 @@
+{
+  "giro_id": "20260927-1706",
+  "sent_at": "2026-09-27T17:06:28Z",
+  "prova": false,
+  "eventi": [
+    {
+      "id": "01",
+      "titolo": "Tony - Diario di un giovane cuoco",
+      "tipo": "nuovo",
+      "data": "28/09/2026 – 30/09/2026",
+      "luogo": "Cinema Concordia, Borgo Maggiore",
+      "url": "https://www.sanmarinortv.sm/news/cultura-c6/cinema-concordia-riparte-la-stagione-film-incontri-e-una-rassegna-dedicata-alla-diversita-a296217"
+    },
+    {
+      "id": "02",
+      "titolo": "Sono \"solo\" 50 anni",
+      "tipo": "nuovo",
+      "data": "10/10/2026 – 23/10/2026",
+      "luogo": "Centro Sociale di Dogana",
+      "url": ""
+    },
+    {
+      "id": "03",
+      "titolo": "L'Io e le sue maschere",
+      "tipo": "nuovo",
+      "data": "16/10/2026",
+      "luogo": "Centro Sociale di Dogana",
+      "url": ""
+    },
+    {
+      "id": "04",
+      "titolo": "Sara Jane Ghiotti — Morning Evening",
+      "tipo": "nuovo",
+      "data": "22/10/2026",
+      "luogo": "Teatro Titano",
+      "url": "https://www.sanmarinoteatro.sm"
+    },
+    {
+      "id": "05",
+      "titolo": "Under the Skin",
+      "tipo": "nuovo",
+      "data": "22/10/2026",
+      "luogo": "Centro Sociale di Fiorentino",
+      "url": ""
+    },
+    {
+      "id": "06",
+      "titolo": "Lunetta Savino — Madre Courage e i suoi figli",
+      "tipo": "nuovo",
+      "data": "05/11/2026",
+      "luogo": "Teatro Nuovo",
+      "url": "https://www.sanmarinoteatro.sm"
+    },
+    {
+      "id": "07",
+      "titolo": "A Ghost Story",
+      "tipo": "nuovo",
+      "data": "05/11/2026",
+      "luogo": "Centro Sociale di Fiorentino",
+      "url": ""
+    },
+    {
+      "id": "08",
+      "titolo": "Soqquadro",
+      "tipo": "nuovo",
+      "data": "08/11/2026",
+      "luogo": "Teatro Concordia",
+      "url": "https://www.sanmarinoteatro.sm"
+    },
+    {
+      "id": "09",
+      "titolo": "Nicolò Govoni — L'uomo che costruiva il futuro",
+      "tipo": "nuovo",
+      "data": "12/11/2026",
+      "luogo": "Teatro Concordia",
+      "url": "https://www.sanmarinoteatro.sm"
+    },
+    {
+      "id": "10",
+      "titolo": "Diaghilev — La morte ovvero il pranzo della domenica",
+      "tipo": "nuovo",
+      "data": "18/11/2026",
+      "luogo": "Teatro Titano",
+      "url": "https://www.sanmarinoteatro.sm"
+    },
+    {
+      "id": "11",
+      "titolo": "Ferro 3 - La casa vuota",
+      "tipo": "nuovo",
+      "data": "19/11/2026",
+      "luogo": "Centro Sociale di Fiorentino",
+      "url": ""
+    },
+    {
+      "id": "12",
+      "titolo": "MM Contemporary — The Wall, Dance Tribute",
+      "tipo": "nuovo",
+      "data": "27/11/2026",
+      "luogo": "Teatro Nuovo",
+      "url": "https://www.sanmarinoteatro.sm"
+    },
+    {
+      "id": "13",
+      "titolo": "Matthias Martelli — Lu Santo Jullare Francesco",
+      "tipo": "nuovo",
+      "data": "04/12/2026",
+      "luogo": "Teatro Titano",
+      "url": "https://www.sanmarinoteatro.sm"
+    },
+    {
+      "id": "14",
+      "titolo": "Sapore di sale",
+      "tipo": "nuovo",
+      "data": "08/12/2026",
+      "luogo": "Teatro Concordia",
+      "url": "https://www.sanmarinoteatro.sm"
+    },
+    {
+      "id": "15",
+      "titolo": "Marcinelle. Storia di minatori",
+      "tipo": "nuovo",
+      "data": "14/01/2027",
+      "luogo": "Teatro Titano",
+      "url": "https://www.sanmarinoteatro.sm"
+    },
+    {
+      "id": "16",
+      "titolo": "A doppio filo — Vladimir Luxuria",
+      "tipo": "nuovo",
+      "data": "17/01/2027",
+      "luogo": "Teatro Titano",
+      "url": "https://www.sanmarinoteatro.sm"
+    },
+    {
+      "id": "17",
+      "titolo": "La Reginetta di Leenane",
+      "tipo": "nuovo",
+      "data": "20/01/2027",
+      "luogo": "Teatro Nuovo",
+      "url": "https://www.sanmarinoteatro.sm"
+    },
+    {
+      "id": "18",
+      "titolo": "Il viale del tramonto",
+      "tipo": "nuovo",
+      "data": "26/01/2027",
+      "luogo": "Teatro Titano",
+      "url": "https://www.sanmarinoteatro.sm"
+    },
+    {
+      "id": "19",
+      "titolo": "La ricerca della felicità",
+      "tipo": "nuovo",
+      "data": "02/02/2027",
+      "luogo": "Teatro Concordia",
+      "url": "https://www.sanmarinoteatro.sm"
+    },
+    {
+      "id": "20",
+      "titolo": "Piccoli principi e principesse",
+      "tipo": "nuovo",
+      "data": "07/02/2027",
+      "luogo": "Teatro Concordia",
+      "url": "https://www.sanmarinoteatro.sm"
+    },
+    {
+      "id": "21",
+      "titolo": "Amleto a pranzo e a cena",
+      "tipo": "nuovo",
+      "data": "17/02/2027",
+      "luogo": "Teatro Titano",
+      "url": "https://www.sanmarinoteatro.sm"
+    },
+    {
+      "id": "22",
+      "titolo": "A doppio filo — Marina Massironi",
+      "tipo": "nuovo",
+      "data": "21/02/2027",
+      "luogo": "Teatro Titano",
+      "url": "https://www.sanmarinoteatro.sm"
+    },
+    {
+      "id": "23",
+      "titolo": "Alessandro Bergonzoni — Arrivano i dunque",
+      "tipo": "nuovo",
+      "data": "04/03/2027",
+      "luogo": "Teatro Titano",
+      "url": "https://www.sanmarinoteatro.sm"
+    },
+    {
+      "id": "24",
+      "titolo": "A doppio filo — Greg",
+      "tipo": "nuovo",
+      "data": "14/03/2027",
+      "luogo": "Teatro Titano",
+      "url": "https://www.sanmarinoteatro.sm"
+    },
+    {
+      "id": "25",
+      "titolo": "Federico Mecozzi — Traiettorie impercettibili",
+      "tipo": "nuovo",
+      "data": "24/03/2027",
+      "luogo": "Teatro Titano",
+      "url": "https://www.sanmarinoteatro.sm"
+    },
+    {
+      "id": "26",
+      "titolo": "A doppio filo — Michela Andreozzi",
+      "tipo": "nuovo",
+      "data": "04/04/2027",
+      "luogo": "Teatro Titano",
+      "url": "https://www.sanmarinoteatro.sm"
+    }
+  ]
+}

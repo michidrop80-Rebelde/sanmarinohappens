@@ -134,6 +134,11 @@ Salva il post 📌 e seguici per non perdere gli eventi di San Marino
 
 ## [03/10] — SanMarinoBeerFest — Voglio Tornare Negli Anni 90   ·   tipo: musica
 
+> 🔴 **NON USARE QUESTA BOZZA COSÌ COM'È (24/09/2026).** Titolo e luogo sono vecchi: il calendario
+> completo dell'organizzatore (rimandato da Michele in chat il 24/09) dice «3 ottobre IDOLS 2000 -
+> Format anni 2000», e il luogo è **Parco di Dogana, San Marino** (non Campo Bruno Reffi, corretto
+> nel master il 24/08). Va riscritta dalla riga 76 del master prima di fare grafica.
+
 **📷 Testo per la grafica**
 - Titolo breve: Voglio Tornare Negli Anni 90
 - Sottotitolo: 3 ottobre · Campo Bruno Reffi

@@ -16,7 +16,7 @@ Coprono quasi tutto lo sport sammarinese in un posto solo, e sono leggibili:
   - basket: /sport/basket-c18
   - sport sammarinese (volley, ecc.): /sport/sport-sammarinese-c16
   - comunicati sport: /sport/comunicati-sport-c22
-- ✅ https://www.titani.tv/it/campionato-sammarinese — portale sport del Titano
+- ⚠️ https://www.titani.tv/it/campionato-sammarinese — portale sport del Titano [12/10/2026: pagina vuota, nessun contenuto leggibile]
 
 ---
 
@@ -134,6 +134,8 @@ Le 35 federazioni CONS hanno spesso club che giocano in campionati italiani. Da 
 - [ricerca 27/06/2026] Possibili aggregatori extra: eventbrite.com/d/san-marino · sagritaly.com (sagre)
 - [ricerca 06/07/2026] **Coppe europee stagione 2026-27**: confermati avversari e date preliminari Champions/Conference League per Tre Fiori, La Fiorita, Virtus (luglio 2026). Tutte le partite di ritorno in casa al San Marino Stadium.
 - [ricerca 06/07/2026] **Internazionali Tennis San Marino Open** — ATP Challenger 125 (upgrade di categoria 2026), 27/07-02/08, Montecchio. Sito ufficiale: sanmarinotennisopen.com
+- [ricerca 12/10/2026] **Federazione Sammarinese Roller Sports** — organizza la IX Titano Battle Cup (23-25/10/2026, Multieventi Sport Domus). Sito: nessuno; pagina Facebook non leggibile dai bot.
+- [ricerca 12/10/2026] **Associazione Martin Mancini** — http://www.martinmancini.org — organizza la 25ª Supercoppa Italiana FIPIC di basket in carrozzina (15/11/2026, Multieventi Sport Domus).
 
 ---
 

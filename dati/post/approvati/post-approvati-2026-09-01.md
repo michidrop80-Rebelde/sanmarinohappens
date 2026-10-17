@@ -146,6 +146,8 @@ Salva il post 📌 e seguici per non perdere gli eventi di San Marino
 
 San Marino U21 – Kosovo U21, qualificazioni ai Campionati Europei 2027, al San Marino Stadium.
 
+🔄 Rettifica: nel riepilogo settimanale avevamo scritto venerdì 25. La partita è OGGI, giovedì 24 settembre, alle 20:30. Ci scusiamo per l'errore!
+
 🗓 24/09/2026 · 🕣 20:30 · 📍 San Marino Stadium, Serravalle
 Salva il post 📌 e seguici per non perdere gli eventi di San Marino
 ℹ️ Date e orari possono cambiare: verifica sempre sulla fonte ufficiale dell'organizzatore (link in bio).
@@ -158,7 +160,7 @@ Salva il post 📌 e seguici per non perdere gli eventi di San Marino
 - Data: 24/09/2026
 - Ora: 20:30
 - Luogo: San Marino Stadium, Serravalle
-- Descrizione breve: Gli Under 21 di San Marino in campo per le qualificazioni ai Campionati Europei 2027.
+- Descrizione breve: Gli Under 21 di San Marino in campo per le qualificazioni ai Campionati Europei 2027. Rettifica: è OGGI, non venerdì.
 
 **🔗 Fonte:** https://www.visitsanmarino.com/pub1/VisitSM/it/eventi.html
 **Nota:** pianificato FEED 24/09 7:00. Tag @fsgc_official (registro).

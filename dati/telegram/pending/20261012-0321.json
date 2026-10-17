@@ -1,0 +1,175 @@
+{
+  "giro_id": "20261012-0321",
+  "sent_at": "2026-10-12T03:21:44Z",
+  "prova": false,
+  "eventi": [
+    {
+      "id": "02",
+      "titolo": "Mementi – Mercoledì d'autore (anche 21 e 28/10)",
+      "tipo": "nuovo",
+      "data": "14/10",
+      "luogo": "Sala Rubino, Giochi del Titano, Rovereta",
+      "url": "https://www.sanmarinortv.sm/eventi/appuntamenti/mementi-mercoledi-d-autore-ottobre-e5201"
+    },
+    {
+      "id": "03",
+      "titolo": "La Voce dei Giovani arriva a San Marino",
+      "tipo": "nuovo",
+      "data": "14/10",
+      "luogo": "Cinema Concordia, Borgo Maggiore",
+      "url": "https://www.sanmarinortv.sm/eventi/cinema/la-voce-dei-giovani-arriva-a-san-marino-e5192"
+    },
+    {
+      "id": "04",
+      "titolo": "Concerto di Gala IMS con Abu Dhabi Youth Orchestra",
+      "tipo": "nuovo",
+      "data": "16/10",
+      "luogo": "Teatro Concordia, Borgo Maggiore",
+      "url": "https://www.usc.sm/evento/concerto-di-gala/"
+    },
+    {
+      "id": "05",
+      "titolo": "IX Titano Battle Cup (pattinaggio)",
+      "tipo": "nuovo",
+      "data": "23-25/10",
+      "luogo": "Multieventi Sport Domus, Serravalle",
+      "url": "https://www.visitsanmarino.com/pub1/VisitSM/evento/20261023_Titano_Battle_Cup.html"
+    },
+    {
+      "id": "06",
+      "titolo": "Commedie dialettali: Ho avù un ics",
+      "tipo": "nuovo",
+      "data": "24/10",
+      "luogo": "Auditorium Little Tony, Serravalle",
+      "url": "https://www.sanmarinortv.sm/eventi/teatro/la-rassegna-di-commedie-dialettali-2026-2027-all-auditorium-little-tony-a-serravalle-e5200"
+    },
+    {
+      "id": "07",
+      "titolo": "Rassegna d'Autunno: Dal Barocco al Klezmer (tolto il civico)",
+      "tipo": "modificato",
+      "data": "25/10",
+      "luogo": "Chiesa di San Francesco, Via Basilicius",
+      "url": "https://www.usc.sm/evento/xxviii-rassegna-musicale-dautunno-2/"
+    },
+    {
+      "id": "08",
+      "titolo": "Coppa Titano: ottavi di ritorno",
+      "tipo": "nuovo",
+      "data": "28/10",
+      "luogo": "Acquaviva, Montecchio, Fiorentino, Dogana",
+      "url": "https://www.fsgc.sm/it/campionato/coppa-titano/2"
+    },
+    {
+      "id": "09",
+      "titolo": "Teatro Vivo: So'Shemi",
+      "tipo": "nuovo",
+      "data": "06/11",
+      "luogo": "Auditorium Little Tony, Serravalle",
+      "url": "https://www.sanmarinortv.sm/eventi/teatro/teatro-vivo-26-27-all-auditorium-little-tony-di-serravalle-al-via-la-nuova-stagione-teatrale-e5187"
+    },
+    {
+      "id": "10",
+      "titolo": "Rassegna d'Autunno: L'Italia canta, senza parole (sede trovata)",
+      "tipo": "modificato",
+      "data": "08/11",
+      "luogo": "Teatro Titano",
+      "url": "https://www.visitsanmarino.com/pub1/VisitSM/evento/20261108_Rassegna_Musicale_d-Autunno.html"
+    },
+    {
+      "id": "11",
+      "titolo": "Corsi serali di lingua per tutti 2026-27",
+      "tipo": "nuovo",
+      "data": "09/11",
+      "luogo": "Scuola Media Serravalle",
+      "url": "https://www.sanmarinortv.sm/eventi/appuntamenti/corsi-serali-di-lingua-per-tutti-2026-2027-e5182"
+    },
+    {
+      "id": "12",
+      "titolo": "25° Supercoppa FIPIC basket in carrozzina",
+      "tipo": "nuovo",
+      "data": "15/11",
+      "luogo": "Multieventi Sport Domus, Serravalle",
+      "url": "https://www.visitsanmarino.com/pub1/VisitSM/evento/20261115_25°-Supercoppa-Martin-Mancini.html"
+    },
+    {
+      "id": "13",
+      "titolo": "Mondiale CSIT di Danza Sportiva",
+      "tipo": "nuovo",
+      "data": "20-22/11",
+      "luogo": "Multieventi Sport Domus, Serravalle",
+      "url": "https://www.visitsanmarino.com/pub1/VisitSM/evento/20261120_Campionato-danza-sportiva.html"
+    },
+    {
+      "id": "14",
+      "titolo": "Rassegna d'Autunno: Cor Barocco (sede trovata)",
+      "tipo": "modificato",
+      "data": "21/11",
+      "luogo": "Chiesa di San Francesco, Via Basilicius",
+      "url": "https://www.visitsanmarino.com/pub1/VisitSM/evento/20261121_Rassegna_Musicale_d-Autunno.html"
+    },
+    {
+      "id": "15",
+      "titolo": "Rassegna d'Autunno: Emozioni",
+      "tipo": "nuovo",
+      "data": "29/11",
+      "luogo": "Teatro Titano",
+      "url": "https://www.visitsanmarino.com/pub1/VisitSM/evento/20261129_Rassegna_Musicale_d-Autunno.html"
+    },
+    {
+      "id": "16",
+      "titolo": "Teatro Vivo: Dungeon World, The Show",
+      "tipo": "nuovo",
+      "data": "04/12",
+      "luogo": "Auditorium Little Tony, Serravalle",
+      "url": "https://www.sanmarinortv.sm/eventi/teatro/teatro-vivo-26-27-all-auditorium-little-tony-di-serravalle-al-via-la-nuova-stagione-teatrale-e5187"
+    },
+    {
+      "id": "17",
+      "titolo": "Nuzzo e Di Biase: Totalmente Incompatibili",
+      "tipo": "nuovo",
+      "data": "06/12",
+      "luogo": "Teatro Nuovo, Dogana",
+      "url": "https://www.sanmarinortv.sm/eventi/teatro/nuzzo-e-di-biase-totalmente-incompatibili-teatro-nuovo-e4910"
+    },
+    {
+      "id": "D1",
+      "titolo": "San Marino Beer Fest: quale band il 16/10?",
+      "tipo": "dubbio",
+      "data": "16/10",
+      "luogo": "Parco Ausa, Dogana",
+      "url": "https://www.usc.sm/evento/san-marino-beer-fest-2026-9/"
+    },
+    {
+      "id": "D2",
+      "titolo": "6° Halloween Ronde",
+      "tipo": "dubbio",
+      "data": "30-31/10",
+      "luogo": "Repubblica di San Marino (partenza non specificata)",
+      "url": "https://www.scuderiasanmarino.com/6-halloween-ronde/"
+    },
+    {
+      "id": "D3",
+      "titolo": "CEMEC 2026 Winter School",
+      "tipo": "dubbio",
+      "data": "23-25/10",
+      "luogo": "non specificato",
+      "url": "https://www.sanmarinortv.sm/eventi/appuntamenti/cemec-2026-winter-school-e5104"
+    },
+    {
+      "id": "D4",
+      "titolo": "CEMEC: convegno a 5 anni dal Covid",
+      "tipo": "dubbio",
+      "data": "31/10",
+      "luogo": "Sala Monte, Ospedale di Stato",
+      "url": "https://www.sanmarinortv.sm/eventi/appuntamenti/cemec-convegno-internazionale-sui-cinque-anni-dalla-pandemia-e5100"
+    },
+    {
+      "id": "D5",
+      "titolo": "Tour Music Fest 2026",
+      "tipo": "dubbio",
+      "data": "21-29/11",
+      "luogo": "Auditorium Little Tony e Teatro Titano",
+      "url": "https://www.visitsanmarino.com/pub1/VisitSM/evento/20261121_Tour_Music_Fest.html"
+    }
+  ]
+}

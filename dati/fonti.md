@@ -13,16 +13,16 @@ Questi raccolgono già eventi da più organizzatori, sono la fonte più ricca.
 - ✅ https://www.sanmarinosite.com/en/events/ — calendario eventi, **tornato online il 10/08/2026** (in precedenza ❌, dava 404 su /it/eventi/ dal 27/06 al 06/07/2026 — il nuovo URL funzionante è la versione /en/events/). Utile anche per i dettagli di luogo che integrano visitsanmarino.com.
 - https://www.usc.sm/eventi/ — calendario eventi USC
 - ⚠️ https://b2b.sanmarinowelcome.com/it/eventi — San Marino Welcome (calendario fermo al 2025 — confermato 06/07/2026, nessun aggiornamento per 2026)
-- https://www.gov.sm/pub1/GovSM/Istituzioni-e-Forze/Giunte-di-Castello/Calendario-Eventi-2024.html — calendario eventi castelli (gov)
+- https://www.gov.sm/pub1/GovSM/Istituzioni-e-Forze/Giunte-di-Castello/Calendario-Eventi-2024.html — calendario eventi castelli (gov) — ⚠️ [12/10/2026: è la pagina 2024, con solo il PDF 2024; nessun calendario 2026 trovato]
 - https://sanmarino.iltabloid.it/ — testata locale, eventi
 - https://www.ticketone.it/cityd/san-marino-1156/ — biglietti eventi/concerti
-- https://www.castellidisanmarino.com — portale turistico castelli
+- ⚠️ https://www.castellidisanmarino.com — portale turistico castelli [12/10/2026: 403, non leggibile]
 
 ## 1b. Giornali locali (PRIORITÀ ALTA — coprono feste di castello, eventi locali, sagre)
 Questi coprono eventi che i portali ufficiali non listano — feste di paese, sagre, concerti organizzati da associazioni locali. Leggibili dai bot.
 
-- ⚠️ https://www.giornalesm.com — principale quotidiano di San Marino, sezione eventi/cultura/sport. Socket error confermato di nuovo il 03/08/2026 (già il 27/07) — persiste, continuare a saltarla e ritentare più avanti. [AGGIORNATO 03/08]
-- ⚠️ https://www.libertas.sm — altro quotidiano locale, buona copertura eventi locali. 403 Forbidden confermato il 10/08/2026 (in precedenza ✅, leggibile) — ricontrollare al prossimo giro.
+- ⚠️ https://www.giornalesm.com — principale quotidiano di San Marino, sezione eventi/cultura/sport. Socket error confermato di nuovo il 03/08/2026 (già il 27/07) — persiste, continuare a saltarla e ritentare più avanti. [AGGIORNATO 03/08; 12/10/2026 ancora connessione rifiutata (ECONNREFUSED)]
+- ✅ https://www.libertas.sm — altro quotidiano locale, buona copertura eventi locali. [12/10/2026: leggibile di nuovo, nessun evento datato nella finestra; il 403 del 10/08 non si è ripetuto]
 - ✅ https://sanmarino.iltabloid.it — testata locale (già in lista, spostata qui come priorità alta)
 - ✅ https://news.tribunapoliticaweb.sm — **Tribuna Politica Web**, giornale online locale affidabile quanto libertas.sm. Buona copertura di eventi locali, concerti, cronaca istituzionale. [CONFERMATO 08/08/2026]
 
@@ -40,7 +40,7 @@ Questi coprono eventi che i portali ufficiali non listano — feste di paese, sa
 - ⚠️ https://www.cameratatitano.com/news/ — Camerata del Titano (concerti, festival). Rassegna annuale "Armonie!" (6ª edizione 2026), ciclo di concerti classici gratuiti (luglio-agosto). Pagina news non carica (probabile JavaScript-heavy). Fallback: cercare annunci su sanmarinortv.sm/eventi e usc.sm. [AGGIORNATO 27/07]
 - Teatro Nuovo (Dogana) — [ ] trovare pagina ufficiale
 - San Marino Concert Band — [ ] trovare pagina
-- 🆕 https://www.sanmarinooutlet.com/eventi/summer-vibes-2026/ — San Marino Outlet, rassegna "Summer Vibes 2026" (6 concerti gratuiti luglio-agosto, 1500 posti)
+- ❌ https://www.sanmarinooutlet.com/eventi/summer-vibes-2026/ [404 il 12/10/2026: rassegna estiva chiusa; il dominio risponde] — San Marino Outlet, rassegna "Summer Vibes 2026" (6 concerti gratuiti luglio-agosto, 1500 posti)
 
 ## 4. Sport — CONS e federazioni
 - https://www.cons.sm/types/federazioni/ — hub di tutte le 35 federazioni (da qui si arriva a ognuna)
@@ -101,6 +101,15 @@ Elenco ufficiale di tutte le giunte: https://www.interni.sm/pub2/InterniSM/Giunt
 - [ricerca 10/08/2026] **Balamondo World Music Festival** — https://www.balamondo.it — festival itinerante di musica (liscio + world music) con tappe in Romagna, Pesaro e San Marino. La tappa sammarinese (Campo Bruno Reffi, 19-20/08/2026) risulta essere lo stesso evento indicato su visitsanmarino.com col vecchio nome "San Marino Goodbye Festival" — probabile rebranding, da chiarire con Michele quale nome usare in comunicazione.
 - [ricerca 10/08/2026] **Sagra dell'Uva Ventoso** — https://www.facebook.com/sagrauvaventoso/ — sagra paesana a Ventoso (Parco del Sorbo), data 2026 riportata solo da sanmarinortv.sm (21-23/08), non confermata da questa pagina FB (non leggibile dai bot, solo per Michele).
 - [ricerca 10/08/2026] **San Marino Amicizia Live Festival** — https://www.facebook.com/sanmarinolivefestival/ — 24ª edizione, evento collegato/omonimo a "Festa dell'Amicizia" (21-22/08 secondo sanmarinortv.sm). Non leggibile dai bot.
+
+- [ricerca 12/10/2026] **Titanico Jazz Festival** — https://www.titanicojazz.com/ — rassegna jazz al Podere Lesignano (Serravalle), 2ª edizione ott-nov 2026. Organizza San Marino Welcome. Biglietti dal sito.
+- [ricerca 12/10/2026] **San Marino Welcome** — https://www.sanmarinowelcome.com/indice-eventi/ — organizzatore di Titanico Jazz e del Campionato Mondiale CSIT di Danza Sportiva (20-22/11/2026). Pagina eventi con biglietti. (Il sito è già nella lista b2b.sanmarinowelcome.com)
+- [ricerca 12/10/2026] **Tour Music Fest** — https://tourmusicfest.it/ — festival musicale europeo (18ª ed.), finalissima 29/11/2026, sedi Auditorium Little Tony e Teatro Titano.
+- [ricerca 12/10/2026] **Istituto Musicale Sammarinese (IMS)** — https://www.ims.sm/ — organizzatore del Concerto di Gala 16/10/2026 con l'Abu Dhabi Youth Orchestra.
+- [ricerca 12/10/2026] **Associazione Musicale Camerata del Titano** — Rassegna Musicale d'Autunno (XXVIII ed., 8 concerti 27/09/2026–03/01/2027). Sito non ancora trovato: da cercare.
+- [ricerca 12/10/2026] **San Marino Food Events** — organizza il San Marino Beer Fest al Parco Ausa (16-17, 23-24, 30-31/10 e 06-07/11/2026). Pagina Facebook: https://www.facebook.com/sanmarinobeerfestival
+- [ricerca 12/10/2026] **Associazione Santa Mustiola** — organizza la Festa della Castagna (24-25/10/2026). Pagina Facebook: https://www.facebook.com/profile.php?id=100086423378694
+- [ricerca 12/10/2026] **Istituto per la Sicurezza Sociale** (Marlù, Aos, Asdos) — organizza la mostra "Anima e Corpo" per Ottobre Rosa (07/10–15/11/2026, Palazzo SUMS).
 
 ## Da completare (prossima mappatura)
 - [ ] Pagine FB/Instagram delle 3 giunte mancanti (Fiorentino, Faetano, Montegiardino)

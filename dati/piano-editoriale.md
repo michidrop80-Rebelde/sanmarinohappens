@@ -278,6 +278,8 @@ Legenda: **F** = feed singolo (mattina 7:00) · **S** = storie (7:00) · **AGG**
 | 15/10 | Gio | 18:00 | **AGG** | — | WEEKEND 16–18/10 | — | 🆕 AGGIUNTO 13/10 (catena, Step 2-bis, guardia `controllo-imminenti.py` uscita 2). 8 eventi su 2 slide (righe master 73, 117, 159, 160, 172, 87, 149, 150), busta carosello `posts/20261015_Weekend`, dossier `dati/post/weekend-2026-10-16-18.md` |
 | 17/10 | Sab | 7:00 | **F** | 87 | SanMarinoBeerFest — Folk Irlandese (Drunken Lullabies) | 17/10 | 🆕 AGGIUNTO 16/10 (catena, Step 2-bis). Dalle 20:00 (cucina), Parco di Dogana. Tag @sanmarinobeerfest. In coda: posts/20261017_Post giornaliero |
 | 17/10 | Sab | 7:00 | **S** | 87 | Storia: Beer Fest Drunken Lullabies | 17/10 | 🆕 AGGIUNTO 16/10 (catena). In coda: posts/20261017_Storia (1 storia), tag @sanmarinobeerfest |
+| 18/10 | Dom | 7:00 | **F** | 149 | SMOE Run 10K e 5K | 18/10 | 🆕 AGGIUNTO 17/10 (catena, Step 2-bis). 09:30, San Marino Outlet. Tag @sanmarinooutlet. In coda: posts/20261018_Post giornaliero |
+| 18/10 | Dom | 7:00 | **S** | 149, 150 | Storia doppia: SMOE Run + La Locandiera | 18/10 | 🆕 AGGIUNTO 17/10 (catena). Locandiera senza orario. Tag @sanmarinoteatro. In coda: posts/20261018_Storia |
 | 18/10 | Dom | 18:00 | **AGG** | — | SETTIMANALE 19–25/10 | — | 🆕 AGGIUNTO 16/10 (catena, Step 2-bis). 11 eventi su 2 pagine (righe master 116, 169, 170, 118, 119, 89, 173, 90, 174, 161, 162), busta carosello posts/20261018_Settimanale, dossier `dati/post/settimanale-2026-10-19-25.md` |
 
 ---

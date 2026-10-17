@@ -1,0 +1,15 @@
+{
+  "giro_id": "20261017-1643",
+  "sent_at": "2026-10-17T16:43:14Z",
+  "prova": false,
+  "eventi": [
+    {
+      "id": "01",
+      "titolo": "Car Boot Borgo Maggiore",
+      "tipo": "nuovo",
+      "data": "18/10",
+      "luogo": "Piazza Grande, Borgo Maggiore",
+      "url": ""
+    }
+  ]
+}

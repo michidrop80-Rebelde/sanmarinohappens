@@ -1,0 +1,95 @@
+{
+  "giro_id": "20260921-0315",
+  "sent_at": "2026-09-21T03:15:26Z",
+  "prova": false,
+  "eventi": [
+    {
+      "id": "01",
+      "titolo": "Presentazione libro Rondoni «La ferita, la letizia»",
+      "tipo": "nuovo",
+      "data": "23/09",
+      "luogo": "Domagnano, Sala Montelupo",
+      "url": "https://giornalesm.com/san-marino-presentazione-del-libro-di-davide-rondoni-la-ferita-la-letizia-faccia-a-faccia-con-san-francesco-poeta-di-dio-e-del-mondo-mercoledi-23-settembre-2026-ore-21-00-domagnano/"
+    },
+    {
+      "id": "03",
+      "titolo": "Festa del Castello di Serravalle 2026",
+      "tipo": "nuovo",
+      "data": "26-27/09",
+      "luogo": "Serravalle, Piazza Bertoldi",
+      "url": "https://www.usc.sm/eventi/"
+    },
+    {
+      "id": "04",
+      "titolo": "Giornate Europee del Patrimonio",
+      "tipo": "nuovo",
+      "data": "26-27/09",
+      "luogo": "Musei di Stato",
+      "url": "https://www.visitsanmarino.com/pub1/VisitSM/it/eventi.html"
+    },
+    {
+      "id": "02",
+      "titolo": "Trenino Bianco Azzurro (aggiunte corse 25-26/09)",
+      "tipo": "modificato",
+      "data": "25-26/09",
+      "luogo": "Piazzale della Stazione",
+      "url": "https://www.sanmarinortv.sm/news/attualita-c4/treno-bianco-azzurro-via-alle-corse-estive-gratuite-ecco-orari-calendario-delle-corse-e-novita-sulla-gestione-a292413"
+    },
+    {
+      "id": "M03",
+      "titolo": "1876-2026 150 anni di SUMS",
+      "tipo": "cancellato",
+      "data": "fino al 04/10",
+      "luogo": "Musei di Stato",
+      "url": "https://www.museidistato.sm"
+    },
+    {
+      "id": "M04",
+      "titolo": "Le Lire Quadriga",
+      "tipo": "cancellato",
+      "data": "fino al 04/10",
+      "luogo": "Musei di Stato",
+      "url": "https://www.museidistato.sm"
+    },
+    {
+      "id": "D1",
+      "titolo": "San Marino U21 vs Kosovo U21",
+      "tipo": "dubbio",
+      "data": "24 o 25/09",
+      "luogo": "San Marino Stadium",
+      "url": "https://www.uefa.com/under21/match/2044532--san-marino-vs-kosovo/"
+    },
+    {
+      "id": "D2",
+      "titolo": "San Marino U21 vs Spagna U21",
+      "tipo": "dubbio",
+      "data": "30/09 o 01/10",
+      "luogo": "San Marino Stadium",
+      "url": "https://it.uefa.com/under21/match/2044508--spain-vs-san-marino/"
+    },
+    {
+      "id": "D3",
+      "titolo": "CEV U20 Volleyball 2027 (1° turno femminile)",
+      "tipo": "dubbio",
+      "data": "02-04/10",
+      "luogo": "non specificato",
+      "url": "https://www.visitsanmarino.com/pub1/VisitSM/it/eventi.html"
+    },
+    {
+      "id": "D4",
+      "titolo": "Porsche Parade Italia",
+      "tipo": "dubbio",
+      "data": "26/09",
+      "luogo": "punto di passaggio non indicato",
+      "url": "https://www.visitsanmarino.com/pub1/VisitSM/it/eventi.html"
+    },
+    {
+      "id": "D5",
+      "titolo": "6° Halloween Ronde",
+      "tipo": "dubbio",
+      "data": "30-31/10",
+      "luogo": "territorio",
+      "url": "https://www.scuderiasanmarino.com/6-halloween-ronde/"
+    }
+  ]
+}

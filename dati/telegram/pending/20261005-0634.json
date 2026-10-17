@@ -1,0 +1,143 @@
+{
+  "giro_id": "20261005-0634",
+  "sent_at": "2026-10-05T06:34:50Z",
+  "prova": false,
+  "eventi": [
+    {
+      "id": "01",
+      "titolo": "Naza (documentario)",
+      "tipo": "nuovo",
+      "data": "06-07/10",
+      "luogo": "Cinema Concordia, Borgo Maggiore",
+      "url": "https://www.usc.sm/evento/naza-film-in-programmazione/"
+    },
+    {
+      "id": "02",
+      "titolo": "Titanico Jazz — Rocky Trio (M. Rocchetta)",
+      "tipo": "nuovo",
+      "data": "09/10",
+      "luogo": "Podere Lesignano, Serravalle",
+      "url": "https://www.visitsanmarino.com/pub1/VisitSM/evento/20261009-Titanico-jazz.html"
+    },
+    {
+      "id": "03",
+      "titolo": "Tour Petite Vitesse",
+      "tipo": "nuovo",
+      "data": "14/10",
+      "luogo": "Via Eugippo, Centro Storico",
+      "url": "https://www.visitsanmarino.com/pub1/VisitSM/evento/20261014_Tour-Petite-Vitesse.html"
+    },
+    {
+      "id": "04",
+      "titolo": "La cultura della prevenzione e della riduzione del rischio",
+      "tipo": "nuovo",
+      "data": "14/10",
+      "luogo": "Kursaal, San Marino Città",
+      "url": "https://www.sanmarinortv.sm/eventi/appuntamenti/la-cultura-della-prevenzione-e-della-riduzione-del-rischio-e5176"
+    },
+    {
+      "id": "05",
+      "titolo": "Titanico Jazz — Give'n Take Trio (S. La Maida)",
+      "tipo": "nuovo",
+      "data": "16/10",
+      "luogo": "Podere Lesignano, Serravalle",
+      "url": "https://www.visitsanmarino.com/pub1/VisitSM/evento/20261016-Titanico-jazz.html"
+    },
+    {
+      "id": "06",
+      "titolo": "Teatro Vivo 26/27 — Amori da marciapiede",
+      "tipo": "nuovo",
+      "data": "16/10",
+      "luogo": "Auditorium Little Tony, Serravalle",
+      "url": "https://www.sanmarinortv.sm/eventi/teatro/teatro-vivo-26-27-all-auditorium-little-tony-di-serravalle-e5187"
+    },
+    {
+      "id": "07",
+      "titolo": "Festa della Castagna — Santa Mustiola",
+      "tipo": "nuovo",
+      "data": "24-25/10",
+      "luogo": "Piazza Capicchioni, Santa Mustiola",
+      "url": "https://www.usc.sm/evento/festa-della-castagna-santa-mustiola-3/"
+    },
+    {
+      "id": "08",
+      "titolo": "Dal Barocco al Klezmer (Rassegna d'Autunno)",
+      "tipo": "nuovo",
+      "data": "25/10",
+      "luogo": "Chiesa di San Francesco",
+      "url": "https://www.usc.sm/evento/xxviii-rassegna-musicale-dautunno-2/"
+    },
+    {
+      "id": "09",
+      "titolo": "6° Halloween Ronde",
+      "tipo": "nuovo",
+      "data": "30-31/10",
+      "luogo": "Repubblica di San Marino",
+      "url": "https://www.usc.sm/evento/6-halloween-ronde/"
+    },
+    {
+      "id": "10",
+      "titolo": "Titanico Jazz — Emanuele Rastelli",
+      "tipo": "nuovo",
+      "data": "13/11",
+      "luogo": "Podere Lesignano, Serravalle",
+      "url": "https://www.visitsanmarino.com/pub1/VisitSM/evento/20261113-Titanico-jazz.html"
+    },
+    {
+      "id": "11",
+      "titolo": "Ars Ludi Quaranta — sede trovata: Teatro Titano",
+      "tipo": "modificato",
+      "data": "15/11",
+      "luogo": "Teatro Titano",
+      "url": "https://www.usc.sm/evento/xxviii-rassegna-musicale-dautunno-3/"
+    },
+    {
+      "id": "12",
+      "titolo": "Il Natale delle Meraviglie 2026-27",
+      "tipo": "nuovo",
+      "data": "28/11 (date non continue)",
+      "luogo": "Centro Storico",
+      "url": "https://www.visitsanmarino.com/pub1/VisitSM/evento/20261128_Il_Natale_delle_Meraviglie_26_27.html"
+    },
+    {
+      "id": "13",
+      "titolo": "Mostra Sea of Sound (Mark Francis)",
+      "tipo": "nuovo",
+      "data": "04/12-28/02",
+      "luogo": "Palazzo SUMS, Via Piana 1",
+      "url": "https://www.sanmarinosite.com/en/events/"
+    },
+    {
+      "id": "D1",
+      "titolo": "50ª Sagra d'Autunno di Casole",
+      "tipo": "dubbio",
+      "data": "09-11/10 o 10-12/10",
+      "luogo": "Piazzetta 9 Ottobre, Casole",
+      "url": "https://www.usc.sm/evento/50-edizione-della-sagra-dautunno/"
+    },
+    {
+      "id": "D2",
+      "titolo": "San Marino Beer Fest — serata 16/10",
+      "tipo": "dubbio",
+      "data": "16/10",
+      "luogo": "Parco Ausa, Dogana",
+      "url": "https://www.visitsanmarino.com/pub1/VisitSM/evento/20261016_San_Marino_Beer_Fest.html"
+    },
+    {
+      "id": "D3",
+      "titolo": "Primo Soccorso Pediatrico",
+      "tipo": "dubbio",
+      "data": "14/10",
+      "luogo": "Sala Montelupo, Domagnano",
+      "url": "https://www.sanmarinortv.sm/eventi/appuntamenti/primo-soccorso-pediatrico-e5191"
+    },
+    {
+      "id": "D4",
+      "titolo": "Scuole in Campo (Protezione Civile)",
+      "tipo": "dubbio",
+      "data": "19-30/10",
+      "luogo": "Ciarulla",
+      "url": "https://sanmarino.iltabloid.it/san-marino-al-via-i-lavori-per-il-progetto-scuole-in-campo-dedicato-alla-protezione-civile/"
+    }
+  ]
+}
