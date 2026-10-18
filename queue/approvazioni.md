@@ -155,3 +155,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [x] 2026-10-12T08:51:36.843Z — approvato — 20261012-0321-17 — Michele Morri @RebeldeRN — 🆕 Nuzzo e Di Biase: Totalmente Incompatibili
 - [x] 2026-10-18T05:24:40.399Z — approvato — 20261017-1643-01 — Michele Morri @RebeldeRN — 🆕 Car Boot Borgo Maggiore — elaborata 18/10: evento di oggi, slot 07:00 passato, nessun post (riga master 183 concluso)
 - [ ] 2026-10-18T21:04:50.803Z — approvato — 20261018-1642-01 — Michele Morri @RebeldeRN — 🆕 Commedie dialettali — Quand e nas un vec
+- [ ] 2026-10-18T21:04:52.384Z — approvato — 20261018-1642-02 — Michele Morri @RebeldeRN — 🆕 Commedie dialettali — Quand e nas un vec
