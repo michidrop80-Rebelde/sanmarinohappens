@@ -1,0 +1,47 @@
+{
+  "giro_id": "20261018-1642",
+  "sent_at": "2026-10-18T16:42:08Z",
+  "prova": false,
+  "eventi": [
+    {
+      "id": "01",
+      "titolo": "Commedie dialettali — Quand e nas un vec",
+      "tipo": "nuovo",
+      "data": "14/11",
+      "luogo": "Auditorium Little Tony, Serravalle",
+      "url": "https://www.sanmarinortv.sm/eventi/teatro/la-rassegna-di-commedie-dialettali-2026-2027-all-auditorium-little-tony-a-serravalle-e5200"
+    },
+    {
+      "id": "02",
+      "titolo": "Commedie dialettali — A rubè poch us va in galera (11 e 12/12)",
+      "tipo": "nuovo",
+      "data": "11/12",
+      "luogo": "Auditorium Little Tony, Serravalle",
+      "url": "https://www.sanmarinortv.sm/eventi/teatro/la-rassegna-di-commedie-dialettali-2026-2027-all-auditorium-little-tony-a-serravalle-e5200"
+    },
+    {
+      "id": "03",
+      "titolo": "Commedie dialettali — E maroed dla mi moi",
+      "tipo": "nuovo",
+      "data": "23/01/2027",
+      "luogo": "Auditorium Little Tony, Serravalle",
+      "url": "https://www.sanmarinortv.sm/eventi/teatro/la-rassegna-di-commedie-dialettali-2026-2027-all-auditorium-little-tony-a-serravalle-e5200"
+    },
+    {
+      "id": "04",
+      "titolo": "Commedie dialettali — E gat in tla saca",
+      "tipo": "nuovo",
+      "data": "20/02/2027",
+      "luogo": "Auditorium Little Tony, Serravalle",
+      "url": "https://www.sanmarinortv.sm/eventi/teatro/la-rassegna-di-commedie-dialettali-2026-2027-all-auditorium-little-tony-a-serravalle-e5200"
+    },
+    {
+      "id": "05",
+      "titolo": "Commedie dialettali — La cativeria lan trionfa mai",
+      "tipo": "nuovo",
+      "data": "06/03/2027",
+      "luogo": "Auditorium Little Tony, Serravalle",
+      "url": "https://www.sanmarinortv.sm/eventi/teatro/la-rassegna-di-commedie-dialettali-2026-2027-all-auditorium-little-tony-a-serravalle-e5200"
+    }
+  ]
+}

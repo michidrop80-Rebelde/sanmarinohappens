@@ -1,0 +1,56 @@
+# Eventi verificati — 18 ottobre 2026
+Verifica (catena 18/10/2026) del file eventi-2026-10-18.md. Diff master: le 5 serate qui sotto = NUOVE (nel master c'è solo la prima, 24/10, riga 174).
+
+---
+
+## ✅ Verificati
+
+## Commedie dialettali — "Quand e nas un vec" (Filodrammatica Hermanos di Longiano)
+- **Data:** Sabato 14/11/2026, ore 21:00
+- **Luogo:** Auditorium Little Tony, Serravalle (Via Ezio Balducci 1/B)
+- **Tipo:** cultura
+- **Descrizione:** Rassegna di commedie dialettali 2026-27, org. Giunta di Castello di Serravalle e Centro Sociale S. Andrea. Compagnia Filodrammatica Hermanos di Longiano, tre atti di Giusi Canducci. Prenotazioni e info: 337 1010902.
+- **Fonte:** Segnalazione via bot Telegram di Michele — FOTO (locandina, 2026-10-17T21:00Z), file queue/foto/archivio/2026-10-17T21-00-07-492Z_AQADlw9rG3GMoFJ-.jpg
+- **Link pubblico:** https://www.sanmarinortv.sm/eventi/teatro/la-rassegna-di-commedie-dialettali-2026-2027-all-auditorium-little-tony-a-serravalle-e5200
+- **Verifica:** date, titoli, compagnie e orario (21:00) della locandina coincidono con la pagina RTV Eventi (ricontrollo 18/10/2026). Unica difformità: la sede della compagnia La Mulnela (Santarcangelo vs Poggio Berni) — non usata nei testi. Prezzi sul poster: NON da riportare in caption.
+- **Stato:** verificato
+
+## Commedie dialettali — "A rubè poch us va in galera" (Quei d'Seraval e … San Marino)
+- **Data:** Venerdì e sabato 11/12/2026 e 12/12/2026, ore 21:00
+- **Luogo:** Auditorium Little Tony, Serravalle (Via Ezio Balducci 1/B)
+- **Tipo:** cultura
+- **Descrizione:** Rassegna di commedie dialettali 2026-27, org. Giunta di Castello di Serravalle e Centro Sociale S. Andrea. Compagnia dialettale Quei d'Seraval e … San Marino, tre atti di Stefano Palmucci; in scena in entrambe le serate. Prenotazioni e info: 337 1010902.
+- **Fonte:** Segnalazione via bot Telegram di Michele — FOTO (locandina, 2026-10-17T21:00Z), file queue/foto/archivio/2026-10-17T21-00-07-492Z_AQADlw9rG3GMoFJ-.jpg
+- **Link pubblico:** https://www.sanmarinortv.sm/eventi/teatro/la-rassegna-di-commedie-dialettali-2026-2027-all-auditorium-little-tony-a-serravalle-e5200
+- **Verifica:** date, titoli, compagnie e orario (21:00) della locandina coincidono con la pagina RTV Eventi (ricontrollo 18/10/2026). Unica difformità: la sede della compagnia La Mulnela (Santarcangelo vs Poggio Berni) — non usata nei testi. Prezzi sul poster: NON da riportare in caption.
+- **Stato:** verificato
+
+## Commedie dialettali — "E maroed dla mi moi" (La Mulnela)
+- **Data:** Sabato 23/01/2027, ore 21:00
+- **Luogo:** Auditorium Little Tony, Serravalle (Via Ezio Balducci 1/B)
+- **Tipo:** cultura
+- **Descrizione:** Rassegna di commedie dialettali 2026-27, org. Giunta di Castello di Serravalle e Centro Sociale S. Andrea. Compagnia dialettale La Mulnela (sede: Santarcangelo sul poster, Poggio Berni nel testo introduttivo della pagina RTV), libero adattamento da "Non ti conosco più" di Aldo De Benedetti. Prenotazioni e info: 337 1010902.
+- **Fonte:** Segnalazione via bot Telegram di Michele — FOTO (locandina, 2026-10-17T21:00Z), file queue/foto/archivio/2026-10-17T21-00-07-492Z_AQADlw9rG3GMoFJ-.jpg
+- **Link pubblico:** https://www.sanmarinortv.sm/eventi/teatro/la-rassegna-di-commedie-dialettali-2026-2027-all-auditorium-little-tony-a-serravalle-e5200
+- **Verifica:** date, titoli, compagnie e orario (21:00) della locandina coincidono con la pagina RTV Eventi (ricontrollo 18/10/2026). Unica difformità: la sede della compagnia La Mulnela (Santarcangelo vs Poggio Berni) — non usata nei testi. Prezzi sul poster: NON da riportare in caption.
+- **Stato:** verificato
+
+## Commedie dialettali — "E gat in tla saca" (Quii ad San Zili)
+- **Data:** Sabato 20/02/2027, ore 21:00
+- **Luogo:** Auditorium Little Tony, Serravalle (Via Ezio Balducci 1/B)
+- **Tipo:** cultura
+- **Descrizione:** Rassegna di commedie dialettali 2026-27, org. Giunta di Castello di Serravalle e Centro Sociale S. Andrea. Compagnia dialettale Quii ad San Zili di Sant'Egidio di Cesena, due atti comici della compagnia. Prenotazioni e info: 337 1010902.
+- **Fonte:** Segnalazione via bot Telegram di Michele — FOTO (locandina, 2026-10-17T21:00Z), file queue/foto/archivio/2026-10-17T21-00-07-492Z_AQADlw9rG3GMoFJ-.jpg
+- **Link pubblico:** https://www.sanmarinortv.sm/eventi/teatro/la-rassegna-di-commedie-dialettali-2026-2027-all-auditorium-little-tony-a-serravalle-e5200
+- **Verifica:** date, titoli, compagnie e orario (21:00) della locandina coincidono con la pagina RTV Eventi (ricontrollo 18/10/2026). Unica difformità: la sede della compagnia La Mulnela (Santarcangelo vs Poggio Berni) — non usata nei testi. Prezzi sul poster: NON da riportare in caption.
+- **Stato:** verificato
+
+## Commedie dialettali — "La cativeria lan trionfa mai" (La Belarioesa)
+- **Data:** Sabato 06/03/2027, ore 21:00
+- **Luogo:** Auditorium Little Tony, Serravalle (Via Ezio Balducci 1/B)
+- **Tipo:** cultura
+- **Descrizione:** Rassegna di commedie dialettali 2026-27, org. Giunta di Castello di Serravalle e Centro Sociale S. Andrea. Compagnia dialettale La Belarioesa di Bellaria, tre atti di Mario Bassi. Prenotazioni e info: 337 1010902.
+- **Fonte:** Segnalazione via bot Telegram di Michele — FOTO (locandina, 2026-10-17T21:00Z), file queue/foto/archivio/2026-10-17T21-00-07-492Z_AQADlw9rG3GMoFJ-.jpg
+- **Link pubblico:** https://www.sanmarinortv.sm/eventi/teatro/la-rassegna-di-commedie-dialettali-2026-2027-all-auditorium-little-tony-a-serravalle-e5200
+- **Verifica:** date, titoli, compagnie e orario (21:00) della locandina coincidono con la pagina RTV Eventi (ricontrollo 18/10/2026). Unica difformità: la sede della compagnia La Mulnela (Santarcangelo vs Poggio Berni) — non usata nei testi. Prezzi sul poster: NON da riportare in caption.
+- **Stato:** verificato
