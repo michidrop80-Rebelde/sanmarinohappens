@@ -153,3 +153,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [x] 2026-10-12T08:51:29.691Z — approvato — 20261012-0321-15 — Michele Morri @RebeldeRN — ✏️ Rassegna d'Autunno: Cor Barocco (sede trovata)
 - [x] 2026-10-12T08:51:31.091Z — approvato — 20261012-0321-16 — Michele Morri @RebeldeRN — ✏️ Rassegna d'Autunno: Cor Barocco (sede trovata)
 - [x] 2026-10-12T08:51:36.843Z — approvato — 20261012-0321-17 — Michele Morri @RebeldeRN — 🆕 Nuzzo e Di Biase: Totalmente Incompatibili
+- [ ] 2026-10-18T05:24:40.399Z — approvato — 20261017-1643-01 — Michele Morri @RebeldeRN — 🆕 Car Boot Borgo Maggiore
