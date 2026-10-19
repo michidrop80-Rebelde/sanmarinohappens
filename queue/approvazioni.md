@@ -154,17 +154,17 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [x] 2026-10-12T08:51:31.091Z — approvato — 20261012-0321-16 — Michele Morri @RebeldeRN — ✏️ Rassegna d'Autunno: Cor Barocco (sede trovata)
 - [x] 2026-10-12T08:51:36.843Z — approvato — 20261012-0321-17 — Michele Morri @RebeldeRN — 🆕 Nuzzo e Di Biase: Totalmente Incompatibili
 - [x] 2026-10-18T05:24:40.399Z — approvato — 20261017-1643-01 — Michele Morri @RebeldeRN — 🆕 Car Boot Borgo Maggiore — elaborata 18/10: evento di oggi, slot 07:00 passato, nessun post (riga master 183 concluso)
-- [ ] 2026-10-18T21:04:50.803Z — approvato — 20261018-1642-01 — Michele Morri @RebeldeRN — 🆕 Commedie dialettali — Quand e nas un vec
-- [ ] 2026-10-18T21:04:52.384Z — approvato — 20261018-1642-02 — Michele Morri @RebeldeRN — 🆕 Commedie dialettali — Quand e nas un vec
-- [ ] 2026-10-18T21:04:53.682Z — approvato — 20261018-1642-03 — Michele Morri @RebeldeRN — 🆕 Commedie dialettali — Quand e nas un vec
-- [ ] 2026-10-18T21:04:57.117Z — approvato — 20261018-1642-04 — Michele Morri @RebeldeRN — 🆕 Commedie dialettali — E gat in tla saca
-- [ ] 2026-10-18T21:04:58.543Z — approvato — 20261018-1642-05 — Michele Morri @RebeldeRN — 🆕 Commedie dialettali — E gat in tla saca
-- [ ] 2026-10-19T12:09:01.584Z — approvato — 20261019-0317-01 — Michele Morri @RebeldeRN — 🆕 Anima e Corpo (mostra Ottobre Rosa)
-- [ ] 2026-10-19T12:09:03.619Z — approvato — 20261019-0317-02 — Michele Morri @RebeldeRN — 🆕 Anima e Corpo (mostra Ottobre Rosa)
-- [ ] 2026-10-19T12:09:05.384Z — approvato — 20261019-0317-03 — Michele Morri @RebeldeRN — 🆕 Anima e Corpo (mostra Ottobre Rosa)
-- [ ] 2026-10-19T12:09:13.339Z — approvato — 20261019-0317-04 — Michele Morri @RebeldeRN — 🆕 Caccia al Tesoro di Halloween
-- [ ] 2026-10-19T12:09:14.716Z — approvato — 20261019-0317-05 — Michele Morri @RebeldeRN — 🆕 Caccia al Tesoro di Halloween
-- [ ] 2026-10-19T12:09:16.144Z — approvato — 20261019-0317-06 — Michele Morri @RebeldeRN — 🆕 Caccia al Tesoro di Halloween
-- [ ] 2026-10-19T12:09:19.886Z — approvato — 20261019-0317-07 — Michele Morri @RebeldeRN — 🆕 Open Day Scuola Superiore, serata genitori
-- [ ] 2026-10-19T12:09:21.359Z — approvato — 20261019-0317-D1 — Michele Morri @RebeldeRN — 🆕 Open Day Scuola Superiore, serata genitori
-- [ ] 2026-10-19T12:09:22.738Z — approvato — 20261019-0317-D2 — Michele Morri @RebeldeRN — 🆕 Open Day Scuola Superiore, serata genitori
+- [x] 2026-10-18T21:04:50.803Z — approvato — 20261018-1642-01 — Michele Morri @RebeldeRN — 🆕 Commedie dialettali — Quand e nas un vec — ✅ elaborato 19/10/2026 (catena Step 1)
+- [x] 2026-10-18T21:04:52.384Z — approvato — 20261018-1642-02 — Michele Morri @RebeldeRN — 🆕 Commedie dialettali — Quand e nas un vec — ✅ elaborato 19/10/2026 (catena Step 1)
+- [x] 2026-10-18T21:04:53.682Z — approvato — 20261018-1642-03 — Michele Morri @RebeldeRN — 🆕 Commedie dialettali — Quand e nas un vec — ✅ elaborato 19/10/2026 (catena Step 1)
+- [x] 2026-10-18T21:04:57.117Z — approvato — 20261018-1642-04 — Michele Morri @RebeldeRN — 🆕 Commedie dialettali — E gat in tla saca — ✅ elaborato 19/10/2026 (catena Step 1)
+- [x] 2026-10-18T21:04:58.543Z — approvato — 20261018-1642-05 — Michele Morri @RebeldeRN — 🆕 Commedie dialettali — E gat in tla saca — ✅ elaborato 19/10/2026 (catena Step 1)
+- [x] 2026-10-19T12:09:01.584Z — approvato — 20261019-0317-01 — Michele Morri @RebeldeRN — 🆕 Anima e Corpo (mostra Ottobre Rosa) — ✅ elaborato 19/10/2026 (catena Step 1)
+- [x] 2026-10-19T12:09:03.619Z — approvato — 20261019-0317-02 — Michele Morri @RebeldeRN — 🆕 Anima e Corpo (mostra Ottobre Rosa) — ✅ elaborato 19/10/2026 (catena Step 1)
+- [x] 2026-10-19T12:09:05.384Z — approvato — 20261019-0317-03 — Michele Morri @RebeldeRN — 🆕 Anima e Corpo (mostra Ottobre Rosa) — ✅ elaborato 19/10/2026 (catena Step 1)
+- [x] 2026-10-19T12:09:13.339Z — approvato — 20261019-0317-04 — Michele Morri @RebeldeRN — 🆕 Caccia al Tesoro di Halloween — ✅ elaborato 19/10/2026 (catena Step 1)
+- [x] 2026-10-19T12:09:14.716Z — approvato — 20261019-0317-05 — Michele Morri @RebeldeRN — 🆕 Caccia al Tesoro di Halloween — ✅ elaborato 19/10/2026 (catena Step 1)
+- [x] 2026-10-19T12:09:16.144Z — approvato — 20261019-0317-06 — Michele Morri @RebeldeRN — 🆕 Caccia al Tesoro di Halloween — ✅ elaborato 19/10/2026 (catena Step 1)
+- [x] 2026-10-19T12:09:19.886Z — approvato — 20261019-0317-07 — Michele Morri @RebeldeRN — 🆕 Open Day Scuola Superiore, serata genitori — ✅ elaborato 19/10/2026 (catena Step 1)
+- [x] 2026-10-19T12:09:21.359Z — approvato — 20261019-0317-D1 — Michele Morri @RebeldeRN — 🆕 Open Day Scuola Superiore, serata genitori — ✅ elaborato 19/10/2026 (catena Step 1)
+- [x] 2026-10-19T12:09:22.738Z — approvato — 20261019-0317-D2 — Michele Morri @RebeldeRN — 🆕 Open Day Scuola Superiore, serata genitori — ✅ elaborato 19/10/2026 (catena Step 1)
