@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-28",
+  "aggiornato": "2026-10-19",
   "_nota": "Registro degli handle social verificati. Solo le voci con stato 'attivo' E instagram non nullo producono un tag. Un handle entra come 'attivo' solo con DUE indizi indipendenti di ufficialita' (di norma: il sito ufficiale linka quel profilo E il profilo esiste col nome corrispondente); la conferma diretta di Michele vale come secondo indizio. Mai un handle dedotto dal nome del soggetto.",
   "_regole_25_07_2026": [
     "OGNI evento nuovo che entra in verifica porta con se' il controllo di chi lo organizza: se il soggetto e' nuovo va aggiunto qui (almeno come 'da-cercare'). Vedi Step 4-bis di /smh-verifica.",
@@ -1027,7 +1027,9 @@
     {
       "nome": "Federazione Sammarinese Roller Sports",
       "categoria": "organizzatore",
-      "alias": ["Federazione Sammarinese Roller Sports"],
+      "alias": [
+        "Federazione Sammarinese Roller Sports"
+      ],
       "instagram": null,
       "facebook_page_id": null,
       "stato": "da-cercare",
@@ -1037,7 +1039,9 @@
     {
       "nome": "Associazione Martin Mancini",
       "categoria": "organizzatore",
-      "alias": ["Associazione Martin Mancini"],
+      "alias": [
+        "Associazione Martin Mancini"
+      ],
       "instagram": null,
       "facebook_page_id": null,
       "stato": "da-cercare",
@@ -1047,7 +1051,10 @@
     {
       "nome": "Giochi del Titano (Mementi - Mercoledi d'autore)",
       "categoria": "organizzatore",
-      "alias": ["Giochi del Titano", "Mementi - Mercoledi d'autore"],
+      "alias": [
+        "Giochi del Titano",
+        "Mementi - Mercoledi d'autore"
+      ],
       "instagram": null,
       "facebook_page_id": null,
       "stato": "da-cercare",
@@ -1057,7 +1064,11 @@
     {
       "nome": "Istituto per la Sicurezza Sociale (Ottobre Rosa)",
       "categoria": "organizzatore",
-      "alias": ["Istituto per la Sicurezza Sociale", "ISS", "Ottobre Rosa"],
+      "alias": [
+        "Istituto per la Sicurezza Sociale",
+        "ISS",
+        "Ottobre Rosa"
+      ],
       "instagram": null,
       "facebook_page_id": null,
       "stato": "da-cercare",
@@ -1067,7 +1078,10 @@
     {
       "nome": "Associazione Santa Mustiola",
       "categoria": "organizzatore",
-      "alias": ["Associazione Santa Mustiola", "Festa della Castagna Santa Mustiola"],
+      "alias": [
+        "Associazione Santa Mustiola",
+        "Festa della Castagna Santa Mustiola"
+      ],
       "instagram": null,
       "facebook_page_id": null,
       "stato": "da-cercare",
@@ -1077,7 +1091,10 @@
     {
       "nome": "Vitesse Oblige Drivers&Riders Club",
       "categoria": "organizzatore",
-      "alias": ["Vitesse Oblige Drivers&Riders Club", "Tour Petite Vitesse"],
+      "alias": [
+        "Vitesse Oblige Drivers&Riders Club",
+        "Tour Petite Vitesse"
+      ],
       "instagram": null,
       "facebook_page_id": null,
       "stato": "da-cercare",
@@ -1087,7 +1104,10 @@
     {
       "nome": "Vo.Ci. Volontari Civici nei Castelli (Teatro Vivo)",
       "categoria": "organizzatore",
-      "alias": ["Vo.Ci. - Volontari Civici nei Castelli", "Teatro Vivo"],
+      "alias": [
+        "Vo.Ci. - Volontari Civici nei Castelli",
+        "Teatro Vivo"
+      ],
       "instagram": null,
       "facebook_page_id": null,
       "stato": "da-cercare",
@@ -1097,12 +1117,28 @@
     {
       "nome": "TMF HUB Srl (Tour Music Fest)",
       "categoria": "organizzatore",
-      "alias": ["TMF HUB Srl", "Tour Music Fest"],
+      "alias": [
+        "TMF HUB Srl",
+        "Tour Music Fest"
+      ],
       "instagram": null,
       "facebook_page_id": null,
       "stato": "da-cercare",
       "verificato_il": "2026-10-12",
       "prova": "Nuovo in verifica 12/10/2026: organizza il Tour Music Fest 2026 (21-29/11) - visitsanmarino.com; sito tourmusicfest.it. Profilo non cercato."
+    },
+    {
+      "nome": "A.S.D. Bad Company",
+      "categoria": "organizzatore",
+      "alias": [
+        "A.S.D. Bad Company",
+        "Bad Company"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-10-19",
+      "prova": "Nuovo in verifica 19/10/2026: organizza l'Escape Room di Halloween 'Dominion: The Last Tunnel' (31/10, Galleria Borgo Maggiore) - usc.sm; sito badcompanyrsm.com. Profilo non cercato."
     }
   ]
 }
