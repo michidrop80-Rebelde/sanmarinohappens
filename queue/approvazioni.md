@@ -163,3 +163,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-10-19T12:09:03.619Z — approvato — 20261019-0317-02 — Michele Morri @RebeldeRN — 🆕 Anima e Corpo (mostra Ottobre Rosa)
 - [ ] 2026-10-19T12:09:05.384Z — approvato — 20261019-0317-03 — Michele Morri @RebeldeRN — 🆕 Anima e Corpo (mostra Ottobre Rosa)
 - [ ] 2026-10-19T12:09:13.339Z — approvato — 20261019-0317-04 — Michele Morri @RebeldeRN — 🆕 Caccia al Tesoro di Halloween
+- [ ] 2026-10-19T12:09:14.716Z — approvato — 20261019-0317-05 — Michele Morri @RebeldeRN — 🆕 Caccia al Tesoro di Halloween
