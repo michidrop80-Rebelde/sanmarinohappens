@@ -167,3 +167,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-10-19T12:09:16.144Z — approvato — 20261019-0317-06 — Michele Morri @RebeldeRN — 🆕 Caccia al Tesoro di Halloween
 - [ ] 2026-10-19T12:09:19.886Z — approvato — 20261019-0317-07 — Michele Morri @RebeldeRN — 🆕 Open Day Scuola Superiore, serata genitori
 - [ ] 2026-10-19T12:09:21.359Z — approvato — 20261019-0317-D1 — Michele Morri @RebeldeRN — 🆕 Open Day Scuola Superiore, serata genitori
+- [ ] 2026-10-19T12:09:22.738Z — approvato — 20261019-0317-D2 — Michele Morri @RebeldeRN — 🆕 Open Day Scuola Superiore, serata genitori
