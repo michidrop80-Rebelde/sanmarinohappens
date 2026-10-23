@@ -1,0 +1,32 @@
+{
+  "tipo": "storia",
+  "data_pubblicazione": "2026-10-24",
+  "ora_pubblicazione": "07:00",
+  "titolo_evento": "Storie del 24 ottobre",
+  "immagini": [
+    "20261024_Storia_1.png",
+    "20261024_Storia_2.png",
+    "20261024_Storia_3.png"
+  ],
+  "user_tags": {
+    "20261024_Storia_1.png": [
+      {
+        "username": "fsgc_official",
+        "x": 0.5,
+        "y": 0.78
+      }
+    ],
+    "20261024_Storia_2.png": [
+      {
+        "username": "sanmarinobeerfest",
+        "x": 0.35,
+        "y": 0.78
+      },
+      {
+        "username": "castelloserravalle.rsm",
+        "x": 0.65,
+        "y": 0.78
+      }
+    ]
+  }
+}
