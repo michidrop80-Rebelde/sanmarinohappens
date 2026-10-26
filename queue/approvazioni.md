@@ -174,3 +174,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-10-26T07:33:03.367Z — approvato — 20261026-0617-22 — Michele Morri @RebeldeRN — 🆕 «100 Miles» Concerto per la Vita (Fabrizio Bosso)
 - [ ] 2026-10-26T07:33:05.113Z — approvato — 20261026-0617-26 — Michele Morri @RebeldeRN — 🆕 «100 Miles» Concerto per la Vita (Fabrizio Bosso)
 - [ ] 2026-10-26T07:33:06.689Z — approvato — 20261026-0617-38 — Michele Morri @RebeldeRN — 🆕 «100 Miles» Concerto per la Vita (Fabrizio Bosso)
+- [ ] 2026-10-26T07:33:08.465Z — approvato — 20261026-0617-39 — Michele Morri @RebeldeRN — 🆕 Podistica di Natale
