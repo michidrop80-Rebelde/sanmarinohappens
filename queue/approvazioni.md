@@ -179,3 +179,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-10-26T07:33:11.571Z — approvato — 20261026-0617-D1 — Michele Morri @RebeldeRN — 🆕 Podistica di Natale
 - [ ] 2026-10-26T07:33:17.302Z — approvato — 20261026-0617-D2 — Michele Morri @RebeldeRN — ⚠️ Accordo San Marino-UE, dibattito pubblico (CSdL)
 - [ ] 2026-10-26T07:33:18.937Z — approvato — 20261026-0617-D3 — Michele Morri @RebeldeRN — ⚠️ Accordo San Marino-UE, dibattito pubblico (CSdL)
+- [ ] 2026-10-26T07:33:20.512Z — approvato — 20261026-0617-D4 — Michele Morri @RebeldeRN — ⚠️ Accordo San Marino-UE, dibattito pubblico (CSdL)
