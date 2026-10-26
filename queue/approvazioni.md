@@ -170,3 +170,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [x] 2026-10-19T12:09:22.738Z — approvato — 20261019-0317-D2 — Michele Morri @RebeldeRN — 🆕 Open Day Scuola Superiore, serata genitori — ✅ elaborato 19/10/2026 (catena Step 1)
 - [ ] 2026-10-26T07:32:49.086Z — approvato — 20261026-0617-01 — Michele Morri @RebeldeRN — ✏️ Coppa Titano ottavi ritorno (+3 gare del 27/10)
 - [ ] 2026-10-26T07:32:50.900Z — approvato — 20261026-0617-07 — Michele Morri @RebeldeRN — ✏️ Coppa Titano ottavi ritorno (+3 gare del 27/10)
+- [ ] 2026-10-26T07:32:52.637Z — approvato — 20261026-0617-14 — Michele Morri @RebeldeRN — ✏️ Coppa Titano ottavi ritorno (+3 gare del 27/10)
