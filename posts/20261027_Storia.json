@@ -1,0 +1,18 @@
+{
+  "tipo": "storia",
+  "data_pubblicazione": "2026-10-27",
+  "ora_pubblicazione": "07:00",
+  "titolo_evento": "Storie del 27 ottobre",
+  "immagini": [
+    "20261027_Storia_1.png"
+  ],
+  "user_tags": {
+    "20261027_Storia_1.png": [
+      {
+        "username": "fsgc_official",
+        "x": 0.5,
+        "y": 0.78
+      }
+    ]
+  }
+}
