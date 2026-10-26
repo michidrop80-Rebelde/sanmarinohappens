@@ -172,3 +172,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-10-26T07:32:50.900Z — approvato — 20261026-0617-07 — Michele Morri @RebeldeRN — ✏️ Coppa Titano ottavi ritorno (+3 gare del 27/10)
 - [ ] 2026-10-26T07:32:52.637Z — approvato — 20261026-0617-14 — Michele Morri @RebeldeRN — ✏️ Coppa Titano ottavi ritorno (+3 gare del 27/10)
 - [ ] 2026-10-26T07:33:03.367Z — approvato — 20261026-0617-22 — Michele Morri @RebeldeRN — 🆕 «100 Miles» Concerto per la Vita (Fabrizio Bosso)
+- [ ] 2026-10-26T07:33:05.113Z — approvato — 20261026-0617-26 — Michele Morri @RebeldeRN — 🆕 «100 Miles» Concerto per la Vita (Fabrizio Bosso)
