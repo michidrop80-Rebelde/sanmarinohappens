@@ -182,3 +182,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-10-26T07:33:20.512Z — approvato — 20261026-0617-D4 — Michele Morri @RebeldeRN — ⚠️ Accordo San Marino-UE, dibattito pubblico (CSdL)
 - [ ] 2026-10-26T07:33:22.232Z — approvato — 20261026-0617-D6 — Michele Morri @RebeldeRN — ⚠️ Govoni, «L'uomo che costruiva il futuro» (già approvato)
 - [ ] 2026-10-26T07:33:23.874Z — approvato — 20261026-0617-D5 — Michele Morri @RebeldeRN — ⚠️ Govoni, «L'uomo che costruiva il futuro» (già approvato)
+- [ ] 2026-10-26T07:33:25.455Z — approvato — 20261026-0617-D7 — Michele Morri @RebeldeRN — ⚠️ Govoni, «L'uomo che costruiva il futuro» (già approvato)
