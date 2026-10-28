@@ -294,6 +294,9 @@ Legenda: **F** = feed singolo (mattina 7:00) · **S** = storie (7:00) · **AGG**
 | 25/10 | Dom | 18:00 | **AGG** | — | SETTIMANALE 26/10–01/11 | — | 🆕 AGGIUNTO 24/10 (catena, Step 2-bis). 10 eventi su 2 pagine (righe master 169, 184, 170, 175, 91, 163, 186, 92, 187, 191), busta carosello posts/20261025_Settimanale, dossier `dati/post/settimanale-2026-10-26-11-01.md` |
 | 27/10 | Mar | 7:00 | **F** | 175 | Coppa Titano — ottavi di finale, ritorno (3 gare del 27/10) | 27/10 | 🆕 AGGIUNTO 26/10 (catena, Step 2-bis). 20:45: Cosmos vs San Giovanni (Acquaviva), Juvenes Dogana vs Tre Penne (Montecchio), Cailungo vs Pennarossa (Dogana); in caption anche le 4 gare del 28/10. Tag @fsgc_official. In coda: posts/20261027_Post giornaliero |
 | 27/10 | Mar | 7:00 | **S** | 175 | Storia: Coppa Titano ottavi ritorno (20:45) | 27/10 | 🆕 AGGIUNTO 26/10 (catena). Singola, CTA di chiusura. Yoga (r.192) escluso: ✅ ambiguo di Michele su «potenzialmente cancellato». Tag @fsgc_official. In coda: posts/20261027_Storia |
+| 29/10 | Gio | 7:00 | **F** | 203 | Accordo San Marino-UE: dibattito pubblico (CSdL) | 29/10 | 🆕 AGGIUNTO 28/10 (catena, Step 2-bis). 09:00, Sala Montelupo, Domagnano. Fonte RTV ricontrollata il 28/10. Nessun tag (CSdL da-cercare). In coda: posts/20261029_Post giornaliero |
+| 29/10 | Gio | 7:00 | **S** | 203 | Storia singola: Accordo San Marino-UE (09:00) | 29/10 | 🆕 AGGIUNTO 28/10 (catena). CTA di chiusura. Esclusi Scuole in Campo, Anima e Corpo, Yoga. In coda: posts/20261029_Storia |
+| 29/10 | Gio | 18:00 | **AGG** | — | WEEKEND 30/10–01/11 | — | 🆕 AGGIUNTO 28/10 (catena, Step 2-bis). 7 eventi su 2 slide (righe master 91, 163, 186, 92, 187, 198, 191), busta carosello `posts/20261029_Weekend`, dossier `dati/post/weekend-2026-10-30-11-01.md` |
 
 ---
 
