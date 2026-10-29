@@ -1,0 +1,31 @@
+{
+  "tipo": "storia",
+  "data_pubblicazione": "2026-10-30",
+  "ora_pubblicazione": "07:00",
+  "titolo_evento": "Storie del 30 ottobre",
+  "immagini": [
+    "20261030_Storia_1.png",
+    "20261030_Storia_2.png"
+  ],
+  "user_tags": {
+    "20261030_Storia_1.png": [
+      {
+        "username": "sanmarinobeerfest",
+        "x": 0.35,
+        "y": 0.78
+      },
+      {
+        "username": "fsgc_official",
+        "x": 0.65,
+        "y": 0.78
+      }
+    ],
+    "20261030_Storia_2.png": [
+      {
+        "username": "scuderiasanmarinorsm",
+        "x": 0.5,
+        "y": 0.78
+      }
+    ]
+  }
+}
