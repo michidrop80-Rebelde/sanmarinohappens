@@ -299,6 +299,7 @@ Legenda: **F** = feed singolo (mattina 7:00) · **S** = storie (7:00) · **AGG**
 | 29/10 | Gio | 18:00 | **AGG** | — | WEEKEND 30/10–01/11 | — | 🆕 AGGIUNTO 28/10 (catena, Step 2-bis). 7 eventi su 2 slide (righe master 91, 163, 186, 92, 187, 198, 191), busta carosello `posts/20261029_Weekend`, dossier `dati/post/weekend-2026-10-30-11-01.md` |
 | 30/10 | Ven | 7:00 | **F** | 163 | 6° Halloween Ronde (rally storico) | 30–31/10 | 🆕 AGGIUNTO 29/10 (catena, Step 2-bis). Orari non pubblicati (usc.sm e web ricontrollati 29/10): nessun orario. Multieventi Sport Domus e Piazza Bertoldi, Serravalle. Tag @scuderiasanmarinorsm. Cross-mention BeerFest Übermensch e Campionato 7ª. In coda: posts/20261030_Post giornaliero |
 | 30/10 | Ven | 7:00 | **S** | 91, 186, 163 | Storie: BeerFest Übermensch (19:00) + Cailungo vs Juvenes Dogana (21:15) · Halloween Ronde (senza orario) | 30/10 | 🆕 AGGIUNTO 29/10 (catena). 1 doppia + 1 singola, CTA di chiusura. Orario BeerFest da usc.sm (19:00-23:30, live 22:00). Esclusi Scuole in Campo, Anima e Corpo, Yoga. Tag @sanmarinobeerfest, @fsgc_official, @scuderiasanmarinorsm. In coda: posts/20261030_Storia |
+| 31/10 | Sab | 18:00 | **AGG** | — | CAROSELLO NOVEMBRE 2026 | — | 🆕 AGGIUNTO 29/10 (catena, Step 2-bis). Copertina + 5 slide, 32 eventi (righe master 186, M03, M04, M08, 120, 121, 184, 93, 176, 188, 94, 199, 122, 154, 123, 189, 164, 190, 193, 178, 165, 200, 124, 125, 151, 179, 205, 152, 126, 166, 180). Busta `posts/20261031_Carosello`, dossier `dati/post/carosello-novembre-2026.md` |
 
 ---
 
