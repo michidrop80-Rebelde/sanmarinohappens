@@ -1,0 +1,63 @@
+{
+  "giro_id": "20261029-2102",
+  "sent_at": "2026-10-29T21:02:31Z",
+  "prova": false,
+  "eventi": [
+    {
+      "id": "01",
+      "titolo": "Teatro Vivo — L'altro amore",
+      "tipo": "nuovo",
+      "data": "15/01/2027",
+      "luogo": "Auditorium Little Tony, Serravalle",
+      "url": "https://www.auditoriumlittletony.org"
+    },
+    {
+      "id": "02",
+      "titolo": "Teatro Vivo — Nova Armonia AI Music Festival",
+      "tipo": "nuovo",
+      "data": "29/01/2027",
+      "luogo": "Auditorium Little Tony, Serravalle",
+      "url": "https://www.auditoriumlittletony.org"
+    },
+    {
+      "id": "03",
+      "titolo": "Teatro Vivo — Jazz in maschera",
+      "tipo": "nuovo",
+      "data": "05/02/2027",
+      "luogo": "Auditorium Little Tony, Serravalle",
+      "url": "https://www.auditoriumlittletony.org"
+    },
+    {
+      "id": "04",
+      "titolo": "Teatro Vivo — Vicini... perfetti",
+      "tipo": "nuovo",
+      "data": "26/02/2027",
+      "luogo": "Auditorium Little Tony, Serravalle",
+      "url": "https://www.auditoriumlittletony.org"
+    },
+    {
+      "id": "05",
+      "titolo": "Teatro Vivo — L'inquilino",
+      "tipo": "nuovo",
+      "data": "12/03/2027",
+      "luogo": "Auditorium Little Tony, Serravalle",
+      "url": "https://www.auditoriumlittletony.org"
+    },
+    {
+      "id": "06",
+      "titolo": "Teatro Vivo — Senti-menti",
+      "tipo": "nuovo",
+      "data": "19/03/2027",
+      "luogo": "Auditorium Little Tony, Serravalle",
+      "url": "https://www.auditoriumlittletony.org"
+    },
+    {
+      "id": "07",
+      "titolo": "Teatro Vivo — Pinzillacchere in soffitta",
+      "tipo": "nuovo",
+      "data": "09/04/2027",
+      "luogo": "Auditorium Little Tony, Serravalle",
+      "url": "https://www.auditoriumlittletony.org"
+    }
+  ]
+}

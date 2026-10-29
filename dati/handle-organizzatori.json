@@ -1027,7 +1027,9 @@
     {
       "nome": "Federazione Sammarinese Roller Sports",
       "categoria": "organizzatore",
-      "alias": ["Federazione Sammarinese Roller Sports"],
+      "alias": [
+        "Federazione Sammarinese Roller Sports"
+      ],
       "instagram": null,
       "facebook_page_id": null,
       "stato": "da-cercare",
@@ -1037,7 +1039,9 @@
     {
       "nome": "Associazione Martin Mancini",
       "categoria": "organizzatore",
-      "alias": ["Associazione Martin Mancini"],
+      "alias": [
+        "Associazione Martin Mancini"
+      ],
       "instagram": null,
       "facebook_page_id": null,
       "stato": "da-cercare",
@@ -1047,7 +1051,10 @@
     {
       "nome": "Giochi del Titano (Mementi - Mercoledi d'autore)",
       "categoria": "organizzatore",
-      "alias": ["Giochi del Titano", "Mementi - Mercoledi d'autore"],
+      "alias": [
+        "Giochi del Titano",
+        "Mementi - Mercoledi d'autore"
+      ],
       "instagram": null,
       "facebook_page_id": null,
       "stato": "da-cercare",
@@ -1057,7 +1064,11 @@
     {
       "nome": "Istituto per la Sicurezza Sociale (Ottobre Rosa)",
       "categoria": "organizzatore",
-      "alias": ["Istituto per la Sicurezza Sociale", "ISS", "Ottobre Rosa"],
+      "alias": [
+        "Istituto per la Sicurezza Sociale",
+        "ISS",
+        "Ottobre Rosa"
+      ],
       "instagram": null,
       "facebook_page_id": null,
       "stato": "da-cercare",
@@ -1067,7 +1078,10 @@
     {
       "nome": "Associazione Santa Mustiola",
       "categoria": "organizzatore",
-      "alias": ["Associazione Santa Mustiola", "Festa della Castagna Santa Mustiola"],
+      "alias": [
+        "Associazione Santa Mustiola",
+        "Festa della Castagna Santa Mustiola"
+      ],
       "instagram": null,
       "facebook_page_id": null,
       "stato": "da-cercare",
@@ -1077,7 +1091,10 @@
     {
       "nome": "Vitesse Oblige Drivers&Riders Club",
       "categoria": "organizzatore",
-      "alias": ["Vitesse Oblige Drivers&Riders Club", "Tour Petite Vitesse"],
+      "alias": [
+        "Vitesse Oblige Drivers&Riders Club",
+        "Tour Petite Vitesse"
+      ],
       "instagram": null,
       "facebook_page_id": null,
       "stato": "da-cercare",
@@ -1087,7 +1104,10 @@
     {
       "nome": "Vo.Ci. Volontari Civici nei Castelli (Teatro Vivo)",
       "categoria": "organizzatore",
-      "alias": ["Vo.Ci. - Volontari Civici nei Castelli", "Teatro Vivo"],
+      "alias": [
+        "Vo.Ci. - Volontari Civici nei Castelli",
+        "Teatro Vivo"
+      ],
       "instagram": null,
       "facebook_page_id": null,
       "stato": "da-cercare",
@@ -1095,14 +1115,94 @@
       "prova": "Nuovo in verifica 12/10/2026: direzione artistica della stagione Teatro Vivo 26/27 (Auditorium Little Tony, Serravalle) con patrocinio Giunta di Castello di Serravalle - sanmarinortv.sm e5187. Profilo non cercato."
     },
     {
+      "nome": "Auditorium Little Tony (Serravalle)",
+      "categoria": "luogo",
+      "alias": [
+        "Auditorium Little Tony, Sala Polivalente, Serravalle",
+        "Auditorium Little Tony"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-10-29",
+      "prova": "Nuovo in verifica 29/10/2026: sede della stagione Teatro Vivo 26/27 e delle Commedie dialettali; sito auditoriumlittletony.org. Profilo social non cercato (un luogo ricorrente non e' per forza un account)."
+    },
+    {
       "nome": "TMF HUB Srl (Tour Music Fest)",
       "categoria": "organizzatore",
-      "alias": ["TMF HUB Srl", "Tour Music Fest"],
+      "alias": [
+        "TMF HUB Srl",
+        "Tour Music Fest"
+      ],
       "instagram": null,
       "facebook_page_id": null,
       "stato": "da-cercare",
       "verificato_il": "2026-10-12",
       "prova": "Nuovo in verifica 12/10/2026: organizza il Tour Music Fest 2026 (21-29/11) - visitsanmarino.com; sito tourmusicfest.it. Profilo non cercato."
+    },
+    {
+      "nome": "Archivio e Biblioteca di Stato",
+      "categoria": "organizzatore",
+      "alias": [
+        "Archivio e Biblioteca di Stato"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-10-19",
+      "prova": "Nuovo in verifica 19/10/2026: organizza la presentazione del catalogo della mostra 'Al sesto suono della campana' (19/10, Sala Alberoni, Palazzo Valloni) - sanmarinortv.sm e5210. Profilo non cercato."
+    },
+    {
+      "nome": "Associazione Oncologica Sammarinese (AOS)",
+      "categoria": "organizzatore",
+      "alias": [
+        "Associazione Oncologica Sammarinese",
+        "AOS"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-10-19",
+      "prova": "Nuovo in verifica 19/10/2026: organizza il ciclo 'Yoga per il benessere' (Ottobre Rosa, 20/10-10/12, Ospedale di Stato) - tribunapoliticaweb.sm 15/10. Profilo non cercato."
+    },
+    {
+      "nome": "Scuola Superiore di San Marino",
+      "categoria": "organizzatore",
+      "alias": [
+        "Scuola Superiore",
+        "Scuola Superiore di San Marino"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-10-19",
+      "prova": "Nuovo in verifica 19/10/2026: organizza la serata Open Day per i genitori (13/11, Sala Montelupo, Domagnano) - sanmarinortv.sm e5217. Profilo non cercato."
+    },
+    {
+      "nome": "A.S.D. Bad Company",
+      "categoria": "organizzatore",
+      "alias": [
+        "A.S.D. Bad Company",
+        "Bad Company"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-10-19",
+      "prova": "Nuovo in verifica 19/10/2026: organizza l'Escape Room di Halloween (31/10, Galleria Borgo Maggiore) - usc.sm. Profilo non cercato."
+    },
+    {
+      "nome": "CSdL — Confederazione Sammarinese del Lavoro",
+      "categoria": "organizzatore",
+      "alias": [
+        "CSdL",
+        "Confederazione Sammarinese del Lavoro"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-10-28",
+      "prova": "Nuovo 28/10/2026: organizza il dibattito pubblico sull'Accordo San Marino-UE (29/10, Sala Montelupo, Domagnano) - sanmarinortv.sm e5230. Profilo non cercato."
     }
   ]
 }
