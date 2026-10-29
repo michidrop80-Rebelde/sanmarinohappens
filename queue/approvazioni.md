@@ -187,3 +187,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-10-29T21:05:46.292Z — approvato — 20261029-2102-01 — Michele Morri @RebeldeRN — 🆕 Teatro Vivo — L'altro amore
 - [ ] 2026-10-29T21:05:48.098Z — approvato — 20261029-2102-02 — Michele Morri @RebeldeRN — 🆕 Teatro Vivo — L'altro amore
 - [ ] 2026-10-29T21:05:49.933Z — approvato — 20261029-2102-03 — Michele Morri @RebeldeRN — 🆕 Teatro Vivo — L'altro amore
+- [ ] 2026-10-29T21:05:51.904Z — approvato — 20261029-2102-04 — Michele Morri @RebeldeRN — 🆕 Teatro Vivo — Vicini... perfetti
