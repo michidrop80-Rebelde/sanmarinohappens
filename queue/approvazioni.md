@@ -190,3 +190,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-10-29T21:05:51.904Z — approvato — 20261029-2102-04 — Michele Morri @RebeldeRN — 🆕 Teatro Vivo — Vicini... perfetti
 - [ ] 2026-10-29T21:05:53.729Z — approvato — 20261029-2102-05 — Michele Morri @RebeldeRN — 🆕 Teatro Vivo — Vicini... perfetti
 - [ ] 2026-10-29T21:05:55.933Z — approvato — 20261029-2102-06 — Michele Morri @RebeldeRN — 🆕 Teatro Vivo — Vicini... perfetti
+- [ ] 2026-10-29T21:05:57.816Z — approvato — 20261029-2102-07 — Michele Morri @RebeldeRN — 🆕 Teatro Vivo — Pinzillacchere in soffitta
