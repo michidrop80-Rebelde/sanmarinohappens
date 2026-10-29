@@ -185,3 +185,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [x] 2026-10-26T07:33:25.455Z — approvato — 20261026-0617-D7 — Michele Morri @RebeldeRN — ⚠️ Govoni, «L'uomo che costruiva il futuro» (già approvato) — ✔ elaborata 26/10/2026 (catena)
 - [x] 2026-10-26T07:33:27.354Z — approvato — 20261026-0617-D8 — Michele Morri @RebeldeRN — 🗑 Yoga per il benessere (Ottobre Rosa) — non ritrovato — ⚠️ ambigua (✅ su un «potenzialmente cancellato»: non dice se tenere o togliere) → riga 192 NON toccata, chiesto a Michele
 - [ ] 2026-10-29T21:05:46.292Z — approvato — 20261029-2102-01 — Michele Morri @RebeldeRN — 🆕 Teatro Vivo — L'altro amore
+- [ ] 2026-10-29T21:05:48.098Z — approvato — 20261029-2102-02 — Michele Morri @RebeldeRN — 🆕 Teatro Vivo — L'altro amore
