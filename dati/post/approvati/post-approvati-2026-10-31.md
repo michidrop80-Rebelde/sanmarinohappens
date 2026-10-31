@@ -1,0 +1,199 @@
+# Post approvati — 2026-10-31
+Da: dati/post/post-2026-10-29.md · giro Telegram 20261029-2102 (7/7 ✅, pulsanti del 29/10/2026 21:05 UTC)
+Eventi gen–apr 2027: lontani, nessuna grafica da fare ora (la grafica compila solo gli imminenti).
+
+---
+## 15/01 — «L'altro amore» · Teatro Vivo 26/27   ·   tipo: cultura
+
+**📷 Testo per la grafica**
+- Titolo breve: L'altro amore
+- Sottotitolo: 15 gennaio · Auditorium Little Tony, Serravalle
+- Dettagli: Teatro Vivo 26/27 · ore 21:00 · Pallozzi Lavorante e Ruscitti
+
+**📝 Caption (Instagram + Facebook)**
+🎭 Teatro Vivo 26/27 apre il 2027 a Serravalle con Pallozzi Lavorante e Ruscitti.
+
+🗓 15/01/2027 · 🕗 21:00 · 📍 Auditorium Little Tony, Sala Polivalente, Serravalle
+Salva il post 📌 e seguici per non perdere gli eventi di San Marino
+ℹ️ Date e orari possono cambiare: verifica sempre sulla fonte ufficiale dell'organizzatore (link in bio).
+
+**#️⃣ Hashtag**
+#SanMarinoHappens #SanMarino #RepubblicaDiSanMarino #MonteTitano #cosafareaSanMarino #eventiSanMarino #TeatroVivo #Serravalle #AuditoriumLittleTony
+
+**📱 Testo storia**
+- Titolo storia: L'altro amore
+- Data: 15/01/2027
+- Ora: 21:00
+- Luogo: Auditorium Little Tony, Sala Polivalente, Serravalle
+- Descrizione breve: Pallozzi Lavorante e Ruscitti in scena per la stagione Teatro Vivo 26/27.
+
+**🔗 Fonte:** https://www.sanmarinortv.sm/eventi/teatro/teatro-vivo-26-27-all-auditorium-little-tony-di-serravalle-al-via-la-nuova-stagione-teatrale-e5187
+**Stato bozza:** approvato (pulsante Telegram 29/10/2026, elaborato 31/10)
+
+---
+## 29/01 — «Nova Armonia AI Music Festival» · Teatro Vivo 26/27   ·   tipo: cultura
+
+**📷 Testo per la grafica**
+- Titolo breve: Nova Armonia AI Music Festival
+- Sottotitolo: 29 gennaio · Auditorium Little Tony, Serravalle
+- Dettagli: Teatro Vivo 26/27 · ore 21:00 · a cura di Vo.Ci.
+
+**📝 Caption (Instagram + Facebook)**
+🎭 Il Nova Armonia AI Music Festival, a cura di Vo.Ci., entra nel cartellone di Teatro Vivo 26/27.
+
+🗓 29/01/2027 · 🕗 21:00 · 📍 Auditorium Little Tony, Sala Polivalente, Serravalle
+Salva il post 📌 e seguici per non perdere gli eventi di San Marino
+ℹ️ Date e orari possono cambiare: verifica sempre sulla fonte ufficiale dell'organizzatore (link in bio).
+
+**#️⃣ Hashtag**
+#SanMarinoHappens #SanMarino #RepubblicaDiSanMarino #MonteTitano #cosafareaSanMarino #eventiSanMarino #TeatroVivo #Serravalle #AuditoriumLittleTony
+
+**📱 Testo storia**
+- Titolo storia: Nova Armonia AI Music Festival
+- Data: 29/01/2027
+- Ora: 21:00
+- Luogo: Auditorium Little Tony, Sala Polivalente, Serravalle
+- Descrizione breve: A cura di Vo.Ci., un appuntamento della stagione Teatro Vivo 26/27.
+
+**🔗 Fonte:** https://www.sanmarinortv.sm/eventi/teatro/teatro-vivo-26-27-all-auditorium-little-tony-di-serravalle-al-via-la-nuova-stagione-teatrale-e5187
+**Stato bozza:** approvato (pulsante Telegram 29/10/2026, elaborato 31/10)
+
+---
+## 05/02 — «Jazz in maschera» · Teatro Vivo 26/27   ·   tipo: cultura
+
+**📷 Testo per la grafica**
+- Titolo breve: Jazz in maschera
+- Sottotitolo: 5 febbraio · Auditorium Little Tony, Serravalle
+- Dettagli: Teatro Vivo 26/27 · ore 21:00 · Rimini Jazz Club
+
+**📝 Caption (Instagram + Facebook)**
+🎷 Il Rimini Jazz Club sale sul palco di Teatro Vivo 26/27 con «Jazz in maschera».
+
+🗓 05/02/2027 · 🕗 21:00 · 📍 Auditorium Little Tony, Sala Polivalente, Serravalle
+Salva il post 📌 e seguici per non perdere gli eventi di San Marino
+ℹ️ Date e orari possono cambiare: verifica sempre sulla fonte ufficiale dell'organizzatore (link in bio).
+
+**#️⃣ Hashtag**
+#SanMarinoHappens #SanMarino #RepubblicaDiSanMarino #MonteTitano #cosafareaSanMarino #eventiSanMarino #TeatroVivo #Jazz #Serravalle
+
+**📱 Testo storia**
+- Titolo storia: Jazz in maschera
+- Data: 05/02/2027
+- Ora: 21:00
+- Luogo: Auditorium Little Tony, Sala Polivalente, Serravalle
+- Descrizione breve: Il Rimini Jazz Club in scena per la stagione Teatro Vivo 26/27.
+
+**🔗 Fonte:** https://www.sanmarinortv.sm/eventi/teatro/teatro-vivo-26-27-all-auditorium-little-tony-di-serravalle-al-via-la-nuova-stagione-teatrale-e5187
+**Stato bozza:** approvato (pulsante Telegram 29/10/2026, elaborato 31/10)
+
+---
+## 26/02 — «Vicini... perfetti» · Teatro Vivo 26/27   ·   tipo: cultura
+
+**📷 Testo per la grafica**
+- Titolo breve: Vicini... perfetti
+- Sottotitolo: 26 febbraio · Auditorium Little Tony, Serravalle
+- Dettagli: Teatro Vivo 26/27 · ore 21:00 · La Compagnia del Vicolo
+
+**📝 Caption (Instagram + Facebook)**
+🎭 La Compagnia del Vicolo porta «Vicini... perfetti» a Teatro Vivo 26/27.
+
+🗓 26/02/2027 · 🕗 21:00 · 📍 Auditorium Little Tony, Sala Polivalente, Serravalle
+Salva il post 📌 e seguici per non perdere gli eventi di San Marino
+ℹ️ Date e orari possono cambiare: verifica sempre sulla fonte ufficiale dell'organizzatore (link in bio).
+
+**#️⃣ Hashtag**
+#SanMarinoHappens #SanMarino #RepubblicaDiSanMarino #MonteTitano #cosafareaSanMarino #eventiSanMarino #TeatroVivo #Serravalle #AuditoriumLittleTony
+
+**📱 Testo storia**
+- Titolo storia: Vicini... perfetti
+- Data: 26/02/2027
+- Ora: 21:00
+- Luogo: Auditorium Little Tony, Sala Polivalente, Serravalle
+- Descrizione breve: La Compagnia del Vicolo in scena per la stagione Teatro Vivo 26/27.
+
+**🔗 Fonte:** https://www.sanmarinortv.sm/eventi/teatro/teatro-vivo-26-27-all-auditorium-little-tony-di-serravalle-al-via-la-nuova-stagione-teatrale-e5187
+**Stato bozza:** approvato (pulsante Telegram 29/10/2026, elaborato 31/10)
+
+---
+## 12/03 — «L'inquilino» · Teatro Vivo 26/27   ·   tipo: cultura
+
+**📷 Testo per la grafica**
+- Titolo breve: L'inquilino
+- Sottotitolo: 12 marzo · Auditorium Little Tony, Serravalle
+- Dettagli: Teatro Vivo 26/27 · ore 21:00 · Compagnia Korekanè
+
+**📝 Caption (Instagram + Facebook)**
+🎭 La Compagnia Korekanè presenta «L'inquilino» a Teatro Vivo 26/27.
+
+🗓 12/03/2027 · 🕗 21:00 · 📍 Auditorium Little Tony, Sala Polivalente, Serravalle
+Salva il post 📌 e seguici per non perdere gli eventi di San Marino
+ℹ️ Date e orari possono cambiare: verifica sempre sulla fonte ufficiale dell'organizzatore (link in bio).
+
+**#️⃣ Hashtag**
+#SanMarinoHappens #SanMarino #RepubblicaDiSanMarino #MonteTitano #cosafareaSanMarino #eventiSanMarino #TeatroVivo #Serravalle #AuditoriumLittleTony
+
+**📱 Testo storia**
+- Titolo storia: L'inquilino
+- Data: 12/03/2027
+- Ora: 21:00
+- Luogo: Auditorium Little Tony, Sala Polivalente, Serravalle
+- Descrizione breve: La Compagnia Korekanè in scena per la stagione Teatro Vivo 26/27.
+
+**🔗 Fonte:** https://www.sanmarinortv.sm/eventi/teatro/teatro-vivo-26-27-all-auditorium-little-tony-di-serravalle-al-via-la-nuova-stagione-teatrale-e5187
+**Stato bozza:** approvato (pulsante Telegram 29/10/2026, elaborato 31/10)
+
+---
+## 19/03 — «Senti-menti» · Teatro Vivo 26/27   ·   tipo: cultura
+
+**📷 Testo per la grafica**
+- Titolo breve: Senti-menti
+- Sottotitolo: 19 marzo · Auditorium Little Tony, Serravalle
+- Dettagli: Teatro Vivo 26/27 · ore 21:00 · La Compagnia della Clavicola
+
+**📝 Caption (Instagram + Facebook)**
+🎭 La Compagnia della Clavicola porta «Senti-menti» a Teatro Vivo 26/27.
+
+🗓 19/03/2027 · 🕗 21:00 · 📍 Auditorium Little Tony, Sala Polivalente, Serravalle
+Salva il post 📌 e seguici per non perdere gli eventi di San Marino
+ℹ️ Date e orari possono cambiare: verifica sempre sulla fonte ufficiale dell'organizzatore (link in bio).
+
+**#️⃣ Hashtag**
+#SanMarinoHappens #SanMarino #RepubblicaDiSanMarino #MonteTitano #cosafareaSanMarino #eventiSanMarino #TeatroVivo #Serravalle #AuditoriumLittleTony
+
+**📱 Testo storia**
+- Titolo storia: Senti-menti
+- Data: 19/03/2027
+- Ora: 21:00
+- Luogo: Auditorium Little Tony, Sala Polivalente, Serravalle
+- Descrizione breve: La Compagnia della Clavicola in scena per la stagione Teatro Vivo 26/27.
+
+**🔗 Fonte:** https://www.sanmarinortv.sm/eventi/teatro/teatro-vivo-26-27-all-auditorium-little-tony-di-serravalle-al-via-la-nuova-stagione-teatrale-e5187
+**Stato bozza:** approvato (pulsante Telegram 29/10/2026, elaborato 31/10)
+
+---
+## 09/04 — «Pinzillacchere in soffitta» · Teatro Vivo 26/27   ·   tipo: cultura
+
+**📷 Testo per la grafica**
+- Titolo breve: Pinzillacchere in soffitta
+- Sottotitolo: 9 aprile · Auditorium Little Tony, Serravalle
+- Dettagli: Teatro Vivo 26/27 · ore 21:00 · Gli Histrionici
+
+**📝 Caption (Instagram + Facebook)**
+🎭 Gli Histrionici portano «Pinzillacchere in soffitta» sul palco di Teatro Vivo 26/27.
+
+🗓 09/04/2027 · 🕗 21:00 · 📍 Auditorium Little Tony, Sala Polivalente, Serravalle
+Salva il post 📌 e seguici per non perdere gli eventi di San Marino
+ℹ️ Date e orari possono cambiare: verifica sempre sulla fonte ufficiale dell'organizzatore (link in bio).
+
+**#️⃣ Hashtag**
+#SanMarinoHappens #SanMarino #RepubblicaDiSanMarino #MonteTitano #cosafareaSanMarino #eventiSanMarino #TeatroVivo #Serravalle #AuditoriumLittleTony
+
+**📱 Testo storia**
+- Titolo storia: Pinzillacchere in soffitta
+- Data: 09/04/2027
+- Ora: 21:00
+- Luogo: Auditorium Little Tony, Sala Polivalente, Serravalle
+- Descrizione breve: Gli Histrionici in scena per la stagione Teatro Vivo 26/27.
+
+**🔗 Fonte:** https://www.sanmarinortv.sm/eventi/teatro/teatro-vivo-26-27-all-auditorium-little-tony-di-serravalle-al-via-la-nuova-stagione-teatrale-e5187
+**Stato bozza:** approvato (pulsante Telegram 29/10/2026, elaborato 31/10)
