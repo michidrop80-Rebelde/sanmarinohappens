@@ -1,0 +1,4 @@
+Serata 2026-10-30: 🟡 1 differenze da spiegare
+cloud: 7 righe di coda chiuse · 7 titoli approvati · 3 file nuovi
+Mac:   7 righe di coda chiuse · 7 titoli approvati · 2 file nuovi
+  - file nuovi: solo cloud ['dati/post/approvati/post-approvati-2026-10-30.md', 'dati/post/giornaliero-2026-10-31.md'] · solo Mac ['dati/post/approvati/post-approvati-2026-10-31.md']
