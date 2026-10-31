@@ -1,0 +1,18 @@
+{
+  "tipo": "storia",
+  "data_pubblicazione": "2026-11-01",
+  "ora_pubblicazione": "07:00",
+  "titolo_evento": "Storie del 1 novembre",
+  "immagini": [
+    "20261101_Storia_1.png"
+  ],
+  "user_tags": {
+    "20261101_Storia_1.png": [
+      {
+        "username": "fsgc_official",
+        "x": 0.5,
+        "y": 0.78
+      }
+    ]
+  }
+}
