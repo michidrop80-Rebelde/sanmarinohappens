@@ -194,3 +194,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-11-03T06:48:30.820Z — approvato — 20261102-0416-01 — Michele Morri @RebeldeRN — 🆕 Paolo Crepet — Crescere insieme
 - [ ] 2026-11-03T06:48:32.685Z — approvato — 20261102-0416-02 — Michele Morri @RebeldeRN — 🆕 Paolo Crepet — Crescere insieme
 - [ ] 2026-11-03T06:48:34.949Z — approvato — 20261102-0416-03 — Michele Morri @RebeldeRN — 🆕 Paolo Crepet — Crescere insieme
+- [ ] 2026-11-03T06:48:36.685Z — approvato — 20261102-0416-04 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 9ª giornata
