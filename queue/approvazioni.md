@@ -191,17 +191,17 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [x] 2026-10-29T21:05:53.729Z — approvato — 20261029-2102-05 — Michele Morri @RebeldeRN — 🆕 Teatro Vivo — Vicini... perfetti
 - [x] 2026-10-29T21:05:55.933Z — approvato — 20261029-2102-06 — Michele Morri @RebeldeRN — 🆕 Teatro Vivo — Vicini... perfetti
 - [x] 2026-10-29T21:05:57.816Z — approvato — 20261029-2102-07 — Michele Morri @RebeldeRN — 🆕 Teatro Vivo — Pinzillacchere in soffitta
-- [ ] 2026-11-03T06:48:30.820Z — approvato — 20261102-0416-01 — Michele Morri @RebeldeRN — 🆕 Paolo Crepet — Crescere insieme
-- [ ] 2026-11-03T06:48:32.685Z — approvato — 20261102-0416-02 — Michele Morri @RebeldeRN — 🆕 Paolo Crepet — Crescere insieme
-- [ ] 2026-11-03T06:48:34.949Z — approvato — 20261102-0416-03 — Michele Morri @RebeldeRN — 🆕 Paolo Crepet — Crescere insieme
-- [ ] 2026-11-03T06:48:36.685Z — approvato — 20261102-0416-04 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 9ª giornata
-- [ ] 2026-11-03T06:48:38.410Z — approvato — 20261102-0416-05 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 9ª giornata
-- [ ] 2026-11-03T06:48:39.966Z — approvato — 20261102-0416-07 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 10ª giornata
-- [ ] 2026-11-03T06:48:41.614Z — approvato — 20261102-0416-08 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 10ª giornata
-- [ ] 2026-11-03T06:48:43.351Z — approvato — 20261102-0416-09 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 10ª giornata
-- [ ] 2026-11-03T06:48:44.911Z — approvato — 20261102-0416-10 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 13ª giornata
-- [ ] 2026-11-03T06:48:46.723Z — approvato — 20261102-0416-11 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 13ª giornata
-- [ ] 2026-11-03T06:48:48.370Z — approvato — 20261102-0416-12 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 13ª giornata
-- [ ] 2026-11-03T06:48:56.935Z — approvato — 20261102-0416-13 — Michele Morri @RebeldeRN — 🆕 Great & Good Friends Gospel — The Women of God
-- [ ] 2026-11-03T06:48:58.513Z — approvato — 20261102-0416-14 — Michele Morri @RebeldeRN — 🆕 Great & Good Friends Gospel — The Women of God
-- [ ] 2026-11-03T06:49:00.472Z — approvato — 20261102-0416-D1 — Michele Morri @RebeldeRN — 🆕 Great & Good Friends Gospel — The Women of God
+- [x] 2026-11-03T06:48:30.820Z — approvato — 20261102-0416-01 — Michele Morri @RebeldeRN — 🆕 Paolo Crepet — Crescere insieme
+- [x] 2026-11-03T06:48:32.685Z — approvato — 20261102-0416-02 — Michele Morri @RebeldeRN — 🆕 Paolo Crepet — Crescere insieme
+- [x] 2026-11-03T06:48:34.949Z — approvato — 20261102-0416-03 — Michele Morri @RebeldeRN — 🆕 Paolo Crepet — Crescere insieme
+- [x] 2026-11-03T06:48:36.685Z — approvato — 20261102-0416-04 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 9ª giornata
+- [x] 2026-11-03T06:48:38.410Z — approvato — 20261102-0416-05 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 9ª giornata
+- [x] 2026-11-03T06:48:39.966Z — approvato — 20261102-0416-07 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 10ª giornata
+- [x] 2026-11-03T06:48:41.614Z — approvato — 20261102-0416-08 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 10ª giornata
+- [x] 2026-11-03T06:48:43.351Z — approvato — 20261102-0416-09 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 10ª giornata
+- [x] 2026-11-03T06:48:44.911Z — approvato — 20261102-0416-10 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 13ª giornata
+- [x] 2026-11-03T06:48:46.723Z — approvato — 20261102-0416-11 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 13ª giornata
+- [x] 2026-11-03T06:48:48.370Z — approvato — 20261102-0416-12 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 13ª giornata
+- [x] 2026-11-03T06:48:56.935Z — approvato — 20261102-0416-13 — Michele Morri @RebeldeRN — 🆕 Great & Good Friends Gospel — The Women of God
+- [x] 2026-11-03T06:48:58.513Z — approvato — 20261102-0416-14 — Michele Morri @RebeldeRN — 🆕 Great & Good Friends Gospel — The Women of God
+- [x] 2026-11-03T06:49:00.472Z — approvato — 20261102-0416-D1 — Michele Morri @RebeldeRN — 🆕 Great & Good Friends Gospel — The Women of God
