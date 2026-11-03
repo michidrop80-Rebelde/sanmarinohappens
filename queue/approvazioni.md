@@ -193,3 +193,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [x] 2026-10-29T21:05:57.816Z — approvato — 20261029-2102-07 — Michele Morri @RebeldeRN — 🆕 Teatro Vivo — Pinzillacchere in soffitta
 - [ ] 2026-11-03T06:48:30.820Z — approvato — 20261102-0416-01 — Michele Morri @RebeldeRN — 🆕 Paolo Crepet — Crescere insieme
 - [ ] 2026-11-03T06:48:32.685Z — approvato — 20261102-0416-02 — Michele Morri @RebeldeRN — 🆕 Paolo Crepet — Crescere insieme
+- [ ] 2026-11-03T06:48:34.949Z — approvato — 20261102-0416-03 — Michele Morri @RebeldeRN — 🆕 Paolo Crepet — Crescere insieme
