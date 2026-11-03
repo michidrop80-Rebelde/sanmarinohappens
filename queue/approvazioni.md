@@ -205,3 +205,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [x] 2026-11-03T06:48:56.935Z — approvato — 20261102-0416-13 — Michele Morri @RebeldeRN — 🆕 Great & Good Friends Gospel — The Women of God
 - [x] 2026-11-03T06:48:58.513Z — approvato — 20261102-0416-14 — Michele Morri @RebeldeRN — 🆕 Great & Good Friends Gospel — The Women of God
 - [x] 2026-11-03T06:49:00.472Z — approvato — 20261102-0416-D1 — Michele Morri @RebeldeRN — 🆕 Great & Good Friends Gospel — The Women of God
+- [ ] 2026-11-03T20:53:33.664Z — approvato — 20261102-0416-07 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 10ª giornata
