@@ -1,0 +1,87 @@
+{
+  "giro_id": "20261104-2116",
+  "sent_at": "2026-11-04T21:16:32Z",
+  "prova": false,
+  "eventi": [
+    {
+      "id": "D1",
+      "titolo": "Janina Star — cena con spettacolo",
+      "tipo": "dubbio",
+      "data": "07/11",
+      "luogo": "191 Bistrot, Serravalle",
+      "url": ""
+    },
+    {
+      "id": "D2",
+      "titolo": "Aperitivo «Miti moderni» — Sensualità e Performanza",
+      "tipo": "dubbio",
+      "data": "11/11",
+      "luogo": "191 Bistrot, Serravalle",
+      "url": ""
+    },
+    {
+      "id": "D3",
+      "titolo": "Aromaterapia per il benessere femminile",
+      "tipo": "dubbio",
+      "data": "12/11",
+      "luogo": "191 Bistrot, Serravalle",
+      "url": ""
+    },
+    {
+      "id": "D4",
+      "titolo": "Serata latina (con Centro Danze San Marino e LinoDj)",
+      "tipo": "dubbio",
+      "data": "14/11",
+      "luogo": "191 Bistrot, Serravalle",
+      "url": ""
+    },
+    {
+      "id": "D5",
+      "titolo": "Revival anni '80 (DjDanyCek)",
+      "tipo": "dubbio",
+      "data": "19/11",
+      "luogo": "191 Bistrot, Serravalle",
+      "url": ""
+    },
+    {
+      "id": "D6",
+      "titolo": "Serata country (con Centro Danze San Marino Wild Angels)",
+      "tipo": "dubbio",
+      "data": "20/11",
+      "luogo": "191 Bistrot, Serravalle",
+      "url": ""
+    },
+    {
+      "id": "D7",
+      "titolo": "Pianeta Liga — cena con musica live",
+      "tipo": "dubbio",
+      "data": "21/11",
+      "luogo": "191 Bistrot, Serravalle",
+      "url": ""
+    },
+    {
+      "id": "D8",
+      "titolo": "Aperitivo «Miti moderni» — Progresso e Globalizzazione",
+      "tipo": "dubbio",
+      "data": "25/11",
+      "luogo": "191 Bistrot, Serravalle",
+      "url": ""
+    },
+    {
+      "id": "D9",
+      "titolo": "Il giro d'aperitivo — apericena",
+      "tipo": "dubbio",
+      "data": "26/11",
+      "luogo": "191 Bistrot, Serravalle",
+      "url": ""
+    },
+    {
+      "id": "D10",
+      "titolo": "Tributo ad Adriano Celentano — cena con live music",
+      "tipo": "dubbio",
+      "data": "28/11",
+      "luogo": "191 Bistrot, Serravalle",
+      "url": ""
+    }
+  ]
+}
