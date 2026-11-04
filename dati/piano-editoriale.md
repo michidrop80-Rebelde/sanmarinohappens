@@ -303,6 +303,8 @@ Legenda: **F** = feed singolo (mattina 7:00) · **S** = storie (7:00) · **AGG**
 | 01/11 | Dom | 7:00 | **F** | 186 | Campionato sammarinese — 7ª giornata (domenica, 3 gare) | 01/11 | 🆕 AGGIUNTO 31/10 (catena, Step 2-bis). 15:00, Folgore vs Tre Penne, Cosmos vs Fiorentino, San Giovanni vs Faetano; verificato fsgc.sm 31/10. Tag @fsgc_official. In coda: posts/20261101_Post giornaliero |
 | 01/11 | Dom | 7:00 | **S** | 186 | Storia singola: Campionato 7ª giornata (15:00) | 01/11 | 🆕 AGGIUNTO 31/10 (catena). CTA di chiusura. Tag @fsgc_official. In coda: posts/20261101_Storia |
 | 01/11 | Dom | 18:00 | **AGG** | — | SETTIMANALE 02–08/11 | — | 🆕 AGGIUNTO 31/10 (catena, Step 2-bis). 12 eventi su 2 pagine (righe master M03, M04, 184, 120, 121, 93, 176, 188, 94, 199, 122, 154), busta carosello posts/20261101_Settimanale, dossier `dati/post/settimanale-2026-11-02-08.md` |
+| 05/11 | Gio | 07:00 | **F** | 05/11 | Lunetta Savino — Madre Courage e i suoi figli | Teatro Nuovo, Dogana | 🆕 AGGIUNTO 04/11 (catena, Step 2-bis). Master r.120; cross-mention A Ghost Story in caption; busta `posts/20261105_Post giornaliero` |
+| 05/11 | Gio | 07:00 | **S** | 05/11 | Storie: Madre Courage (Teatro Nuovo, Dogana) + A Ghost Story (Centro Sociale di Fiorentino) | — | 🆕 AGGIUNTO 04/11 (catena, Step 2-bis). Master r.120, r.121; busta `posts/20261105_Storia` (2 storie) |
 | 05/11 | Gio | 18:00 | **AGG** | — | WEEKEND 06–08/11 | — | 🆕 AGGIUNTO 03/11 (catena, Step 2-bis). 11 eventi su 2 slide (righe master M03, M04, 93, 213, 176, 188, 199, 214, 94, 122, 154), busta carosello `posts/20261105_Weekend`, dossier `dati/post/weekend-2026-11-06-08.md` |
 
 ---

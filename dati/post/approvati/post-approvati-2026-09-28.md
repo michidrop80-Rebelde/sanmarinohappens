@@ -166,7 +166,7 @@ Salva il post 📌 e seguici per non perdere gli eventi di San Marino.
 
 Il testo di Bertolt Brecht, per la regia di Leo Muscato, nel cartellone di San Marino Teatro.
 
-🗓 05/11/2026 · 🕗 21:00 · 📍 Teatro Nuovo, Città di San Marino
+🗓 05/11/2026 · 🕗 21:00 · 📍 Teatro Nuovo, Piazza M. Tini 5, Dogana
 Inoltre stasera "A Ghost Story" nella rassegna "Fuori Posto" a Fiorentino: guarda le storie per i dettagli.
 👉 Tutti gli altri eventi di oggi nelle nostre storie.
 Salva il post 📌 e seguici per non perdere gli eventi di San Marino.
@@ -179,7 +179,7 @@ Salva il post 📌 e seguici per non perdere gli eventi di San Marino.
 - Titolo storia: Lunetta Savino — Madre Courage e i suoi figli
 - Data: 05/11/2026
 - Ora: 21:00
-- Luogo: Teatro Nuovo
+- Luogo: Teatro Nuovo, Dogana
 - Descrizione breve: Lunetta Savino in "Madre Courage e i suoi figli" di Brecht, regia di Leo Muscato.
 
 **🔗 Fonte:** https://www.sanmarinoteatro.sm · https://giornalesm.com/venti-appuntamenti-per-la-nuova-stagione-di-san-marino-teatro-prosa-musica-danza-incontri-e-spettacoli-per-famiglie-dal-22-ottobre-2026-al-4-aprile-2027/
