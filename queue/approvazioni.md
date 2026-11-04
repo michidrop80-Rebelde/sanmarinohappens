@@ -205,11 +205,11 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [x] 2026-11-03T06:48:56.935Z — approvato — 20261102-0416-13 — Michele Morri @RebeldeRN — 🆕 Great & Good Friends Gospel — The Women of God
 - [x] 2026-11-03T06:48:58.513Z — approvato — 20261102-0416-14 — Michele Morri @RebeldeRN — 🆕 Great & Good Friends Gospel — The Women of God
 - [x] 2026-11-03T06:49:00.472Z — approvato — 20261102-0416-D1 — Michele Morri @RebeldeRN — 🆕 Great & Good Friends Gospel — The Women of God
-- [ ] 2026-11-03T20:53:33.664Z — approvato — 20261102-0416-07 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 10ª giornata
-- [ ] 2026-11-03T20:53:35.870Z — approvato — 20261102-0416-08 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 10ª giornata
-- [ ] 2026-11-03T20:53:37.640Z — approvato — 20261102-0416-09 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 10ª giornata
-- [ ] 2026-11-03T20:53:39.296Z — approvato — 20261102-0416-10 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 13ª giornata
-- [ ] 2026-11-03T20:53:40.980Z — approvato — 20261102-0416-11 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 13ª giornata
-- [ ] 2026-11-03T20:53:42.480Z — approvato — 20261102-0416-04 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 9ª giornata
-- [ ] 2026-11-03T20:53:44.060Z — approvato — 20261102-0416-05 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 9ª giornata
-- [ ] 2026-11-03T20:53:45.630Z — approvato — 20261102-0416-06 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 9ª giornata
+- [x] 2026-11-03T20:53:33.664Z — approvato — 20261102-0416-07 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 10ª giornata
+- [x] 2026-11-03T20:53:35.870Z — approvato — 20261102-0416-08 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 10ª giornata
+- [x] 2026-11-03T20:53:37.640Z — approvato — 20261102-0416-09 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 10ª giornata
+- [x] 2026-11-03T20:53:39.296Z — approvato — 20261102-0416-10 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 13ª giornata
+- [x] 2026-11-03T20:53:40.980Z — approvato — 20261102-0416-11 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 13ª giornata
+- [x] 2026-11-03T20:53:42.480Z — approvato — 20261102-0416-04 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 9ª giornata
+- [x] 2026-11-03T20:53:44.060Z — approvato — 20261102-0416-05 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 9ª giornata
+- [x] 2026-11-03T20:53:45.630Z — approvato — 20261102-0416-06 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 9ª giornata
