@@ -306,6 +306,8 @@ Legenda: **F** = feed singolo (mattina 7:00) · **S** = storie (7:00) · **AGG**
 | 05/11 | Gio | 07:00 | **F** | 05/11 | Lunetta Savino — Madre Courage e i suoi figli | Teatro Nuovo, Dogana | 🆕 AGGIUNTO 04/11 (catena, Step 2-bis). Master r.120; cross-mention A Ghost Story in caption; busta `posts/20261105_Post giornaliero` |
 | 05/11 | Gio | 07:00 | **S** | 05/11 | Storie: Madre Courage (Teatro Nuovo, Dogana) + A Ghost Story (Centro Sociale di Fiorentino) | — | 🆕 AGGIUNTO 04/11 (catena, Step 2-bis). Master r.120, r.121; busta `posts/20261105_Storia` (2 storie) |
 | 05/11 | Gio | 18:00 | **AGG** | — | WEEKEND 06–08/11 | — | 🆕 AGGIUNTO 03/11 (catena, Step 2-bis). 11 eventi su 2 slide (righe master M03, M04, 93, 213, 176, 188, 199, 214, 94, 122, 154), busta carosello `posts/20261105_Weekend`, dossier `dati/post/weekend-2026-11-06-08.md` |
+| 06/11 | Ven | 07:00 | **F** | 06/11 | Paolo Crepet — «Crescere insieme. Il viaggio verso la luna» | Teatro Nuovo, Dogana | 🆕 AGGIUNTO 05/11 (catena, Step 2-bis). Master r.213; cross-mention So'Shemi + Crisalidi in caption; tag @sanmarinoteatro (luogo); busta `posts/20261106_Post giornaliero` |
+| 06/11 | Ven | 07:00 | **S** | 06/11 | Storie: Paolo Crepet (Teatro Nuovo, Dogana) + So'Shemi (Auditorium Little Tony, Serravalle) + Crisalidi (Centro Sociale di Dogana) | — | 🆕 AGGIUNTO 05/11 (catena, Step 2-bis). Master r.213, r.176, r.188; Beer Fest r.93 escluso (nessun testo storia approvato); busta `posts/20261106_Storia` (3 storie) |
 
 ---
 

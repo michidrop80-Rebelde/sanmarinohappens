@@ -1,0 +1,20 @@
+{
+  "tipo": "storia",
+  "data_pubblicazione": "2026-11-06",
+  "ora_pubblicazione": "07:00",
+  "titolo_evento": "Storie del 6 novembre",
+  "immagini": [
+    "20261106_Storia_1.png",
+    "20261106_Storia_2.png",
+    "20261106_Storia_3.png"
+  ],
+  "user_tags": {
+    "20261106_Storia_1.png": [
+      {
+        "username": "sanmarinoteatro",
+        "x": 0.5,
+        "y": 0.78
+      }
+    ]
+  }
+}
