@@ -1,0 +1,2 @@
+serata 2026-11-06 — agente: fatta — costo $0.26
+guardie: integrita ✅ prezzi ❌(exit 2) imminenti ❌(exit 2)
