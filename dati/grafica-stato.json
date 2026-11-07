@@ -14,7 +14,7 @@
       "design_id": "DAHOLS6Zdpw",
       "nome_canva": "SMH - Giornaliero Master",
       "totale_pagine": 10,
-      "ultima_pagina_usata": 2
+      "ultima_pagina_usata": 3
     },
     "_nota_21-07-2026": "Giro 21/07/2026 (prima meta'): rotazione giornaliero completata per intero (pag.4->10 poi wrap 1->3, 10 eventi). 16 eventi con box grafica erano in coda (17 meno Festa di San Marino gia' esportata prima): compilati i primi 10 in ordine di data, i restanti 6 (Benji&Fede 07/08, Molella 14/08, Comics 28-30/08, Dal Turista al Contadino 05-06+12-13/09, MotoGP 11-13/09, Sport in Fiera 18-20/09) restati in coda per esaurimento pagine disponibili nella rotazione.",
     "_nota_21-07-2026-seconda-meta": "Giro 21/07/2026 (seconda meta'): ciclo ripartito, pagine 4-9 di nuovo libere -> compilati ed esportati i 6 eventi rimasti in coda (vedi log). Pagina 10 lasciata intatta (SMIAF, gia' esportato in precedenza). Convenzione multi-giorno confermata da Michele: evento con range lungo -> post singolo con prima data come riferimento sul grafico (range in caption), applicata a Comics, MotoGP, Sport in Fiera (range compatto 3gg 'Ven-Dom') e Dal Turista al Contadino (due weekend separati -> usato il primo, 'Sab-Dom 5-6 Settembre', il secondo weekend 12-13/09 resta solo in caption). Fix in corsa: titolo Comics ripartito da font ereditato troppo grande (5 righe, sovrapposto a luogo/ora) a font_size 90 (3 righe, pulito); campo data con 'Settembre' andava a capo sovrapponendo il sottotitolo su pag 7/8/9 -> allargata la casella (950px) e su pag 7+9 ridotto font_size a 52 (uniformato anche il campo giorno per armonia visiva) per farlo stare su una riga senza toccare il logo SMH in alto a destra. Dal Turista al Contadino: luogo e ora NON specificati ne' dalla fonte ne' da ricerca web mirata (stessa verifica gia' fatta per le storie, riconfermata con una nuova ricerca vuota) -> elemento luogo cancellato (nessun placeholder), ora gia' assente sulla pagina riciclata. MotoGP: ora 'Gara Dom 14:00' riusata dalla verifica gia' fatta per la storia (motogpmisano.com/it/orario-13, gara domenica 13/09 ore 14:00) essendo lo stesso giorno di verifica.",
@@ -22,7 +22,7 @@
       "design_id": "DAHORdC0zdY",
       "nome_canva": "SMH - Settimanale Master",
       "totale_pagine": 4,
-      "ultima_pagina_usata": 1,
+      "ultima_pagina_usata": 3,
       "struttura_riga": "8 righe evento. Ogni riga = casella giorno/data (es. 'Martedì 21/07') + casella titolo evento + casella LUOGO BREVE (solo Castello/venue, es. 'Valdragone' — semplificato dall'agente dal luogo completo della fonte) + linea divisoria (SHAPE). SUL GRAFICO niente ora e niente prezzi. Ora/indirizzo completo/prezzi/prenotazione vanno in CAPTION. Vedi memoria project_architettura_info_aggregati."
     },
     "weekend": {
@@ -58,7 +58,7 @@
         "design_id": "DAHSASb8IAU",
         "nome_canva": "SMH - Storie Singolo Master",
         "totale_pagine": 14,
-        "ultima_pagina_usata": 11,
+        "ultima_pagina_usata": 14,
         "_verificato": "11/08/2026 — lette tutte e 14 le pagine: un solo blocco evento su ognuna."
       },
       "doppio": {
@@ -2554,6 +2554,45 @@
         "20261106_Storia_3.png"
       ],
       "evento": "Storie 06/11: (1) Paolo Crepet 21:00 Teatro Nuovo, Dogana, titolo font 140; (2) Teatro Vivo «So'Shemi» 21:00 Auditorium Little Tony, Serravalle, font 92; (3) «Crisalidi» di Giancarlo Frisoni 21:00 Centro Sociale di Dogana, font 90 su 4 righe, descrizione a top 1260, CTA di chiusura. Esclusi: Beer Fest r.93 (nessun testo storia approvato: la bozza del 26/10 e' da-approvare), mostre M03/M04 (ultimo giorno) e r.184 (rassegne lunghe), Yoga r.192 (bloccato in attesa di Michele; e comunque mar/gio). Validazione al contrario ok."
+    },
+    {
+      "data_giro": "2026-11-07",
+      "tipo": "settimanale",
+      "pagine": [
+        2,
+        3
+      ],
+      "copia_design_id": "DAHaOIjVkIs",
+      "file": [
+        "20261108_Settimanale_1.png",
+        "20261108_Settimanale_2.png"
+      ],
+      "evento": "Settimanale 09-15/11, 10 eventi 6+4 (p1 righe 1-6 spostate +115, p2 righe 3-6). Tutti i titoli font 40 su una riga. Step 2-bis catena 07/11. Validazione al contrario ok."
+    },
+    {
+      "data_giro": "2026-11-07",
+      "tipo": "giornaliero",
+      "pagina": 3,
+      "copia_design_id": "DAHaOIuhaE8",
+      "file": "20261108_Post giornaliero.png",
+      "evento": "Soqquadro (r.122) dom 08/11 16:30, titolo font 100 su una riga; luogo «Teatro Concordia» (casella allargata a 620), ora a left 720. Step 2-bis catena 07/11. Validazione al contrario ok."
+    },
+    {
+      "data_giro": "2026-11-07",
+      "tipo": "storia",
+      "mazzo": "singolo",
+      "pagine": [
+        12,
+        13,
+        14
+      ],
+      "copia_design_id": "DAHaOG0o4YI",
+      "file": [
+        "20261108_Storia_1.png",
+        "20261108_Storia_2.png",
+        "20261108_Storia_3.png"
+      ],
+      "evento": "Storie 08/11: (1) Campionato sammarinese 8a giornata 15:00 Stadi della Repubblica, 4 gare nella descrizione (FSGC verificato 07/11), titolo font 78; (2) Soqquadro 16:30 Teatro Concordia, font 95; (3) L'Italia canta, senza parole 16:30 Teatro Titano, font 85 su 4 righe, CTA di chiusura. Esclusi: r.184 (intervallo lungo), r.192 (bloccato). Validazione al contrario ok."
     }
   ],
   "_nota_26-07-2026": "Settimanale 27/07-02/08 rifatto da zero: la bozza in dati/post/aggregati-luglio-agosto-2026.md era del 30/06 e aveva solo 3 dei 10 eventi (non conosceva il recupero del 25/07). Fonte usata: le buste gia' in coda in posts/, che avevano gia' passato /smh-check. Titolo tennis accorciato da 'San Marino Open - tennis ATP' (andava a capo e sbatteva sulla riga sotto) a 'San Marino Open - tennis': su questo design il titolo sta su una riga fino a ~25 caratteri. COPIA usa-e-getta da cestinare a mano: DAHQbtk6OaI.",

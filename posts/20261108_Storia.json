@@ -1,0 +1,27 @@
+{
+  "tipo": "storia",
+  "data_pubblicazione": "2026-11-08",
+  "ora_pubblicazione": "07:00",
+  "titolo_evento": "Storie dell'8 novembre",
+  "immagini": [
+    "20261108_Storia_1.png",
+    "20261108_Storia_2.png",
+    "20261108_Storia_3.png"
+  ],
+  "user_tags": {
+    "20261108_Storia_1.png": [
+      {
+        "username": "fsgc_official",
+        "x": 0.5,
+        "y": 0.78
+      }
+    ],
+    "20261108_Storia_2.png": [
+      {
+        "username": "sanmarinoteatro",
+        "x": 0.5,
+        "y": 0.78
+      }
+    ]
+  }
+}

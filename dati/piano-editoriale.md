@@ -308,6 +308,9 @@ Legenda: **F** = feed singolo (mattina 7:00) · **S** = storie (7:00) · **AGG**
 | 05/11 | Gio | 18:00 | **AGG** | — | WEEKEND 06–08/11 | — | 🆕 AGGIUNTO 03/11 (catena, Step 2-bis). 11 eventi su 2 slide (righe master M03, M04, 93, 213, 176, 188, 199, 214, 94, 122, 154), busta carosello `posts/20261105_Weekend`, dossier `dati/post/weekend-2026-11-06-08.md` |
 | 06/11 | Ven | 07:00 | **F** | 06/11 | Paolo Crepet — «Crescere insieme. Il viaggio verso la luna» | Teatro Nuovo, Dogana | 🆕 AGGIUNTO 05/11 (catena, Step 2-bis). Master r.213; cross-mention So'Shemi + Crisalidi in caption; tag @sanmarinoteatro (luogo); busta `posts/20261106_Post giornaliero` |
 | 06/11 | Ven | 07:00 | **S** | 06/11 | Storie: Paolo Crepet (Teatro Nuovo, Dogana) + So'Shemi (Auditorium Little Tony, Serravalle) + Crisalidi (Centro Sociale di Dogana) | — | 🆕 AGGIUNTO 05/11 (catena, Step 2-bis). Master r.213, r.176, r.188; Beer Fest r.93 escluso (nessun testo storia approvato); busta `posts/20261106_Storia` (3 storie) |
+| 08/11 | Dom | 07:00 | **F** | 08/11 | Soqquadro (rassegna «1,2,3...scena!») | Teatro Concordia, Borgo Maggiore | 🆕 AGGIUNTO 07/11 (catena, Step 2-bis). Master r.122; cross-mention L'Italia canta (r.154) + campionato (r.199); tag @sanmarinoteatro; busta `posts/20261108_Post giornaliero` |
+| 08/11 | Dom | 07:00 | **S** | 08/11 | Storie: Campionato 8ª giornata (Stadi della Repubblica) + Soqquadro (Teatro Concordia) + L'Italia canta, senza parole (Teatro Titano) | — | 🆕 AGGIUNTO 07/11 (catena, Step 2-bis). Master r.199, r.122, r.154; busta `posts/20261108_Storia` (3 storie) |
+| 08/11 | Dom | 18:00 | **AGG** | — | SETTIMANALE 09–15/11 | — | 🆕 AGGIUNTO 07/11 (catena, Step 2-bis). 10 eventi su 2 pagine (righe master 184, 123, 189, 190, 164, 193, 215, 178, 165, 200), busta carosello `posts/20261108_Settimanale`, dossier `dati/post/settimanale-2026-11-09-15.md` |
 
 ---
 
