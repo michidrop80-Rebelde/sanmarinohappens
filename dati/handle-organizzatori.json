@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-28",
+  "aggiornato": "2026-11-09",
   "_nota": "Registro degli handle social verificati. Solo le voci con stato 'attivo' E instagram non nullo producono un tag. Un handle entra come 'attivo' solo con DUE indizi indipendenti di ufficialita' (di norma: il sito ufficiale linka quel profilo E il profilo esiste col nome corrispondente); la conferma diretta di Michele vale come secondo indizio. Mai un handle dedotto dal nome del soggetto.",
   "_regole_25_07_2026": [
     "OGNI evento nuovo che entra in verifica porta con se' il controllo di chi lo organizza: se il soggetto e' nuovo va aggiunto qui (almeno come 'da-cercare'). Vedi Step 4-bis di /smh-verifica.",
@@ -1203,6 +1203,30 @@
       "stato": "da-cercare",
       "verificato_il": "2026-10-28",
       "prova": "Nuovo 28/10/2026: organizza il dibattito pubblico sull'Accordo San Marino-UE (29/10, Sala Montelupo, Domagnano) - sanmarinortv.sm e5230. Profilo non cercato."
+    },
+    {
+      "nome": "Associazione San Marino-Italia",
+      "categoria": "organizzatore",
+      "alias": [
+        "Associazione San Marino–Italia"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-11-09",
+      "prova": "Nuovo 09/11/2026: organizza il convegno «Due Repubbliche. Un territorio. Molte prospettive» (12/11, Centro Sociale di Dogana) con Agenzia per lo Sviluppo Economico e Camera di Commercio - sanmarinortv.sm e5263. Profilo non cercato."
+    },
+    {
+      "nome": "ASFA",
+      "categoria": "organizzatore",
+      "alias": [
+        "ASFA"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-11-09",
+      "prova": "Nuovo 09/11/2026: co-organizza con il Centro Sociale di Dogana il 35° ciclo «Incontro con l'autore» (6/11-4/12, ore 21:00) - sanmarinortv.sm e5253. Sigla letta sulla fonte; estensione del nome non verificata. Profilo non cercato."
     }
   ]
 }
