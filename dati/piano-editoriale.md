@@ -373,3 +373,5 @@ Legenda: **F** = feed singolo (mattina 7:00) · **S** = storie (7:00) · **AGG**
 2. **Fase futura**: rivalutare gli orari con gli Insights IG reali; decidere se riattivare i bisettimanali.
 3. **Aperto (09/07)**: policy di pulizia/archiviazione dei contenuti vecchi (Canva, repo GitHub,
    file bozze) — solo discusso, non deciso. Vedi memoria `project_pulizia_contenuti_vecchi`.
+| 13/11 | Ven | 07:00 | **F** | 164 | Titanico Jazz Festival — Emanuele Rastelli (cross-mention Open Day) | 13/11 | 🆕 AGGIUNTO 12/11 (catena, Step 2-bis); busta `posts/20261113_Post giornaliero`; nessun tag (handle San Marino Welcome non nel registro) |
+| 13/11 | Ven | 07:00 | **S** | 164, 190 | Storie: Titanico Jazz (21:00) + Open Day Scuola Superiore (20:45) | — | 🆕 AGGIUNTO 12/11 (catena, Step 2-bis); busta `posts/20261113_Storia` (2 storie) |
