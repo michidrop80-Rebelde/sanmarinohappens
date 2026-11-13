@@ -375,3 +375,6 @@ Legenda: **F** = feed singolo (mattina 7:00) · **S** = storie (7:00) · **AGG**
    file bozze) — solo discusso, non deciso. Vedi memoria `project_pulizia_contenuti_vecchi`.
 | 13/11 | Ven | 07:00 | **F** | 164 | Titanico Jazz Festival — Emanuele Rastelli (cross-mention Open Day) | 13/11 | 🆕 AGGIUNTO 12/11 (catena, Step 2-bis); busta `posts/20261113_Post giornaliero`; nessun tag (handle San Marino Welcome non nel registro) |
 | 13/11 | Ven | 07:00 | **S** | 164, 190 | Storie: Titanico Jazz (21:00) + Open Day Scuola Superiore (20:45) | — | 🆕 AGGIUNTO 12/11 (catena, Step 2-bis); busta `posts/20261113_Storia` (2 storie) |
+| 14/11 | Sab | 07:00 | **F** | 215, 193 | La vita è gioco (cross-mention Commedie dialettali) | 14/11 | 🆕 AGGIUNTO 13/11 (catena, Step 2-bis); busta `posts/20261114_Post giornaliero`; nessun tag |
+| 14/11 | Sab | 07:00 | **S** | 215, 193 | Storie: La vita è gioco (21:00) + Quand e nas un vec (21:00) | — | 🆕 AGGIUNTO 13/11; busta `posts/20261114_Storia` (2 storie) |
+| 15/11 | Dom | 18:00 | **Sett** | 124,125,151,179,216,154,152,217 | Settimanale 16–22/11 (8 eventi, 1 pagina) | 15/11 | 🆕 AGGIUNTO 13/11 (catena, Step 2-bis); busta `posts/20261115_Settimanale` |
