@@ -378,3 +378,5 @@ Legenda: **F** = feed singolo (mattina 7:00) · **S** = storie (7:00) · **AGG**
 | 14/11 | Sab | 07:00 | **F** | 215, 193 | La vita è gioco (cross-mention Commedie dialettali) | 14/11 | 🆕 AGGIUNTO 13/11 (catena, Step 2-bis); busta `posts/20261114_Post giornaliero`; nessun tag |
 | 14/11 | Sab | 07:00 | **S** | 215, 193 | Storie: La vita è gioco (21:00) + Quand e nas un vec (21:00) | — | 🆕 AGGIUNTO 13/11; busta `posts/20261114_Storia` (2 storie) |
 | 15/11 | Dom | 18:00 | **Sett** | 124,125,151,179,216,154,152,217 | Settimanale 16–22/11 (8 eventi, 1 pagina) | 15/11 | 🆕 AGGIUNTO 13/11 (catena, Step 2-bis); busta `posts/20261115_Settimanale` |
+| 15/11 | Dom | 07:00 | **F** | 200, 165, 178 | 100 Miles — Fabrizio Bosso (cross-mention Ars Ludi + Supercoppa) | 15/11 | 🆕 AGGIUNTO 14/11 (catena, Step 2-bis); busta `posts/20261115_Post giornaliero`; nessun tag (organizzatore non nel registro) |
+| 15/11 | Dom | 07:00 | **S** | 178, 165, 200 | Storie: Supercoppa basket (10:30) + Ars Ludi (16:30) + 100 Miles (18:00) | — | 🆕 AGGIUNTO 14/11; busta `posts/20261115_Storia` (3 storie) |
