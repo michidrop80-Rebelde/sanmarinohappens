@@ -213,36 +213,36 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [x] 2026-11-03T20:53:42.480Z — approvato — 20261102-0416-04 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 9ª giornata
 - [x] 2026-11-03T20:53:44.060Z — approvato — 20261102-0416-05 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 9ª giornata
 - [x] 2026-11-03T20:53:45.630Z — approvato — 20261102-0416-06 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 9ª giornata
-- [ ] 2026-11-16T07:06:16.923Z — approvato — 20261109-0416-1 — Michele Morri @RebeldeRN — 🆕 One is One, flash mob NO WAR
-- [ ] 2026-11-16T07:06:22.919Z — approvato — 20261109-0416-2 — Michele Morri @RebeldeRN — 🆕 One is One, flash mob NO WAR
-- [ ] 2026-11-16T07:06:28.481Z — approvato — 20261109-0416-3 — Michele Morri @RebeldeRN — 🆕 One is One, flash mob NO WAR
-- [ ] 2026-11-16T07:06:40.600Z — approvato — 20261109-0416-4 — Michele Morri @RebeldeRN — 🆕 Illuminati dall arte, premiazione Chezzi
-- [ ] 2026-11-16T07:06:42.317Z — approvato — 20261109-0416-5 — Michele Morri @RebeldeRN — 🆕 Illuminati dall arte, premiazione Chezzi
-- [ ] 2026-11-16T07:06:44.063Z — approvato — 20261109-0416-6 — Michele Morri @RebeldeRN — 🆕 Illuminati dall arte, premiazione Chezzi
-- [ ] 2026-11-16T07:06:57.101Z — approvato — 20261109-0416-7 — Michele Morri @RebeldeRN — 🆕 Coppa Titano quarti, ritorno
-- [ ] 2026-11-16T07:06:59.847Z — approvato — 20261109-0416-d2 — Michele Morri @RebeldeRN — 🆕 Coppa Titano quarti, ritorno
-- [ ] 2026-11-16T07:07:01.617Z — scartato — 20261109-0416-d1 — Michele Morri @RebeldeRN — 🆕 Coppa Titano quarti, ritorno
-- [ ] 2026-11-16T07:07:09.673Z — approvato — 20261109-0416-d3 — Michele Morri @RebeldeRN — ⚠️ Scarpe rosse, voci che non si spengono
-- [ ] 2026-11-16T07:07:13.373Z — approvato — 20261109-0416-205 — Michele Morri @RebeldeRN — ⚠️ Scarpe rosse, voci che non si spengono
-- [ ] 2026-11-16T07:07:15.348Z — approvato — 20261109-0416-226 — Michele Morri @RebeldeRN — ⚠️ Scarpe rosse, voci che non si spengono
-- [ ] 2026-11-16T07:07:23.813Z — approvato — 20261109-0416-125 — Michele Morri @RebeldeRN — 🗑 Ferro 3 · La casa vuota
-- [ ] 2026-11-16T07:07:29.167Z — approvato — 20261109-0656-8 — Michele Morri @RebeldeRN — 🆕 Scarpe rosse, voci che non si spengono
-- [ ] 2026-11-16T07:07:30.758Z — approvato — 20261109-0656-9 — Michele Morri @RebeldeRN — 🆕 Scarpe rosse, voci che non si spengono
-- [ ] 2026-11-16T07:07:47.877Z — approvato — 20261116-0659-D8 — Michele Morri @RebeldeRN — ⚠️ Festa di Fine Anno, Piazza Sant Agata
-- [ ] 2026-11-16T07:07:49.514Z — approvato — 20261116-0659-D9 — Michele Morri @RebeldeRN — ⚠️ Festa di Fine Anno, Piazza Sant Agata
-- [ ] 2026-11-16T07:07:51.103Z — approvato — 20261116-0659-D5 — Michele Morri @RebeldeRN — ⚠️ Trail dei Castelli
-- [ ] 2026-11-16T07:07:52.821Z — approvato — 20261116-0659-D6 — Michele Morri @RebeldeRN — ⚠️ Trail dei Castelli
-- [ ] 2026-11-16T07:07:54.439Z — approvato — 20261116-0659-D7 — Michele Morri @RebeldeRN — ⚠️ Trail dei Castelli
-- [ ] 2026-11-16T07:07:55.999Z — approvato — 20261116-0659-D2 — Michele Morri @RebeldeRN — ⚠️ Genetica vs Epigenetica
-- [ ] 2026-11-16T07:07:57.653Z — approvato — 20261116-0659-D3 — Michele Morri @RebeldeRN — ⚠️ Genetica vs Epigenetica
-- [ ] 2026-11-16T07:07:59.358Z — approvato — 20261116-0659-D4 — Michele Morri @RebeldeRN — ⚠️ Genetica vs Epigenetica
-- [ ] 2026-11-16T07:08:01.137Z — approvato — 20261116-0659-M1 — Michele Morri @RebeldeRN — ✏️ Tour Music Fest finalissima
-- [ ] 2026-11-16T07:08:03.910Z — approvato — 20261116-0659-C1 — Michele Morri @RebeldeRN — ✏️ Tour Music Fest finalissima
-- [ ] 2026-11-16T07:08:05.588Z — approvato — 20261116-0659-07 — Michele Morri @RebeldeRN — 🆕 Coppa Titano quarti, ritorno
-- [ ] 2026-11-16T07:08:07.471Z — approvato — 20261116-0659-08 — Michele Morri @RebeldeRN — 🆕 Coppa Titano quarti, ritorno
-- [ ] 2026-11-16T07:08:09.214Z — approvato — 20261116-0659-09 — Michele Morri @RebeldeRN — 🆕 Coppa Titano quarti, ritorno
-- [ ] 2026-11-16T07:08:10.861Z — approvato — 20261116-0659-04 — Michele Morri @RebeldeRN — 🆕 Amichevole femminile San Marino–Liechtenstein
-- [ ] 2026-11-16T07:08:12.756Z — approvato — 20261116-0659-05 — Michele Morri @RebeldeRN — 🆕 Amichevole femminile San Marino–Liechtenstein
-- [ ] 2026-11-16T07:08:14.293Z — approvato — 20261116-0659-01 — Michele Morri @RebeldeRN — 🆕 Stare al mondo (4 film)
-- [ ] 2026-11-16T07:08:16.898Z — approvato — 20261116-0659-02 — Michele Morri @RebeldeRN — 🆕 Stare al mondo (4 film)
-- [ ] 2026-11-16T07:08:18.607Z — approvato — 20261116-0659-03 — Michele Morri @RebeldeRN — 🆕 Stare al mondo (4 film)
+- [x] 2026-11-16T07:06:16.923Z — approvato — 20261109-0416-1 — Michele Morri @RebeldeRN — 🆕 One is One, flash mob NO WAR
+- [x] 2026-11-16T07:06:22.919Z — approvato — 20261109-0416-2 — Michele Morri @RebeldeRN — 🆕 One is One, flash mob NO WAR
+- [x] 2026-11-16T07:06:28.481Z — approvato — 20261109-0416-3 — Michele Morri @RebeldeRN — 🆕 One is One, flash mob NO WAR
+- [x] 2026-11-16T07:06:40.600Z — approvato — 20261109-0416-4 — Michele Morri @RebeldeRN — 🆕 Illuminati dall arte, premiazione Chezzi
+- [x] 2026-11-16T07:06:42.317Z — approvato — 20261109-0416-5 — Michele Morri @RebeldeRN — 🆕 Illuminati dall arte, premiazione Chezzi
+- [x] 2026-11-16T07:06:44.063Z — approvato — 20261109-0416-6 — Michele Morri @RebeldeRN — 🆕 Illuminati dall arte, premiazione Chezzi
+- [x] 2026-11-16T07:06:57.101Z — approvato — 20261109-0416-7 — Michele Morri @RebeldeRN — 🆕 Coppa Titano quarti, ritorno
+- [x] 2026-11-16T07:06:59.847Z — approvato — 20261109-0416-d2 — Michele Morri @RebeldeRN — 🆕 Coppa Titano quarti, ritorno
+- [x] 2026-11-16T07:07:01.617Z — scartato — 20261109-0416-d1 — Michele Morri @RebeldeRN — 🆕 Coppa Titano quarti, ritorno
+- [x] 2026-11-16T07:07:09.673Z — approvato — 20261109-0416-d3 — Michele Morri @RebeldeRN — ⚠️ Scarpe rosse, voci che non si spengono
+- [x] 2026-11-16T07:07:13.373Z — approvato — 20261109-0416-205 — Michele Morri @RebeldeRN — ⚠️ Scarpe rosse, voci che non si spengono
+- [x] 2026-11-16T07:07:15.348Z — approvato — 20261109-0416-226 — Michele Morri @RebeldeRN — ⚠️ Scarpe rosse, voci che non si spengono
+- [x] 2026-11-16T07:07:23.813Z — approvato — 20261109-0416-125 — Michele Morri @RebeldeRN — 🗑 Ferro 3 · La casa vuota
+- [x] 2026-11-16T07:07:29.167Z — approvato — 20261109-0656-8 — Michele Morri @RebeldeRN — 🆕 Scarpe rosse, voci che non si spengono
+- [x] 2026-11-16T07:07:30.758Z — approvato — 20261109-0656-9 — Michele Morri @RebeldeRN — 🆕 Scarpe rosse, voci che non si spengono
+- [x] 2026-11-16T07:07:47.877Z — approvato — 20261116-0659-D8 — Michele Morri @RebeldeRN — ⚠️ Festa di Fine Anno, Piazza Sant Agata
+- [x] 2026-11-16T07:07:49.514Z — approvato — 20261116-0659-D9 — Michele Morri @RebeldeRN — ⚠️ Festa di Fine Anno, Piazza Sant Agata
+- [x] 2026-11-16T07:07:51.103Z — approvato — 20261116-0659-D5 — Michele Morri @RebeldeRN — ⚠️ Trail dei Castelli
+- [x] 2026-11-16T07:07:52.821Z — approvato — 20261116-0659-D6 — Michele Morri @RebeldeRN — ⚠️ Trail dei Castelli
+- [x] 2026-11-16T07:07:54.439Z — approvato — 20261116-0659-D7 — Michele Morri @RebeldeRN — ⚠️ Trail dei Castelli
+- [x] 2026-11-16T07:07:55.999Z — approvato — 20261116-0659-D2 — Michele Morri @RebeldeRN — ⚠️ Genetica vs Epigenetica
+- [x] 2026-11-16T07:07:57.653Z — approvato — 20261116-0659-D3 — Michele Morri @RebeldeRN — ⚠️ Genetica vs Epigenetica
+- [x] 2026-11-16T07:07:59.358Z — approvato — 20261116-0659-D4 — Michele Morri @RebeldeRN — ⚠️ Genetica vs Epigenetica
+- [x] 2026-11-16T07:08:01.137Z — approvato — 20261116-0659-M1 — Michele Morri @RebeldeRN — ✏️ Tour Music Fest finalissima
+- [x] 2026-11-16T07:08:03.910Z — approvato — 20261116-0659-C1 — Michele Morri @RebeldeRN — ✏️ Tour Music Fest finalissima
+- [x] 2026-11-16T07:08:05.588Z — approvato — 20261116-0659-07 — Michele Morri @RebeldeRN — 🆕 Coppa Titano quarti, ritorno
+- [x] 2026-11-16T07:08:07.471Z — approvato — 20261116-0659-08 — Michele Morri @RebeldeRN — 🆕 Coppa Titano quarti, ritorno
+- [x] 2026-11-16T07:08:09.214Z — approvato — 20261116-0659-09 — Michele Morri @RebeldeRN — 🆕 Coppa Titano quarti, ritorno
+- [x] 2026-11-16T07:08:10.861Z — approvato — 20261116-0659-04 — Michele Morri @RebeldeRN — 🆕 Amichevole femminile San Marino–Liechtenstein
+- [x] 2026-11-16T07:08:12.756Z — approvato — 20261116-0659-05 — Michele Morri @RebeldeRN — 🆕 Amichevole femminile San Marino–Liechtenstein
+- [x] 2026-11-16T07:08:14.293Z — approvato — 20261116-0659-01 — Michele Morri @RebeldeRN — 🆕 Stare al mondo (4 film)
+- [x] 2026-11-16T07:08:16.898Z — approvato — 20261116-0659-02 — Michele Morri @RebeldeRN — 🆕 Stare al mondo (4 film)
+- [x] 2026-11-16T07:08:18.607Z — approvato — 20261116-0659-03 — Michele Morri @RebeldeRN — 🆕 Stare al mondo (4 film)
