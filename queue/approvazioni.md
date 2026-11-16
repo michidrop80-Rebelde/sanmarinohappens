@@ -238,3 +238,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-11-16T07:07:59.358Z — approvato — 20261116-0659-D4 — Michele Morri @RebeldeRN — ⚠️ Genetica vs Epigenetica
 - [ ] 2026-11-16T07:08:01.137Z — approvato — 20261116-0659-M1 — Michele Morri @RebeldeRN — ✏️ Tour Music Fest finalissima
 - [ ] 2026-11-16T07:08:03.910Z — approvato — 20261116-0659-C1 — Michele Morri @RebeldeRN — ✏️ Tour Music Fest finalissima
+- [ ] 2026-11-16T07:08:05.588Z — approvato — 20261116-0659-07 — Michele Morri @RebeldeRN — 🆕 Coppa Titano quarti, ritorno
