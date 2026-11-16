@@ -244,3 +244,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-11-16T07:08:10.861Z — approvato — 20261116-0659-04 — Michele Morri @RebeldeRN — 🆕 Amichevole femminile San Marino–Liechtenstein
 - [ ] 2026-11-16T07:08:12.756Z — approvato — 20261116-0659-05 — Michele Morri @RebeldeRN — 🆕 Amichevole femminile San Marino–Liechtenstein
 - [ ] 2026-11-16T07:08:14.293Z — approvato — 20261116-0659-01 — Michele Morri @RebeldeRN — 🆕 Stare al mondo (4 film)
+- [ ] 2026-11-16T07:08:16.898Z — approvato — 20261116-0659-02 — Michele Morri @RebeldeRN — 🆕 Stare al mondo (4 film)
