@@ -233,3 +233,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-11-16T07:07:51.103Z — approvato — 20261116-0659-D5 — Michele Morri @RebeldeRN — ⚠️ Trail dei Castelli
 - [ ] 2026-11-16T07:07:52.821Z — approvato — 20261116-0659-D6 — Michele Morri @RebeldeRN — ⚠️ Trail dei Castelli
 - [ ] 2026-11-16T07:07:54.439Z — approvato — 20261116-0659-D7 — Michele Morri @RebeldeRN — ⚠️ Trail dei Castelli
+- [ ] 2026-11-16T07:07:55.999Z — approvato — 20261116-0659-D2 — Michele Morri @RebeldeRN — ⚠️ Genetica vs Epigenetica
