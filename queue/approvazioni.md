@@ -224,3 +224,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-11-16T07:07:01.617Z — scartato — 20261109-0416-d1 — Michele Morri @RebeldeRN — 🆕 Coppa Titano quarti, ritorno
 - [ ] 2026-11-16T07:07:09.673Z — approvato — 20261109-0416-d3 — Michele Morri @RebeldeRN — ⚠️ Scarpe rosse, voci che non si spengono
 - [ ] 2026-11-16T07:07:13.373Z — approvato — 20261109-0416-205 — Michele Morri @RebeldeRN — ⚠️ Scarpe rosse, voci che non si spengono
+- [ ] 2026-11-16T07:07:15.348Z — approvato — 20261109-0416-226 — Michele Morri @RebeldeRN — ⚠️ Scarpe rosse, voci che non si spengono
