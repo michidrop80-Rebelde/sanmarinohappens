@@ -230,3 +230,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-11-16T07:07:30.758Z — approvato — 20261109-0656-9 — Michele Morri @RebeldeRN — 🆕 Scarpe rosse, voci che non si spengono
 - [ ] 2026-11-16T07:07:47.877Z — approvato — 20261116-0659-D8 — Michele Morri @RebeldeRN — ⚠️ Festa di Fine Anno, Piazza Sant Agata
 - [ ] 2026-11-16T07:07:49.514Z — approvato — 20261116-0659-D9 — Michele Morri @RebeldeRN — ⚠️ Festa di Fine Anno, Piazza Sant Agata
+- [ ] 2026-11-16T07:07:51.103Z — approvato — 20261116-0659-D5 — Michele Morri @RebeldeRN — ⚠️ Trail dei Castelli
