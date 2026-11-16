@@ -228,3 +228,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-11-16T07:07:23.813Z — approvato — 20261109-0416-125 — Michele Morri @RebeldeRN — 🗑 Ferro 3 · La casa vuota
 - [ ] 2026-11-16T07:07:29.167Z — approvato — 20261109-0656-8 — Michele Morri @RebeldeRN — 🆕 Scarpe rosse, voci che non si spengono
 - [ ] 2026-11-16T07:07:30.758Z — approvato — 20261109-0656-9 — Michele Morri @RebeldeRN — 🆕 Scarpe rosse, voci che non si spengono
+- [ ] 2026-11-16T07:07:47.877Z — approvato — 20261116-0659-D8 — Michele Morri @RebeldeRN — ⚠️ Festa di Fine Anno, Piazza Sant Agata
