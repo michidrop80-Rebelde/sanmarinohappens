@@ -218,3 +218,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-11-16T07:06:28.481Z — approvato — 20261109-0416-3 — Michele Morri @RebeldeRN — 🆕 One is One, flash mob NO WAR
 - [ ] 2026-11-16T07:06:40.600Z — approvato — 20261109-0416-4 — Michele Morri @RebeldeRN — 🆕 Illuminati dall arte, premiazione Chezzi
 - [ ] 2026-11-16T07:06:42.317Z — approvato — 20261109-0416-5 — Michele Morri @RebeldeRN — 🆕 Illuminati dall arte, premiazione Chezzi
+- [ ] 2026-11-16T07:06:44.063Z — approvato — 20261109-0416-6 — Michele Morri @RebeldeRN — 🆕 Illuminati dall arte, premiazione Chezzi
