@@ -214,3 +214,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [x] 2026-11-03T20:53:44.060Z — approvato — 20261102-0416-05 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 9ª giornata
 - [x] 2026-11-03T20:53:45.630Z — approvato — 20261102-0416-06 — Michele Morri @RebeldeRN — 🆕 Campionato sammarinese 9ª giornata
 - [ ] 2026-11-16T07:06:16.923Z — approvato — 20261109-0416-1 — Michele Morri @RebeldeRN — 🆕 One is One, flash mob NO WAR
+- [ ] 2026-11-16T07:06:22.919Z — approvato — 20261109-0416-2 — Michele Morri @RebeldeRN — 🆕 One is One, flash mob NO WAR
