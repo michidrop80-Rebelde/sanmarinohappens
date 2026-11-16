@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-28",
+  "aggiornato": "2026-11-16",
   "_nota": "Registro degli handle social verificati. Solo le voci con stato 'attivo' E instagram non nullo producono un tag. Un handle entra come 'attivo' solo con DUE indizi indipendenti di ufficialita' (di norma: il sito ufficiale linka quel profilo E il profilo esiste col nome corrispondente); la conferma diretta di Michele vale come secondo indizio. Mai un handle dedotto dal nome del soggetto.",
   "_regole_25_07_2026": [
     "OGNI evento nuovo che entra in verifica porta con se' il controllo di chi lo organizza: se il soggetto e' nuovo va aggiunto qui (almeno come 'da-cercare'). Vedi Step 4-bis di /smh-verifica.",
@@ -1203,6 +1203,70 @@
       "stato": "da-cercare",
       "verificato_il": "2026-10-28",
       "prova": "Nuovo 28/10/2026: organizza il dibattito pubblico sull'Accordo San Marino-UE (29/10, Sala Montelupo, Domagnano) - sanmarinortv.sm e5230. Profilo non cercato."
+    },
+    {
+      "nome": "G.P.A. San Marino",
+      "categoria": "organizzatore",
+      "alias": [
+        "G.P.A. San Marino",
+        "GPA San Marino"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-11-16",
+      "prova": "Nuovo 16/11/2026: Trail dei Castelli (22/11, San Marino Stadium) - usc.sm; sito gpasanmarino.net. Profilo non cercato."
+    },
+    {
+      "nome": "Titancoop",
+      "categoria": "organizzatore",
+      "alias": [
+        "Titancoop"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-11-16",
+      "prova": "Nuovo 16/11/2026: Organizza l'installazione scenica «Ancora in cerca di guai? No, grazie amore mio» (22/11) - sanmarinortv.sm e5257. Profilo non cercato."
+    },
+    {
+      "nome": "Associazione Sportiva e Culturale Sordi Sammarinesi",
+      "categoria": "organizzatore",
+      "alias": [
+        "Sordi Sammarinesi",
+        "Associazione Sportiva e Culturale Sordi Sammarinesi"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-11-16",
+      "prova": "Nuovo 16/11/2026: Organizza il 12° Workshop LIS (21/11, Murata) - sanmarinortv.sm e5283; sito sordisanmarino.com. Profilo non cercato."
+    },
+    {
+      "nome": "Federazione Sammarinese Ciclismo",
+      "categoria": "organizzatore",
+      "alias": [
+        "Federazione Sammarinese Ciclismo",
+        "Federazione Ciclistica Sammarinese"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-11-16",
+      "prova": "Nuovo 16/11/2026: Organizza «3 ore a coppie» (29/11, Parco Laiala) - usc.sm. Profilo non cercato."
+    },
+    {
+      "nome": "Caritas Vicariale di San Marino",
+      "categoria": "organizzatore",
+      "alias": [
+        "Caritas Vicariale di San Marino",
+        "Caritas Vicariale"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-11-16",
+      "prova": "Nuovo 16/11/2026: Presentazione libro 20 anni (19/11, Sala Montelupo) - sanmarinortv.sm e5279. Profilo non cercato."
     }
   ]
 }
