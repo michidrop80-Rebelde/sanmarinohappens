@@ -1,5 +1,15 @@
 # Giro settimanale in cloud — il SECONDO PARERE
 #
+# ⚠️ DAL 16/11/2026 FA SOLO LA RICERCA (tappa 1). Decisione di Michele dopo il
+# confronto evento per evento del 16/11: come titolare il cloud perdeva 14
+# eventi su 47 (tutto il calcio), ma vedeva 2 eventi veri su siti che al Mac
+# rispondono 403. Quindi resta come secondo paio d'occhi: cerca e salva sul
+# ramo; il giro del Mac (`smh-giro`, Step 1.6) legge gli eventi «solo cloud»
+# e li fa entrare come segnalazioni da verificare. Postino, verifica e testi
+# in cloud sono SPENTI (scrivevano bozze che nessuno leggeva) e il cloud non
+# manda piu' Telegram: se non ha girato, lo dice il giro del Mac.
+# Per riaccendere tutto: togliere i tre `false &&` marcati «16/11/2026».
+#
 # PERCHE' ESISTE (ticket 08 della mappa "La catena si stacca dal Mac")
 # Oggi il giro del lunedi' (ricerca -> postino -> verifica -> testi) gira solo
 # dentro l'app Claude sul Mac di Michele: se il Mac e' spento, non gira. Questo
@@ -276,7 +286,8 @@ jobs:
   # ==========================================================================
   tappa2-postino:
     needs: [prepara, tappa1-ricerca]
-    if: needs.tappa1-ricerca.outputs.ok == 'true'
+    # 16/11/2026: spenta (con lei si saltano da sole la 3 e la 4, che la aspettano).
+    if: false && needs.tappa1-ricerca.outputs.ok == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 330
     outputs:
@@ -672,8 +683,9 @@ jobs:
           CHI_SVEGLIA: ${{ github.event_name }}
         run: python3 .github/scripts/referto-giro-cloud.py
 
+      # 16/11/2026: il cloud non manda piu' Telegram (vedi in cima).
       - name: Prepara la busta (NESSUNA chiave in questo passo)
-        if: steps.referto.outputs.manda == 'si'
+        if: false && steps.referto.outputs.manda == 'si'
         run: |
           # Se su main era rimasta una busta non spedita, se la porta dietro
           # anche il ramo. Non la spedisco e non la cancello da main: la
@@ -689,7 +701,7 @@ jobs:
 
       - name: Spedisci (l'unico passo con la chiave)
         id: invio
-        if: steps.referto.outputs.manda == 'si'
+        if: false && steps.referto.outputs.manda == 'si'
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}

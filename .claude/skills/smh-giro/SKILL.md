@@ -117,12 +117,81 @@ Se **zero eventi in coda** non è un blocco: prosegui normalmente allo Step 2 �
 solo silenzio, non un errore. Se anche la ricerca (Step 1) aveva dato zero eventi
 E qui non c'è nulla da importare → fermati, vai allo Step 4.
 
+### Step 1.6 — Prendi gli eventi che ha visto SOLO il cloud (solo sul Mac)
+
+Ogni lunedì alle 03:00 una ricerca gemella gira su GitHub (ramo `giro-cloud`). Parte da un
+altro computer, quindi legge siti che al Mac rispondono 403 (es. libertas.sm). **Non è il
+titolare**: è un secondo paio d'occhi. Qui prendi quello che ha visto lui e tu no.
+
+```bash
+cd "$(git rev-parse --show-toplevel)"
+OGGI=$(date +%F)
+git fetch -q origin giro-cloud
+git log origin/giro-cloud -1 --format=%s -- "dati/eventi/eventi-$OGGI.md"
+git show "origin/giro-cloud:dati/eventi/eventi-$OGGI.md" > /tmp/eventi-cloud.md
+```
+
+- Se il `git log` **non** stampa «Giro in cloud … tappa 1 (ricerca)» per oggi, o il file non
+  c'è: il cloud non ha girato. Tieni «cloud: non ha girato» e vai allo Step 2. Non è un guasto.
+- Altrimenti leggi `/tmp/eventi-cloud.md` e confrontalo **tu**, evento per evento, col file
+  eventi di oggi: stesso evento = stessa data e stessa sostanza, anche se il titolo è scritto
+  diverso. Non usare script di somiglianza.
+- Ogni evento che c'è **solo** nel cloud lo copi in fondo agli eventi del file di oggi, col
+  suo blocco così com'è, `Stato: da-verificare`, e in **Fonte** aggiungi «(trovato dalla
+  ricerca in cloud delle 03:00)». La verifica lo tratterà come tutti gli altri.
+- **Non** importare quello che la ricerca del Mac ha scartato apposta: guarda la sezione
+  «Esclusi o non inseriti» del file di oggi (cinema quotidiano, corsi e workshop a
+  iscrizione, eventi fuori territorio) e gli eventi di oggi stesso o già passati.
+- Non togliere mai niente dal file del Mac perché il cloud non l'ha visto.
+
+Tieni una riga: «cloud: N eventi in più (titoli)» oppure «cloud: niente in più».
+In GitHub Actions questo passo si salta.
+
 ### Step 2 — Lancia la VERIFICA
 Avvia il subagente **smh-verifica** (`subagent_type: smh-verifica`).
 Istruzione: «Verifica il file di eventi più recente prodotto oggi dalla ricerca,
 seguendo la tua skill. Restituisci solo il riassunto.»
 Aspetta. Tieni il riassunto (verificati / da-confermare-Michele / scartati).
 Se **zero verificati** → vai allo Step 4: niente testi da scrivere, spiega perché.
+
+### Step 2-bis — Chiedi a GOOGLE (AI Mode) solo per i dubbi (solo sul Mac)
+
+Deciso da Michele il 26/10/2026. Quel giorno due dubbi del giro (orario di San Marino–Bielorussia,
+Govoni al Teatro Concordia con sanmarinoteatro.sm in 403) si sono sciolti in un minuto chiedendo a
+Google AI Mode, che legge pagine che a noi rispondono 403. I subagenti non hanno il browser: questo
+passo lo fai **tu**, l'orchestratore, col browser integrato (prima carica la skill
+`anthropic-skills:built-in-browser`).
+
+**Quali dubbi.** Solo le voci `da-confermare-michele` del file verificato di oggi il cui
+`Cosa serve:` è un **dato** (ora, data, luogo, anno/edizione, si fa ancora o no). **Salta i dubbi
+di decisione** («decidere se pubblicarlo», tema politico o professionale, solo storia o post):
+quelli sono di Michele, Google non li scioglie. Al massimo 10 domande per giro.
+
+**Come si chiede.** Una domanda per dubbio, con titolo + data + luogo + il dato che manca:
+`https://www.google.com/search?q=<domanda>&udm=50` (`udm=50` = AI Mode). Leggi con
+`get_page_text`; se dice ancora «Ricerca in corso…» aspetta 5 secondi e rileggi (massimo 3 volte).
+Nella domanda solo dati dell'evento, mai dati personali.
+
+⚠️ **La risposta dell'AI NON è una fonte** (lo scrive Google stesso: «può commettere errori»). È
+un indice: ti dice **dove** guardare. Per sciogliere il dubbio devi **aprire tu** almeno una delle
+fonti che cita (WebFetch; se non passa, la stessa pagina nel browser integrato) e leggere lì il
+dato, controllando che sia **dell'anno giusto**. Partite: serve la fonte federale/UEFA o una testata
+sportiva nazionale, più una seconda che combacia (regola del 21/09). Mai il solo riassunto di Google.
+
+**Esito.**
+- **Sciolto** (la fonte aperta dice il dato, dell'anno giusto): nel file verificato togli il `⚠️`
+  dal titolo, metti `Stato: verificato`, scrivi il dato e aggiungi
+  `Sciolto il GG/MM via Google AI Mode — fonte aperta: <url>`, e sposta il blocco nella sezione dei
+  Verificati, così i testi (Step 3) ne fanno la bozza. Se l'evento è già nel master e il dato
+  combacia, è **invariato** (non va su Telegram); se è diverso, è **modificato**.
+- **Non sciolto** (le fonti non lo dicono, sono in disaccordo, sono vecchie): resta dubbio, ma
+  aggiungi al campo `Dubbio:` una riga «Google AI Mode: <cosa dice>, fonti citate <url> — non
+  basta perché <motivo>». Così Michele vede anche questo tentativo.
+
+**Quando ti fermi.** Se Google mostra un controllo anti-robot (CAPTCHA, «traffico insolito»)
+**fermati subito**: non provare a superarlo, i dubbi restano come sono e lo scrivi nel riassunto.
+Banner dei cookie: «Rifiuta tutto». In GitHub Actions (giro in cloud) o se il browser integrato non
+risponde: passo **saltato**, scritto nel riassunto, mai in silenzio.
 
 ### Step 3 — Lancia i TESTI
 Avvia il subagente **smh-testi** (`subagent_type: smh-testi`).
@@ -152,29 +221,12 @@ Dal riassunto di smh-verifica estrai SOLO gli eventi non-invariati:
 
 Se non ci sono differenze → salta Step 4 e vai a Step 5 con messaggio "✅ Nessuna novità questa settimana."
 
-### Step 3c — Confronta col giro girato in cloud (obbligatorio, costa zero)
+### Step 3c — Riga sul cloud nel riassunto
 
-Dal 07/09/2026 lo stesso giro gira anche su GitHub Actions alle 03:00, come
-**secondo parere**, sul ramo git `giro-cloud` (workflow `.github/workflows/giro-cloud.yml`,
-ticket 08 della mappa «La catena si stacca dal Mac»). Il cloud **non manda pulsanti**:
-i ✅/❌ restano tuoi, e questo è il punto in cui i due giri si guardano in faccia.
-
-```bash
-cd "$(git rev-parse --show-toplevel)"
-python3 scripts/confronta-giri.py --una-riga
-```
-
-Tieni la riga che stampa: va nel `--summary` dello Step 4 e nel riassunto finale.
-Se vuoi vedere **quali** eventi ballano, lancia lo stesso comando senza `--una-riga`
-e riporta a Michele solo i titoli visti da uno solo dei due.
-
-⚠️ **Una differenza non è automaticamente un errore del cloud**: fra le 03:00 e le
-08:05 passano cinque ore e una fonte può pubblicare qualcosa in mezzo. Quello che
-conta è che le differenze siano poche e spiegabili. Se il cloud ha visto un evento
-che tu non hai visto, **è un evento vero da guardare**, non rumore.
-
-Esce **3** (e non è un guasto) se il giro in cloud per oggi non esiste: il Mac è il
-titolare, va avanti da solo. In quel caso scrivi «cloud: non ha girato» e prosegui.
+Dal 16/11/2026 il cloud fa **solo la ricerca** (vedi Step 1.6): non c'è più niente da
+confrontare su verificati e bozze, e `scripts/confronta-giri.py` non si lancia più.
+Nel `--summary` dello Step 4 e nel riassunto finale metti la riga che hai tenuto allo
+Step 1.6: «cloud: N eventi in più (titoli)», «cloud: niente in più» o «cloud: non ha girato».
 
 ### Step 4 — Avvisa Michele su Telegram con pulsanti
 
@@ -283,6 +335,7 @@ Copertura:  [✅ / ⚠️ N giorni scoperti CON materiale disponibile — elenco
 1 Ricerca:  N eventi trovati
 2 Postino:  N importati dal bot (testo N · foto N) / coda vuota
 3 Verifica: ✅ N · ⚠️ N da confermare · 🗑 N scartati
+3b Google:  N dubbi chiesti · N sciolti · N restano / saltato — motivo
 4 Testi:    ✍️ N bozze (GG/MM → GG/MM)
 5 Telegram: [OK — N messaggi con pulsanti / ERRORE — dettaglio]
 6 Sito:     [aggiornato / saltato — nessuna novità / errore — dettaglio]
@@ -329,6 +382,6 @@ non è disponibile, segnala a Michele quali righe nuove aggiungere manualmente.
 - Skill dei tre anelli: `.claude/skills/smh-ricerca|smh-verifica|smh-testi/SKILL.md`.
 - Skill sito: `.claude/skills/smh-sito/SKILL.md` (Step 5).
 - `dati/config.json` — parametri condivisi.
-- `scripts/confronta-giri.py` — il confronto col giro in cloud (Step 3c);
+- `scripts/confronta-giri.py` — il vecchio confronto col giro in cloud (non più usato dal 16/11/2026);
   `scripts/conta-giro.py` — i numeri di un giro, misurati dai file.
 - `.github/workflows/giro-cloud.yml` — il giro gemello che gira in cloud alle 03:00.
