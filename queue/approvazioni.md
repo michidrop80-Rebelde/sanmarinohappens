@@ -220,3 +220,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-11-16T07:06:42.317Z — approvato — 20261109-0416-5 — Michele Morri @RebeldeRN — 🆕 Illuminati dall arte, premiazione Chezzi
 - [ ] 2026-11-16T07:06:44.063Z — approvato — 20261109-0416-6 — Michele Morri @RebeldeRN — 🆕 Illuminati dall arte, premiazione Chezzi
 - [ ] 2026-11-16T07:06:57.101Z — approvato — 20261109-0416-7 — Michele Morri @RebeldeRN — 🆕 Coppa Titano quarti, ritorno
+- [ ] 2026-11-16T07:06:59.847Z — approvato — 20261109-0416-d2 — Michele Morri @RebeldeRN — 🆕 Coppa Titano quarti, ritorno
