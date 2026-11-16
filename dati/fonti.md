@@ -116,3 +116,6 @@ Elenco ufficiale di tutte le giunte: https://www.interni.sm/pub2/InterniSM/Giunt
 - [ ] Pagine social delle singole federazioni sportive più attive
 - [ ] Associazioni culturali singole (dalla Consulta)
 - [ ] Locali/eventi serali, cinema
+- [ricerca 16/11/2026] **G.P.A. San Marino** — https://gpasanmarino.net/ — organizza il Trail dei Castelli (22/11/2026, Serravalle). Fonte diretta per corse/trail.
+- [ricerca 16/11/2026] **Giochi del Titano** — organizza la rassegna letteraria «Mementi» (es. Veneziani 18/11/2026). Sito non trovato: da cercare.
+- [16/11/2026] giornalesm.com: 403 Forbidden (non più solo socket error).
