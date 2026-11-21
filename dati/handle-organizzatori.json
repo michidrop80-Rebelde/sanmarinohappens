@@ -1,5 +1,5 @@
 {
-  "aggiornato": "2026-09-28",
+  "aggiornato": "2026-11-21",
   "_nota": "Registro degli handle social verificati. Solo le voci con stato 'attivo' E instagram non nullo producono un tag. Un handle entra come 'attivo' solo con DUE indizi indipendenti di ufficialita' (di norma: il sito ufficiale linka quel profilo E il profilo esiste col nome corrispondente); la conferma diretta di Michele vale come secondo indizio. Mai un handle dedotto dal nome del soggetto.",
   "_regole_25_07_2026": [
     "OGNI evento nuovo che entra in verifica porta con se' il controllo di chi lo organizza: se il soggetto e' nuovo va aggiunto qui (almeno come 'da-cercare'). Vedi Step 4-bis di /smh-verifica.",
@@ -1240,6 +1240,32 @@
       "stato": "da-cercare",
       "verificato_il": "2026-11-20",
       "prova": "Nuovo 20/11/2026: promotori di «Scarpe rosse, voci che non si spengono» (21/11, Piazza di Borgo Maggiore) - sanmarinortv.sm a298202. Profilo non cercato."
+    },
+    {
+      "nome": "G.P.A. San Marino",
+      "categoria": "organizzatore",
+      "alias": [
+        "G.P.A. San Marino",
+        "GPA San Marino"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-11-21",
+      "prova": "Nuovo 21/11/2026: organizza il 5° Urban Trail dei Castelli (22/11, Stadio Olimpico di Serravalle) - regolamento FIDAL. Profilo non cercato."
+    },
+    {
+      "nome": "Unione Donne Sammarinesi",
+      "categoria": "organizzatore",
+      "alias": [
+        "Unione Donne Sammarinesi",
+        "UDS"
+      ],
+      "instagram": null,
+      "facebook_page_id": null,
+      "stato": "da-cercare",
+      "verificato_il": "2026-11-21",
+      "prova": "Nuovo 21/11/2026: organizza «Ancora in cerca di guai? No, grazie amore mio» (22/11, Titancoop) - sanmarinortv.sm e5257. Profilo non cercato."
     }
   ]
 }
