@@ -55,6 +55,11 @@ def buste_da_controllare(argv):
         return [Path(a) if Path(a).is_absolute() else REPO / a for a in argv]
     posts = REPO / "posts"
     if not posts.is_dir():
+        # git non conserva le cartelle vuote: quando il robot ha pubblicato tutto,
+        # `posts/` sparisce dal checkout. Non e' un guasto: e' la coda vuota (22/11/2026).
+        if (REPO / ".git").exists() and (REPO / "scripts").is_dir():
+            print("✅ Coda vuota: nessuna busta in posts/ (la cartella non c'e' perche' e' tutto uscito).")
+            sys.exit(0)
         print(f"❌ setup: {posts} non esiste", file=sys.stderr)
         sys.exit(2)
     return sorted(posts.glob("*.json"))
