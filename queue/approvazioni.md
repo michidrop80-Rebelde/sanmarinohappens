@@ -246,27 +246,27 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [x] 2026-11-16T07:08:14.293Z — approvato — 20261116-0659-01 — Michele Morri @RebeldeRN — 🆕 Stare al mondo (4 film)
 - [x] 2026-11-16T07:08:16.898Z — approvato — 20261116-0659-02 — Michele Morri @RebeldeRN — 🆕 Stare al mondo (4 film)
 - [x] 2026-11-16T07:08:18.607Z — approvato — 20261116-0659-03 — Michele Morri @RebeldeRN — 🆕 Stare al mondo (4 film)
-- [ ] 2026-11-23T10:46:44.973Z — approvato — 20261123-0749-01 — Michele Morri @RebeldeRN — 🆕 Mostra «Moon Boat» di Laura Ridolfi
-- [ ] 2026-11-23T10:46:46.923Z — approvato — 20261123-0749-02 — Michele Morri @RebeldeRN — 🆕 Mostra «Moon Boat» di Laura Ridolfi
-- [ ] 2026-11-23T10:46:48.680Z — approvato — 20261123-0749-03 — Michele Morri @RebeldeRN — 🆕 Mostra «Moon Boat» di Laura Ridolfi
-- [ ] 2026-11-23T10:47:01.842Z — approvato — 20261123-0749-04 — Michele Morri @RebeldeRN — 🆕 Inaugurazione Anno Accademico 2026-27 Università
-- [ ] 2026-11-23T10:47:03.587Z — approvato — 20261123-0749-05 — Michele Morri @RebeldeRN — 🆕 Inaugurazione Anno Accademico 2026-27 Università
-- [ ] 2026-11-23T10:47:05.436Z — approvato — 20261123-0749-06 — Michele Morri @RebeldeRN — 🆕 Inaugurazione Anno Accademico 2026-27 Università
-- [ ] 2026-11-23T10:47:28.920Z — approvato — 20261123-0749-07 — Michele Morri @RebeldeRN — 🆕 Accensione delle luminarie — Natale delle Meraviglie
-- [ ] 2026-11-23T10:47:30.655Z — approvato — 20261123-0749-08 — Michele Morri @RebeldeRN — 🆕 Accensione delle luminarie — Natale delle Meraviglie
-- [ ] 2026-11-23T10:47:32.434Z — approvato — 20261123-0749-09 — Michele Morri @RebeldeRN — 🆕 Accensione delle luminarie — Natale delle Meraviglie
-- [ ] 2026-11-23T10:47:34.294Z — approvato — 20261123-0749-10 — Michele Morri @RebeldeRN — 🆕 Concerto a lume di candela «Il Natale in un alfabeto di note»
-- [ ] 2026-11-23T10:47:36.196Z — approvato — 20261123-0749-11 — Michele Morri @RebeldeRN — 🆕 Concerto a lume di candela «Il Natale in un alfabeto di note»
-- [ ] 2026-11-23T10:47:38.091Z — approvato — 20261123-0749-12 — Michele Morri @RebeldeRN — 🆕 Concerto a lume di candela «Il Natale in un alfabeto di note»
-- [ ] 2026-11-23T10:47:40.061Z — approvato — 20261123-0749-13 — Michele Morri @RebeldeRN — 🆕 Rassegna Musicale d'Autunno — Trio Eccentrico
-- [ ] 2026-11-23T10:47:41.733Z — approvato — 20261123-0749-M228 — Michele Morri @RebeldeRN — 🆕 Rassegna Musicale d'Autunno — Trio Eccentrico
-- [ ] 2026-11-23T10:47:43.445Z — approvato — 20261123-0749-M237 — Michele Morri @RebeldeRN — 🆕 Rassegna Musicale d'Autunno — Trio Eccentrico
-- [ ] 2026-11-23T10:47:45.789Z — approvato — 20261123-0749-M241 — Michele Morri @RebeldeRN — ⚠️ Festa di Fine Anno in Piazza Sant'Agata
-- [ ] 2026-11-23T10:47:47.413Z — approvato — 20261123-0749-D1 — Michele Morri @RebeldeRN — ⚠️ Festa di Fine Anno in Piazza Sant'Agata
-- [ ] 2026-11-23T10:47:49.330Z — approvato — 20261123-0749-D2 — Michele Morri @RebeldeRN — ⚠️ Festa di Fine Anno in Piazza Sant'Agata
-- [ ] 2026-11-23T10:47:51.282Z — approvato — 20261123-0749-D3 — Michele Morri @RebeldeRN — ⚠️ Consiglio Grande e Generale — sessioni di novembre
-- [ ] 2026-11-23T10:47:53.228Z — approvato — 20261123-0749-M192 — Michele Morri @RebeldeRN — ⚠️ Consiglio Grande e Generale — sessioni di novembre
-- [ ] 2026-11-23T10:47:55.045Z — approvato — 20261123-0749-M177 — Michele Morri @RebeldeRN — ⚠️ Consiglio Grande e Generale — sessioni di novembre
-- [ ] 2026-11-23T11:17:46.492Z — approvato — 20261123-0749-D3 — Michele Morri @RebeldeRN — ⚠️ Consiglio Grande e Generale — sessioni di novembre
-- [ ] 2026-11-23T11:17:48.640Z — approvato — 20261123-0749-M192 — Michele Morri @RebeldeRN — ⚠️ Consiglio Grande e Generale — sessioni di novembre
-- [ ] 2026-11-23T11:17:50.356Z — approvato — 20261123-0749-M177 — Michele Morri @RebeldeRN — ⚠️ Consiglio Grande e Generale — sessioni di novembre
+- [x] 2026-11-23T10:46:44.973Z — approvato — 20261123-0749-01 — Michele Morri @RebeldeRN — 🆕 Mostra «Moon Boat» di Laura Ridolfi
+- [x] 2026-11-23T10:46:46.923Z — approvato — 20261123-0749-02 — Michele Morri @RebeldeRN — 🆕 Mostra «Moon Boat» di Laura Ridolfi
+- [x] 2026-11-23T10:46:48.680Z — approvato — 20261123-0749-03 — Michele Morri @RebeldeRN — 🆕 Mostra «Moon Boat» di Laura Ridolfi
+- [x] 2026-11-23T10:47:01.842Z — approvato — 20261123-0749-04 — Michele Morri @RebeldeRN — 🆕 Inaugurazione Anno Accademico 2026-27 Università
+- [x] 2026-11-23T10:47:03.587Z — approvato — 20261123-0749-05 — Michele Morri @RebeldeRN — 🆕 Inaugurazione Anno Accademico 2026-27 Università
+- [x] 2026-11-23T10:47:05.436Z — approvato — 20261123-0749-06 — Michele Morri @RebeldeRN — 🆕 Inaugurazione Anno Accademico 2026-27 Università
+- [x] 2026-11-23T10:47:28.920Z — approvato — 20261123-0749-07 — Michele Morri @RebeldeRN — 🆕 Accensione delle luminarie — Natale delle Meraviglie
+- [x] 2026-11-23T10:47:30.655Z — approvato — 20261123-0749-08 — Michele Morri @RebeldeRN — 🆕 Accensione delle luminarie — Natale delle Meraviglie
+- [x] 2026-11-23T10:47:32.434Z — approvato — 20261123-0749-09 — Michele Morri @RebeldeRN — 🆕 Accensione delle luminarie — Natale delle Meraviglie
+- [x] 2026-11-23T10:47:34.294Z — approvato — 20261123-0749-10 — Michele Morri @RebeldeRN — 🆕 Concerto a lume di candela «Il Natale in un alfabeto di note»
+- [x] 2026-11-23T10:47:36.196Z — approvato — 20261123-0749-11 — Michele Morri @RebeldeRN — 🆕 Concerto a lume di candela «Il Natale in un alfabeto di note»
+- [x] 2026-11-23T10:47:38.091Z — approvato — 20261123-0749-12 — Michele Morri @RebeldeRN — 🆕 Concerto a lume di candela «Il Natale in un alfabeto di note»
+- [x] 2026-11-23T10:47:40.061Z — approvato — 20261123-0749-13 — Michele Morri @RebeldeRN — 🆕 Rassegna Musicale d'Autunno — Trio Eccentrico
+- [x] 2026-11-23T10:47:41.733Z — approvato — 20261123-0749-M228 — Michele Morri @RebeldeRN — 🆕 Rassegna Musicale d'Autunno — Trio Eccentrico
+- [x] 2026-11-23T10:47:43.445Z — approvato — 20261123-0749-M237 — Michele Morri @RebeldeRN — 🆕 Rassegna Musicale d'Autunno — Trio Eccentrico
+- [x] 2026-11-23T10:47:45.789Z — approvato — 20261123-0749-M241 — Michele Morri @RebeldeRN — ⚠️ Festa di Fine Anno in Piazza Sant'Agata
+- [x] 2026-11-23T10:47:47.413Z — approvato — 20261123-0749-D1 — Michele Morri @RebeldeRN — ⚠️ Festa di Fine Anno in Piazza Sant'Agata
+- [x] 2026-11-23T10:47:49.330Z — approvato — 20261123-0749-D2 — Michele Morri @RebeldeRN — ⚠️ Festa di Fine Anno in Piazza Sant'Agata
+- [x] 2026-11-23T10:47:51.282Z — approvato — 20261123-0749-D3 — Michele Morri @RebeldeRN — ⚠️ Consiglio Grande e Generale — sessioni di novembre
+- [x] 2026-11-23T10:47:53.228Z — approvato — 20261123-0749-M192 — Michele Morri @RebeldeRN — ⚠️ Consiglio Grande e Generale — sessioni di novembre
+- [x] 2026-11-23T10:47:55.045Z — approvato — 20261123-0749-M177 — Michele Morri @RebeldeRN — ⚠️ Consiglio Grande e Generale — sessioni di novembre
+- [x] 2026-11-23T11:17:46.492Z — approvato — 20261123-0749-D3 — Michele Morri @RebeldeRN — ⚠️ Consiglio Grande e Generale — sessioni di novembre
+- [x] 2026-11-23T11:17:48.640Z — approvato — 20261123-0749-M192 — Michele Morri @RebeldeRN — ⚠️ Consiglio Grande e Generale — sessioni di novembre
+- [x] 2026-11-23T11:17:50.356Z — approvato — 20261123-0749-M177 — Michele Morri @RebeldeRN — ⚠️ Consiglio Grande e Generale — sessioni di novembre
