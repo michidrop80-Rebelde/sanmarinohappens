@@ -265,3 +265,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-11-23T10:47:47.413Z — approvato — 20261123-0749-D1 — Michele Morri @RebeldeRN — ⚠️ Festa di Fine Anno in Piazza Sant'Agata
 - [ ] 2026-11-23T10:47:49.330Z — approvato — 20261123-0749-D2 — Michele Morri @RebeldeRN — ⚠️ Festa di Fine Anno in Piazza Sant'Agata
 - [ ] 2026-11-23T10:47:51.282Z — approvato — 20261123-0749-D3 — Michele Morri @RebeldeRN — ⚠️ Consiglio Grande e Generale — sessioni di novembre
+- [ ] 2026-11-23T10:47:53.228Z — approvato — 20261123-0749-M192 — Michele Morri @RebeldeRN — ⚠️ Consiglio Grande e Generale — sessioni di novembre
