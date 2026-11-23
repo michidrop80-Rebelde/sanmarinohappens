@@ -258,3 +258,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-11-23T10:47:34.294Z — approvato — 20261123-0749-10 — Michele Morri @RebeldeRN — 🆕 Concerto a lume di candela «Il Natale in un alfabeto di note»
 - [ ] 2026-11-23T10:47:36.196Z — approvato — 20261123-0749-11 — Michele Morri @RebeldeRN — 🆕 Concerto a lume di candela «Il Natale in un alfabeto di note»
 - [ ] 2026-11-23T10:47:38.091Z — approvato — 20261123-0749-12 — Michele Morri @RebeldeRN — 🆕 Concerto a lume di candela «Il Natale in un alfabeto di note»
+- [ ] 2026-11-23T10:47:40.061Z — approvato — 20261123-0749-13 — Michele Morri @RebeldeRN — 🆕 Rassegna Musicale d'Autunno — Trio Eccentrico
