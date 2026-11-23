@@ -261,3 +261,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-11-23T10:47:40.061Z — approvato — 20261123-0749-13 — Michele Morri @RebeldeRN — 🆕 Rassegna Musicale d'Autunno — Trio Eccentrico
 - [ ] 2026-11-23T10:47:41.733Z — approvato — 20261123-0749-M228 — Michele Morri @RebeldeRN — 🆕 Rassegna Musicale d'Autunno — Trio Eccentrico
 - [ ] 2026-11-23T10:47:43.445Z — approvato — 20261123-0749-M237 — Michele Morri @RebeldeRN — 🆕 Rassegna Musicale d'Autunno — Trio Eccentrico
+- [ ] 2026-11-23T10:47:45.789Z — approvato — 20261123-0749-M241 — Michele Morri @RebeldeRN — ⚠️ Festa di Fine Anno in Piazza Sant'Agata
