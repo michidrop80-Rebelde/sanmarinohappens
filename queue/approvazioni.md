@@ -267,3 +267,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-11-23T10:47:51.282Z — approvato — 20261123-0749-D3 — Michele Morri @RebeldeRN — ⚠️ Consiglio Grande e Generale — sessioni di novembre
 - [ ] 2026-11-23T10:47:53.228Z — approvato — 20261123-0749-M192 — Michele Morri @RebeldeRN — ⚠️ Consiglio Grande e Generale — sessioni di novembre
 - [ ] 2026-11-23T10:47:55.045Z — approvato — 20261123-0749-M177 — Michele Morri @RebeldeRN — ⚠️ Consiglio Grande e Generale — sessioni di novembre
+- [ ] 2026-11-23T11:17:46.492Z — approvato — 20261123-0749-D3 — Michele Morri @RebeldeRN — ⚠️ Consiglio Grande e Generale — sessioni di novembre
