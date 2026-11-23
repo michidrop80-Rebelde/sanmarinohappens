@@ -246,3 +246,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [x] 2026-11-16T07:08:14.293Z — approvato — 20261116-0659-01 — Michele Morri @RebeldeRN — 🆕 Stare al mondo (4 film)
 - [x] 2026-11-16T07:08:16.898Z — approvato — 20261116-0659-02 — Michele Morri @RebeldeRN — 🆕 Stare al mondo (4 film)
 - [x] 2026-11-16T07:08:18.607Z — approvato — 20261116-0659-03 — Michele Morri @RebeldeRN — 🆕 Stare al mondo (4 film)
+- [ ] 2026-11-23T10:46:44.973Z — approvato — 20261123-0749-01 — Michele Morri @RebeldeRN — 🆕 Mostra «Moon Boat» di Laura Ridolfi
