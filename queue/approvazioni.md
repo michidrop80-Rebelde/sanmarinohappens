@@ -250,3 +250,4 @@ Formato: `- [ ] <ISO> — <esito> — <id> — <mittente> — <riferimento>`
 - [ ] 2026-11-23T10:46:46.923Z — approvato — 20261123-0749-02 — Michele Morri @RebeldeRN — 🆕 Mostra «Moon Boat» di Laura Ridolfi
 - [ ] 2026-11-23T10:46:48.680Z — approvato — 20261123-0749-03 — Michele Morri @RebeldeRN — 🆕 Mostra «Moon Boat» di Laura Ridolfi
 - [ ] 2026-11-23T10:47:01.842Z — approvato — 20261123-0749-04 — Michele Morri @RebeldeRN — 🆕 Inaugurazione Anno Accademico 2026-27 Università
+- [ ] 2026-11-23T10:47:03.587Z — approvato — 20261123-0749-05 — Michele Morri @RebeldeRN — 🆕 Inaugurazione Anno Accademico 2026-27 Università
