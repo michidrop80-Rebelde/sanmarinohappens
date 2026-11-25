@@ -1,0 +1,19 @@
+{
+ "tipo": "storia",
+ "data_pubblicazione": "2026-11-27",
+ "ora_pubblicazione": "07:00",
+ "titolo_evento": "Storie del 27 novembre",
+ "immagini": [
+  "20261127_Storia_1.png",
+  "20261127_Storia_2.png"
+ ],
+ "user_tags": {
+  "20261127_Storia_1.png": [
+   {
+    "username": "sanmarinoteatro",
+    "x": 0.5,
+    "y": 0.78
+   }
+  ]
+ }
+}
