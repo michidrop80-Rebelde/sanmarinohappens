@@ -1,0 +1,34 @@
+{
+ "tipo": "storia",
+ "data_pubblicazione": "2026-11-28",
+ "ora_pubblicazione": "07:00",
+ "titolo_evento": "Storie del 28 novembre",
+ "immagini": [
+  "20261128_Storia_1.png",
+  "20261128_Storia_2.png",
+  "20261128_Storia_3.png"
+ ],
+ "user_tags": {
+  "20261128_Storia_1.png": [
+   {
+    "username": "visitsanmarino",
+    "x": 0.5,
+    "y": 0.78
+   }
+  ],
+  "20261128_Storia_2.png": [
+   {
+    "username": "fsgc_official",
+    "x": 0.5,
+    "y": 0.78
+   }
+  ],
+  "20261128_Storia_3.png": [
+   {
+    "username": "fsgc_official",
+    "x": 0.5,
+    "y": 0.78
+   }
+  ]
+ }
+}
